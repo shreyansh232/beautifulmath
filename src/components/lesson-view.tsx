@@ -4,6 +4,7 @@ import { UnderstandingChecks, type CheckItem } from "@/components/understanding-
 import { FurtherReading } from "@/components/further-reading";
 import { TrackLessonVisit } from "@/components/lesson-progress";
 import type { LessonMeta } from "@/lib/courses/types";
+import { courseTitle } from "@/lib/courses/types";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -28,7 +29,7 @@ export function LessonView({ meta, body, checks, prev, next }: Props) {
           Path
         </Link>
         <p className="mt-5 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-          Foundations · Lesson {meta.order}
+          {courseTitle(meta.course)} · Lesson {meta.order}
         </p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl sm:leading-tight">
           {meta.title}

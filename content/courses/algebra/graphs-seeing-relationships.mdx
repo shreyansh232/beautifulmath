@@ -1,0 +1,64 @@
+---
+title: "Graphs: seeing relationships"
+slug: "graphs-seeing-relationships"
+order: 4
+summary: "A graph turns a function into a picture: every input-output pair becomes a point. Descartes welded algebra to geometry so eyes could help algebra think."
+mathematician:
+  name: "René Descartes"
+  years: "1596-1650"
+  vignette: "In La Géométrie (1637), Descartes showed how algebraic equations describe curves. He wanted method: reduce geometry to calculation, and lift calculation into geometric insight. The ethic is synthesis. Do not pick a team between pictures and symbols. Make them translate."
+realWorld: "Dashboards, ECG traces, and learning curves are graphs of relationships over time or over an input variable."
+aiMlHook: "Loss curves, ROC curves, and embedding scatterplots are how practitioners see model behavior. Reading a graph is part of reading a model."
+prerequisites:
+  - "functions-as-machines"
+curiositySeeds:
+  - "What is a graph of a function?"
+  - "What does slope mean on a line?"
+estimatedMinutes: 20
+furtherReading:
+  - title: "MacTutor - Rene Descartes"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Descartes/"
+    kind: reference
+  - title: "Stanford Encyclopedia - Descartes Mathematics"
+    url: "https://plato.stanford.edu/entries/descartes-mathematics/"
+    kind: article
+  - title: "3Blue1Brown - Dot products and duality (geometric thinking)"
+    url: "https://www.youtube.com/watch?v=LyGKycYT2v0"
+    kind: video
+---
+
+## First principles
+
+If $y = f(x)$, the **graph** is the set of points $(x, f(x))$ in the plane.
+
+<LineGraphDiagram />
+
+Coordinates let algebra speak geometrically: the unknown becomes a location.
+
+## Lines
+
+$y = mx + b$ has slope $m$ and intercept $b$. Slope is rise over run between any two points on the line.
+
+Parallel lines share slope. Perpendicular lines in the usual Euclidean plane have slopes whose product is $-1$ (when both are defined).
+
+## What graphs buy you
+
+- Spot intercepts and roots ($f(x) = 0$)
+- See growth vs decay
+- Compare two functions visually
+
+Descartes's analytic geometry is the historical hinge: equations become curves, curves become equations.
+
+## Real world
+
+A speedometer over time is a graph. Area under a speed curve foreshadows distance (calculus).
+
+## AI / ML bridge
+
+Plotting training loss versus step is reading a function $L(t)$. Sudden spikes, plateaus, and smooth descent are geometric language for optimization behavior.
+
+## Carry this forward
+
+- Graphs are sets of pairs.
+- Slope previews rate of change.
+- Algebra track checkpoint: equations, systems, functions, graphs. Calculus makes slope precise.

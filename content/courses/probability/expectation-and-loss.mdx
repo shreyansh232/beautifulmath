@@ -1,0 +1,64 @@
+---
+title: "Expectation and loss"
+slug: "expectation-and-loss"
+order: 3
+summary: "Expectation is the probability-weighted average. Loss functions turn prediction errors into numbers; risk is expected loss."
+mathematician:
+  name: "Andrey Kolmogorov"
+  years: "1903-1987"
+  vignette: "Kolmogorov axiomatized probability in 1933, giving the subject a measure-theoretic spine so expectation and dependence could live in one rigorous house. The ethic is foundations for a wild field: pin down the rules so creativity does not collapse into confusion."
+realWorld: "Insurance premiums, expected wait times, and average damage under risk scenarios are expectations."
+aiMlHook: "Training minimizes empirical risk: average loss on data, a stand-in for expected loss under the true distribution."
+prerequisites:
+  - "chance-and-probability"
+curiositySeeds:
+  - "What is expected value?"
+  - "What is a loss function?"
+estimatedMinutes: 20
+furtherReading:
+  - title: "MacTutor - Andrey Kolmogorov"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Kolmogorov/"
+    kind: reference
+  - title: "StatQuest - Expected value (friendly)"
+    url: "https://www.youtube.com/watch?v=XLCWeSVzHGM"
+    kind: video
+  - title: "Khan Academy - Expected value"
+    url: "https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library"
+    kind: video
+---
+
+## First principles
+
+For a discrete random variable $X$ with values $x_i$ and probabilities $p_i$,
+
+$$
+\mathbb{E}[X] = \sum_i x_i p_i
+$$
+
+It is the center of mass of the distribution.
+
+<DistributionDiagram />
+
+Linearity: $\mathbb{E}[aX + bY] = a\mathbb{E}[X] + b\mathbb{E}[Y]$ always (no independence needed).
+
+## Variance (brief)
+
+$\mathrm{Var}(X) = \mathbb{E}[(X - \mathbb{E}X)^2]$ measures spread.
+
+## Loss and risk
+
+A loss $\ell(y, \hat{y})$ scores a mistake. **Risk** is $\mathbb{E}[\ell(Y, f(X))]$. Machine learning estimates risk with an average over samples.
+
+## Real world
+
+A fair game has expected net gain near zero. Casinos set rules so their expectation is positive.
+
+## AI / ML bridge
+
+MSE, cross-entropy, hinge loss: different geometries of error. Optimization (calculus) + linear maps (linear algebra) + expectation (this lesson) meet in training.
+
+## Carry this forward
+
+- Expectation = weighted average.
+- Risk = expected loss.
+- Next: information and surprise (Shannon).

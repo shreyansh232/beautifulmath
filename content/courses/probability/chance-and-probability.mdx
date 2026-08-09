@@ -1,0 +1,61 @@
+---
+title: "Chance and probability"
+slug: "chance-and-probability"
+order: 1
+summary: "Probability assigns weight to outcomes. In the finite equal-outcome world it is favorable over total. Deeper theories extend that idea to richer spaces."
+mathematician:
+  name: "Blaise Pascal"
+  years: "1623-1662"
+  vignette: "Pascal, with Fermat, answered gambling questions with combinatorial clarity and helped found probability as a mathematical subject. He also lived with fierce intensity about truth and meaning. The ethic for us: take uncertainty seriously enough to compute, not casually enough to shrug."
+realWorld: "Dice, cards, A/B tests, and weather forecasts all speak probability: graded belief or long-run frequency for uncertain outcomes."
+aiMlHook: "Classifiers output probabilities (or scores turned into them). Calibration asks whether 0.8 really means 'about 80% of the time.'"
+prerequisites: []
+curiositySeeds:
+  - "What is a probability?"
+  - "What does random mean here?"
+estimatedMinutes: 20
+furtherReading:
+  - title: "MacTutor - Blaise Pascal"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Pascal/"
+    kind: reference
+  - title: "3Blue1Brown - Bayes theorem (intuition warmup)"
+    url: "https://www.youtube.com/watch?v=HZGCoVF3YvM"
+    kind: video
+  - title: "Khan Academy - Probability"
+    url: "https://www.khanacademy.org/math/statistics-probability/probability-library"
+    kind: video
+---
+
+## First principles
+
+In a finite set of equally likely outcomes,
+
+$$
+P(A) = \frac{|A|}{|U|}
+$$
+
+favorable over total.
+
+<ProbabilityDiagram />
+
+Probabilities are between 0 and 1. Impossible gets 0, certain gets 1. Disjoint outcomes add.
+
+## Two readings (both useful)
+
+1. **Long-run frequency:** repeat the experiment; the fraction of times $A$ happens approaches $P(A)$ (under ideal assumptions).
+2. **Degree of belief:** a coherent assignment of weights to possibilities (subjective Bayesian reading).
+
+Pascal and Fermat's correspondence treated fair games with counting arguments: the combinatorial seed of the first reading.
+
+## Real world
+
+A fair six-sided die has $P(6) = 1/6$. A biased die does not. Data estimates the weights.
+
+## AI / ML bridge
+
+Softmax turns scores into a distribution over classes. Cross-entropy loss punishes confident wrong probabilities.
+
+## Carry this forward
+
+- Probability weights outcomes.
+- Next: updating beliefs with evidence (Bayes).

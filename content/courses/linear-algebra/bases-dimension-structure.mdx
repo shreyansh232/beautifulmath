@@ -1,0 +1,65 @@
+---
+title: "Bases, dimension, and structure"
+slug: "bases-dimension-structure"
+order: 4
+summary: "A basis is a minimal coordinate system for a space. Dimension counts how many independent directions you need. Structure first, coordinates second."
+mathematician:
+  name: "Emmy Noether"
+  years: "1882-1935"
+  vignette: "Noether rebuilt algebra around structure and homomorphism, often while institutions blocked her path. Students flocked to her anyway. The ethic is fierce clarity about what stays invariant when representations change - and generosity in teaching that clarity despite the room's politics."
+realWorld: "Choosing axes for a CAD model, or picking independent sensors that do not duplicate information, is choosing a useful basis."
+aiMlHook: "PCA and related methods find informative bases for data. Rank of a weight matrix limits how many independent feature directions a layer can produce."
+prerequisites:
+  - "vectors"
+  - "matrices-as-linear-maps"
+curiositySeeds:
+  - "What is a basis?"
+  - "What does dimension count?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Emmy Noether"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Noether_Emmy/"
+    kind: reference
+  - title: "3Blue1Brown - Linear combinations, span, and basis"
+    url: "https://www.youtube.com/watch?v=k7i_D_OyRqE"
+    kind: video
+  - title: "3Blue1Brown - Dot products / change of basis (playlist)"
+    url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab"
+    kind: video
+---
+
+## First principles
+
+Vectors $\mathbf{v}_1,\ldots,\mathbf{v}_k$ are **linearly independent** if the only solution to
+
+$$
+a_1\mathbf{v}_1 + \cdots + a_k\mathbf{v}_k = \mathbf{0}
+$$
+
+is all $a_i = 0$. No vector in the set is redundant.
+
+A **basis** of a space is an independent spanning set: every vector has unique coordinates relative to that basis.
+
+**Dimension** is the number of vectors in any basis (a theorem says they all agree).
+
+## Why this matters
+
+Coordinates are not the object. The space is. Change basis and coordinates change, but geometric relationships (when properly expressed) persist. Noether's broader algebraic spirit is exactly this: track the structure that survives rewriting.
+
+## Rank (preview)
+
+The column space dimension of a matrix is its rank: how many independent output directions it can hit.
+
+## Real world
+
+Three mutually perpendicular unit axes basis ordinary space. Four legs of a table that are coplanar constraints show dependence in physical disguise.
+
+## AI / ML bridge
+
+If a layer's weight matrix has low rank, it bottlenecks information. Embeddings live in a chosen dimension: enough axes to separate concepts, not so many that you drown in noise.
+
+## Carry this forward
+
+- Basis = coordinate scaffolding.
+- Dimension = independent directions.
+- Linear algebra checkpoint: vectors, maps, alignment, structure. Probability adds uncertainty on top.

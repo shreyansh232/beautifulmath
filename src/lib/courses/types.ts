@@ -51,8 +51,8 @@ export const COURSES: CourseMeta[] = [
     id: "algebra",
     title: "Algebra",
     description:
-      "Equations, structure, and the language of unknown quantities - coming next.",
-    status: "coming",
+      "Equations, functions, and graphs - the language for naming relationships before you know every number.",
+    status: "available",
     order: 2,
   },
   {
@@ -60,7 +60,7 @@ export const COURSES: CourseMeta[] = [
     title: "Calculus intuition",
     description:
       "Change, rates, and accumulation - the ideas behind learning curves and gradients.",
-    status: "coming",
+    status: "available",
     order: 3,
   },
   {
@@ -68,7 +68,7 @@ export const COURSES: CourseMeta[] = [
     title: "Linear algebra",
     description:
       "Vectors, matrices, and spaces - the native tongue of modern machine learning.",
-    status: "coming",
+    status: "available",
     order: 4,
   },
   {
@@ -76,10 +76,14 @@ export const COURSES: CourseMeta[] = [
     title: "Probability & information",
     description:
       "Uncertainty, likelihood, and information - how models reason under doubt.",
-    status: "coming",
+    status: "available",
     order: 5,
   },
 ];
+
+export function courseTitle(courseId: string): string {
+  return COURSES.find((c) => c.id === courseId)?.title ?? courseId;
+}
 
 export function lessonKey(course: string, slug: string) {
   return `${course}/${slug}`;

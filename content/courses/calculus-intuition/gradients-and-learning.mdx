@@ -1,0 +1,72 @@
+---
+title: "Gradients and learning"
+slug: "gradients-and-learning"
+order: 4
+summary: "In many variables, the gradient packs all partial slopes into one vector that points toward steepest increase. Learning often walks the opposite way."
+mathematician:
+  name: "Joseph-Louis Lagrange"
+  years: "1736-1813"
+  vignette: "Lagrange sought analytic clarity in mechanics and optimization, preferring elegant algebraic forms over geometric clutter. The gradient and constrained optimization traditions that follow his spirit ask: what is the cleanest way to express how a quantity depends on many knobs? Steal the taste for clean structure when ideas get high-dimensional."
+realWorld: "Adjusting many recipe parameters to maximize taste, or tuning many machine settings to minimize defect rate, are gradient-flavored problems even when nobody writes ∇."
+aiMlHook: "This is the core of training neural nets: compute ∇_w L, step w ← w - η ∇_w L. Everything about backprop is efficient gradient computation."
+prerequisites:
+  - "the-derivative"
+  - "accumulation-and-integrals"
+curiositySeeds:
+  - "What is a partial derivative?"
+  - "Why descend the gradient?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Joseph-Louis Lagrange"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Lagrange/"
+    kind: reference
+  - title: "3Blue1Brown - Gradient descent"
+    url: "https://www.youtube.com/watch?v=IHZwWFHWa-w"
+    kind: video
+    note: "Visual ML intuition building on calculus slopes."
+  - title: "Distill - Why momentum works (optional depth)"
+    url: "https://distill.pub/2017/momentum/"
+    kind: article
+---
+
+## First principles
+
+For $f(x, y)$, the partial $\partial f/\partial x$ treats $y$ as fixed and differentiates in $x$. The **gradient**
+
+$$
+\nabla f = \left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\right)
+$$
+
+points to the direction of steepest ascent (when it exists and is nonzero). Steepest descent is $-\nabla f$.
+
+## Why a vector?
+
+Each coordinate is a slope for one knob. Together they tell you how to nudge all knobs at once for the largest instantaneous increase.
+
+## Learning as descent
+
+If $L(w)$ is loss and $w$ are parameters:
+
+$$
+w_{\text{new}} = w_{\text{old}} - \eta \nabla L(w_{\text{old}})
+$$
+
+with step size $\eta > 0$. Too large: overshoot. Too small: crawl.
+
+## Connection to the chain rule
+
+Networks compose functions. The gradient of the composition multiplies local Jacobians (chain rule in higher dimensions). Backprop organizes that bookkeeping.
+
+## Real world
+
+Hill walking in fog with only a local slope measurement is gradient descent as metaphor: you cannot see the global minimum, only the ground under your feet.
+
+## AI / ML bridge
+
+This lesson is the bridge. Linear algebra will represent $w$ and data as vectors. Probability will treat loss as expectation. Calculus supplies the sensitivity.
+
+## Carry this forward
+
+- Gradients are multivariable slopes.
+- Descent follows $-\nabla L$.
+- Calculus intuition checkpoint complete. Linear algebra gives the language of spaces those gradients live in.

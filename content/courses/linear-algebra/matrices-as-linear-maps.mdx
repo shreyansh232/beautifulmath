@@ -1,0 +1,66 @@
+---
+title: "Matrices as linear maps"
+slug: "matrices-as-linear-maps"
+order: 2
+summary: "A matrix packages a linear transformation: multiply to stretch, rotate, shear, or project space in a uniform way."
+mathematician:
+  name: "Arthur Cayley"
+  years: "1821-1895"
+  vignette: "Cayley developed matrix algebra as an object of study in its own right, not merely a bookkeeping grid. He wrote prolifically, treating abstract structure as worthy of love. The ethic: when a notation keeps appearing, promote it to a citizen of mathematics and learn its laws."
+realWorld: "Image transforms, robot joint kinematics (linearized), and spreadsheet 'multiply this grid by that grid' workflows are matrix moves."
+aiMlHook: "A dense neural layer is literally x ↦ Wx + b. Almost every classical ML model has a matrix at its core."
+prerequisites:
+  - "vectors"
+curiositySeeds:
+  - "What does matrix-vector multiplication do?"
+  - "What is linearity?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Arthur Cayley"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/"
+    kind: reference
+  - title: "3Blue1Brown - Linear transformations and matrices"
+    url: "https://www.youtube.com/watch?v=kYB8IZa5AuE"
+    kind: video
+  - title: "Khan Academy - Matrices as transformations"
+    url: "https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices"
+    kind: video
+---
+
+## First principles
+
+A map $T$ is **linear** if
+
+$$
+T(a\mathbf{u} + b\mathbf{v}) = a T(\mathbf{u}) + b T(\mathbf{v})
+$$
+
+It respects addition and scaling. No curving, no shifting (translations alone are affine, not linear).
+
+A matrix $A$ represents a linear map via $\mathbf{y} = A\mathbf{x}$.
+
+<MatrixMapDiagram />
+
+Columns of $A$ are where the basis vectors go. That one sentence unlocks most geometric matrix intuition.
+
+## Multiply as weighted combination
+
+$A\mathbf{x}$ is a linear combination of $A$'s columns with weights from $\mathbf{x}$.
+
+## Composition
+
+Doing $B$ then $A$ is the product $AB$ (order matters). Neural nets stack such maps (plus nonlinearities).
+
+## Real world
+
+A 2D rotation matrix turns camera coordinates. A shear matrix models certain simple distortions.
+
+## AI / ML bridge
+
+Weight matrix $W$ learns which linear mixture of features predicts well. Attention and convolutions are structured linear maps with weight sharing.
+
+## Carry this forward
+
+- Matrices = linear maps.
+- Columns show where basis vectors land.
+- Next: measuring alignment with dot products.

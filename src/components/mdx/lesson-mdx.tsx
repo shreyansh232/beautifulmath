@@ -3,12 +3,20 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import type { ReactNode } from "react";
 import {
+  AreaUnderCurveDiagram,
   BalanceDiagram,
+  DistributionDiagram,
+  FunctionMachineDiagram,
   InverseOpsDiagram,
+  LineGraphDiagram,
+  MatrixMapDiagram,
   NumberLineDiagram,
   PlaceValueDiagram,
+  ProbabilityDiagram,
   RatioDiagram,
   ScalingDiagram,
+  SlopeDiagram,
+  VectorDiagram,
 } from "@/components/mdx/diagrams";
 
 const components = {
@@ -61,6 +69,14 @@ const components = {
   InverseOpsDiagram,
   RatioDiagram,
   BalanceDiagram,
+  FunctionMachineDiagram,
+  LineGraphDiagram,
+  SlopeDiagram,
+  AreaUnderCurveDiagram,
+  VectorDiagram,
+  MatrixMapDiagram,
+  ProbabilityDiagram,
+  DistributionDiagram,
 };
 
 export async function renderLessonMdx(source: string): Promise<ReactNode> {

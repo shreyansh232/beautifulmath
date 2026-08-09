@@ -1,0 +1,59 @@
+---
+title: "Vectors"
+slug: "vectors"
+order: 1
+summary: "A vector is magnitude with direction: an arrow in space, or an ordered list of numbers. That dual view is why linear algebra powers both geometry and data."
+mathematician:
+  name: "Josiah Willard Gibbs"
+  years: "1839-1903"
+  vignette: "Gibbs helped give vector analysis a practical language physicists could compute with, amid competing formalisms. He cared that tools serve thinking about the physical world. The ethic: choose representations that make the next calculation inevitable, not ornamental."
+realWorld: "Wind has speed and direction. A force pushes a certain amount along a heading. A data record with age, income, and score is a vector in feature space."
+aiMlHook: "Every embedding, weight row, and activation is a vector. Similarity search is often nearest neighbors in vector space."
+prerequisites: []
+curiositySeeds:
+  - "What is a vector?"
+  - "How do you add vectors?"
+estimatedMinutes: 20
+furtherReading:
+  - title: "MacTutor - Josiah Willard Gibbs"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Gibbs/"
+    kind: reference
+  - title: "3Blue1Brown - Vectors, what even are they?"
+    url: "https://www.youtube.com/watch?v=fNk_zzaMoSs"
+    kind: video
+  - title: "Better Explained - Vector calculus (gentle start)"
+    url: "https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/"
+    kind: article
+---
+
+## First principles
+
+A **vector** can be:
+
+1. A geometric arrow (direction + length)
+2. A coordinate list $(v_1, v_2, \ldots, v_n)$
+
+<VectorDiagram />
+
+Addition tip-to-tail matches componentwise sums. Scaling $c\mathbf{v}$ stretches (or flips if $c < 0$).
+
+## Why lists matter for data
+
+One row of a spreadsheet is a vector. Features become axes. Distance and angle become geometry on data.
+
+## Span (preview)
+
+Linear combinations $a\mathbf{v} + b\mathbf{w}$ fill a line or a plane (or more) depending on how independent $\mathbf{v}$ and $\mathbf{w}$ are.
+
+## Real world
+
+Displacements add as vectors: walk east then north. Net displacement is the diagonal.
+
+## AI / ML bridge
+
+Word embeddings place tokens in high-dimensional space so "direction" can encode relations. The famous king - man + woman ≈ queen analogy is vector arithmetic on meaning (imperfect, but the geometry is the point).
+
+## Carry this forward
+
+- Vectors = arrows = lists.
+- Next: matrices as machines that send vectors to vectors.

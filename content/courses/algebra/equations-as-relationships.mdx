@@ -1,0 +1,77 @@
+---
+title: "Equations as relationships"
+slug: "equations-as-relationships"
+order: 1
+summary: "An equation is not a puzzle with a secret answer key. It is a claim that two expressions name the same amount, and solving means finding when that claim is true."
+mathematician:
+  name: "François Viète"
+  years: "1540-1603"
+  vignette: "Viète insisted on writing unknowns and parameters with letters so structure could be seen at a glance. That looks obvious now. In his century it was a radical bet that symbols could carry generality, not just a single problem. The ethic worth stealing: make the pattern visible so the next mind does not have to reinvent the method for every new number."
+realWorld: "Budgets, recipes scaled for guests, and engineering constraints are equations in disguise: knowns and unknowns bound by a must-be-equal relationship."
+aiMlHook: "Training often solves for parameters that make a model equation match data as well as possible. Loss minimization is the soft cousin of making both sides agree."
+prerequisites: []
+curiositySeeds:
+  - "What is an equation really claiming?"
+  - "Why do we do the same thing to both sides?"
+estimatedMinutes: 20
+furtherReading:
+  - title: "MacTutor - Francois Viete"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Viete/"
+    kind: reference
+    note: "Symbolic algebra and the move toward modern notation."
+  - title: "3Blue1Brown - Essence of linear algebra (why structure matters)"
+    url: "https://www.youtube.com/watch?v=fNk_zzaMoSs"
+    kind: video
+    note: "Later track, but already shows why naming relationships beats memorizing cases."
+  - title: "Khan Academy - Intro to equations"
+    url: "https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:foundation-algebra"
+    kind: video
+    note: "Warm practice after the first-principles read."
+---
+
+## First principles
+
+An **equation** asserts equality:
+
+$$
+\text{left expression} = \text{right expression}
+$$
+
+It is a **truth claim** about quantities. Solving means finding values of the unknowns that make the claim true.
+
+<BalanceDiagram />
+
+If two piles weigh the same, adding the same weight to both keeps them equal. Subtracting the same, or scaling both by the same nonzero factor, does too. That is why we "do the same thing to both sides."
+
+## Linear equations
+
+A linear equation in one unknown looks like:
+
+$$
+ax + b = c
+$$
+
+(with $a \neq 0$). Undo from the outside:
+
+1. Subtract $b$: $ax = c - b$
+2. Divide by $a$: $x = \frac{c-b}{a}$
+
+You are not performing magic. You are applying invertible transformations.
+
+## Why symbols beat special cases
+
+Writing $ax + b = c$ once covers infinitely many word problems. Viète's push toward literal notation (letters for knowns and unknowns) is the ancestor of that leverage. Al-Khwārizmī earlier taught restoration and balancing in words and geometry. Together they show a through-line: **method first, then numbers**.
+
+## Real world
+
+"Three tickets and a \$4 fee cost \$40" is $3x + 4 = 40$. The story changes; the structure does not.
+
+## AI / ML bridge
+
+A model $\hat{y} = w x + b$ is an equation with parameters $w, b$. Fitting data chooses $w, b$ so predictions sit close to targets. Exact equality becomes "as equal as possible" under a loss.
+
+## Carry this forward
+
+- Equations claim equality.
+- Solving undoes operations symmetrically.
+- Next: several unknowns at once.

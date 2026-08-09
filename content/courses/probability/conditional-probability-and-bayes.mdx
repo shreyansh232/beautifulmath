@@ -1,0 +1,64 @@
+---
+title: "Conditional probability and Bayes"
+slug: "conditional-probability-and-bayes"
+order: 2
+summary: "New information reshapes probability. Conditional probability and Bayes' rule are the mathematics of updating."
+mathematician:
+  name: "Thomas Bayes"
+  years: "c. 1701-1761"
+  vignette: "Bayes's essay on inverse probability was published posthumously, quiet and profound. Laplace and others expanded the program. The ethic is intellectual honesty about prior belief and evidence: show how you update, do not pretend the data alone spoke with no assumptions."
+realWorld: "Medical tests, spam filters, and diagnostics all need P(disease | positive test), not just P(positive test | disease)."
+aiMlHook: "Naive Bayes classifiers, Bayesian optimization, and many uncertainty estimates rest on conditional probability. Posterior ∝ likelihood × prior is the heartbeat."
+prerequisites:
+  - "chance-and-probability"
+curiositySeeds:
+  - "What does conditioned on mean?"
+  - "Why do false positives matter?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Thomas Bayes"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Bayes/"
+    kind: reference
+  - title: "3Blue1Brown - Bayes theorem"
+    url: "https://www.youtube.com/watch?v=HZGCoVF3YvM"
+    kind: video
+  - title: "Better Explained - Bayes theorem"
+    url: "https://betterexplained.com/articles/an-intuitive-and-short-explanation-of-bayes-theorem/"
+    kind: article
+---
+
+## First principles
+
+Conditional probability of $A$ given $B$ (with $P(B) > 0$):
+
+$$
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+$$
+
+Restrict attention to the world where $B$ happened, then weigh $A$ inside that world.
+
+## Bayes' rule
+
+$$
+P(H \mid E) = \frac{P(E \mid H) P(H)}{P(E)}
+$$
+
+Posterior from likelihood times prior, normalized by evidence.
+
+## Base rates matter
+
+A rare disease and a mostly-accurate test can still yield many false alarms. Intuition fails without Bayes. Always track the prior.
+
+## Real world
+
+Email: $P(\text{spam} \mid \text{words})$. Medicine: $P(\text{condition} \mid \text{marker})$.
+
+## AI / ML bridge
+
+Training data estimates likelihood-like terms. Regularization and priors encode beliefs before seeing the batch. Calibration compares predicted probabilities to empirical frequencies.
+
+## Carry this forward
+
+- Conditioning updates the sample space.
+- Bayes inverts likelihoods carefully.
+- Next: averages of random outcomes (expectation).

@@ -1,0 +1,62 @@
+---
+title: "Rates of change"
+slug: "rates-of-change"
+order: 1
+summary: "Calculus begins with a simple obsession: how fast is something changing right now? Slope of a curve is the geometric answer."
+mathematician:
+  name: "Isaac Newton"
+  years: "1643-1727"
+  vignette: "During the plague years away from Cambridge, Newton developed fluxions: quantities flowing in time, and their rates. Whatever one thinks of later priority fights, the ethic in the work itself is ruthless focus on change. He wanted motion, orbits, and accumulation under one language. Steal the habit of asking not only what a quantity is, but how it is moving."
+realWorld: "Speed is rate of change of position. Marginal cost is rate of change of cost with output. Infection rates are rates of change of case counts."
+aiMlHook: "A learning curve plots loss versus training step. The slope tells you whether the model is still improving quickly or has flattened."
+prerequisites: []
+curiositySeeds:
+  - "What is an instantaneous rate?"
+  - "How is slope a rate?"
+estimatedMinutes: 20
+furtherReading:
+  - title: "MacTutor - Isaac Newton"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Newton/"
+    kind: reference
+  - title: "3Blue1Brown - Essence of calculus, chapter 1"
+    url: "https://www.youtube.com/watch?v=WUvTyaaNkzM"
+    kind: video
+  - title: "Better Explained - Calculus intuition"
+    url: "https://betterexplained.com/articles/a-calculus-analogy-accumulation-and-rates/"
+    kind: article
+---
+
+## First principles
+
+Average rate of change of $y$ between $x = a$ and $x = b$ is:
+
+$$
+\frac{f(b) - f(a)}{b - a}
+$$
+
+That is rise over run on a secant.
+
+<SlopeDiagram />
+
+**Instantaneous** rate is what that ratio approaches as $b$ approaches $a$ (when the limit exists). That limiting slope is the derivative idea.
+
+## Why Newton cared
+
+Planets do not move at constant speed along simple school lines. Fluxions described flowing quantities. The same pattern appears in any smooth change.
+
+## Intuition without formalism terror
+
+Zoom in on a smooth curve. Locally it looks like a straight line. That line's slope is the rate right there.
+
+## Real world
+
+If distance is $s(t)$, velocity is the rate $s'(t)$. If velocity itself changes, acceleration is the rate of velocity.
+
+## AI / ML bridge
+
+Optimizers follow (approximate) slopes of the loss surface. Steep regions mean a parameter tweak changes loss a lot.
+
+## Carry this forward
+
+- Rate = limiting slope.
+- Next: naming the derivative cleanly (Leibniz) and using it.

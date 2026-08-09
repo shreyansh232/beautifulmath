@@ -1,0 +1,73 @@
+---
+title: "The derivative"
+slug: "the-derivative"
+order: 2
+summary: "The derivative is a new function that reports the slope of the old function at each point. Leibniz's notation makes the ratio of tiny changes memorable."
+mathematician:
+  name: "Gottfried Wilhelm Leibniz"
+  years: "1646-1716"
+  vignette: "Leibniz chased a universal symbolic language. His dx and ∫ notations survived because they make reasoning about tiny changes and sums feel almost mechanical. Independent of Newton, he built a calculus whose form invited others to compute. The ethic: design notation so future minds can carry the idea without you in the room."
+realWorld: "Sensitivity analysis: how much does output move when an input nudges? That is a derivative when the relationship is smooth."
+aiMlHook: "Gradients are derivatives (or their multivariable cousins). Backpropagation computes them efficiently through a network."
+prerequisites:
+  - "rates-of-change"
+curiositySeeds:
+  - "What does f'(x) mean?"
+  - "Why does notation matter?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Gottfried Leibniz"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Leibniz/"
+    kind: reference
+  - title: "3Blue1Brown - Derivative formulas through geometry"
+    url: "https://www.youtube.com/watch?v=S0_qX4VJhMQ"
+    kind: video
+  - title: "Khan Academy - Derivative as slope of tangent"
+    url: "https://www.khanacademy.org/math/differential-calculus"
+    kind: video
+---
+
+## First principles
+
+If $f$ is smooth enough,
+
+$$
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+$$
+
+is the slope at $x = a$. The function $f'$ sends each $a$ to that slope.
+
+Leibniz wrote $\frac{dy}{dx}$ to suggest a ratio of infinitesimal changes. Modern rigor uses limits; the intuition remains: tiny rise over tiny run.
+
+## Rules worth knowing early
+
+- $(cf)' = c f'$
+- $(f+g)' = f' + g'$
+- $(x^n)' = n x^{n-1}$
+- Chain rule: $(f(g(x)))' = f'(g(x)) g'(x)$
+
+The chain rule is the star for ML: change through a pipeline multiplies local sensitivities.
+
+## Linear approximation
+
+Near $a$,
+
+$$
+f(x) \approx f(a) + f'(a)(x - a)
+$$
+
+The derivative is the best local linear stand-in.
+
+## Real world
+
+If profit $P(q)$ depends on quantity $q$, $P'(q)$ is marginal profit at that scale.
+
+## AI / ML bridge
+
+Gradient descent steps opposite the gradient of loss. Each partial derivative asks: if I nudge this weight, how does loss respond?
+
+## Carry this forward
+
+- Derivative = slope function.
+- Chain rule composes sensitivities.
+- Next: accumulation, the inverse story.

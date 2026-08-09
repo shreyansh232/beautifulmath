@@ -1,0 +1,77 @@
+---
+title: "Information and entropy"
+slug: "information-and-entropy"
+order: 4
+summary: "Information measures surprise. Entropy is expected surprise under a distribution. Cross-entropy ties probability to the losses classifiers use."
+mathematician:
+  name: "Claude Shannon"
+  years: "1916-2001"
+  vignette: "Shannon's 1948 paper founded information theory: bits, entropy, and communication through noise. He played as hard as he thought, building gadgets and juggling ideas. The ethic is playful rigor. Treat 'information' as something you can define and measure, then build systems that respect the math."
+realWorld: "Compression, noisy phone lines, and efficient codes all trade in entropy: how much uncertainty a source has, and how many bits you need."
+aiMlHook: "Cross-entropy loss is the workhorse of classification. KL divergence measures how one distribution mismatches another. Language models live here."
+prerequisites:
+  - "chance-and-probability"
+  - "expectation-and-loss"
+curiositySeeds:
+  - "What is a bit of information?"
+  - "Why does cross-entropy work as a loss?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Claude Shannon"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Shannon/"
+    kind: reference
+  - title: "3Blue1Brown / other - but prefer: Veritasium - The Bit Player / Shannon"
+    url: "https://www.youtube.com/watch?v=OtDxDvCpPL4"
+    kind: video
+    note: "Accessible portrait of Shannon and information."
+  - title: "Shannon 1948 paper (historical primary)"
+    url: "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf"
+    kind: reference
+    note: "Skim for definitions of entropy; no need to master proofs now."
+---
+
+## First principles
+
+If an event has probability $p$, its **surprisal** (self-information) is
+
+$$
+I = -\log_2 p
+$$
+
+(in bits). Rarer events surprise more.
+
+**Entropy** of a discrete distribution is expected surprisal:
+
+$$
+H(p) = -\sum_i p_i \log_2 p_i
+$$
+
+A sure outcome has entropy 0. A fair coin has entropy 1 bit.
+
+## Cross-entropy
+
+If true labels follow $p$ and a model predicts $q$,
+
+$$
+H(p, q) = -\sum_i p_i \log q_i
+$$
+
+When $p$ is a one-hot label, this becomes $-\log q_{\text{correct}}$: the classifier loss.
+
+## KL divergence (preview)
+
+$D_{\mathrm{KL}}(p \| q) = H(p, q) - H(p)$ measures extra surprise from using $q$ instead of $p$.
+
+## Real world
+
+English text has lower entropy than random letters: compression exploits that structure. Shannon made that intuition quantitative.
+
+## AI / ML bridge
+
+Training a classifier with cross-entropy pushes $q$ toward $p$. Generative models and language models are probability machines scored by information-theoretic losses.
+
+## Carry this forward
+
+- Information = surprisal.
+- Entropy = expected surprisal.
+- Probability track checkpoint: chance, updating, expectation, information. You now have the math spine for much of modern ML.

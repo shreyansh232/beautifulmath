@@ -1,0 +1,60 @@
+---
+title: "Accumulation and integrals"
+slug: "accumulation-and-integrals"
+order: 3
+summary: "If derivatives measure change, integrals accumulate it. Area under a rate curve recovers net change."
+mathematician:
+  name: "Archimedes"
+  years: "c. 287-212 BCE"
+  vignette: "Long before formal calculus, Archimedes exhausted areas and volumes with relentless approximation: trap the unknown between shapes he could control. The ethic is patience with limits. Do not demand the whole answer on the first polygon. Squeeze until only one possibility remains."
+realWorld: "Distance from speed over time, total energy from power over time, and total rainfall from rate charts are accumulation problems."
+aiMlHook: "Expected loss is an accumulation (sum or integral) of loss weighted by a data distribution. Training estimates that accumulation from samples."
+prerequisites:
+  - "the-derivative"
+curiositySeeds:
+  - "What does area under a curve mean?"
+  - "How do sums become integrals?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Archimedes"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/"
+    kind: reference
+  - title: "3Blue1Brown - Integration and the fundamental theorem"
+    url: "https://www.youtube.com/watch?v=rfG8ce4nNh0"
+    kind: video
+  - title: "Better Explained - Integral intuition"
+    url: "https://betterexplained.com/articles/a-calculus-analogy-accumulation-and-rates/"
+    kind: article
+---
+
+## First principles
+
+Slice an interval into thin widths $\Delta x$, height about $f(x_i)$, area about $f(x_i)\Delta x$. Sum the slices. As slices thin, the sum approaches the **definite integral** $\int_a^b f(x)\,dx$ when the limit exists.
+
+<AreaUnderCurveDiagram />
+
+If $f$ is a rate, the integral accumulates net change.
+
+## Antiderivatives
+
+A function $F$ with $F' = f$ is an antiderivative of $f$. Adding a constant does not change the derivative, so antiderivatives come in families $F + C$.
+
+## Fundamental theorem (intuition)
+
+Differentiating an accumulation from a fixed start recovers the rate. Integrating a rate recovers net accumulation. Derivative and integral are inverse stories (under suitable conditions).
+
+Archimedes's method of exhaustion is the ancient ancestor of "approximate, then refine."
+
+## Real world
+
+Speedometer readings over a trip, accumulated carefully, estimate distance. Gaps and sign (direction) matter.
+
+## AI / ML bridge
+
+Risk $= \mathbb{E}[\ell(y, f(x))]$ accumulates loss across the data-generating process. Mini-batches estimate that integral/sum.
+
+## Carry this forward
+
+- Integrals accumulate.
+- FTC links slope and area.
+- Next: gradients in many variables for learning.

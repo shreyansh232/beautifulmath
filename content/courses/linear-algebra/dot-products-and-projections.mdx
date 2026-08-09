@@ -1,0 +1,67 @@
+---
+title: "Dot products and projections"
+slug: "dot-products-and-projections"
+order: 3
+summary: "The dot product measures alignment. From it you get lengths, angles, and projections - the geometry behind similarity."
+mathematician:
+  name: "Hermann Grassmann"
+  years: "1809-1877"
+  vignette: "Grassmann's Ausdehnungslehre built a vast geometric algebra ahead of its time and was long ignored. He kept developing the ideas anyway. The ethic is conviction: when you see a cleaner language for space, write it down even if the room is not ready."
+realWorld: "Work in physics is force dotted with displacement. Recommendation 'similarity' is often a cosine of feature vectors."
+aiMlHook: "Cosine similarity, attention scores (before softmax), and many kernels begin with a dot product."
+prerequisites:
+  - "vectors"
+  - "matrices-as-linear-maps"
+curiositySeeds:
+  - "What does a large dot product mean?"
+  - "What is a projection?"
+estimatedMinutes: 20
+furtherReading:
+  - title: "MacTutor - Hermann Grassmann"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Grassmann/"
+    kind: reference
+  - title: "3Blue1Brown - Dot products and duality"
+    url: "https://www.youtube.com/watch?v=LyGKycYT2v0"
+    kind: video
+  - title: "Better Explained - Dot product"
+    url: "https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/"
+    kind: article
+---
+
+## First principles
+
+For $\mathbf{u}, \mathbf{v}$ in $\mathbb{R}^n$,
+
+$$
+\mathbf{u}\cdot\mathbf{v} = \sum_i u_i v_i = \|\mathbf{u}\| \|\mathbf{v}\| \cos\theta
+$$
+
+when the geometric interpretation applies. Large positive: aligned. Near zero: orthogonal. Negative: opposing.
+
+## Projection
+
+The shadow of $\mathbf{v}$ onto the direction of $\mathbf{u}$ is
+
+$$
+\mathrm{proj}_{\mathbf{u}}\mathbf{v} = \left(\frac{\mathbf{u}\cdot\mathbf{v}}{\mathbf{u}\cdot\mathbf{u}}\right)\mathbf{u}
+$$
+
+(for $\mathbf{u} \neq 0$). That is "how much of $\mathbf{v}$ lies along $\mathbf{u}$."
+
+## Length
+
+$\|\mathbf{v}\| = \sqrt{\mathbf{v}\cdot\mathbf{v}}$.
+
+## Real world
+
+If you push a crate at an angle, only the component along the motion does work. Dot product filters the aligned part.
+
+## AI / ML bridge
+
+Cosine similarity is the dot product of normalized vectors. Attention logits are often scaled dot products between queries and keys.
+
+## Carry this forward
+
+- Dot = alignment meter.
+- Projection extracts components.
+- Next: bases and dimension, why spaces need the right scaffolding.

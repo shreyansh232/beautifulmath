@@ -9,7 +9,6 @@ import {
 
 export default function PathPage() {
   const courses = getAllCourses();
-  const foundations = getCourseLessons("foundations");
   const startHref = getFirstLessonPath() ?? "/";
 
   return (
@@ -31,45 +30,37 @@ export default function PathPage() {
         </div>
       </div>
 
-      <section className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-14">
+      <section className="mt-16 space-y-14">
         {courses.map((course) => {
-          const lessons = course.id === "foundations" ? foundations : [];
+          const lessons = getCourseLessons(course.id);
 
           return (
-            <div key={course.id} className={course.status === "available" ? "lg:col-span-2" : ""}>
+            <div key={course.id}>
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-border pb-3">
                 <h2 className="text-xl font-semibold tracking-tight">
                   {course.title}
                 </h2>
                 <span className="text-sm text-muted-foreground">
-                  {course.status === "coming"
-                    ? "Coming next"
-                    : `${lessons.length} lessons`}
+                  {lessons.length} lessons
                 </span>
               </div>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
                 {course.description}
               </p>
 
-              {course.status === "available" ? (
-                <div className="mt-6 divide-y divide-border border-t border-border">
-                  {lessons.map((lesson) => (
-                    <LessonRow
-                      key={lesson.slug}
-                      courseId={lesson.course}
-                      slug={lesson.slug}
-                      title={lesson.title}
-                      summary={lesson.summary}
-                      order={lesson.order}
-                      href={lesson.path}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <p className="mt-4 text-sm text-muted-foreground">
-                  Content lands after Foundations is solid.
-                </p>
-              )}
+              <div className="mt-6 divide-y divide-border border-t border-border">
+                {lessons.map((lesson) => (
+                  <LessonRow
+                    key={lesson.slug}
+                    courseId={lesson.course}
+                    slug={lesson.slug}
+                    title={lesson.title}
+                    summary={lesson.summary}
+                    order={lesson.order}
+                    href={lesson.path}
+                  />
+                ))}
+              </div>
             </div>
           );
         })}

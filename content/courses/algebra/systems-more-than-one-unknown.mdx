@@ -1,0 +1,72 @@
+---
+title: "Systems: more than one unknown"
+slug: "systems-more-than-one-unknown"
+order: 2
+summary: "Two unknowns need two independent relationships. A system is a set of truth claims that must hold together."
+mathematician:
+  name: "Carl Friedrich Gauss"
+  years: "1777-1855"
+  vignette: "Gauss treated calculation as a craft of elimination and structure, not brute force. Gaussian elimination (the name came later) embodies an ethic: reduce a tangled system to a triangular story you can finish by hand. He also obsessed over correctness and economy of thought. Steal the habit of simplifying before you struggle."
+realWorld: "Two grocery items with two receipts, mixture problems, and circuit laws all give systems: enough independent facts to pin down each unknown."
+aiMlHook: "Least squares for overdetermined systems (more equations than unknowns) is the workhorse behind linear regression: you cannot satisfy every equation exactly, so you minimize total squared error."
+prerequisites:
+  - "equations-as-relationships"
+curiositySeeds:
+  - "When does a system have one solution?"
+  - "What does inconsistent mean?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Carl Friedrich Gauss"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Gauss/"
+    kind: reference
+  - title: "3Blue1Brown - Inverse matrices, column space and null space"
+    url: "https://www.youtube.com/watch?v=uQhTuRlWMxw"
+    kind: video
+    note: "Geometric view of when linear systems have solutions."
+  - title: "Better Explained - Linear algebra guide (systems intuition)"
+    url: "https://betterexplained.com/articles/linear-algebra-guide/"
+    kind: article
+---
+
+## First principles
+
+One equation in two unknowns usually has many solutions (a whole line of them). To pin both unknowns, you typically need **two independent equations**.
+
+Example:
+
+$$
+\begin{aligned}
+x + y &= 10 \\
+2x - y &= 2
+\end{aligned}
+$$
+
+Add them: $3x = 12$, so $x = 4$, then $y = 6$.
+
+You eliminated a variable by combining truth claims. That is the heart of elimination methods associated with Gauss's style of systematic reduction.
+
+## Geometric picture
+
+Each linear equation in two variables is a line. The solution is their intersection.
+
+- One intersection: unique solution
+- Parallel distinct lines: no solution (inconsistent)
+- Same line twice: infinitely many solutions
+
+## Independence matters
+
+If the second equation is just a double of the first, you learned nothing new. Independence means each equation adds information the others do not already contain.
+
+## Real world
+
+Two price constraints fix two item prices. One constraint leaves a free family of possibilities.
+
+## AI / ML bridge
+
+With many data points you get many approximate equations for few weights. Ordinary least squares finds the compromise that minimizes squared residuals. Later linear algebra will say this with matrices in one line: $Xw \approx y$.
+
+## Carry this forward
+
+- Systems are joint truth claims.
+- Independence and consistency decide the solution set.
+- Next: functions, the reusable relationship machine.
