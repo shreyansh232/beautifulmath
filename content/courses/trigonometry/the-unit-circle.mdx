@@ -1,0 +1,75 @@
+---
+title: "The unit circle"
+slug: "the-unit-circle"
+order: 3
+summary: "On a circle of radius 1, cosine and sine become the x and y coordinates of a point. That single picture extends trigonometry to every angle."
+mathematician:
+  name: "Claudius Ptolemy"
+  years: "c. 100-170"
+  vignette: "Ptolemy's Almagest carried chord tables and geometric methods that made spherical astronomy computable for centuries. The ethic is system-building: gather geometric tools into a handbook that other minds can run with."
+realWorld: "Any repeating cycle - AC electricity phase, wheel position, seasonal models - can be drawn as motion around a circle."
+aiMlHook: "A 2D rotation matrix is built from $\\cos\\theta$ and $\\sin\\theta$. Attention and graphics code rotate features the same way geometry rotates points."
+prerequisites:
+  - "right-triangle-ratios"
+curiositySeeds:
+  - "Why radius 1?"
+  - "How can sine be negative?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Ptolemy"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Ptolemy/"
+    kind: reference
+    note: "Almagest, chords, and mathematical astronomy."
+  - title: "Algebrica - Unit circle"
+    url: "https://algebrica.org/unit-circle/"
+    kind: article
+    note: "The geometric home of sine and cosine."
+  - title: "Algebrica - Pythagorean identity"
+    url: "https://algebrica.org/pythagorean-identity/"
+    kind: article
+    note: "Why sin²θ + cos²θ = 1 is Pythagoras on radius 1."
+  - title: "3Blue1Brown - But what is a Fourier series? (circle preview)"
+    url: "https://www.youtube.com/watch?v=r6sGWTCMz2k"
+    kind: video
+    note: "Optional: rotating vectors as a visual language for waves."
+---
+
+## First principles
+
+The **unit circle** is $x^2 + y^2 = 1$. From the positive $x$-axis, turn an oriented angle $\theta$. The landing point $P$ has coordinates
+
+$$
+P = (\cos\theta,\ \sin\theta)
+$$
+
+<UnitCircleDiagram />
+
+Why radius 1? Because then "adjacent/hypotenuse" collapses to the $x$-coordinate itself, and "opposite/hypotenuse" collapses to $y$. Triangle ratios and circle coordinates become the same objects.
+
+## Signs by quadrant
+
+In the first quadrant both sine and cosine are positive. Elsewhere signs follow the signs of $x$ and $y$. That is how obtuse and reflex angles stay meaningful.
+
+## Pythagorean identity
+
+From $x^2 + y^2 = 1$:
+
+$$
+\cos^2\theta + \sin^2\theta = 1
+$$
+
+Geometry lesson Pythagoras, rewritten in trig clothing.
+
+## Real world
+
+A wheel's position is an angle. The height of a point on the rim as the wheel turns is a sine wave. Circular motion and oscillation are one picture.
+
+## AI / ML bridge
+
+Rotation by $\theta$ multiplies coordinates by a $2\times 2$ matrix of sines and cosines. Understanding that matrix geometrically makes linear algebra feel less like symbol soup.
+
+## Carry this forward
+
+- Unit circle = trig functions as coordinates.
+- Identity $\sin^2 + \cos^2 = 1$ is Pythagoras.
+- Next: waves, periodicity, and similarity scores.

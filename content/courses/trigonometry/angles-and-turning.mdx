@@ -1,0 +1,69 @@
+---
+title: "Angles and turning"
+slug: "angles-and-turning"
+order: 1
+summary: "Trigonometry starts with measuring turns. Degrees and radians are two rulers for the same idea: how far you have rotated."
+mathematician:
+  name: "Hipparchus"
+  years: "c. 190-120 BCE"
+  vignette: "Hipparchus built chord tables that turned geometry into computable astronomy. MacTutor and historians of trigonometry treat him as a founder of the subject for that reason: not slogans, but tables that let you solve triangles in practice. The ethic is measurement discipline - make the turn quantitative so prediction becomes possible."
+realWorld: "Compass bearings, clock hands, robot joints, and camera gimbals are all angle machines."
+aiMlHook: "Rotations in 2D are angle parameters. In graphics and robotics, models often output angles (or sin/cos pairs) because raw angle wraparound is awkward for naive regression."
+prerequisites: []
+curiositySeeds:
+  - "What is a radian?"
+  - "Why divide a circle into 360 degrees?"
+estimatedMinutes: 18
+furtherReading:
+  - title: "MacTutor - Hipparchus"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Hipparchus/"
+    kind: reference
+    note: "Chord tables and the founding of trigonometry as computation."
+  - title: "MacTutor - Trigonometric functions (history)"
+    url: "https://mathshistory.st-andrews.ac.uk/HistTopics/Trigonometric_functions/"
+    kind: article
+    note: "From chords to sine across cultures."
+  - title: "Algebrica - Angles and angular measure"
+    url: "https://algebrica.org/angles-and-angular-measure/"
+    kind: article
+    note: "Degrees, radians, and diagrams of turning."
+  - title: "Khan Academy - Radians"
+    url: "https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:trig/x2ec2f6f830c9fb89:radians/v/introduction-to-radians"
+    kind: video
+    note: "Why radians match arc length so cleanly."
+---
+
+## First principles
+
+An angle measures a **turn**. A full turn around a point returns you to the starting ray.
+
+Two common units:
+
+- **Degree:** a full turn is $360^\circ$. Babylonian sexagesimal habits and Greek astronomy helped lock this convention in place (Hipparchus worked with a 360-part circle).
+- **Radian:** a full turn is $2\pi$ radians. One radian is the angle whose arc length equals the radius.
+
+$$
+180^\circ = \pi \text{ radians}
+$$
+
+Radians make calculus formulas cleaner later because arc length on the unit circle is literally the angle.
+
+<AngleDiagram />
+
+## Oriented angles
+
+Trigonometry often treats angles as **oriented**: counterclockwise from the positive $x$-axis is positive in the standard plane convention. That lets sine and cosine become functions of any real input, not only acute triangle corners.
+
+## Real world
+
+Pilots and sailors speak in degrees. Mathematicians and physicists often prefer radians once calculus enters. Both describe the same turn.
+
+## AI / ML bridge
+
+Predicting an angle of $359^\circ$ vs $1^\circ$ looks far apart as raw numbers but is a tiny turn. Encoding angle as $(\cos\theta, \sin\theta)$ avoids that discontinuity. Geometry saves the model from a bad number line.
+
+## Carry this forward
+
+- Angles measure turns.
+- Degrees and radians are unit choices.
+- Next: right-triangle ratios (sine, cosine, tangent).

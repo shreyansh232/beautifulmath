@@ -1,0 +1,79 @@
+---
+title: "Circles and area"
+slug: "circles-and-area"
+order: 4
+summary: "A circle is constant distance from a center. Area measures how much region a shape occupies. Together they show how continuous magnitude can still be compared and computed."
+mathematician:
+  name: "Archimedes"
+  years: "c. 287-212 BCE"
+  vignette: "Archimedes hunted exact relations for curved figures by exhaustion: squeeze the unknown between known polygons that tighten. The ethic is patience with approximation that becomes exact in the limit - the same spirit calculus later names formally."
+realWorld: "Wheels, gears, satellite dishes, and circular plazas all start from constant-radius geometry. Area tells you paint, material, or capacity."
+aiMlHook: "Normalization often projects vectors onto a sphere (fixed length). Softmax and many probability simplices live in constrained 'regions' whose geometry matters for how updates move."
+prerequisites:
+  - "similarity-and-pythagoras"
+curiositySeeds:
+  - "What is π really?"
+  - "How do you measure area of a curved region?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Archimedes"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/"
+    kind: reference
+    note: "Method of exhaustion and circle results."
+  - title: "Algebrica - Unit circle"
+    url: "https://algebrica.org/unit-circle/"
+    kind: article
+    note: "The circle that trigonometry will live on next."
+  - title: "Numberphile - Pi"
+    url: "https://www.youtube.com/watch?v=d-oEHUWl9j4"
+    kind: video
+    note: "Accessible conversation about π as a ratio."
+  - title: "3Blue1Brown - Why pi is here"
+    url: "https://www.youtube.com/watch?v=jsYwFizhncE"
+    kind: video
+    note: "Visual intuition connecting circles and related constants."
+---
+
+## First principles
+
+A **circle** is the set of all points at a fixed distance $r$ (the **radius**) from a center. The **diameter** is $2r$. The **circumference** $C$ and radius are linked by
+
+$$
+C = 2\pi r
+$$
+
+where $\pi$ is the constant ratio of circumference to diameter for every circle.
+
+<CircleDiagram />
+
+**Area** measures two-dimensional extent. For a circle,
+
+$$
+A = \pi r^2
+$$
+
+Area scales with the square of length: double the radius, quadruple the area.
+
+## Exhaustion as a method
+
+Archimedes (and earlier Eudoxus-style ideas preserved in Euclid) compared curved regions to polygons that hug them more and more tightly. That is not hand-waving. It is controlled approximation: if every overestimate and underestimate can be forced arbitrarily close, the area is pinned down.
+
+You will meet the same pattern again as Riemann sums in calculus.
+
+## Coordinates preview
+
+In the plane, the circle of radius $r$ centered at the origin is $x^2 + y^2 = r^2$. Set $r = 1$ and you get the **unit circle**, the stage for sine and cosine in the next course.
+
+## Real world
+
+Pizza area vs diameter pricing, track lengths, and cable spool radii are circle arithmetic. Engineers estimate material from area formulas long before they cut metal.
+
+## AI / ML bridge
+
+Constraining vectors to unit length puts them on a sphere (circle in 2D). Angles between those vectors become meaningful similarity scores. Geometry of constrained sets is not optional in modern ML. It is daily language.
+
+## Carry this forward
+
+- Circles fix distance from a center.
+- Area measures region; $\pi$ links circle measures.
+- Next course: trigonometry turns angles into functions.

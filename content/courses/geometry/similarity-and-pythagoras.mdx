@@ -1,0 +1,79 @@
+---
+title: "Similarity and Pythagoras"
+slug: "similarity-and-pythagoras"
+order: 3
+summary: "Similar figures share shape under scaling. On a right triangle, that scaling intuition becomes the Pythagorean relation: a² + b² = c²."
+mathematician:
+  name: "Pythagoras"
+  years: "c. 570-490 BCE"
+  vignette: "The relation named for Pythagoras was known earlier to Babylonian mathematicians. What Greek tradition emphasizes is proof and the geometric meaning of 'square on a side' as an actual square, not just a squared number. Steal the ethic of proof over slogan - and stay honest about how much of the legend is uncertain."
+realWorld: "Ladder against a wall, screen diagonal vs width and height, and navigation distances all use right-triangle geometry."
+aiMlHook: "Euclidean distance in the plane is the Pythagorean formula. In higher dimensions the same idea becomes $\\sqrt{x_1^2 + \\cdots + x_n^2}$, the default length of a feature vector."
+prerequisites:
+  - "triangles-and-congruence"
+curiositySeeds:
+  - "What does 'similar' mean precisely?"
+  - "Why does a² + b² = c²?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Pythagoras"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Pythagoras/"
+    kind: reference
+    note: "Biography and the note that Babylonians knew the relation earlier."
+  - title: "Algebrica - Pythagorean theorem"
+    url: "https://algebrica.org/pythagorean-theorem/"
+    kind: article
+    note: "Statement, diagrams, and the bridge toward the trig identity."
+  - title: "3Blue1Brown - Essence of linear algebra (distance preview)"
+    url: "https://www.youtube.com/watch?v=fNk_zzaMoSs"
+    kind: video
+    note: "Later track, but already shows length living in coordinates."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Geometry chapters that make proof and picture feel playful."
+---
+
+## Similarity
+
+Two figures are **similar** when one is a scaled (and possibly rotated/reflected) copy of the other. Corresponding angles match. Corresponding sides stay in **constant ratio**.
+
+That ratio is the scale factor. Map scales and model airplanes are similarity in the wild.
+
+Thales-style shadow stories (pyramid height from a stick's shadow) are similarity arguments: sun rays make matching angles, so height ratios match shadow ratios. Treat specific ancient anecdotes carefully. The geometric idea is solid even when the biography is foggy.
+
+## The Pythagorean relation
+
+In a right triangle with legs $a, b$ and hypotenuse $c$:
+
+$$
+a^2 + b^2 = c^2
+$$
+
+<PythagorasDiagram />
+
+Geometrically: the area of the square on the hypotenuse equals the sum of the areas of the squares on the legs. Algebraically: the same statement in symbols.
+
+<StoryNote>
+  <p>
+    Strogatz's geometry chapters in <em>The Joy of X</em> keep returning to this theme: a picture can carry a proof. Rearrangement arguments for Pythagoras are the classic example - move tiles until the equality becomes obvious.
+  </p>
+</StoryNote>
+
+## Why this unlocks coordinates
+
+Place a right triangle on the plane with the right angle at the origin. Then $c$ is the distance from $(0,0)$ to $(a,b)$. Distance becomes a formula. That is the seed of analytic geometry and, later, vector length.
+
+## Real world
+
+A 3-4-5 triangle is a builder's square. Screen size quoted as a diagonal is hypotenuse talk. GPS and mapping software repeatedly solve right-triangle (and spherical) distance problems.
+
+## AI / ML bridge
+
+When a model says "nearby points," it usually means a distance. The Euclidean default is Pythagoras generalized. Cosine similarity (trigonometry track) is a sibling idea that cares about angle more than length.
+
+## Carry this forward
+
+- Similarity preserves shape under scale.
+- Pythagoras links legs and hypotenuse.
+- Next: circles, area, and measuring curved boundary.

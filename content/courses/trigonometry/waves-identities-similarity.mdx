@@ -1,0 +1,90 @@
+---
+title: "Waves, identities, and similarity"
+slug: "waves-identities-similarity"
+order: 4
+summary: "Sine and cosine are periodic waves. Identities are compressed geometry. Cosine similarity turns the same angle idea into a score used across modern ML."
+mathematician:
+  name: "Joseph Fourier"
+  years: "1768-1830"
+  vignette: "Fourier argued that complicated periodic behavior can be built from sines and cosines. The controversies around rigor came later. The ethic worth stealing is bold decomposition: break a hard oscillation into simpler waves you can analyze."
+realWorld: "Sound, light polarization abstractions, tides, and AC power are wave phenomena. Even a spinning neon sign traces sine and cosine in time."
+aiMlHook: "Cosine similarity scores how aligned two vectors are, ignoring pure length. Retrieval, embeddings, and many ranking systems use it daily - trigonometry as a relevance meter."
+prerequisites:
+  - "the-unit-circle"
+curiositySeeds:
+  - "What does periodic mean?"
+  - "Why cosine similarity ignores magnitude?"
+estimatedMinutes: 22
+furtherReading:
+  - title: "MacTutor - Joseph Fourier"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/"
+    kind: reference
+    note: "Heat, series of sines and cosines, and the long fight for foundations."
+  - title: "Algebrica - Trigonometric identities"
+    url: "https://algebrica.org/trigonometric-identities/"
+    kind: article
+    note: "Core identities with structure, not memorization fog."
+  - title: "Algebrica - Cosine similarity"
+    url: "https://algebrica.org/cosine-similarity/"
+    kind: article
+    note: "The ML-facing angle between vectors."
+  - title: "3Blue1Brown - But what is a Fourier series?"
+    url: "https://www.youtube.com/watch?v=r6sGWTCMz2k"
+    kind: video
+    note: "Visual decomposition of waves."
+---
+
+## Periodicity
+
+As $\theta$ increases by $2\pi$, the point on the unit circle returns to the same place. Therefore
+
+$$
+\sin(\theta + 2\pi) = \sin\theta, \quad \cos(\theta + 2\pi) = \cos\theta
+$$
+
+Plotting $\sin\theta$ against $\theta$ produces a wave that repeats forever.
+
+<SineWaveDiagram />
+
+That is why trigonometry models cycles: the circle is the geometry of repetition.
+
+## Identities as compressed geometry
+
+An **identity** is an equality true for all allowed inputs. The parent identity is still
+
+$$
+\sin^2\theta + \cos^2\theta = 1
+$$
+
+Others (angle-addition formulas, double-angle formulas) expand from geometry or algebra on complex exponentials later. Do not memorize a wall of them on day one. Learn what an identity *is*: reusable structure.
+
+## Cosine similarity
+
+For nonzero vectors $\mathbf{u}, \mathbf{v}$,
+
+$$
+\cos\phi = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\,\|\mathbf{v}\|}
+$$
+
+where $\phi$ is the angle between them. The score is $1$ when they point the same way, $0$ when orthogonal, and $-1$ when opposite.
+
+<StoryNote>
+  <p>
+    This is the same cosine you met on the unit circle, now asked a data question: how aligned are these two directions? Length is stripped away by the denominators so pure scale does not fake similarity.
+  </p>
+</StoryNote>
+
+## Real world
+
+Audio synthesizers, signal processing, and seasonal forecasts lean on sinusoidal building blocks. Fourier's insight is that many complicated periodic signals are sums of simpler waves.
+
+## AI / ML bridge
+
+Embedding models map text or images to vectors. Cosine similarity ranks neighbors by direction. Your trig intuition is doing product work.
+
+## Carry this forward
+
+- Sine and cosine are periodic.
+- Identities package geometric facts.
+- Cosine similarity is angle-as-score.
+- Next up the path: calculus rates, then linear algebra's higher-dimensional geometry.

@@ -1,0 +1,72 @@
+---
+title: "Right-triangle ratios"
+slug: "right-triangle-ratios"
+order: 2
+summary: "Sine, cosine, and tangent begin as ratios of sides in a right triangle. Same angle, same ratios - even when the triangle scales."
+mathematician:
+  name: "Aryabhata"
+  years: "476-550"
+  vignette: "In the Aryabhatiya, Aryabhata gave sine tables (half-chords) that made trigonometry a working computational tool in Indian astronomy. The ethic is table-building craft: compute carefully, reuse structure, and let astronomy demand better ratios."
+realWorld: "Finding a tree's height from a measured angle, or a ramp's rise from its run, is right-triangle trigonometry."
+aiMlHook: null
+prerequisites:
+  - "angles-and-turning"
+curiositySeeds:
+  - "Why do the ratios only depend on the angle?"
+  - "What is tangent, intuitively?"
+estimatedMinutes: 20
+furtherReading:
+  - title: "MacTutor - Aryabhata"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Aryabhata_I/"
+    kind: reference
+    note: "Sine tables and mathematical astronomy."
+  - title: "Algebrica - Right triangle trigonometry"
+    url: "https://algebrica.org/right-triangle-trigonometry/"
+    kind: article
+    note: "SOH-CAH-TOA with clear diagrams."
+  - title: "Algebrica - Sine and cosine"
+    url: "https://algebrica.org/sine-and-cosine/"
+    kind: article
+    note: "Bridge from triangle ratios toward the unit circle."
+  - title: "Khan Academy - Trigonometric ratios"
+    url: "https://www.khanacademy.org/math/geometry/hs-geo-trig"
+    kind: video
+    note: "Practice naming opposite, adjacent, hypotenuse."
+---
+
+## First principles
+
+In a right triangle, fix an acute angle $\theta$. Name the sides relative to $\theta$:
+
+- **Hypotenuse:** side opposite the right angle (longest)
+- **Opposite:** side across from $\theta$
+- **Adjacent:** the non-hypotenuse side that touches $\theta$
+
+<RightTriangleTrigDiagram />
+
+Define:
+
+$$
+\sin\theta = \frac{\text{opposite}}{\text{hypotenuse}}, \quad
+\cos\theta = \frac{\text{adjacent}}{\text{hypotenuse}}, \quad
+\tan\theta = \frac{\text{opposite}}{\text{adjacent}}
+$$
+
+Because similar right triangles share angles, these ratios depend on $\theta$, not on how large you draw the triangle.
+
+## Memory aid (with eyes open)
+
+SOH-CAH-TOA is a mnemonic, not an explanation. The explanation is similarity: scale cancels in a ratio of lengths.
+
+## Solving for a length
+
+If you know one side and an acute angle, the definitions rearrange into formulas for the missing sides. Always sketch and label opposite/adjacent before you compute.
+
+## Real world
+
+Surveying, architecture slopes, and game-engine camera pitches use these ratios constantly.
+
+## Carry this forward
+
+- Trig ratios are similarity invariants.
+- Next: the unit circle extends the same ideas past acute angles.

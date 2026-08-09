@@ -570,9 +570,241 @@ export const PROBABILITY_CHECKS: Record<string, CheckItem[]> = {
   ],
 };
 
+export const GEOMETRY_CHECKS: Record<string, CheckItem[]> = {
+  "points-lines-angles": [
+    {
+      id: "g1",
+      prompt: "What does an angle measure, at first principles?",
+      options: [
+        "The color of two lines",
+        "How much one ray has turned away from another about a shared vertex",
+        "Only the length of a segment",
+        "The area of a triangle",
+      ],
+      answerIndex: 1,
+      explanation:
+        "An angle is a turn between two rays that share a vertex. Degrees and radians are units for that turn.",
+    },
+    {
+      id: "g2",
+      prompt: "Why does geometry help you understand numbers more deeply?",
+      options: [
+        "Because numbers are illegal without pictures",
+        "Because placing quantities in space lets you see comparison, direction, and shape - visualization becomes a second language for the same truths",
+        "Because Euclid banned algebra",
+        "Because points have mass",
+      ],
+      answerIndex: 1,
+      explanation:
+        "Geometry answers where and which way. That picture language later supports graphs, vectors, and model geometry in ML.",
+    },
+  ],
+  "triangles-and-congruence": [
+    {
+      id: "g3",
+      prompt: "What does congruence mean for two figures?",
+      options: [
+        "They have the same color",
+        "One can be matched to the other by rigid motions (translate, rotate, reflect), preserving sizes and angles",
+        "They are similar with any scale factor",
+        "They both contain a right angle",
+      ],
+      answerIndex: 1,
+      explanation:
+        "Congruence is geometric equality of size and shape via rigid motions. Similarity allows scaling; congruence does not.",
+    },
+    {
+      id: "g4",
+      prompt: "Why are triangles especially useful in structures?",
+      options: [
+        "Because they always have area zero",
+        "Because fixing three side lengths locks the shape - triangles are rigid",
+        "Because they cannot have angles",
+        "Because Euclid forbade quadrilaterals",
+      ],
+      answerIndex: 1,
+      explanation:
+        "A triangle with fixed side lengths cannot flex. That rigidity is why bracing uses triangles.",
+    },
+  ],
+  "similarity-and-pythagoras": [
+    {
+      id: "g5",
+      prompt: "In a right triangle with legs a, b and hypotenuse c, which statement is true?",
+      options: [
+        "a + b = c always",
+        "a² + b² = c²",
+        "a² - b² = c²",
+        "ab = c",
+      ],
+      answerIndex: 1,
+      explanation:
+        "The Pythagorean relation says the square on the hypotenuse equals the sum of the squares on the legs.",
+    },
+    {
+      id: "g6",
+      prompt: "What does similarity preserve that congruence also preserves, while allowing a scale change?",
+      options: [
+        "Exact side lengths only",
+        "Shape: corresponding angles match and side ratios stay constant",
+        "Nothing; similarity erases all structure",
+        "Only color",
+      ],
+      answerIndex: 1,
+      explanation:
+        "Similar figures are scaled copies (plus rigid motions). Angles match; sides stay proportional.",
+    },
+  ],
+  "circles-and-area": [
+    {
+      id: "g7",
+      prompt: "What is a circle, stripped to first principles?",
+      options: [
+        "Any curved scribble",
+        "All points at a fixed distance (radius) from a center",
+        "A triangle with equal angles",
+        "A square with rounded corners",
+      ],
+      answerIndex: 1,
+      explanation:
+        "Constant distance from a center defines the circle. Circumference and area formulas then relate those lengths to π.",
+    },
+    {
+      id: "g8",
+      prompt: "If you double a circle's radius, what happens to its area?",
+      options: [
+        "It doubles",
+        "It quadruples (scales by 2²)",
+        "It stays the same",
+        "It becomes half",
+      ],
+      answerIndex: 1,
+      explanation:
+        "Area scales with the square of length: A = πr², so replacing r by 2r multiplies area by 4.",
+    },
+  ],
+};
+
+export const TRIGONOMETRY_CHECKS: Record<string, CheckItem[]> = {
+  "angles-and-turning": [
+    {
+      id: "t1",
+      prompt: "What is a radian, conceptually?",
+      options: [
+        "A random unit unrelated to circles",
+        "The angle whose corresponding arc length equals the radius",
+        "Always equal to 90 degrees",
+        "A synonym for degree",
+      ],
+      answerIndex: 1,
+      explanation:
+        "One radian is the central angle that cuts an arc of length equal to the radius. A full turn is 2π radians.",
+    },
+    {
+      id: "t2",
+      prompt: "Why might an ML model predict (cos θ, sin θ) instead of θ itself?",
+      options: [
+        "Because cosine is always larger than sine",
+        "Because raw angles wrap around (359° is near 1°), while sin/cos encodings stay continuous on the circle",
+        "Because degrees are illegal in computers",
+        "Because Hipparchus required it",
+      ],
+      answerIndex: 1,
+      explanation:
+        "Angle wraparound makes nearby turns look far apart as numbers. Pairing cosine and sine respects circular geometry.",
+    },
+  ],
+  "right-triangle-ratios": [
+    {
+      id: "t3",
+      prompt: "Why do sine and cosine depend only on the angle in a right triangle (not on overall size)?",
+      options: [
+        "Because someone defined them that way arbitrarily with no geometry",
+        "Because similar right triangles share angles, so side ratios cancel the scale factor",
+        "Because hypotenuse is always 1 in every triangle",
+        "Because opposite and adjacent are always equal",
+      ],
+      answerIndex: 1,
+      explanation:
+        "Similarity keeps corresponding side ratios constant for a given angle. Scale cancels in opp/hyp and adj/hyp.",
+    },
+    {
+      id: "t4",
+      prompt: "tan θ equals which ratio?",
+      options: [
+        "hypotenuse / opposite",
+        "opposite / adjacent",
+        "adjacent / hypotenuse",
+        "opposite / hypotenuse",
+      ],
+      answerIndex: 1,
+      explanation:
+        "Tangent is opposite over adjacent (and also sin/cos when cosine is nonzero).",
+    },
+  ],
+  "the-unit-circle": [
+    {
+      id: "t5",
+      prompt: "On the unit circle, the point at angle θ is…",
+      options: [
+        "(tan θ, sin θ)",
+        "(cos θ, sin θ)",
+        "(sin θ, cos θ) always in that order for x then y",
+        "(θ, θ)",
+      ],
+      answerIndex: 1,
+      explanation:
+        "By definition on the unit circle, x = cos θ and y = sin θ.",
+    },
+    {
+      id: "t6",
+      prompt: "The identity cos²θ + sin²θ = 1 is really…",
+      options: [
+        "An unrelated algebra accident",
+        "The Pythagorean theorem on a right triangle with hypotenuse 1 (the radius)",
+        "True only for 45 degrees",
+        "False in the third quadrant",
+      ],
+      answerIndex: 1,
+      explanation:
+        "The unit circle equation x² + y² = 1 is Pythagoras with hypotenuse equal to the radius 1.",
+    },
+  ],
+  "waves-identities-similarity": [
+    {
+      id: "t7",
+      prompt: "What does it mean that sine is periodic with period 2π?",
+      options: [
+        "Sine is only defined between 0 and 2π",
+        "Adding 2π to the input returns the same sine value, matching one full turn on the unit circle",
+        "Sine grows without bound every 2π",
+        "Sine becomes cosine every 2π",
+      ],
+      answerIndex: 1,
+      explanation:
+        "A full turn returns to the same point on the unit circle, so sine (and cosine) repeat every 2π.",
+    },
+    {
+      id: "t8",
+      prompt: "Cosine similarity between two vectors mainly measures…",
+      options: [
+        "How long each vector is",
+        "How aligned their directions are (the cosine of the angle between them)",
+        "Only whether they have integer coordinates",
+        "The Euclidean distance exclusively",
+      ],
+      answerIndex: 1,
+      explanation:
+        "Dividing by the lengths cancels magnitude, leaving the cosine of the angle - a direction alignment score used widely in ML.",
+    },
+  ],
+};
+
 const CHECKS_BY_COURSE: Record<string, Record<string, CheckItem[]>> = {
   foundations: FOUNDATION_CHECKS,
+  geometry: GEOMETRY_CHECKS,
   algebra: ALGEBRA_CHECKS,
+  trigonometry: TRIGONOMETRY_CHECKS,
   "calculus-intuition": CALCULUS_CHECKS,
   "linear-algebra": LINALG_CHECKS,
   probability: PROBABILITY_CHECKS,

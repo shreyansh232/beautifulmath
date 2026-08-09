@@ -48,12 +48,28 @@ export const COURSES: CourseMeta[] = [
     order: 1,
   },
   {
+    id: "geometry",
+    title: "Geometry",
+    description:
+      "Points, shapes, and space - how numbers become pictures you can measure, compare, and prove.",
+    status: "available",
+    order: 2,
+  },
+  {
     id: "algebra",
     title: "Algebra",
     description:
       "Equations, functions, and graphs - the language for naming relationships before you know every number.",
     status: "available",
-    order: 2,
+    order: 3,
+  },
+  {
+    id: "trigonometry",
+    title: "Trigonometry",
+    description:
+      "Angles, circles, and waves - the bridge from triangles to oscillation, rotation, and similarity scores.",
+    status: "available",
+    order: 4,
   },
   {
     id: "calculus-intuition",
@@ -61,7 +77,7 @@ export const COURSES: CourseMeta[] = [
     description:
       "Change, rates, and accumulation - the ideas behind learning curves and gradients.",
     status: "available",
-    order: 3,
+    order: 5,
   },
   {
     id: "linear-algebra",
@@ -69,7 +85,7 @@ export const COURSES: CourseMeta[] = [
     description:
       "Vectors, matrices, and spaces - the native tongue of modern machine learning.",
     status: "available",
-    order: 4,
+    order: 6,
   },
   {
     id: "probability",
@@ -77,7 +93,7 @@ export const COURSES: CourseMeta[] = [
     description:
       "Uncertainty, likelihood, and information - how models reason under doubt.",
     status: "available",
-    order: 5,
+    order: 7,
   },
 ];
 

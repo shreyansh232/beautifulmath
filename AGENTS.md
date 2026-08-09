@@ -14,7 +14,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 Before adding or changing any lesson, vignette, diagram caption, check, AI/ML bridge, real-world example, or "Read more" link:
 
-1. **Research first.** Use reputable sources (e.g. MacTutor, primary texts, peer-reviewed or well-known educational references). Do not invent history, anecdotes, or technical claims.
+1. **Research first.** Use reputable sources (e.g. MacTutor, primary texts, peer-reviewed or well-known educational references, and [Algebrica](https://algebrica.org/) for technical exposition and diagrams). Do not invent history, anecdotes, or technical claims.
 2. **Verify sources.** Cross-check facts (dates, attributions, mathematical statements). Prefer primary or standard secondary sources over blog regurgitation. If a story is disputed or apocryphal, say so or omit it.
 3. **Record sources.** Keep notes under `content/courses/<course>/_sources/` for each lesson you ship.
 4. **Honest AI/ML bridges.** Only include an AI/ML link when it is genuine. If forced, omit it.

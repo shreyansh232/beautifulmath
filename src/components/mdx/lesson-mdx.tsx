@@ -3,8 +3,10 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import type { ReactNode } from "react";
 import {
+  AngleDiagram,
   AreaUnderCurveDiagram,
   BalanceDiagram,
+  CircleDiagram,
   DistributionDiagram,
   FunctionMachineDiagram,
   InverseOpsDiagram,
@@ -13,9 +15,14 @@ import {
   NumberLineDiagram,
   PlaceValueDiagram,
   ProbabilityDiagram,
+  PythagorasDiagram,
   RatioDiagram,
+  RightTriangleTrigDiagram,
   ScalingDiagram,
+  SineWaveDiagram,
   SlopeDiagram,
+  TriangleDiagram,
+  UnitCircleDiagram,
   VectorDiagram,
 } from "@/components/mdx/diagrams";
 import { StoryNote } from "@/components/mdx/story-note";
@@ -78,6 +85,13 @@ const components = {
   MatrixMapDiagram,
   ProbabilityDiagram,
   DistributionDiagram,
+  AngleDiagram,
+  TriangleDiagram,
+  PythagorasDiagram,
+  CircleDiagram,
+  RightTriangleTrigDiagram,
+  UnitCircleDiagram,
+  SineWaveDiagram,
   StoryNote,
 };
 

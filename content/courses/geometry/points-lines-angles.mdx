@@ -1,0 +1,69 @@
+---
+title: "Points, lines, and angles"
+slug: "points-lines-angles"
+order: 1
+summary: "Geometry begins when numbers gain place: a point has position, a line has direction, and an angle measures a turn. That is how quantity becomes something you can see."
+mathematician:
+  name: "Euclid"
+  years: "c. 325-265 BCE"
+  vignette: "Euclid did not invent every theorem in the Elements. He organized them into a ruthless chain: define carefully, assume little, prove the rest. The ethic worth stealing is not memorizing Book I. It is the habit of asking what you are allowed to use before you claim a conclusion."
+realWorld: "Floor plans, road maps, and screen layouts are geometry first: points mark locations, lines mark paths, angles mark turns. Measurement starts by naming those pieces."
+aiMlHook: "Feature spaces in ML are geometric: each sample is a point, distance is a length, and many models carve space with lines or hyperplanes. Geometry is the picture behind those metaphors."
+prerequisites: []
+curiositySeeds:
+  - "What is a point, really?"
+  - "How do you measure a turn?"
+estimatedMinutes: 20
+furtherReading:
+  - title: "MacTutor - Euclid"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Euclid/"
+    kind: reference
+    note: "Life, the Elements, and what 'Euclidean' means."
+  - title: "Joyce - Euclid Elements Book I"
+    url: "https://mathcs.clarku.edu/~djoyce/java/elements/bookI/bookI.html"
+    kind: reference
+    note: "Definitions, postulates, and early propositions in Euclid's own structure."
+  - title: "Algebrica - Angles and angular measure"
+    url: "https://algebrica.org/angles-and-angular-measure/"
+    kind: article
+    note: "Clear diagrams for measuring turns."
+  - title: "Khan Academy - Intro to Euclidean geometry"
+    url: "https://www.khanacademy.org/math/geometry-home"
+    kind: video
+    note: "Warm visual practice for points, lines, and angles."
+---
+
+## Why this lesson exists
+
+Numbers answer "how much?" Geometry answers "where?" and "which way?" Once you can place a quantity in space, you can compare shapes, measure turns, and later watch functions move as graphs. Visualization is not decoration. It is a second language for the same truths.
+
+## First principles
+
+A **point** marks a location with no size of its own. A **line** (in the Euclidean plane sense) extends without end in two directions. A **line segment** is the finite piece between two points. A **ray** starts at a point and goes forever in one direction.
+
+An **angle** is formed by two rays that share a vertex. Measuring an angle means measuring how much one ray has turned away from the other.
+
+<AngleDiagram />
+
+Euclid's Elements opens with definitions and postulates that try to pin these intuitions down so later theorems do not float free. You do not need every postulate memorized. You need the habit: **name the objects, then argue from agreed rules**.
+
+## Parallel and perpendicular (quick picture)
+
+- Two lines are **perpendicular** when they meet at a right angle (a quarter turn).
+- Two lines are **parallel** when they never meet (in the Euclidean plane).
+
+These words become machinery for congruence, similarity, coordinates, and later vectors.
+
+## Real world
+
+Turning a corner is an angle. Aligning a shelf square to a wall is a right angle. Drawing a map scale is turning lengths into drawn lengths while preserving angles when you can.
+
+## AI / ML bridge
+
+Decision boundaries, embedding plots, and "nearest neighbor" all borrow geometric language: points in a space, distances between them, and cuts that separate regions. Geometry trains your eye before the algebra gets high-dimensional.
+
+## Carry this forward
+
+- Geometry places numbers in space.
+- Angles measure turns.
+- Next: triangles, the simplest rigid shapes.

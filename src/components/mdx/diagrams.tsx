@@ -564,3 +564,289 @@ export function DistributionDiagram() {
     </Diagram>
   );
 }
+
+/** Angle formed by two rays */
+export function AngleDiagram() {
+  return (
+    <Diagram caption="An angle is a turn: how much one ray has rotated away from another.">
+      <svg
+        viewBox="0 0 320 180"
+        className="mx-auto h-auto w-full max-w-sm text-foreground"
+        role="img"
+        aria-label="Two rays meeting at a vertex with an angle marked"
+      >
+        <line x1="40" y1="140" x2="280" y2="140" stroke="currentColor" strokeWidth="1.5" />
+        <line x1="40" y1="140" x2="220" y2="40" stroke="currentColor" strokeWidth="1.5" />
+        <path
+          d="M 100 140 A 60 60 0 0 0 148 88"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          opacity="0.7"
+        />
+        <text x="130" y="118" className="fill-current" fontSize="13">
+          θ
+        </text>
+        <circle cx="40" cy="140" r="3" className="fill-current" />
+        <text x="28" y="160" className="fill-current" fontSize="11" opacity="0.7">
+          vertex
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Labeled triangle */
+export function TriangleDiagram() {
+  return (
+    <Diagram caption="A triangle is three points joined by three segments. Sides and angles lock together.">
+      <svg
+        viewBox="0 0 320 200"
+        className="mx-auto h-auto w-full max-w-sm text-foreground"
+        role="img"
+        aria-label="Triangle ABC with side labels"
+      >
+        <polygon
+          points="60,160 260,160 160,40"
+          fill="currentColor"
+          fillOpacity="0.06"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <text x="50" y="178" className="fill-current" fontSize="13" fontWeight="600">
+          A
+        </text>
+        <text x="262" y="178" className="fill-current" fontSize="13" fontWeight="600">
+          B
+        </text>
+        <text x="154" y="30" className="fill-current" fontSize="13" fontWeight="600">
+          C
+        </text>
+        <text x="150" y="178" textAnchor="middle" className="fill-current" fontSize="12" opacity="0.75">
+          c
+        </text>
+        <text x="90" y="100" className="fill-current" fontSize="12" opacity="0.75">
+          b
+        </text>
+        <text x="210" y="100" className="fill-current" fontSize="12" opacity="0.75">
+          a
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Right triangle with squares on sides (Pythagoras intuition) */
+export function PythagorasDiagram() {
+  return (
+    <Diagram caption="On a right triangle, the square on the hypotenuse matches the sum of the squares on the legs.">
+      <svg
+        viewBox="0 0 360 260"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Right triangle with squares on each side"
+      >
+        {/* triangle 3-4-5 scaled */}
+        <polygon
+          points="80,180 200,180 80,90"
+          fill="currentColor"
+          fillOpacity="0.08"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        {/* right angle mark */}
+        <path d="M 80 165 L 95 165 L 95 180" fill="none" stroke="currentColor" strokeWidth="1" />
+        {/* square on horizontal leg (length 120) */}
+        <rect
+          x="80"
+          y="180"
+          width="120"
+          height="60"
+          fill="currentColor"
+          fillOpacity="0.12"
+          stroke="currentColor"
+          strokeWidth="1.25"
+        />
+        <text x="140" y="215" textAnchor="middle" className="fill-current" fontSize="12">
+          a²
+        </text>
+        {/* square on vertical leg (length 90) */}
+        <rect
+          x="20"
+          y="90"
+          width="60"
+          height="90"
+          fill="currentColor"
+          fillOpacity="0.12"
+          stroke="currentColor"
+          strokeWidth="1.25"
+        />
+        <text x="50" y="140" textAnchor="middle" className="fill-current" fontSize="12">
+          b²
+        </text>
+        {/* square on hypotenuse - simplified parallelogram-ish square tilted */}
+        <polygon
+          points="200,180 290,120 210,30 120,90"
+          fill="currentColor"
+          fillOpacity="0.1"
+          stroke="currentColor"
+          strokeWidth="1.25"
+        />
+        <text x="210" y="110" textAnchor="middle" className="fill-current" fontSize="12">
+          c²
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Circle with radius and area hint */
+export function CircleDiagram() {
+  return (
+    <Diagram caption="A circle is all points at a fixed distance (the radius) from a center. Area grows with the square of that radius.">
+      <svg
+        viewBox="0 0 300 220"
+        className="mx-auto h-auto w-full max-w-xs text-foreground"
+        role="img"
+        aria-label="Circle with radius drawn"
+      >
+        <circle
+          cx="150"
+          cy="110"
+          r="70"
+          fill="currentColor"
+          fillOpacity="0.06"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <circle cx="150" cy="110" r="3" className="fill-current" />
+        <line x1="150" y1="110" x2="220" y2="110" stroke="currentColor" strokeWidth="1.5" />
+        <text x="180" y="102" className="fill-current" fontSize="12">
+          r
+        </text>
+        <text x="150" y="200" textAnchor="middle" className="fill-current" fontSize="12" opacity="0.75">
+          A = π r²
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Right triangle with opposite / adjacent / hypotenuse */
+export function RightTriangleTrigDiagram() {
+  return (
+    <Diagram caption="Fix an acute angle. Opposite, adjacent, and hypotenuse name the sides relative to that angle.">
+      <svg
+        viewBox="0 0 320 200"
+        className="mx-auto h-auto w-full max-w-sm text-foreground"
+        role="img"
+        aria-label="Right triangle with trig side labels"
+      >
+        <polygon
+          points="50,160 250,160 50,50"
+          fill="currentColor"
+          fillOpacity="0.06"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <path d="M 50 145 L 65 145 L 65 160" fill="none" stroke="currentColor" strokeWidth="1" />
+        <path
+          d="M 80 160 A 30 30 0 0 0 72 133"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          opacity="0.7"
+        />
+        <text x="88" y="148" className="fill-current" fontSize="13">
+          θ
+        </text>
+        <text x="150" y="178" textAnchor="middle" className="fill-current" fontSize="11" opacity="0.8">
+          adjacent
+        </text>
+        <text x="28" y="110" className="fill-current" fontSize="11" opacity="0.8">
+          opposite
+        </text>
+        <text x="160" y="95" className="fill-current" fontSize="11" opacity="0.8">
+          hypotenuse
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Unit circle with angle and point */
+export function UnitCircleDiagram() {
+  return (
+    <Diagram caption="On the unit circle, the point at angle θ is (cos θ, sin θ).">
+      <svg
+        viewBox="0 0 300 280"
+        className="mx-auto h-auto w-full max-w-xs text-foreground"
+        role="img"
+        aria-label="Unit circle with cosine and sine projections"
+      >
+        <line x1="30" y1="150" x2="270" y2="150" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+        <line x1="150" y1="30" x2="150" y2="270" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+        <circle
+          cx="150"
+          cy="150"
+          r="80"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        {/* point at about 50 degrees */}
+        <line x1="150" y1="150" x2="201" y2="89" stroke="currentColor" strokeWidth="1.5" />
+        <line x1="201" y1="150" x2="201" y2="89" stroke="currentColor" strokeWidth="1" strokeDasharray="4 3" opacity="0.7" />
+        <line x1="150" y1="150" x2="201" y2="150" stroke="currentColor" strokeWidth="1" strokeDasharray="4 3" opacity="0.7" />
+        <circle cx="201" cy="89" r="4" className="fill-current" />
+        <path
+          d="M 190 150 A 40 40 0 0 0 176 118"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          opacity="0.7"
+        />
+        <text x="198" y="132" className="fill-current" fontSize="12">
+          θ
+        </text>
+        <text x="175" y="168" className="fill-current" fontSize="11" opacity="0.8">
+          cos θ
+        </text>
+        <text x="210" y="120" className="fill-current" fontSize="11" opacity="0.8">
+          sin θ
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Simple sine wave */
+export function SineWaveDiagram() {
+  return (
+    <Diagram caption="As θ runs, sin θ oscillates between -1 and 1. Same pattern, forever repeating.">
+      <svg
+        viewBox="0 0 360 140"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Sine wave over one period"
+      >
+        <line x1="20" y1="70" x2="340" y2="70" stroke="currentColor" strokeWidth="1" opacity="0.35" />
+        <path
+          d="M 20 70 C 50 20, 80 20, 110 70 S 170 120, 200 70 S 260 20, 290 70 S 340 120, 340 70"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+        />
+        <text x="110" y="128" textAnchor="middle" className="fill-current" fontSize="11" opacity="0.7">
+          π
+        </text>
+        <text x="200" y="128" textAnchor="middle" className="fill-current" fontSize="11" opacity="0.7">
+          2π
+        </text>
+        <text x="40" y="28" className="fill-current" fontSize="12" opacity="0.8">
+          sin θ
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
