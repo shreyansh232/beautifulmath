@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Beautiful Math",
   description:
-    "Rebuild math from first principles — with real-world links, mathematician stories, and bridges to AI/ML.",
+    "Rebuild math from first principles - with real-world links, mathematician stories, and bridges to AI/ML.",
 };
 
 export default function RootLayout({

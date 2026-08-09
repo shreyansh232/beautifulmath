@@ -24,7 +24,7 @@ export default function PathPage() {
         <p className="mt-3 text-base leading-relaxed text-muted-foreground">
           Rebuild shaky foundations from first principles. Every lesson peels an
           idea to its core, ties it to the real world, meets a mathematician, and
-          — when the link is honest — shows where it reappears in AI and ML.
+          - when the link is honest - shows where it reappears in AI and ML.
         </p>
         <div className="mt-8">
           <ContinueLearning fallbackHref={startHref} />

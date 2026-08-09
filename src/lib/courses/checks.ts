@@ -14,7 +14,7 @@ export const FOUNDATION_CHECKS: Record<string, CheckItem[]> = {
       ],
       answerIndex: 1,
       explanation:
-        "In a place-value system, a digit’s meaning depends on where it sits. That is why 203 can mean two hundreds and three ones with nothing in the tens place — something tallies struggle to express cleanly.",
+        "In a place-value system, a digit’s meaning depends on where it sits. That is why 203 can mean two hundreds and three ones with nothing in the tens place - something tallies struggle to express cleanly.",
     },
     {
       id: "n2",
@@ -28,7 +28,7 @@ export const FOUNDATION_CHECKS: Record<string, CheckItem[]> = {
       ],
       answerIndex: 2,
       explanation:
-        "Place-holder zeros existed in multiple traditions. Brahmagupta’s Brāhmasphuṭasiddhānta (628) stands out for stating rules for zero and signed numbers in calculation — even though some of those rules (notably division by zero) do not match modern mathematics.",
+        "Place-holder zeros existed in multiple traditions. Brahmagupta’s Brāhmasphuṭasiddhānta (628) stands out for stating rules for zero and signed numbers in calculation - even though some of those rules (notably division by zero) do not match modern mathematics.",
     },
   ],
   "operations-as-transformations": [
@@ -37,13 +37,13 @@ export const FOUNDATION_CHECKS: Record<string, CheckItem[]> = {
       prompt: "Why is multiplication more than “a fancy name for repeated addition”?",
       options: [
         "Because multiplication never relates to addition at all",
-        "Because it scales or combines quantities — repeated addition is one model that works for whole numbers, but the idea generalizes to scaling, areas, and rates",
+        "Because it scales or combines quantities - repeated addition is one model that works for whole numbers, but the idea generalizes to scaling, areas, and rates",
         "Because addition is not a transformation",
         "Because calculators refuse to use addition",
       ],
       answerIndex: 1,
       explanation:
-        "For whole numbers, $3 \\times 4$ can be three copies of four. The deeper idea is scaling and structure: the same operation later describes areas, rates, and linear maps — far beyond counting copies.",
+        "For whole numbers, $3 \\times 4$ can be three copies of four. The deeper idea is scaling and structure: the same operation later describes areas, rates, and linear maps - far beyond counting copies.",
     },
     {
       id: "o2",
@@ -66,13 +66,13 @@ export const FOUNDATION_CHECKS: Record<string, CheckItem[]> = {
       prompt: "What is the core idea of a ratio, stripped of notation?",
       options: [
         "A decorative slash between two numbers",
-        "A comparison of two magnitudes of the same kind — how one relates to the other by relative size",
+        "A comparison of two magnitudes of the same kind - how one relates to the other by relative size",
         "Always a number strictly between 0 and 1",
         "A synonym for subtraction",
       ],
       answerIndex: 1,
       explanation:
-        "A ratio compares two quantities of the same kind. Euclid’s Book V develops when two such comparisons are the same — which is the ancestor of thinking carefully about proportions and, later, rates and probabilities.",
+        "A ratio compares two quantities of the same kind. Euclid’s Book V develops when two such comparisons are the same - which is the ancestor of thinking carefully about proportions and, later, rates and probabilities.",
     },
     {
       id: "f2",
@@ -80,13 +80,13 @@ export const FOUNDATION_CHECKS: Record<string, CheckItem[]> = {
         "Why do fractions matter so much for probability and machine learning later?",
       options: [
         "Because neural nets only store fractions in memory",
-        "Because probabilities, frequencies, and many losses are comparisons of parts to wholes — the same language as ratios",
+        "Because probabilities, frequencies, and many losses are comparisons of parts to wholes - the same language as ratios",
         "Because integers are illegal in AI",
         "Because Euclid invented softmax",
       ],
       answerIndex: 1,
       explanation:
-        "A probability is a normalized measure of relative weight. Confusion matrices, precision, recall, and class frequencies are all ratio language. Fractions are not a side topic — they are the dialect of relative quantity.",
+        "A probability is a normalized measure of relative weight. Confusion matrices, precision, recall, and class frequencies are all ratio language. Fractions are not a side topic - they are the dialect of relative quantity.",
     },
   ],
   "variables-and-unknowns": [
@@ -109,13 +109,13 @@ export const FOUNDATION_CHECKS: Record<string, CheckItem[]> = {
         "How does al-Khwārizmī’s “restoration and balancing” connect to modern equation solving?",
       options: [
         "It has no connection; algebra was invented in Europe in 1900",
-        "It is an early systematic method for rearranging equations — moving terms and simplifying until the unknown is isolated",
+        "It is an early systematic method for rearranging equations - moving terms and simplifying until the unknown is isolated",
         "It only works for geometry constructions",
         "It replaces numbers with poetry",
       ],
       answerIndex: 1,
       explanation:
-        "His Kitāb al-jabr wa-l-muqābala gives procedures for reducing problems to standard forms by restoring (al-jabr) and balancing (al-muqābala) — the conceptual ancestor of isolating an unknown.",
+        "His Kitāb al-jabr wa-l-muqābala gives procedures for reducing problems to standard forms by restoring (al-jabr) and balancing (al-muqābala) - the conceptual ancestor of isolating an unknown.",
     },
   ],
 };

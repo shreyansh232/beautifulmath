@@ -7,3 +7,21 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+# Beautiful Math - agent rules
+
+## Course content (mandatory)
+
+Before adding or changing any lesson, vignette, diagram caption, check, AI/ML bridge, real-world example, or "Read more" link:
+
+1. **Research first.** Use reputable sources (e.g. MacTutor, primary texts, peer-reviewed or well-known educational references). Do not invent history, anecdotes, or technical claims.
+2. **Verify sources.** Cross-check facts (dates, attributions, mathematical statements). Prefer primary or standard secondary sources over blog regurgitation. If a story is disputed or apocryphal, say so or omit it.
+3. **Record sources.** Keep notes under `content/courses/<course>/_sources/` for each lesson you ship.
+4. **Honest AI/ML bridges.** Only include an AI/ML link when it is genuine. If forced, omit it.
+5. **Inspiring mathematicians.** Vignettes should convey work ethic and passion, not a Wikipedia-style bio dump.
+
+## Typography (mandatory)
+
+**Never use em dashes (`—`) anywhere in product content:** lessons (MDX), frontmatter strings, checks, UI copy for the course, README course descriptions, diagram captions, or source notes meant for learners. Prefer commas, periods, colons, parentheses, or a spaced hyphen (` - `) when a break is needed.
+
+Date ranges may use a simple hyphen (`1887-1920`), not an em dash.

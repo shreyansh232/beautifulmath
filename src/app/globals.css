@@ -51,7 +51,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Cursor marketing palette — light */
+/* Cursor marketing palette - light */
 :root {
   --background: #f7f7f4;
   --foreground: #26251e;
@@ -89,7 +89,7 @@
   --sidebar-ring: #26251e66;
 }
 
-/* Cursor marketing palette — dark */
+/* Cursor marketing palette - dark */
 .dark {
   --background: #14120b;
   --foreground: #edecec;

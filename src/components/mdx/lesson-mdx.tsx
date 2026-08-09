@@ -2,6 +2,14 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import type { ReactNode } from "react";
+import {
+  BalanceDiagram,
+  InverseOpsDiagram,
+  NumberLineDiagram,
+  PlaceValueDiagram,
+  RatioDiagram,
+  ScalingDiagram,
+} from "@/components/mdx/diagrams";
 
 const components = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -47,6 +55,12 @@ const components = {
     <a className="underline underline-offset-2" {...props} />
   ),
   hr: () => <hr className="my-10 border-border" />,
+  PlaceValueDiagram,
+  NumberLineDiagram,
+  ScalingDiagram,
+  InverseOpsDiagram,
+  RatioDiagram,
+  BalanceDiagram,
 };
 
 export async function renderLessonMdx(source: string): Promise<ReactNode> {

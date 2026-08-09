@@ -49,7 +49,7 @@ export function UnderstandingChecks({ courseId, slug, checks }: Props) {
           Check your understanding
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Short questions — no timer, no scoreboard. Just see if the idea stuck.
+          Short questions - no timer, no scoreboard. Just see if the idea stuck.
         </p>
       </div>
 
@@ -121,7 +121,7 @@ export function UnderstandingChecks({ courseId, slug, checks }: Props) {
               )}
               {isOpen && (
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  {correct ? "Yes. " : "Not quite — "}
+                  {correct ? "Yes. " : "Not quite - "}
                   {check.explanation}
                 </p>
               )}

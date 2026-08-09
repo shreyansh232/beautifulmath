@@ -2,8 +2,13 @@ export type MathematicianMeta = {
   name: string;
   years: string;
   vignette: string;
-  image: string;
-  imageCredit: string;
+};
+
+export type FurtherReadingItem = {
+  title: string;
+  url: string;
+  kind: "video" | "article" | "book" | "reference";
+  note?: string;
 };
 
 export type LessonFrontmatter = {
@@ -17,6 +22,7 @@ export type LessonFrontmatter = {
   prerequisites: string[];
   curiositySeeds: string[];
   estimatedMinutes: number;
+  furtherReading?: FurtherReadingItem[];
 };
 
 export type LessonMeta = LessonFrontmatter & {
@@ -37,7 +43,7 @@ export const COURSES: CourseMeta[] = [
     id: "foundations",
     title: "Foundations",
     description:
-      "Rebuild numbers, operations, ratios, and variables from first principles — the ground under everything that follows.",
+      "Rebuild numbers, operations, ratios, and variables from first principles - the ground under everything that follows.",
     status: "available",
     order: 1,
   },
@@ -45,7 +51,7 @@ export const COURSES: CourseMeta[] = [
     id: "algebra",
     title: "Algebra",
     description:
-      "Equations, structure, and the language of unknown quantities — coming next.",
+      "Equations, structure, and the language of unknown quantities - coming next.",
     status: "coming",
     order: 2,
   },
@@ -53,7 +59,7 @@ export const COURSES: CourseMeta[] = [
     id: "calculus-intuition",
     title: "Calculus intuition",
     description:
-      "Change, rates, and accumulation — the ideas behind learning curves and gradients.",
+      "Change, rates, and accumulation - the ideas behind learning curves and gradients.",
     status: "coming",
     order: 3,
   },
@@ -61,7 +67,7 @@ export const COURSES: CourseMeta[] = [
     id: "linear-algebra",
     title: "Linear algebra",
     description:
-      "Vectors, matrices, and spaces — the native tongue of modern machine learning.",
+      "Vectors, matrices, and spaces - the native tongue of modern machine learning.",
     status: "coming",
     order: 4,
   },
@@ -69,7 +75,7 @@ export const COURSES: CourseMeta[] = [
     id: "probability",
     title: "Probability & information",
     description:
-      "Uncertainty, likelihood, and information — how models reason under doubt.",
+      "Uncertainty, likelihood, and information - how models reason under doubt.",
     status: "coming",
     order: 5,
   },

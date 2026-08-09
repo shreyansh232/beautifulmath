@@ -1,6 +1,6 @@
 # Beautiful Math
 
-A personal course for rebuilding math foundations from first principles — with real-world links, mathematician vignettes, and honest bridges to AI/ML.
+A personal course for rebuilding math foundations from first principles - with real-world links, mathematician vignettes, and honest bridges to AI/ML.
 
 ## Stack
 
@@ -8,7 +8,7 @@ A personal course for rebuilding math foundations from first principles — with
 - Tailwind CSS + shadcn/ui
 - MDX lessons + KaTeX
 - Manrope + Cursor marketing light/dark palette
-- Local progress (`localStorage`) — no accounts, no AI tutor
+- Local progress (`localStorage`) - no accounts, no AI tutor
 
 ## Develop
 
