@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { themeInitScript } from "@/components/theme-script";
 import { SiteHeader } from "@/components/site-header";
@@ -63,6 +64,7 @@ export default function RootLayout({
           <SiteHeader />
           <main className="flex-1">{children}</main>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
