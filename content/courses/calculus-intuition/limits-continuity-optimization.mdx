@@ -1,0 +1,225 @@
+---
+title: "Limits, continuity, and optimization"
+slug: "limits-continuity-optimization"
+order: 4
+summary: "Limits ask what a function approaches. Continuity asks whether the approach matches the value. Critical points and linear approximations turn those ideas into search and error control."
+mathematician:
+  name: "Karl Weierstrass"
+  years: "1815-1897"
+  vignette: "Weierstrass rebuilt analysis so continuity and limits could be checked with inequalities rather than handwaving. His lectures (preserved in student notes) pressed epsilontic discipline into the curriculum. The ethic: if a claim about nearness matters, make the nearness negotiable and testable."
+realWorld: "Zooming a sensor reading until noise settles, checking whether a price series jumps, and hunting peaks on a smooth score are all limit-continuity-optimization in street clothes."
+aiMlHook: "Training assumes loss varies smoothly enough for local linear steps to help. Discontinuities, cliffs, and bad linear approximations show up as exploding updates and brittle sensitivity."
+prerequisites:
+  - "rates-of-change"
+  - "the-derivative"
+curiositySeeds:
+  - "When does a limit exist but a derivative fail?"
+  - "Why can a linear approximation lie even when the derivative exists?"
+estimatedMinutes: 70
+furtherReading:
+  - title: "MacTutor - Karl Weierstrass"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Weierstrass/"
+    kind: reference
+  - title: "3Blue1Brown - Limits (essence of calculus)"
+    url: "https://www.youtube.com/watch?v=kfF40MiS7zA"
+    kind: video
+  - title: "Algebrica - Limits"
+    url: "https://algebrica.org/limits/"
+    kind: article
+    note: "Approach language before epsilontic polish."
+  - title: "Algebrica - Continuous functions"
+    url: "https://algebrica.org/continuous-functions/"
+    kind: article
+    note: "Limit equals value; discontinuity types."
+  - title: "Algebrica - Maximum, minimum, and inflection points"
+    url: "https://algebrica.org/maximum-minimum-and-inflection-points/"
+    kind: article
+    note: "Critical-point studio for smooth curves."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Change chapters that make nearness feel physical."
+
+---
+
+## How this idea was born
+
+Derivatives already lean on a quiet promise: as the zoom window shrinks, a slope number settles. That promise is a **limit**. Once you trust limits, a second human need appears: can I walk the graph without falling through a hole? That is **continuity**. A third need follows immediately in design and learning: where does a smooth score stop climbing, and how wrong is a straight-line forecast?
+
+Nineteenth-century analysis spent decades turning those intuitions into checkable language. **Karl Weierstrass** (1815-1897) pressed continuity and limits into inequality form in his lectures; MacTutor sketches the career. Historians caution against a cartoon that credits one person alone (Cauchy and others matter too). Steal the ethic carefully: if a claim about nearness matters, make the nearness negotiable and testable.
+
+For a modern rereader, this chapter sits between one-variable derivatives and many-variable learning. You already use limits whenever you write $f'(a)$. Here you name them, connect them to continuity, then spend them on optimization and on honesty about linear approximation error.
+
+<StoryNote title="Curiosity from history">
+  Weierstrass's epsilontic style is often reconstructed from lecture notes (for example Schwarz's 1861 notes), not a single polished textbook announcement. Attribute the career to MacTutor; treat "who invented epsilon-delta" as a shared nineteenth-century story, not a tavern myth.
+</StoryNote>
+
+## First principles
+
+Informally, $\lim_{x \to a} f(x) = L$ means: values of $f$ get arbitrarily close to $L$ whenever $x$ gets sufficiently close to $a$ (possibly excluding $a$ itself). The function may have a hole at $a$; the limit still cares about the approach.
+
+**Continuity at $a$** asks for three gifts at once: $f(a)$ defined, the limit exists, and
+
+$$
+\lim_{x \to a} f(x) = f(a).
+$$
+
+No jump, no removable mismatch, no wild oscillation that refuses a single landing value.
+
+If $f$ is differentiable at $a$, then $f$ is continuous at $a$. The converse fails: sharp corners and cusps can be continuous yet refuse a unique tangent slope.
+
+For a smooth enough $f$, **critical points** are places where $f'(x)=0$ or $f'$ fails to exist. On a closed interval, continuous functions attain maxima and minima; candidates live at critical points and endpoints. That is the classical search checklist, not a promise that every critical point is a peak.
+
+Near $a$, the linear approximation
+
+$$
+f(x) \approx f(a) + f'(a)(x-a)
+$$
+
+is the best first-order stand-in. The **numerical error** is the leftover
+
+$$
+R(x) = f(x) - \bigl(f(a) + f'(a)(x-a)\bigr).
+$$
+
+When $f''$ exists and is continuous nearby, $|R(x)|$ typically shrinks like $(x-a)^2$ (Taylor remainder intuition). Small steps keep linear forecasts honest; large steps do not.
+
+## Worked intuition
+
+Think of a limit as a negotiation. You name how close to $L$ you demand ($\varepsilon$). Nature (or the definition) answers with how close to $a$ you must stay ($\delta$). Continuity adds: the negotiated landing value must match the posted value $f(a)$.
+
+Optimization on a smooth hill: walk until the slope meter reads zero, then check neighbors (or second-derivative sign) to see whether you found a crest, a trough, or a shelf. Endpoints matter when your domain is boxed.
+
+Linear approximation is a tangent flashlight. In a tiny room it lights the floor well. Across a canyon it lies. Machine learning's local steps inherit that flashlight: useful nearby, dangerous when you leap.
+
+Algebrica's limits, continuous-functions, and max-min pages are the formal companions. Read the pictures first; then let inequalities harden what your eye already suspects.
+
+## Common confusions
+
+**Limit equals value automatically.** Only continuity forces that handshake. A hole can have a limit with no function value, or a value that disagrees with the limit.
+
+**Continuity means "looks smooth."** Continuity forbids jumps and certain wild mismatches. Differentiability is the smoother upgrade. $|x|$ is continuous at $0$ and not differentiable there.
+
+**$f'(c)=0$ means global optimum.** It means a horizontal tangent candidate. Context, endpoints, and second-derivative (or direct comparison) decide the story.
+
+**Linear approximation error is "rounding noise."** It is structured leftover from curvature and higher terms. Doubling the step often multiplies error by roughly four when the quadratic term dominates.
+
+**Limits are only for calculus class.** Every instantaneous rate, every continuous loss landscape assumption, and every finite-difference diagnostic leans on limit thinking.
+
+**"The function blows up so the limit is infinity."** Infinite limits are a useful extension of language; they are not finite limits. Say what you mean.
+
+## History & stories
+
+Weierstrass rebuilt analysis so continuity and limits could be checked with inequalities rather than gestures. MacTutor's Weierstrass biography is the short stop. Cauchy's earlier courses already pushed limit language hard; the dual history is richer than a single inventor plaque. Steal clarity, not a false monopoly.
+
+The practical payoff arrived wherever engineers and scientists needed to know whether a quantity settles under zoom, whether a model jumps, and whether a peak search is honest.
+
+<StoryNote title="From The Joy of X">
+  Strogatz's change chapters treat nearness as something you can feel in motion. Limits formalize that feeling; continuity asks whether the graph keeps its promise when you arrive.
+</StoryNote>
+
+## Real world
+
+A temperature sensor that chatters: average in a shrinking window and ask whether the reading settles. A stock chart with a trading halt: continuity failed in the recorded series even if the underlying price "should" have moved smoothly. A bike route elevation profile: critical points mark local climbs and descents; endpoints are the start and finish.
+
+Anytime you trust a straight-line forecast for a curved relationship, you are betting that the remainder $R(x)$ is small enough for your decision.
+
+## AI / ML bridge
+
+Gradient steps assume that near the current parameters, loss looks roughly linear (or at least smoothly curved). ReLU networks are continuous but not everywhere differentiable; optimizers still work with subgradients and practical hacks, yet the classical theorem "differentiable implies continuous" remains the calm baseline.
+
+Exploding updates often mean your step left the trustworthy linear neighborhood. Learning-rate schedules are partly remainder control in disguise. When people say a landscape is "ill-conditioned," they are complaining that linear steps fight curvature.
+
+This bridge is honest: deep learning rarely enjoys global smoothness theorems for free. It still lives or dies by local continuity and local linear sense.
+
+## For the rereader
+
+After gradients, notice that $\nabla L = 0$ is the multivariable cousin of $f'=0$. Continuity of $L$ is weaker than differentiability; training can still stumble on kinks.
+
+A sharper nuance: existence of $\lim_{h\to 0}[f(a+h)-f(a)]/h$ is a two-sided demand in one variable. One-sided derivatives can exist while the two-sided derivative fails. Corners are continuity without that two-sided gift.
+
+Also reread remainder. First-order methods ignore $R(x)$ operationally and pay for it in step-size drama. Second-order methods try to model curvature; they are remainder-aware upgrades, not magic.
+
+On a third visit, pick $f(x)=\sqrt{x}$ near $0^+$ and watch how linear forecasts from a point $a>0$ degrade as you march toward the endpoint. Continuity holds on $[0,\infty)$ in the usual topology story for this $f$; derivative blows up as you approach $0$. Continuity and differentiability part ways dramatically.
+
+## A longer critical-point studio
+
+Sketch $f(x)=x^3-3x$ on $[-2,2]$. Compute $f'$. Find critical points. Compare values at critical points and endpoints. Name the global max and min on the interval. That checklist is older than any neural net and still correct.
+
+Now sketch $g(x)=|x|$ on $[-1,1]$. Continuous everywhere; derivative fails at $0$. The minimum is obvious by picture. The classical "$g'=0$" hunt alone would miss the story if you refuse to check nondifferentiable candidates.
+
+## Linear approximation error studio
+
+Take $f(x)=e^x$ at $a=0$. The linear stand-in is $1+x$. Compare $e^{0.1}$ to $1.1$, then $e^{1}$ to $2$. Same theorem family, wildly different honesty. Plot the remainder. Feel the quadratic (and higher) tax.
+
+Finite differences $\frac{f(a+h)-f(a)}{h}$ approximate $f'(a)$ with their own truncation error. Too large $h$: bias. Too small $h$: floating-point noise. Limits are ideal; numerics live in a compromise band.
+
+## Practice prompts
+
+1. Give an example where a limit exists at $a$ but $f$ is not continuous at $a$.
+2. Why does differentiability at $a$ imply continuity at $a$, in one sentence of intuition?
+3. If $|R(x)| \approx C(x-a)^2$, what happens to error when you cut the step size in half?
+
+## Extended examples
+
+**Removable hole.** Define $f(x)=(x^2-1)/(x-1)$ for $x\neq 1$ and leave $f(1)$ undefined. The limit as $x\to 1$ is $2$. Filling $f(1)=2$ restores continuity.
+
+**Jump.** A step function that leaps at $0$ has left and right limits that disagree. Continuity fails; many "instantaneous rates" refuse to exist there.
+
+**Shelf critical point.** $f(x)=x^3$ has $f'(0)=0$ but no local max or min. Critical is not synonymous with extremum.
+
+**Constrained box.** On a closed interval, always check endpoints. Production limits and clipping activations are boxes in spirit.
+
+**ML flashlight.** A huge learning rate is a long step where $R$ dominates. The update direction may still be a true local downhill, yet the landing point is elsewhere.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** Limits settle approaches; continuity matches approach to value; critical points and remainders turn that into search and honesty.
+
+**One picture.** A graph with a hole, a jump, and a smooth peak side by side.
+
+**One checklist.** For max/min on $[a,b]$: critical points plus endpoints.
+
+**One error law.** Linear forecasts leave a structured remainder that usually shrinks faster than the step when curvature is mild.
+
+**One ethic.** Make nearness testable (Weierstrass's spirit).
+
+**One Strogatz hook.** Change you can feel under zoom.
+
+**One Algebrica stop.** Limits, continuous functions, and max-min pages.
+
+**One AI seed.** Local linear steps need trustworthy neighborhoods.
+
+**Cross-links.** Rates and derivatives behind you; gradients ahead; probability later for noisy estimates of slopes.
+
+**Workplace failure.** Trusting a tangent-line extrapolation across a regime change.
+
+**Reread schedule.** After your first exploding-gradient incident, return to remainder. After ReLU, return to continuity without everywhere-differentiability.
+
+**Notation scratchpad.**
+- $\lim_{x\to a} f(x)=L$
+- Continuity: limit equals $f(a)$
+- Critical: $f'=0$ or undefined
+- Remainder $R(x)$ after linearization
+
+**Questions that stay alive.**
+- Is my landscape continuous where I train?
+- How large is my effective step versus curvature?
+- Did I check endpoints and nondifferentiable kinks?
+
+**Closing image.** A flashlight on a curved road: perfect in a few meters, lying around the bend.
+
+## Glossary of moves
+
+- **Limit:** settling value under approach.
+- **Continuity:** limit matches posted value.
+- **Critical point:** flat or nondifferentiable candidate for extrema.
+- **Linear approximation:** tangent stand-in.
+- **Remainder:** truth minus linear forecast.
+
+## Carry this forward
+
+- Limits make instantaneous rates honest; continuity makes graphs traversable.
+- Optimization hunts critical points and boundaries.
+- Linear steps are local tools; error control is part of the craft.
+- Next: pack slopes into gradients for many knobs at once.

@@ -15,7 +15,7 @@ prerequisites:
 curiositySeeds:
   - "What is a basis?"
   - "What does dimension count?"
-estimatedMinutes: 34
+estimatedMinutes: 72
 furtherReading:
   - title: "MacTutor - Emmy Noether"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Noether_Emmy/"
@@ -37,6 +37,18 @@ furtherReading:
 
 ---
 
+## How this idea was born
+
+Coordinates feel absolute until you change them. Graphics frames, sensor arrays, and data tables all confront the same struggle: which independent directions are enough to describe everything you care about, and what stays true when you rewrite the labels?
+
+**Emmy Noether** (1882-1935) rebuilt algebra around structure and homomorphism, often while institutions blocked her path. Students flocked to her anyway. MacTutor is the biographical stop. Steal the ethic carefully (and without flattening Grassmann's earlier geometric ambitions into the same story): fierce clarity about what stays invariant when representations change, and generosity in teaching that clarity. A **basis** is a minimal wardrobe that still dresses every vector uniquely. **Dimension** counts how many independent costume pieces you need.
+
+For a modern rereader, this chapter is about structure that survives rewriting - why PCA, graphics frames, and change-of-basis drills keep returning. Without bases, coordinates feel absolute. With bases, you see the costume for what it is.
+
+<StoryNote title="From The Joy of X">
+  "Group Think" is Strogatz on symmetry's algebra. Bases and dimension are a sibling idea: how many independent directions do you need to build every vector in a space? Structure is what remains when coordinates change.
+</StoryNote>
+
 ## First principles
 
 Vectors $\mathbf{v}_1,\ldots,\mathbf{v}_k$ are **linearly independent** if the only solution to
@@ -51,52 +63,160 @@ A **basis** of a space is an independent spanning set: every vector has unique c
 
 **Dimension** is the number of vectors in any basis (a theorem says they all agree).
 
+The column space dimension of a matrix is its **rank**: how many independent output directions it can hit.
 
-## Slow down: coordinates are costumes
+## Worked intuition
 
-The same arrow can wear the costume $(1,0)$ in one basis and a different pair in another. Dimension counts how many independent costume pieces you need. A plane is two-dimensional because two independent directions span it - not because someone drew an $x$ and $y$ axis in a textbook.
+The same arrow can wear the costume $(1,0)$ in one basis and a different pair in another. A plane is two-dimensional because two independent directions span it - not because someone drew an $x$ and $y$ axis in a textbook.
 
-This is why change of basis matters in graphics, PCA, and physics: choose axes that make the phenomenon simple.
-
-## Why this matters
-
-Coordinates are not the object. The space is. Change basis and coordinates change, but geometric relationships (when properly expressed) persist. Noether's broader algebraic spirit is exactly this: track the structure that survives rewriting.
-
-## Rank (preview)
-
-The column space dimension of a matrix is its rank: how many independent output directions it can hit.
-
-## Real world
-
-Three mutually perpendicular unit axes basis ordinary space. Four legs of a table that are coplanar constraints show dependence in physical disguise.
-
-## AI / ML bridge
-
-If a layer's weight matrix has low rank, it bottlenecks information. Embeddings live in a chosen dimension: enough axes to separate concepts, not so many that you drown in noise.
-
-<StoryNote title="From The Joy of X">
-  <p>
-    "Group Think" is Strogatz on symmetry's algebra. Bases and dimension are a sibling idea: how many independent directions do you need to build every vector in a space? Structure is what remains when coordinates change.
-  </p>
-</StoryNote>
-
-<StoryNote title="Curiosity from history">
-  <p>
-    Change-of-basis thinking is why the same physical arrow can wear different number costumes in different frames. Einstein-era geometry made that flexibility physical. Linear algebra makes it computational.
-  </p>
-</StoryNote>
-
-## Dig deeper
+This is why change of basis matters in graphics, PCA, and physics: choose axes that make the phenomenon simple. PCA seeks informative orthogonal directions of variance. CAD software lets you pick convenient frames for a part. Sensors that duplicate each other are dependent directions wearing hardware clothes.
 
 Algebrica's vector spaces and change-of-basis pages reward patience. Dimension is not "number of coordinates on the page." It is the size of a basis.
 
-## Curiosity seeds
+Three mutually perpendicular unit axes basis ordinary space. Four legs of a table that impose coplanar constraints show dependence in physical disguise: more sticks than independent motions.
 
-- Can two different bases span the same plane?
-- What does dimension $0$ look like?
+## Common confusions
+
+**Dimension equals ambient list length.** A line through the origin in $\mathbb{R}^3$ is still one-dimensional even though each point wears three ambient coordinates. Dimension is about the subspace, not the ambient costume size.
+
+**Any spanning set is a basis.** Spanning sets can be redundant. Bases are spanning and independent. Throw out extras until uniqueness of coordinates appears.
+
+**Rank as a mysterious matrix property.** Rank is dimension of the column space (equivalently row space). It answers: how many independent output directions can this map produce?
+
+**Coordinates as the object.** Change basis and coordinates change, but geometric relationships (when properly expressed) persist. Confusing the costume for the actor is the root bug.
+
+**Ambient dimension worship.** More coordinates are not automatically more truth. Effective dimension of data may be far smaller.
+
+**Confusing orthogonal with independent in casual speech.** Orthogonal is an inner-product story. Independence is a linear-combination story. Related in Euclidean settings with care; not synonyms everywhere.
+
+## History & stories
+
+Emmy Noether rebuilt algebra around structure and homomorphism, often while institutions blocked her path. Students flocked to her anyway. MacTutor's Emmy Noether biography is essential reading. The ethic is fierce clarity about what stays invariant when representations change - and generosity in teaching that clarity despite the room's politics.
+
+Change-of-basis thinking is why the same physical arrow can wear different number costumes in different frames. Twentieth-century geometry made that flexibility physical; linear algebra makes it computational.
+
+<StoryNote title="Curiosity from history">
+  Change-of-basis thinking is why the same physical arrow can wear different number costumes in different frames. Linear algebra makes that flexibility computational.
+</StoryNote>
+
+## Real world
+
+Choosing axes for a CAD model, or picking independent sensors that do not duplicate information, is choosing a useful basis. Robotics and computer vision change frames constantly: camera, robot, world.
+
+Compression and dimensionality reduction are bets that data approximately live in a lower-dimensional structure inside a larger ambient space.
+
+## AI / ML bridge
+
+PCA and related methods find informative bases for data. Rank of a weight matrix limits how many independent feature directions a layer can produce. Low-rank bottlenecks (intentional or accidental) constrain capacity.
+
+Embeddings live in a chosen dimension: enough axes to separate concepts, not so many that you drown in noise. "The" embedding dimension is a modeling choice about basis size for meaning space.
+
+## For the rereader
+
+After living with gradients, notice that parameter space dimension is the number of independent knobs - until constraints or ties reduce effective dimension. After probability, notice that a distribution over a discrete set of size $n$ lives in an $(n-1)$-dimensional simplex because probabilities sum to one: dependence built into the definition.
+
+A sharper nuance: bases are not unique, but dimension is. Much of linear algebra's power is theorems that say "every basis has the same size" and "rank is well-defined." Invariants are the point.
+
+Also reread Noether's ethic beside "Group Think." Symmetry and basis-change are different chapters of the same novel: what remains when you rewrite the description.
+
+On a third visit, change coordinates for a single arrow in two bases and verify both reconstruct the same geometric object. Ritualize the costume metaphor until it feels boring - boring means learned.
+
+Keep a list of basis choices in tools you use: camera frames, PCA plots, one-hot versus learned embeddings. Note what stays invariant.
+
+## A longer structural studio
+
+In $\mathbb{R}^2$, show that $\{(1,0),(0,1)\}$ and $\{(1,1),(1,-1)\}$ are both bases. Take the same geometric arrow and compute coordinates in each basis. Feel the costume change while the arrow stays.
+
+Now take $\{(1,0),(2,0)\}$. Spanning a line, not independent. Throw one out to get a basis of that line. Redundancy versus minimality becomes tactile.
+
+## Rank with a matrix
+
+Write a $2\times3$ matrix whose two rows are multiples. Column space dimension collapses. Rank names that collapse. Low-rank layers in ML are capacity bottlenecks, sometimes intentional (compression), sometimes accidental (undertraining collapse).
+
+## PCA ethic
+
+PCA seeks informative orthogonal directions of variance. It is a change of basis chosen by data, not by textbook habit. Graphics and robotics change bases for convenience; PCA changes bases for signal. Same scaffolding idea; different objective.
+
+## Practice prompts
+
+1. Can two different bases span the same plane? Must they have the same size?
+2. What does dimension $0$ look like?
+3. Give a physical example of dependent measurements (duplicate sensors).
+
+## Extended examples
+
+**Two bases, one arrow.** $\mathbf{v}=(2,2)$ in the standard basis. In basis $\mathbf{b}_1=(1,1)$, $\mathbf{b}_2=(1,-1)$, coordinates become $(2,0)$. Same arrow, new costume.
+
+**Dependent sensors.** Two thermometers glued together produce dependent readings. Three independent axes in space do not. Hardware can illustrate linear dependence.
+
+**Rank-nullability glimpse.** Dimension theorem ideas: dimensions of column space and null space add to number of columns (standard theorem). Capacity lost to the null space is invisible output variation.
+
+**One-hot basis.** Standard basis vectors are the one-hot costumes. Embeddings learn more useful bases for meaning. Dimension choice is still a bet.
+
+**Invariant checklist.** Lengths and angles are not invariant under every basis change unless you track the inner product carefully. Structure first; coordinates second.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** A basis is minimal scaffolding; dimension counts independent directions.
+
+**One picture.** The same arrow wearing two different coordinate costumes.
+
+**One test.** Independence: only the zero combination gives the zero vector.
+
+**One warning.** Ambient list length is not subspace dimension.
+
+**One ethic.** Track what stays invariant when representations change (Noether).
+
+**One Strogatz hook.** "Group Think" - structure beneath appearances; sibling to basis thinking.
+
+**One Algebrica stop.** Vector spaces and change-of-basis pages.
+
+**One AI seed.** PCA bases; rank as capacity; embedding dimension as modeling choice.
+
+**Cross-links.** Vectors live in spaces. Matrices have rank = column-space dimension. Projections need subspaces named by bases. Probability simplices hide a dependence (sum-to-one).
+
+**Workplace failure.** Adding dimensions to a model as a superstition without asking effective dimension of the data.
+
+**Reread schedule.** After PCA labs, return. After a low-rank bottleneck surprise, return.
+
+**Notation scratchpad.**
+- Basis: independent spanning set
+- $\dim$ = size of any basis
+- $\mathrm{rank}(A)=\dim(\mathrm{col}(A))$
+
+**Questions that stay alive.**
+- Costume or actor - which am I debating?
+- What is the effective dimension here?
+- Which invariants survive my rewrite?
+
+**Closing image.** A wardrobe of coordinate costumes with a fixed actor underneath: style changes, identity persists.
+
+## Glossary of moves
+
+- **Independence:** no nontrivial combination gives zero.
+- **Spanning set:** combinations fill the space.
+- **Basis:** independent spanning set; unique coordinates.
+- **Dimension:** size of any basis.
+- **Change of basis:** new coordinates, same vector.
+- **Rank:** dimension of column space.
+- **Effective dimension:** useful degrees of freedom in data, often less than ambient.
+
+## One more vignette
+
+Travel adapters exist because plugs are costumes for the same electrical need. Bases are travel adapters for vectors. Dimension counts how many independent prongs the space truly needs. When a product claims "512-dimensional embeddings," hear a costume size - then ask what effective dimensions the data actually use.
+
+## Why reread this chapter at all
+
+A personal knowledge base earns its keep on the second and third visit. The first visit teaches vocabulary. Later visits catch workplace failures, connect neighboring courses, and sharpen taste. If a section felt long, that is intentional: lasting chapters are denser than skim cards. Skim the field notes when time is short; return to worked examples when a bug in your thinking appears.
+
+If you only remember one habit from this chapter, make it this: name the assumption you are silently using. Windows for rates, axes for vectors, priors for updates, losses for averages - unspoken assumptions are where knowledge bases go soft.
+
+Write one sentence in your own words before leaving the page. If you cannot, the chapter is not done with you yet - and that is useful information, not failure.
+
+Structure first. Coordinates second. Invariants always.
 
 ## Carry this forward
 
-- Basis = coordinate scaffolding.
-- Dimension = independent directions.
+- Basis = minimal coordinate scaffolding; dimension = count of independent directions.
+- Rank measures independent output directions of a matrix.
 - Linear algebra checkpoint: vectors, maps, alignment, structure. Probability adds uncertainty on top.

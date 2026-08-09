@@ -25,3 +25,10 @@
 - Additional StoryNote hooks from Steven Strogatz, The Joy of X (2012), mapped to chapter themes without inventing quotations.
 - Diagram ideas cross-checked against Algebrica topic pages (CC BY-NC 4.0: link and inspire; do not paste their SVGs).
 - Historical vignettes cross-checked against MacTutor where named.
+
+## Knowledge-base expansion
+- Personal KB structure added with job-labeling (unknown/general/parameter/dummy/feature), equivalent equations, and desk-reference solving checklist.
+- Themes: naming before knowing; balance as symmetric invertible undos; al-Khwārizmī al-jabr/al-muqābala teachability without letter-x myth; Joy of X "Joy of x" / Finding Your Roots; ML features and weights as named quantities.
+- Added Joy of X to furtherReading (was missing).
+
+- Opening rewritten to story-before-symbols.

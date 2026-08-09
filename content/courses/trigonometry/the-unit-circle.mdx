@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "Why radius 1?"
   - "How can sine be negative?"
-estimatedMinutes: 34
+estimatedMinutes: 72
 furtherReading:
   - title: "MacTutor - Ptolemy"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Ptolemy/"
@@ -39,9 +39,23 @@ furtherReading:
 
 ---
 
+## How this idea was born
+
+Wheels turn past a right angle. Seasons cycle. Ships and stars keep moving after an acute corner is no longer enough. Right-triangle sine and cosine know only acute angles; the world of turns is larger: obtuse angles, full rotations, negative orientations, endless spinning.
+
+Astronomers needed a handbook that could follow circular motion all the way around. In the second century, **Claudius Ptolemy**'s *Almagest* carried chord tables and geometric methods that made spherical astronomy computable for centuries. MacTutor sketches the system-building ethic: gather geometric tools into a handbook other minds can run with. Different notation than modern sine, same ambition: turn angles into lengths you can tabulate and reuse.
+
+The **unit circle** is the modern picture that extends those ratios to every oriented angle. On a circle of radius 1, cosine and sine become coordinates of a point. Triangle ratios and circular motion become the same objects.
+
+For a modern rereader, once you can read a point on the circle as a cosine-sine address, obtuse angles stop feeling like exceptions and negative sine stops feeling like a bug.
+
+<StoryNote title="Curiosity from history">
+  Ptolemy's <em>Almagest</em> carried chord methods that made spherical astronomy computable for centuries. Different notation than modern sine, same ambition: turn angles into lengths you can tabulate.
+</StoryNote>
+
 ## First principles
 
-The **unit circle** is $x^2 + y^2 = 1$. From the positive $x$-axis, turn an oriented angle $\theta$. The landing point $P$ has coordinates
+The unit circle is $x^2 + y^2 = 1$. From the positive $x$-axis, turn an oriented angle $\theta$. The landing point $P$ has coordinates
 
 $$
 P = (\cos\theta,\ \sin\theta)
@@ -49,18 +63,38 @@ $$
 
 <UnitCircleDiagram />
 
-Why radius 1? Because then "adjacent/hypotenuse" collapses to the $x$-coordinate itself, and "opposite/hypotenuse" collapses to $y$. Triangle ratios and circle coordinates become the same objects.
+Why radius 1? Because then "adjacent/hypotenuse" collapses to the $x$-coordinate itself, and "opposite/hypotenuse" collapses to $y$. Triangle ratios with hypotenuse normalized away become coordinates, then extend to every oriented angle.
+
+In the first quadrant both sine and cosine are positive. Elsewhere signs follow the signs of $x$ and $y$. That is how obtuse and reflex angles stay meaningful, and how sine can be negative without drama.
+
+**Quadrant sign cheat that is not superstition:** ask "Is $x$ positive or negative? That is the sign of cosine." Then "Is $y$ positive or negative? That is the sign of sine." The picture decides; you do not need a chant.
 
 
-## Slow down: coordinates are the ratios
+## Worked intuition
 
-On radius $1$, adjacent/hypotenuse collapses to $x$ and opposite/hypotenuse collapses to $y$. That is why the unit circle is not a new subject. It is right-triangle trig with the hypotenuse normalized away, then extended to every oriented angle.
+### Coordinates are the ratios
 
-## Signs by quadrant
+On radius 1, the old acute-angle definitions are not replaced. They are completed. Draw the right triangle from the origin to $P$ to the $x$-axis when $P$ is in the first quadrant: you recover adjacent $= x$, opposite $= y$, hypotenuse $= 1$.
 
-In the first quadrant both sine and cosine are positive. Elsewhere signs follow the signs of $x$ and $y$. That is how obtuse and reflex angles stay meaningful.
+**Example - $\theta = \pi/3$ (60°).** From the special triangle, $P = (\cos(\pi/3), \sin(\pi/3)) = (1/2, \sqrt{3}/2)$. Both coordinates positive. First quadrant.
 
-## Pythagorean identity
+**Example - $\theta = 2\pi/3$ (120°).** Same $y$-coordinate as $60^\circ$ but $x$ flips negative: $P = (-1/2, \sqrt{3}/2)$. Cosine negative, sine positive. Second quadrant.
+
+**Example - $\theta = -\pi/2$.** A clockwise quarter turn from the positive $x$-axis lands at $(0, -1)$. Sine is $-1$; cosine is $0$. The point sits on the negative $y$-axis.
+
+### Anchor points worth knowing
+
+| Angle | Radians | $(\cos\theta, \sin\theta)$ |
+|-------|---------|----------------------------|
+| $0^\circ$ | $0$ | $(1, 0)$ |
+| $90^\circ$ | $\pi/2$ | $(0, 1)$ |
+| $180^\circ$ | $\pi$ | $(-1, 0)$ |
+| $270^\circ$ | $3\pi/2$ | $(0, -1)$ |
+| $360^\circ$ | $2\pi$ | $(1, 0)$ again |
+
+Full turns return to the start. That is periodicity in coordinate form.
+
+### Pythagorean identity
 
 From $x^2 + y^2 = 1$:
 
@@ -68,39 +102,119 @@ $$
 \cos^2\theta + \sin^2\theta = 1
 $$
 
-Geometry lesson Pythagoras, rewritten in trig clothing.
+Geometry lesson Pythagoras, rewritten in trig clothing. Algebrica's Pythagorean identity page is a clean companion to this fact.
+
+**Using the identity:** If $\sin\theta = 3/5$ and $\theta$ is in the second quadrant, then $\cos^2\theta = 1 - 9/25 = 16/25$, so $\cos\theta = -4/5$ (negative because $x < 0$ in QII). The identity gives magnitude; the quadrant gives sign.
+
+### Reference angles
+
+Every point on the unit circle shares $y$-magnitude (sine magnitude) or $x$-magnitude (cosine magnitude) with some acute angle called the **reference angle**. Example: $\sin(150^\circ) = \sin(30^\circ) = 1/2$, but $\cos(150^\circ) = -\cos(30^\circ)$ because $x$ is negative in QII.
+
+### Circular motion read sideways
+
+A wheel's position is an angle. The height of a point on the rim as the wheel turns is a sine wave. Circular motion and oscillation are one picture. Strogatz's "Sine Qua Non" leans on that Ferris-wheel intuition: watch a point go around; watch its height oscillate.
+
+<StoryNote title="From The Joy of X">
+  "Sine Qua Non" is Strogatz on sine waves everywhere - Ferris wheels to zebra-stripe models. The unit circle is the engine room: $x=\cos\theta$, $y=\sin\theta$, and suddenly oscillation is just circular motion read sideways.
+</StoryNote>
+
+
+## Common confusions
+
+**Thinking the unit circle is a new subject.** It is right-triangle trig with hypotenuse 1, then extended by orientation and continuation around the circle.
+
+**Fear of negative sine or cosine.** Signs are quadrant coordinates, not moral failures of the definition.
+
+**Memorizing quadrant signs without the picture.** If you can see $x$ and $y$, you do not need a separate superstition chart.
+
+**Forgetting radians on the unit circle.** Arc length equals $\theta$ only when $\theta$ is in radians and radius is 1. That is a feature, not a trivia item.
+
+**Confusing chord traditions with modern sine.** Historical tables often tabulated chords; modern sine is a half-chord in that lineage. Notation changed; the ambition (angle to length) endured.
+
+**Treating $\tan\theta$ as always defined.** On the unit circle, $\tan\theta = \sin\theta/\cos\theta$. When $\cos\theta = 0$ (at $\pi/2$ and $3\pi/2$), tangent blows up. The geometry is vertical; the ratio has no finite value.
+
+**Assuming sine and cosine can exceed 1.** On the unit circle, both coordinates live in $[-1, 1]$. If your calculator gives $\sin\theta = 1.2$, check mode, labeling, or whether you confused sine with something else.
+
+
+## History and stories
+
+Ptolemy's *Almagest* (Claudius Ptolemy, c. 100-170) carried chord tables and geometric methods that made spherical astronomy computable for centuries. MacTutor emphasizes the handbook ethic: gather geometric tools so other minds can run with them.
+
+Different notation than modern sine, same ambition: turn angles into lengths you can tabulate. Hipparchus earlier, Ptolemy's systematization later, Indian half-chord (sine) tables in Aryabhata's tradition: a long craft, not a single invention moment.
+
+Popular stories that flatten Ptolemy into either pure hero or pure villain of astronomy miss the mathematical point for this lesson: chord methods as computational geometry.
+
+Ptolemy's chord of an angle is related to modern sine by a factor of 2 and a half-angle shift. You do not need the exact conversion formula to appreciate the continuity: tables for the sky, updated notation, same computational hunger.
 
 ## Real world
 
-A wheel's position is an angle. The height of a point on the rim as the wheel turns is a sine wave. Circular motion and oscillation are one picture.
+Any repeating cycle can be drawn as motion around a circle:
+
+- Wheel and gear positions
+- AC electricity phase
+- Seasonal models and circadian abstractions
+- Animation and robotics joint angles
+
+The double view (point on a circle, coordinate oscillating in time) is the whole subject in one mental gif.
+
+**AC power:** voltage and current trace sine waves $90^\circ$ out of phase in ideal inductor-capacitor circuits. The phase angle is a position on the unit circle, measured in radians or degrees depending on the engineer's habit.
+
+**Color wheels:** hue is often modeled as an angle around a circle. Saturation and lightness are separate knobs, but hue is pure turning.
+
+**Planetarium software:** star positions use spherical coordinates (declination, right ascension). The unit circle is the equatorial slice of that larger sphere.
+
 
 ## AI / ML bridge
 
-Rotation by $\theta$ multiplies coordinates by a $2\times 2$ matrix of sines and cosines. Understanding that matrix geometrically makes linear algebra feel less like symbol soup.
+Rotation by $\theta$ multiplies coordinates by a $2\times 2$ matrix built from $\cos\theta$ and $\sin\theta$:
 
-<StoryNote title="From The Joy of X">
-  <p>
-    "Sine Qua Non" is Strogatz on sine waves everywhere - Ferris wheels to zebra-stripe models. The unit circle is the engine room: $x=\cos\theta$, $y=\sin\theta$, and suddenly oscillation is just circular motion read sideways.
-  </p>
-</StoryNote>
+$$
+\begin{pmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
+\end{pmatrix}
+$$
 
-<StoryNote title="Curiosity from history">
-  <p>
-    Ptolemy's <em>Almagest</em> carried chord methods that made spherical astronomy computable for centuries. Different notation than modern sine, same ambition: turn angles into lengths you can tabulate.
-  </p>
-</StoryNote>
+Understanding that matrix geometrically makes linear algebra feel less like symbol soup. Graphics code and many geometric ML layers rotate features the same way geometry rotates points.
 
-## Dig deeper
+**Augmentation in vision:** training pipelines randomly rotate images by small angles. Each pixel coordinate passes through this matrix (with interpolation). The trig is not decorative; it is the transform.
 
-Algebrica's unit circle and Pythagorean identity pages show why $\sin^2\theta+\cos^2\theta=1$ is Pythagoras wearing trig clothes.
+**Attention mechanisms** sometimes use rotary position embeddings (RoPE), which apply rotation-like operations in embedding space. The details are research-grade, but the intuition starts here: encode position as a turn.
 
-## Curiosity seeds
 
-- In which quadrant is cosine negative and sine positive?
-- How is a 2D rotation matrix secretly a unit-circle fact?
+## For the rereader
+
+When waves and identities arrive, return here: periodicity is what happens when the point completes full turns. When Fourier decompositions appear, rotating vectors are still this lesson's language.
+
+Watch a point go around. Watch its height oscillate. If that double view is vivid, you own the engine room of trigonometry.
+
+Algebrica's unit circle page rewards a slow reread whenever signs feel arbitrary.
+
+**Quadrant drill:** Without a calculator, state the signs of $\sin\theta$ and $\cos\theta$ for $\theta = 200^\circ$, $\theta = 315^\circ$, $\theta = -\pi/4$. Then locate each angle on the circle and verify.
+
+**Curiosity question:** Why is cosine an even function ($\cos(-\theta) = \cos\theta$) but sine is odd ($\sin(-\theta) = -\sin\theta$)? Mirror the circle across the $x$-axis. $x$ coordinates match; $y$ coordinates flip.
+
+**Dig deeper (Algebrica):** The Pythagorean identity page shows how $\sin^2\theta + \cos^2\theta = 1$ follows from $x^2 + y^2 = 1$ with a diagram. Pair it with the unit circle page when signs and magnitudes tangle.
+
+### Coterminal angles
+
+$\theta$ and $\theta + 2\pi k$ (integer $k$) land on the same point. So $\sin(\theta + 2\pi) = \sin\theta$ and $\cos(\theta + 2\pi) = \cos\theta$. A robot arm at $370^\circ$ is the same pose as $10^\circ$. Coterminal angles are the language of "same place, different lap count."
+
+### Tangent on the circle
+
+When $P = (\cos\theta, \sin\theta)$ and $\cos\theta \neq 0$, tangent is slope from the origin to $P$: $\tan\theta = \sin\theta/\cos\theta = y/x$. In QI and QIII, slope matches tangent sign. In QII and QIV, the slope sign still follows $y/x$. Drawing the ray helps more than memorizing quadrant tangent rules.
+
+### Symmetry you can see
+
+Reflect across the $x$-axis: $\sin$ flips sign, $\cos$ stays. Reflect across the $y$-axis: $\cos$ flips sign, $\sin$ stays. Rotate $180^\circ$: both flip sign. These symmetries are coordinate facts, not separate theorems to memorize.
+
+**Practice:** Without a calculator, find $\sin(\pi/6)$, $\cos(\pi/4)$, and $\sin(\pi)$ using special triangles and the anchor table.
+
 
 ## Carry this forward
 
-- Unit circle = trig functions as coordinates.
-- Identity $\sin^2 + \cos^2 = 1$ is Pythagoras.
+- Unit circle: trig functions as coordinates on radius 1.
+- Identity $\sin^2\theta + \cos^2\theta = 1$ is Pythagoras.
+- Signs follow quadrants; oriented angles unlock the full line of inputs.
+- Reference angles connect every quadrant back to acute triangles.
 - Next: waves, periodicity, and similarity scores.

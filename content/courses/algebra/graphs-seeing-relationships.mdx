@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What is a graph of a function?"
   - "What does slope mean on a line?"
-estimatedMinutes: 34
+estimatedMinutes: 72
 furtherReading:
   - title: "MacTutor - Rene Descartes"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Descartes/"
@@ -36,62 +36,186 @@ furtherReading:
 
 ---
 
+## How this idea was born
+
+A rule written only in symbols is hard to feel. Travelers, surveyors, and later scientists wanted paths and trends they could see: how far as time runs, how high as a setting changes, where two conditions meet. Drawing the relationship turns a table of pairs into a shape the eye can argue with.
+
+In *La Géométrie* (1637), René Descartes showed how algebraic equations describe curves. Pierre de Fermat developed related coordinate ideas in the same era. Descartes wanted method: reduce geometry to calculation, and lift calculation into geometric insight. The ethic is synthesis. Do not pick a team between pictures and symbols. Make them translate.
+
+For a modern rereader, a **graph** is a rule made visible. This chapter closes the algebra track's opening arc: equations, systems, functions, graphs. Each step added a lens. Graphs let your eyes join the conversation.
+
+<StoryNote title="From The Joy of X">
+  "The Conic Conspiracy" is Strogatz on graphs as family resemblance among curves. Attribute as popular exposition of geometric families, not as a primary source for Descartes.
+</StoryNote>
+
 ## First principles
 
-If $y = f(x)$, the **graph** is the set of points $(x, f(x))$ in the plane.
+If $y = f(x)$, the **graph** of $f$ is the set of points $(x, f(x))$ in the plane.
 
 <LineGraphDiagram />
 
-Coordinates let algebra speak geometrically: the unknown becomes a location.
+Coordinates let algebra speak geometrically: the unknown becomes a location. Axes without scales, though, can lie. A picture is only as honest as its labeled units.
+
+Every point on a graph answers: when the input is this, the output is that. Clusters, slopes, intercepts, and curves are a pattern language. Before you differentiate, you can already see where a graph rises quickly or flattens. Calculus will later name those visual hunches precisely.
+
+**Reading a graph checklist:**
+
+1. Label both axes (quantity and unit).
+2. Note the scale (does one unit on $y$ equal one unit on $x$ visually?).
+3. Identify intercepts and any obvious roots.
+4. Describe shape: rising, falling, flat, bending.
+5. Ask whether the picture represents a function of $x$ (vertical-line test).
+
+Algebrica's [analyzing graphs](https://algebrica.org/analyzing-the-graphs-of-functions/) page walks intercepts, symmetry, and shape with worked examples. Good companion reading after your first sketch.
 
 
-## Slow down: a graph is a relationship made visible
+## Worked intuition
 
-Every point on a graph is an answer to "when the input is this, the output is that." Clusters, slopes, intercepts, and curves are pattern language. Before you differentiate, you can already see where a graph rises quickly or flattens - calculus will later name those visual hunches.
+### Lines
 
-## Lines
-
-$y = mx + b$ has slope $m$ and intercept $b$. Slope is rise over run between any two points on the line.
+$y = mx + b$ has slope $m$ and $y$-intercept $b$. Slope is rise over run between any two points on the line.
 
 Parallel lines share slope. Perpendicular lines in the usual Euclidean plane have slopes whose product is $-1$ (when both are defined).
 
-## What graphs buy you
+Slope is already a rate: how much $y$ changes per unit $x$. That is the doorway to derivatives.
+
+**Slope from two points:**
+
+Through $(1, 2)$ and $(4, 8)$:
+
+$$
+m = \frac{8 - 2}{4 - 1} = \frac{6}{3} = 2
+$$
+
+The line is $y = 2x + b$. Plug in $(1, 2)$: $2 = 2(1) + b$, so $b = 0$. Equation: $y = 2x$.
+
+### What graphs buy you
 
 - Spot intercepts and roots ($f(x) = 0$)
-- See growth vs decay
+- See growth versus decay
 - Compare two functions visually
+- Guess qualitative behavior before algebraic grinding
 
-Descartes's analytic geometry is the historical hinge: equations become curves, curves become equations.
+<CoordinatePlaneDiagram />
+
+### Plotting a few points
+
+For $f(x) = x^2 - 1$, build a small table:
+
+| $x$ | $f(x)$ |
+|-----|--------|
+| $-2$ | $3$ |
+| $-1$ | $0$ |
+| $0$ | $-1$ |
+| $1$ | $0$ |
+| $2$ | $3$ |
+
+Plot $(-2, 3)$, $(-1, 0)$, and so on. Connect with a smooth U-shape. The roots at $x = \pm 1$ are where the graph crosses the $x$-axis ($y = 0$). The $y$-intercept is $(0, -1)$.
+
+You do not need infinitely many points. A handful plus symmetry often reveals the shape.
+
+### Comparing two functions on one graph
+
+Plot $y = 2x + 1$ and $y = -x + 7$ together. They intersect where $2x + 1 = -x + 7$, so $3x = 6$ and $x = 2$, $y = 5$. The intersection point $(2, 5)$ is the graphical solution to the system. Systems from the previous chapter are line meetings in disguise. Sketch both lines and mark the meeting point before you trust the algebra.
+
+### Beyond lines
+
+Not every important graph is a straight line. Parabolas, ellipses, and hyperbolas form a famous family. Strogatz's "Conic Conspiracy" delights in their shared ancestry: slices of a cone, shared algebraic DNA.
+
+<StoryNote title="From The Joy of X">
+  "The Conic Conspiracy" delights in how parabolas, ellipses, and hyperbolas hide family resemblance - slices of a cone, shared algebraic DNA. Graphs are not only straight lines. They are a museum of shapes with shared ancestry.
+</StoryNote>
+
+### Checking graph claims
+
+If someone says "the graph of $y = 3x - 2$ passes through $(2, 4)$," substitute: $3(2) - 2 = 4$. True. A point lies on a graph exactly when its coordinates satisfy the defining equation.
+
+If a sketch shows a steep climb but the axis labels reveal the $y$-scale is compressed, trust the labels, not the drama.
+
+**Quick check:** Does $(1, 5)$ lie on $y = 3x + 2$? Left side is 5; right side is $3(1) + 2 = 5$. The point is on the graph.
+
+
+## Common confusions
+
+**Reading a graph without checking scales.** A steep-looking line can be gentle if the $y$-axis is stretched. Missing scales are a silent lie.
+
+**Confusing a sketch with a proof.** Pictures suggest. Algebra confirms. Use both.
+
+**Thinking every relation is a function graph.** Circles as $x^2 + y^2 = 1$ are relations; as graphs of $y$ versus $x$ they fail the vertical-line test unless you split into branches.
+
+**Mixing up intercept meanings.** The $y$-intercept is where $x = 0$. Roots are where $y = 0$. They answer different questions.
+
+**Treating slope as only "steepness aesthetic."** Slope is a rate. In applications it carries units: dollars per hour, meters per second, loss per training step.
+
+**Plotting too few points for nonlinear curves.** Two points determine a line. They do not determine a parabola. Use symmetry and a few more samples.
+
+**Ignoring domain restrictions.** The graph of $f(x) = \sqrt{x}$ on the reals starts at $x = 0$. Drawing it for negative $x$ would lie about the machine's domain.
+
+**Confusing the graph of $f$ with the graph of $f(x) = c$.** A horizontal line $y = 5$ is the graph of a constant function. A vertical line $x = 3$ is not a function graph at all. Orientation matters.
+
+
+## History and stories
+
+In *La Géométrie* (1637), Descartes showed how algebraic equations describe curves. MacTutor and the Stanford Encyclopedia entry on Descartes's mathematics emphasize method: reduce geometry to calculation, and lift calculation into geometric insight. The ethic is synthesis. Do not pick a team between pictures and symbols. Make them translate.
+
+Fermat developed related coordinate and tangent ideas in the same broad historical neighborhood. Popular slogans that "Descartes alone invented the graph" oversimplify. Prefer the documented hinge: analytic geometry made equation and curve mutually intelligible.
+
+Before formulas, humans drew paths of planets and tides. A modern graph is that instinct upgraded with axes. When a loss curve in training plateaus, engineers feel something ancient: the trail went flat; what changed in the terrain?
+
+<StoryNote title="Curiosity from history">
+  Descartes and Fermat helped glue algebra to geometry with coordinates. Suddenly a curve could be an equation, and an equation could be a picture. That glue is why your graphing calculator (and every ML loss plot) exists.
+</StoryNote>
+
 
 ## Real world
 
-A speedometer over time is a graph. Area under a speed curve foreshadows distance (calculus).
+- **Dashboards and time series:** stock price, temperature, or traffic as $y$ versus time $t$.
+- **ECG traces and other biomedical signals** plotted over time.
+- **Speed versus time:** slope of the graph is acceleration; area under the curve foreshadows distance (a calculus preview).
+- **Learning curves** in education analytics and in model training.
+- **Supply and demand:** two lines on one graph; intersection is market equilibrium.
+
+Looking carefully is not anti-math. It is math's first instrument.
+
+**Curiosity question:** Find any chart in the news. What are the axes? Does the visual slope match the stated rate of change, or could scaling trick your eye?
+
+**Checking a graph claim:** If a company's revenue graph shows a straight line from (2019, 1M dollars) to (2024, 6M dollars), the slope is $\frac{5\text{M}}{5\text{ years}} = 1\text{M dollars/year}$. Does the headline's "fivefold growth" match? (Yes: 1M to 6M is 6x, not 5x. Graphs catch sloppy language.)
+
 
 ## AI / ML bridge
 
 Plotting training loss versus step is reading a function $L(t)$. Sudden spikes, plateaus, and smooth descent are geometric language for optimization behavior.
 
-<CoordinatePlaneDiagram />
+ROC curves, calibration plots, and embedding scatterplots are how practitioners see model behavior. Reading a graph is part of reading a model. The algebra track checkpoint (equations, systems, functions, graphs) is exactly the literacy those plots assume.
 
-<StoryNote title="From The Joy of X">
-  <p>
-    "The Conic Conspiracy" delights in how parabolas, ellipses, and hyperbolas hide family resemblance - slices of a cone, shared algebraic DNA. Graphs are not only straight lines. They are a museum of shapes with shared ancestry.
-  </p>
-</StoryNote>
+A loss curve that dives then flatlines tells a story: early rapid improvement, then diminishing returns. A spike might mean a bad learning-rate step or bad batch. You are doing graph reading, not mysticism.
 
-<StoryNote title="Curiosity from history">
-  <p>
-    Descartes and Fermat helped glue algebra to geometry with coordinates. Suddenly a curve could be an equation, and an equation could be a picture. That glue is why your graphing calculator (and every ML loss plot) exists.
-  </p>
-</StoryNote>
+Embedding scatterplots in two dimensions are graphs of a higher-dimensional function compressed for human eyes. Each point is an object (a word, an image, a user) placed so that nearby points mean "similar" under the model's notion of similarity. The axes may not have physical units, but the graph-reading habits still apply: clusters, outliers, and gaps are evidence.
 
-## Curiosity seeds
 
-- What information does a graph throw away when axes lack scales?
-- How is slope already a rate (preview of calculus)?
+## For the rereader
+
+When calculus defines derivatives, return to slope-as-rate you can already see. When conic sections return in analytic geometry, return to family resemblance rather than isolated formulas.
+
+Ask of every plot you meet in the wild:
+
+- What are the axes and units?
+- Is this a function of one variable, or a scatter of a relation?
+- Where does it cross zero, flatten, or explode?
+
+Curiosity often starts as "why does it bend there?"
+
+**Rereader drill:** Without plotting software, sketch the graph of $y = -2x + 3$. Where does it cross the axes? What is the slope? Now verify one point algebraically.
+
+**Second pass question:** How is solving a system of two linear equations the same problem as finding where two lines meet on a graph? Say it in one sentence.
+
+**Third pass curiosity:** The graph of $y = |x|$ has a corner at the origin. You can see the bend without computing a derivative. What question would calculus answer about that corner that your eyes already noticed?
+
 
 ## Carry this forward
 
-- Graphs are sets of pairs.
+- Graphs are sets of input-output pairs made visible.
 - Slope previews rate of change.
-- Algebra track checkpoint: equations, systems, functions, graphs. Calculus makes slope precise.
+- Pictures and symbols should translate, not compete.
+- Always check scales and domain before trusting a picture.
+- Algebra opening arc: equations, systems, functions, graphs. Next: inequalities and beyond.

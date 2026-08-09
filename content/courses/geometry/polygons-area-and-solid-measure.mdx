@@ -1,0 +1,200 @@
+---
+title: "Polygons, area, and solid measure"
+slug: "polygons-area-and-solid-measure"
+order: 6
+summary: "Polygon area comes from decomposing into triangles. Prisms and cylinders extend area into volume by stacking. Surface measure asks how much skin wraps the solid."
+mathematician:
+  name: "Archimedes"
+  years: "c. 287-212 BCE"
+  vignette: "Archimedes hunted volumes of curved solids with a double discipline: a mechanical method to discover relations, then exhaustion to prove them. The sphere and cylinder ratio he prized is the emblem. The ethic is refuse to treat space as unmeasurable - and separate heuristic discovery from finished proof."
+realWorld: "Floor plans, fabric cuts, shipping crates, tanks, and packaging all need area and volume. Confusing the two, or confusing surface with capacity, is an expensive everyday mistake."
+aiMlHook: "Detection and segmentation metrics often compare regions via overlap (intersection over union). That is area literacy with pixels: how much measured region agrees."
+prerequisites:
+  - "triangles-and-congruence"
+  - "circles-and-area"
+curiositySeeds:
+  - "Why do triangles unlock every straight-edged area?"
+  - "What is the difference between surface and volume?"
+estimatedMinutes: 74
+furtherReading:
+  - title: "MacTutor - Archimedes"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/"
+    kind: reference
+    note: "Sphere, cylinder, exhaustion, and the Method."
+  - title: "MacTutor - Archimedes on mechanical and geometric methods"
+    url: "https://mathshistory.st-andrews.ac.uk/Extras/Archimedes_The_Method/"
+    kind: reference
+    note: "Primary-flavored excerpts on discovery vs demonstration."
+  - title: "Joyce - Euclid Elements Book XII"
+    url: "https://mathcs.clarku.edu/~djoyce/java/elements/bookXII/bookXII.html"
+    kind: reference
+    note: "Pyramids, cones, cylinders, and spheres in the exhaustion tradition."
+  - title: "Algebrica - Law of cosines"
+    url: "https://algebrica.org/law-of-cosines/"
+    kind: article
+    note: "Includes the path toward Heron's formula for triangle area from three sides."
+  - title: "Algebrica - Finding areas by integration"
+    url: "https://algebrica.org/finding-areas-by-integration/"
+    kind: article
+    note: "Later calculus language for region measure; see the ancestor in exhaustion."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Take It to the Limit: Archimedes and squeezing the unknown."
+---
+
+## How this idea was born
+
+Land, floors, and fabric force a practical question: how much region sits inside a boundary? Grain, oil, and stone force another: how much space sits inside a solid? Straight-edged plots suggest polygons. Storage jars and columns suggest prisms, cylinders, and curved solids.
+
+Greek geometry organized area by reducing polygons to triangles and triangles to known formulas. Euclid's Book XII, in a tradition Archimedes associates with Eudoxus, relates pyramids to prisms and cones to cylinders by exhaustion. Archimedes then pushes curved solids famously: a sphere is two-thirds of its circumscribed cylinder in volume (and he connects surface to related conical comparisons). Discovery could use mechanical balancing (the Method); publication demanded geometric exhaustion. Credit the lineage, not a lone formula memorized without sweat.
+
+For a modern rereader, this chapter is measurement literacy: decompose, stack, wrap. Return here whenever "size" is ambiguous between length, area, volume, and surface.
+
+<StoryNote title="From The Joy of X">
+  "Take It to the Limit" is Strogatz on Archimedes and tightening bounds. Volume of curved solids inherits that patience: approximate, squeeze, conclude.
+</StoryNote>
+
+## First principles
+
+### Polygon area via triangles
+
+A **polygon** is a plane region bounded by finitely many straight segments. Any simple polygon can be partitioned into triangles (triangulation). Area is additive over that partition: total area is the sum of triangle areas.
+
+For a triangle with base $b$ and corresponding height $h$,
+
+$$
+A = \frac{1}{2}bh.
+$$
+
+That is enough machinery to unlock rectangles, parallelograms, trapezoids, and irregular lots once you draw the right heights. Heron's formula (later via the law of cosines) gives triangle area from three sides alone when heights are awkward; Algebrica's law-of-cosines page sketches that door.
+
+### Prisms, cylinders, and stacking
+
+A right **prism** with base area $B$ and height $H$ has volume
+
+$$
+V = B H.
+$$
+
+Intuition: stack base-shaped slices of thickness totaling $H$. A right **cylinder** is the curved sibling: base a disk of area $\pi r^2$, so $V = \pi r^2 H$. Euclid XII.10 (exhaustion lineage) relates a cone to one-third of the cylinder with the same base and height; pyramids sit similarly under prisms. This lesson's first job is the prism/cylinder stacking intuition; cones and pyramids are the one-third cousins.
+
+### Surface versus volume
+
+**Volume** measures capacity (how much fits inside). **Surface area** measures skin (how much wrap, paint, or heat exchange area). A tall thin tank and a short fat tank can share volume while differing wildly in surface. Scaling reminder from the decimals chapter: under uniform scale factor $k$, areas go as $k^2$ and volumes as $k^3$.
+
+### Archimedes and the sphere
+
+Archimedes's celebrated comparison: the volume of a sphere is $\frac{4}{3}\pi r^3$, and that volume is two-thirds the volume of the circumscribed cylinder (base the great circle, height the diameter). Surface area $4\pi r^2$ fits the same circle-obsessed worldview. The Method shows how mechanical balancing suggested relations; exhaustion locked them down. MacTutor's Archimedes pages are the biography and Method doors.
+
+## Worked intuition
+
+**Example 1 - irregular lot.**  
+A pentagonal yard splits into three triangles from one vertex. Survey each base and height (or all sides plus an angle). Sum the triangle areas. Decomposition beats memorizing a special pentagon formula.
+
+**Example 2 - parallelogram.**  
+A parallelogram shears into a rectangle of the same base and height; area is still base times height. Shear preserves area even though it is not a rigid motion (transformations chapter).
+
+**Example 3 - shipping crate.**  
+Base $1.2$ m by $0.8$ m, height $1.5$ m: volume $1.2 \times 0.8 \times 1.5 = 1.44$ m³. Surface area needs all six faces if you are buying wrap, not only the base.
+
+**Example 4 - can of soup.**  
+Approximate as a cylinder: label area involves $2\pi r H$ (lateral) plus tops. Volume is $\pi r^2 H$. Cheap height tricks that preserve volume can change label cost via surface.
+
+**Example 5 - IoU preview.**  
+Two overlapping bounding boxes: intersection area over union area scores agreement. Computer vision borrowed polygon/region area language.
+
+## Common confusions
+
+- **"Area formulas are unrelated memorization."** Most polygon formulas are triangle sums in costume.
+- **"Volume and surface scale the same way."** They do not: $k^3$ vs $k^2$. Biology and engineering are full of that mismatch (square-cube themes).
+- **"Cylinder volume is circumference times height."** Circumference is length. Volume needs base *area* times height.
+- **"Archimedes only guessed π."** He also locked solid comparisons with exhaustion after mechanical discovery. Sphere-to-cylinder is the emblem.
+- **"Curved solids are unmeasurable."** Exhaustion and, later, integrals exist because that shrug was rejected.
+
+## History and stories
+
+<StoryNote title="Curiosity from history">
+  Archimedes credits earlier geometers (and Democritus for an assertion about the cone) while claiming his Method as a discovery engine. Euclid Book XII preserves exhaustion arguments for pyramids, cones, cylinders, and spheres. Lineage over lone-genius myths.
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  Strogatz's Archimedes chapter makes the emotional point: approximation that becomes exact in the limit is a superpower. Polygon area by triangulation is the tame warm-up; curved volumes are the boss fight.
+</StoryNote>
+
+<StoryNote>
+  The sphere-and-cylinder result was so prized that later tradition says Archimedes wanted the figure on his tomb. Treat the tomb story as tradition with romantic fog; treat the mathematical comparison as solid.
+</StoryNote>
+
+## Real world
+
+Architecture and carpentry live on area takeoffs. Logistics lives on cubic meters. Insulation and coating live on surface. Medicine doses sometimes track surface area of a body; shipping costs may track volume or dimensional weight. Always ask which measure the invoice uses.
+
+## AI / ML bridge
+
+Intersection over union (IoU) for boxes or masks compares areas of overlap and union. Voxel grids approximate volumes in 3D vision. These are honest measurement borrowings: models score region agreement with area (and sometimes volume) arithmetic. It is not a claim that Archimedes trained detectors.
+
+## For the rereader
+
+Hold four ideas:
+
+1. **Triangulation** - polygons reduce to triangles; area adds.
+2. **Stacking** - prism/cylinder volume is base area times height.
+3. **One-third cousins** - pyramid/cone vs prism/cylinder (Euclid XII lineage).
+4. **Archimedean squeeze** - curved solids via exhaustion; sphere/cylinder emblem.
+
+Algebrica's law of cosines opens Heron. Integration pages show the calculus sequel to exhaustion.
+
+
+## Deepening the first principles
+
+### Why triangulation works
+
+A diagonal of a convex polygon stays inside. Repeating yields $n-2$ triangles for a convex $n$-gon. Non-convex polygons need more care (ears, constrained triangulations), but the ethic survives: reduce to triangles.
+
+### Cavalieri's spirit (preview)
+
+Solids with equal corresponding cross-sectional areas at every height share volume. Stacking arguments and later Cavalieri's principle are cousins. Archimedes's slice-balancing in the Method is an ancestor in attitude.
+
+### Square-cube tension
+
+Double a creature's linear size: bone cross-sections ($k^2$) fight weight ($k^3$). Packaging and biology both feel the mismatch this chapter names.
+
+### Surface of a cylinder
+
+Lateral surface unwraps to a rectangle of width $2\pi r$ and height $H$. Plus two disks $2\pi r^2$ if closed. Unwrapping is transformation of the skin without claiming the solid is flat.
+
+### From polygons to $\pi$
+
+Inscribed and circumscribed polygons squeeze circle area (circles chapter). This chapter's polygon tools are how that squeeze gets computational teeth.
+
+
+## A desk reference you will reuse
+
+### Area checklist
+Triangle: $\frac{1}{2}bh$. Polygon: triangulate and add. Rectangle: $lw$. Parallelogram: base $\times$ height. Circle: $\pi r^2$.
+
+### Volume checklist
+Right prism/cylinder: $V = BH$. Cone/pyramid: $V = \frac{1}{3}BH$ (Euclid XII lineage). Sphere: $V = \frac{4}{3}\pi r^3$.
+
+### Surface checklist
+Sum face areas; for a cylinder, unwrap the lateral face. Do not confuse with volume.
+
+### Scaling checklist
+Lengths $\propto k$, areas/surfaces $\propto k^2$, volumes $\propto k^3$.
+
+### Connection forward
+Calculus turns exhaustion into integrals. Linear algebra measures parallelepiped volumes with determinants. Probability uses volumes in continuous spaces. ML IoU reuses area overlap.
+
+### Mini-exercises for a second sitting
+1. Split a regular hexagon into equilateral triangles; relate side length to area.
+2. A cylinder and a prism share base area and height. Compare volumes.
+3. If linear dimensions scale by $2$, what happens to surface area and volume?
+4. Why is "paint needed" usually a surface question, not a volume question?
+
+## Carry this forward
+
+- Polygon area reduces to triangle area.
+- Prism and cylinder volume stack base area through height.
+- Surface and volume answer different questions; scaling degrees differ.
+- Geometry checkpoint: space is measurable when you decompose, stack, and (when needed) squeeze.

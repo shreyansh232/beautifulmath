@@ -1,0 +1,201 @@
+---
+title: "SVD and PCA"
+slug: "svd-and-pca"
+order: 7
+summary: "SVD factors any matrix as rotation, scale, rotation. PCA chooses variance-maximizing orthogonal directions - often computed via SVD of centered data."
+mathematician:
+  name: "Karl Pearson"
+  years: "1857-1936"
+  vignette: "Pearson helped turn correlation and multivariate description into workable statistical practice, including early principal-component thinking for reducing correlated measurements. MacTutor records the biometrics push and the long editorial labor behind Biometrika. Steal the ethic: when variables tangle, seek a clearer coordinate story backed by data, not vibes."
+realWorld: "Compressing images, reducing sensor suites to a few informative axes, and finding dominant patterns in tabular data are everyday SVD/PCA moves."
+aiMlHook: "PCA is classical dimensionality reduction. SVD underpins stable least squares, low-rank approximation, and many embedding/compression pipelines. Neural nets are not 'just PCA,' but PCA remains a honest baseline and diagnostic."
+prerequisites:
+  - "eigenvalues-and-eigenvectors"
+  - "dot-products-and-projections"
+curiositySeeds:
+  - "What do singular values measure?"
+  - "Why center data before PCA?"
+estimatedMinutes: 75
+furtherReading:
+  - title: "MacTutor - Karl Pearson"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Pearson/"
+    kind: reference
+  - title: "3Blue1Brown - Singular value decomposition"
+    url: "https://www.youtube.com/watch?v=vSoaLqA3Txo"
+    kind: video
+  - title: "Algebrica - Eigenvalues and eigenvectors"
+    url: "https://algebrica.org/eigenvalues-and-eigenvectors/"
+    kind: article
+    note: "Spectral warm-up; SVD extends the stretch story to rectangular maps."
+  - title: "Algebrica - Matrix diagonalization"
+    url: "https://algebrica.org/matrix-diagonalization/"
+    kind: article
+  - title: "Algebrica - Variance and covariance"
+    url: "https://algebrica.org/variance-and-covariance-of-a-random-variable/"
+    kind: article
+    note: "Variance language that PCA maximizes."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Data and structure chapters as neighboring intuition."
+
+---
+
+## How this idea was born
+
+Eigen-decompositions love square matrices with enough eigenvectors. Data matrices are usually **rectangular**: rows as samples, columns as features. You still want a stretch story - which directions in feature space carry energy, which combinations of samples matter - without pretending the matrix is square.
+
+The SVD was discovered in the nineteenth century independently by **Eugenio Beltrami** and **Camille Jordan**, with later contributions from Sylvester, Schmidt, Weyl, and others (standard surveys such as Stewart's SIAM Review piece map the lineage). Low-rank approximation theorems often associated with Eckart-Young have earlier infinite-dimensional roots in Schmidt's work. Separately, **Karl Pearson** (1857-1936) and later Hotelling developed principal-component ideas for multivariate data; MacTutor sketches Pearson's biometric and correlation program. Steal Pearson's ethic for the data-facing half: when variables tangle, seek clearer coordinates backed by measurement. Keep the SVD invention story layered, not monolothic.
+
+For a modern rereader, SVD is the factorization; PCA is the statistical mission that often uses SVD as its engine.
+
+<StoryNote title="Curiosity from history">
+  Prefer Stewart-style surveys for SVD attribution (Beltrami, Jordan, and later figures). Prefer MacTutor for Pearson's career. Do not collapse SVD and PCA into one inventor anecdote; they meet in applications.
+</StoryNote>
+
+## First principles
+
+Any real $m\times n$ matrix $A$ admits a **singular value decomposition**
+
+$$
+A = U\Sigma V^{\mathsf{T}}
+$$
+
+(with orthogonal $U$, $V$ and rectangular diagonal $\Sigma$ of nonnegative **singular values** $\sigma_1\ge\sigma_2\ge\cdots$). Geometry slogan: **rotation (or reflection), axis-aligned scaling, rotation**. $V$'s columns are right singular vectors (input directions); $U$'s columns are left singular vectors (output directions); $\sigma_i$ are stretch factors.
+
+Truncating to the top $k$ singular values gives the best rank-$k$ approximation to $A$ in the usual Frobenius/spectral senses (Eckart-Young-Mirsky theorem family). That is compression with a theorem.
+
+**Principal component analysis (PCA)** asks a statistical question: given centered data, which orthonormal directions capture the most variance? For a centered data matrix $X$, PCA directions are eigenvectors of the covariance (proportional to $X^{\mathsf{T}}X$), equivalently the right singular vectors of $X$. Projecting onto the top components yields a variance-maximizing low-dimensional basis.
+
+Centering matters: without subtracting means, the first "component" often just points at the mean offset rather than meaningful spread.
+
+## Worked intuition
+
+Imagine $A$ acting on a sphere of input vectors. The image is an ellipsoid. Singular vectors align with the ellipsoid's axes; singular values are the axis lengths. That picture works even when $A$ is rectangular: it maps between spaces of different dimension.
+
+PCA on a cloud of points: find the line that maximizes projected variance, then the next orthogonal line, and so on. SVD of the centered cloud's matrix computes those axes efficiently.
+
+Least squares connects: SVD yields stable solutions even when $A$ is rank-deficient, via the pseudoinverse built from reciprocal singular values (with care for tiny $\sigma$).
+
+Algebrica has strong eigen and variance pages; use them as spectral and statistical companions while 3Blue1Brown supplies the SVD visual.
+
+## Common confusions
+
+**SVD is "just" eigenvalues of $A$.** Singular values of $A$ are square roots of eigenvalues of $A^{\mathsf{T}}A$ (and of $AA^{\mathsf{T}}$). Nouns differ; kinship is real.
+
+**PCA without centering.** Often a silent bug. Mean structure masquerades as a principal direction.
+
+**More components always better.** For compression and denoising, trailing components can be noise. For prediction, PCA features are unsupervised: high variance need not mean high label relevance.
+
+**Neural embeddings are PCA.** Sometimes PCA is a strong baseline. Deep features are nonlinear and task-tuned. Honest bridge: PCA is linear variance geometry; modern representation learning is a broader game.
+
+**Singular values equal explained variance automatically.** In PCA they relate after centering and appropriate scaling. Track your normalization.
+
+**Orthogonal components mean independent causes.** Orthogonality is geometric. Independence is probabilistic. Do not smuggle causation.
+
+## History & stories
+
+Beltrami and Jordan opened the SVD; later mathematicians extended and applied it; mid-twentieth-century numerical linear algebra (Golub and others) made computing SVD practical. Pearson and Hotelling shaped PCA as statistical practice. The meeting point is modern data matrices: one factorization, many missions (compression, denoising, regression, visualization).
+
+<StoryNote title="From The Joy of X">
+  Strogatz's data-adjacent chapters reward the instinct to replace a tangled description with a shorter one that still carries the plot. PCA is that instinct with an orthogonality constraint and a variance score.
+</StoryNote>
+
+## Real world
+
+JPEG-like low-rank thinking, eigenfaces-style image bases, climate modes from spatiotemporal grids, and "how many sensors do we actually need?" reviews all lean on SVD/PCA ideas.
+
+A spreadsheet with twenty correlated columns often has only a few dominant singular directions. The rest may be noise or rare structure - decide with domain knowledge, not only scree plots.
+
+## AI / ML bridge
+
+PCA remains a standard preprocessing and visualization tool. Truncated SVD appears in topic models, recommender latent-factor warm starts, and stable linear algebra subroutines. Latent semantic analysis is a classical SVD-on-term-document story.
+
+Honest boundary: end-to-end deep learning usually learns nonlinear features with task loss, not maximum-variance linear axes. Still, when someone claims a mysterious 50D embedding is "necessary," PCA of activations or inputs is a fair sanity check. If two PCA axes already separate classes, your problem may be simpler than the narrative.
+
+## For the rereader
+
+After probability's covariance chapter, reread PCA as organized covariance geometry. After least squares, reread truncated SVD as controlled column-space approximation.
+
+A sharper nuance: explained variance ratios depend on whether you use covariance or correlation PCA (scaling features to unit variance). Standardization changes the geometry on purpose.
+
+Also sit with low-rank approximation error: discarding small $\sigma_i$ throws away a quantifiable slice of Frobenius energy. That quantification is why SVD compression feels principled.
+
+On a third visit, take a $4\times 3$ toy matrix, compute (numerically) its SVD, form a rank-1 approximation, and measure $\|A-A_1\|_F$.
+
+## Ellipsoid studio
+
+Multiply random unit vectors by a $2\times 2$ diagonal $\Sigma$, then by a rotation $U$. Watch the circle become a tilted ellipse. SVD claims every matrix factors into such moves (with $V$ handling the input rotation).
+
+## PCA studio
+
+Scatter a thin tilted Gaussian cloud. Draw the long axis by eye. That is PC1. Confirm that projecting onto the short axis loses little if the cloud is thin - and loses signal if the short axis actually carries a rare but meaningful separation.
+
+## Practice prompts
+
+1. Why do singular values come out nonnegative by convention?
+2. What goes wrong conceptually if you run PCA on uncentered dollar-valued features with huge means?
+3. How does truncated SVD relate to "best rank-$k$ approximation"?
+
+## Extended examples
+
+**Image compression toy.** Treat a grayscale matrix as $A$. Keep top $k$ singular values. Watch quality versus storage. The error theorem explains the visual degradation.
+
+**Multicollinear regressors.** Tiny singular values of the design matrix signal near dependence. Ridge can be viewed as damping $1/\sigma$ blow-ups.
+
+**Whitening.** Scaling principal axes to unit variance is a common preprocessing cousin. It uses the same eigen/SVD factors with a different post-processing choice.
+
+**Random matrices.** Singular value bulk distributions are a deep subject; for this course, remember only that trailing singular values of noisy data often form a bulk you should not overinterpret.
+
+**ML baseline.** Before a deep autoencoder, try PCA reconstruction error. If PCA already reconstructs well, nonlinear compression may be optional.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** SVD is rotation-scale-rotation; PCA is variance-maximizing orthogonal axes, often via SVD.
+
+**One picture.** Circle to ellipse under a linear map.
+
+**One factorization.** $A=U\Sigma V^{\mathsf{T}}$.
+
+**One warning.** Center (and consider scaling) before PCA storytelling.
+
+**One ethic.** Clearer coordinates from tangled measurements (Pearson's spirit).
+
+**One Strogatz hook.** Shorter descriptions that still carry the plot.
+
+**One Algebrica stop.** Eigenvalues plus variance/covariance pages.
+
+**One AI seed.** Linear compression baseline and stable linear algebra engine.
+
+**Cross-links.** Eigen stretch story; least-squares stability; probability covariance.
+
+**Workplace failure.** Calling every embedding "PCA" or treating PC1 as a causal factor.
+
+**Reread schedule.** After your first multicollinearity bug, return. After autoencoders, return and compare linear versus nonlinear compression.
+
+**Notation scratchpad.**
+- Singular values $\sigma_i$
+- Right/left singular vectors
+- Centered data matrix $X$
+- Explained variance ratios
+
+**Questions that stay alive.**
+- Did I center/scale intentionally?
+- Is high variance aligned with my downstream task?
+- How much Frobenius energy did truncation discard?
+
+**Closing image.** A data cloud with a few bright axes and a dim cloud of leftovers - structure first, leftovers examined with humility.
+
+## Glossary of moves
+
+- **SVD:** orthogonal-diagonal-orthogonal factorization.
+- **Singular value:** nonnegative stretch factor.
+- **Low-rank approximation:** keep top $\sigma$'s.
+- **PCA:** orthogonal variance-maximizing basis for centered data.
+- **Scree plot:** singular values or explained variance versus index.
+
+## Carry this forward
+
+- Rectangular maps get a stretch story through SVD.
+- PCA is statistical geometry often computed by SVD.
+- Linear algebra checkpoint: vectors, maps, dots, bases, elimination, spectra, SVD/PCA.

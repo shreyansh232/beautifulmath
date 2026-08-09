@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What does matrix-vector multiplication do?"
   - "What is linearity?"
-estimatedMinutes: 34
+estimatedMinutes: 68
 furtherReading:
   - title: "MacTutor - Arthur Cayley"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/"
@@ -35,6 +35,20 @@ furtherReading:
     note: "Matrices as transformations; kernel and image nearby on the site."
 ---
 
+## How this idea was born
+
+Tables of numbers show up everywhere: inventories, pixel grids, systems of coefficients. The human struggle is what those tables **do**. Stretch, rotate, shear, mix features, send one list of numbers to another in a disciplined way. A matrix is not a spreadsheet that happens to be square. It is a machine.
+
+**Arthur Cayley** (1821-1895) developed matrix algebra as an object of study in its own right, not merely a bookkeeping grid. MacTutor sketches the prolific career. Steal the ethic: when a notation keeps appearing, promote it to a citizen of mathematics and learn its laws.
+
+A modern campfire story sits in Strogatz's "Untangling the Web": Google's **PageRank**. A page's importance depends on the importance of pages that link to it. Ranking the web becomes finding structure in a giant link matrix, not reading every page by hand. Treat that as popular pedagogy about matrices-as-machines, not as a full corporate history.
+
+For a modern rereader, this chapter rebuilds the machine view so later lessons on projections and bases feel inevitable rather than bolted on.
+
+<StoryNote title="From The Joy of X">
+  "Untangling the Web" makes matrices stop being spreadsheets and start being machines. Attribute the chapter as popular exposition of a known algorithm, not as a primary source for Google's history.
+</StoryNote>
+
 ## First principles
 
 A map $T$ is **linear** if
@@ -43,58 +57,166 @@ $$
 T(a\mathbf{u} + b\mathbf{v}) = a T(\mathbf{u}) + b T(\mathbf{v})
 $$
 
-It respects addition and scaling. No curving, no shifting (translations alone are affine, not linear).
+It respects addition and scaling. No curving, no shifting by itself (a pure translation is affine, not linear).
 
 A matrix $A$ represents a linear map via $\mathbf{y} = A\mathbf{x}$.
 
 <MatrixMapDiagram />
 
-Columns of $A$ are where the basis vectors go. That one sentence unlocks most geometric matrix intuition.
+Columns of $A$ are where the basis vectors go. That one sentence unlocks most geometric matrix intuition. $A\mathbf{x}$ is a linear combination of $A$'s columns with weights from $\mathbf{x}$.
 
-<StoryNote>
-  <p>
-    In "Untangling the Web," Strogatz walks through how Google's PageRank uses linear algebra: a page's importance depends on the importance of pages that link to it. Ranking the web becomes finding structure in a giant link matrix, not reading every page by hand.
-  </p>
-</StoryNote>
+Composition: doing $B$ then $A$ is the product $AB$ (order matters). Neural nets stack such maps, then add nonlinearities between them.
 
-
-## Slow down: watch the basis arrows
+## Worked intuition
 
 If you know where $\mathbf{e}_1$ and $\mathbf{e}_2$ go, you know the whole linear map on the plane - because every vector is a combo of those basis arrows. Matrix columns are those destinations. That sentence is worth a week of homework.
 
-## Multiply as weighted combination
+Watch a unit square under a matrix. Rotation turns it. Shear tilts it. Scaling stretches sides. Projection flattens it onto a lower-dimensional shadow. Ask of every matrix: what does it do to the square?
 
-$A\mathbf{x}$ is a linear combination of $A$'s columns with weights from $\mathbf{x}$.
+Algebrica's matrices and linear maps pages show arrays becoming transformations. Watch where basis vectors go - that habit unlocks most geometric matrix intuition.
 
-## Composition
+In data language, a weight matrix learns which linear mixture of input features predicts well. The geometry and the spreadsheet are the same object wearing two outfits.
 
-Doing $B$ then $A$ is the product $AB$ (order matters). Neural nets stack such maps (plus nonlinearities).
+## Common confusions
+
+**Order of multiplication.** Doing shear then rotate is not rotate then shear. $AB$ and $BA$ usually differ. Write the maps in the order they act, carefully.
+
+**Linearity versus affine.** $\mathbf{x} \mapsto A\mathbf{x} + \mathbf{b}$ is affine when $\mathbf{b} \neq 0$. Neural layers are affine maps plus a nonlinearity. People say "linear layer" colloquially; the bias term already left pure linearity.
+
+**Matrices as only "numbers in a grid."** Without the map story, multiplication rules feel arbitrary. With the map story, multiplication is composition, and the rules become inevitable.
+
+**Invertibility as default.** Many matrices squash space (singular maps). Not every transformation undoes. Rank (coming in the bases chapter) measures how many independent output directions survive.
+
+**Assuming invertibility.** Many maps lose information. Solving $A\mathbf{x}=\mathbf{b}$ may have zero or infinitely many solutions.
+
+**Reading every array as a transform.** Some matrices are mere data tables. The map story applies when multiplication means applying a linear action.
+
+## History & stories
+
+Arthur Cayley developed matrix algebra as an object of study in its own right, not merely a bookkeeping grid. MacTutor's Cayley biography sketches the prolific career. Treating abstract structure as worthy of love is the ethic: promote recurring notation to citizenship.
+
+A modern campfire story sits in Strogatz: PageRank. A page's importance depends on the importance of pages that link to it. Ranking the web becomes finding structure in a giant link matrix, not reading every page by hand.
+
+<StoryNote>
+  In "Untangling the Web," Strogatz walks through how Google's PageRank uses linear algebra: a page's importance depends on the importance of pages that link to it. Ranking the web becomes finding structure in a giant link matrix, not reading every page by hand.
+</StoryNote>
 
 ## Real world
 
-A 2D rotation matrix turns camera coordinates. A shear matrix models certain simple distortions.
+Image transforms, robot joint kinematics (linearized near an operating point), and spreadsheet "multiply this grid by that grid" workflows are matrix moves. Computer graphics pipelines are long compositions of linear and affine maps.
+
+Whenever a system mixes inputs into outputs with constant coefficients, a matrix is waiting to be named.
 
 ## AI / ML bridge
 
-Weight matrix $W$ learns which linear mixture of features predicts well. Attention and convolutions are structured linear maps with weight sharing.
+A dense neural layer is literally $\mathbf{x} \mapsto W\mathbf{x} + \mathbf{b}$. Almost every classical ML model has a matrix at its core: linear regression, PCA loadings, Markov transition matrices, attention's query-key-value projections.
 
-<StoryNote title="From The Joy of X">
-  <p>
-    "Untangling the Web" walks through PageRank: a page's importance depends on the importance of pages that link to it. Ranking becomes structure in a giant link matrix. Matrices stop being spreadsheets and start being machines.
-  </p>
-</StoryNote>
+Attention and convolutions are structured linear maps with weight sharing. The structure is engineering; the linearity is the mathematical spine.
 
-## Dig deeper
+## For the rereader
 
-Algebrica's matrices and linear maps pages show arrays becoming transformations. Watch where basis vectors go - that one habit unlocks most geometric matrix intuition.
+After bases and rank, return and reinterpret columns as spanning the column space. After probability, notice that a transition matrix for a Markov chain is a linear map on distribution vectors (with extra constraints: nonnegative entries, columns or rows summing to one, depending on convention).
 
-## Curiosity seeds
+A sharper nuance: nonlinearity is what makes deep nets expressive beyond stacked linear maps. Without nonlinearities, a deep stack of matrices collapses to one matrix. The "depth" miracle requires breaking linearity between layers - which makes the linear pieces even more important to understand cleanly.
 
-- Why does matrix multiplication order usually matter?
-- What does a shear matrix do to a square?
+Also sit with PageRank again as a reminder that eigenvectors (structure inside a matrix) can encode global importance. You need not compute them here; you need to expect that matrices hide geometry beyond a single multiply.
+
+On a third visit, pick a $2\times2$ matrix and animate (on paper) what it does to a smiley face drawn as points. Columns still rule the story even when the face is silly.
+
+Keep a list of "matrices as verbs" you meet: image transforms, Markov transitions, weight layers. Write the verb in words beside the symbol.
+
+## A longer geometric studio
+
+Track the unit square under rotation by $90^\circ$, under a shear, under a projection onto the $x$-axis, and under a singular squash that flattens everything to a line. Write a matrix for each if you can, or at least describe where $\mathbf{e}_1$ and $\mathbf{e}_2$ land. Columns are those landings.
+
+Compose shear then rotate versus rotate then shear on a sketch. Order matters in the picture, not only in the algebra. That picture is why $AB\neq BA$ usually.
+
+## PageRank as campfire (with humility)
+
+Strogatz's "Untangling the Web" walks PageRank as importance flowing through links. A giant matrix encodes the web graph's linear structure. Ranking becomes finding structure in that map. Treat the story as pedagogy about matrices-as-machines, not as a full historical account of Google.
+
+The moral for this chapter: matrices stop being grids and start being verbs.
+
+## Affine honesty
+
+Neural "linear layers" often mean $\mathbf{x}\mapsto W\mathbf{x}+\mathbf{b}$. The bias makes them affine. Stack affine maps and you still have an affine map. Nonlinearities between layers are what make depth expressive. Understanding the linear pieces cleanly makes the nonlinear miracle easier to see.
+
+## Practice prompts
+
+1. Why does watching where basis vectors go determine a linear map completely?
+2. Give a $2\times2$ matrix that projects onto a line. What is its rank (preview)?
+3. Explain composition $AB$ as "do $B$ first" with a sentence you could teach.
+
+## Extended examples
+
+**Projection matrix (rank one).** $A=\mathbf{u}\mathbf{u}^T/(\mathbf{u}\cdot\mathbf{u})$ (column vector conventions) projects onto $\mathbf{u}$'s direction. Multiplying by $A$ is a map; the formula ties this lesson to the next.
+
+**Rotation by $90^\circ$.** Columns land at $(0,1)$ and $(-1,0)$ depending on orientation convention. Squares turn; lengths stay. Orthogonal matrices are length-preserving linear maps - a preview.
+
+**Shear.** $\begin{pmatrix}1&1\\0&1\end{pmatrix}$ tilts vertical lines. Area can stay while shape changes. Ask what is preserved, not only what moves.
+
+**Composition bug hunt.** Implement $AB\mathbf{x}$ versus $BA\mathbf{x}$ numerically on a random $\mathbf{x}$. When they differ, celebrate: the machine view is working.
+
+**Neural depth collapse.** Without nonlinearities, $W_3W_2W_1$ is one matrix. Depth needs breaks in linearity. Understand the linear bricks so the mortar (activations) makes sense.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** A matrix is a linear machine; columns show where basis arrows land.
+
+**One picture.** A unit square shearing, rotating, or flattening.
+
+**One law.** $T(a\mathbf{u}+b\mathbf{v})=aT(\mathbf{u})+bT(\mathbf{v})$.
+
+**One warning.** Order of multiplication usually matters; bias makes layers affine.
+
+**One ethic.** Promote recurring notation to citizenship (Cayley).
+
+**One Strogatz hook.** "Untangling the Web" - PageRank as matrix structure at web scale.
+
+**One Algebrica stop.** Linear maps pages; watch basis images.
+
+**One AI seed.** Dense layers are $W\mathbf{x}+\mathbf{b}$; attention/convolutions are structured linear maps.
+
+**Cross-links.** Vectors are inputs/outputs. Dot products score. Bases explain column space. Rank limits capacity.
+
+**Workplace failure.** Treating matrix multiply as spreadsheet decoration without asking what the map does to space.
+
+**Reread schedule.** After implementing a layer from scratch, return. After a singular-matrix bug, return and talk rank.
+
+**Notation scratchpad.**
+- $\mathbf{y}=A\mathbf{x}$
+- Columns of $A$ = images of basis
+- Composition $AB$ means $B$ then $A$
+
+**Questions that stay alive.**
+- What does this matrix do to the square?
+- Affine or linear - did I forget $\mathbf{b}$?
+- Where is information irreversibly squashed?
+
+**Closing image.** Basis arrows landing in new places, dragging the whole plane with them.
+
+## Glossary of moves
+
+- **Linearity:** respects addition and scaling.
+- **Matrix-vector product:** linear combination of columns.
+- **Columns-as-images:** where basis vectors land.
+- **Composition:** multiply matrices; order matters.
+- **Affine map:** linear map plus translation.
+- **Singular map:** loses dimensions; not invertible.
+- **Rank (preview):** dimension of column space.
+
+## One more vignette
+
+PageRank's campfire version is enough for this chapter: importance flows through a link matrix. You do not need to implement eigenvector solvers tonight. You need the shiver that a spreadsheet of links becomes a machine that rearranges a whole ranking. Matrices earn citizenship when verbs replace grids in your inner speech.
+
+## Why reread this chapter at all
+
+A personal knowledge base earns its keep on the second and third visit. The first visit teaches vocabulary. Later visits catch workplace failures, connect neighboring courses, and sharpen taste. If a section felt long, that is intentional: lasting chapters are denser than skim cards. Skim the field notes when time is short; return to worked examples when a bug in your thinking appears.
+
+If you only remember one habit from this chapter, make it this: name the assumption you are silently using. Windows for rates, axes for vectors, priors for updates, losses for averages - unspoken assumptions are where knowledge bases go soft.
 
 ## Carry this forward
 
-- Matrices = linear maps.
-- Columns show where basis vectors land.
-- Next: measuring alignment with dot products.
+- Matrices package linear maps; columns show where basis vectors land.
+- Multiplication is composition; order usually matters.
+- Next: measuring alignment with dot products and projections.

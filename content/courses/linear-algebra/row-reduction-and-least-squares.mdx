@@ -1,0 +1,218 @@
+---
+title: "Row reduction and least squares"
+slug: "row-reduction-and-least-squares"
+order: 5
+summary: "Gaussian elimination is organized matrix moves that simplify linear systems. Overdetermined least squares is a projection story: the best fit is the shadow in the column space."
+mathematician:
+  name: "Carl Friedrich Gauss"
+  years: "1777-1855"
+  vignette: "Gauss used systematic elimination while wrestling with astronomical and geodetic data, including least-squares calculations. The modern name 'Gaussian elimination' is partly a later tribute: historians note that elimination methods are older, and Gauss's notation helped professional computers standardize the work. Steal the ethic of careful bookkeeping when many equations fight at once."
+realWorld: "Fitting a line through noisy measurements, balancing survey equations that overconstrain a map, and cleaning inconsistent sensor systems are least-squares and elimination in the field."
+aiMlHook: "Linear regression minimizes squared residual error. Solving the normal equations (or a QR/SVD cousin) is the classical engine behind ordinary least squares."
+prerequisites:
+  - "matrices-as-linear-maps"
+  - "dot-products-and-projections"
+curiositySeeds:
+  - "What does a row operation preserve?"
+  - "Why is the least-squares residual orthogonal to the column space?"
+estimatedMinutes: 72
+furtherReading:
+  - title: "MacTutor - Carl Friedrich Gauss"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Gauss/"
+    kind: reference
+  - title: "MacTutor - Matrices and determinants (historical notes)"
+    url: "https://mathshistory.st-andrews.ac.uk/HistTopics/Matrices_and_determinants/"
+    kind: reference
+    note: "Gauss, elimination, and least squares in historical context."
+  - title: "3Blue1Brown - Inverse matrices, column space, and null space"
+    url: "https://www.youtube.com/watch?v=uQhTuRlWMxw"
+    kind: video
+  - title: "Algebrica - Gaussian elimination"
+    url: "https://algebrica.org/gaussian-elimination/"
+    kind: article
+    note: "Row operations to echelon form with worked systems."
+  - title: "Algebrica - Systems of linear equations"
+    url: "https://algebrica.org/systems-of-linear-equations/"
+    kind: article
+  - title: "Algebrica - Inner product spaces"
+    url: "https://algebrica.org/inner-product-spaces/"
+    kind: article
+    note: "Projection geometry behind least squares."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Structure and approximation themes that neighbor fitting."
+
+---
+
+## How this idea was born
+
+Two equations in two unknowns can be a clean crossing of lines. Real measurement piles on **more equations than unknowns**: redundant surveys, noisy sensors, overdetermined recipes. Exact solution may be impossible. You still need a principled compromise.
+
+**Carl Friedrich Gauss** (1777-1855) used systematic elimination while wrestling with astronomical and geodetic data, including least-squares calculations. MacTutor and the matrices-and-determinants topic page are the short historical stops. Naming caution: elimination methods are older (Newton and others appear in the lineage); Gauss's notation helped standardize hand computation, and later practice attached his name. Steal the ethic of careful bookkeeping when many equations fight at once, not a monopoly myth.
+
+For a modern rereader, this chapter has two faces that belong together. **Row reduction** is organized matrix moves that simplify $A\mathbf{x}=\mathbf{b}$. **Least squares** is what you do when no $\mathbf{x}$ hits $\mathbf{b}$ exactly: project $\mathbf{b}$ onto the column space of $A$, tying straight back to dot products.
+
+<StoryNote title="Curiosity from history">
+  Historians of computation (for example Grcar's work on how "ordinary" elimination became "Gaussian") warn against treating the name as literal sole invention. Attribute Gauss's career to MacTutor; keep the naming story honest.
+</StoryNote>
+
+## First principles
+
+A linear system $A\mathbf{x}=\mathbf{b}$ asks whether $\mathbf{b}$ lies in the **column space** of $A$ (the span of $A$'s columns). Row operations (swap rows, scale a row, add a multiple of one row to another) produce an equivalent system: same solution set, cleaner shape. **Gaussian elimination** drives the matrix toward row echelon form; back substitution reads the unknowns. Inconsistent systems reveal a contradictory row such as $0=c$ with $c\neq 0$.
+
+When $A\mathbf{x}=\mathbf{b}$ has no exact solution (typical when there are more independent equations than unknowns), **least squares** seeks
+
+$$
+\hat{\mathbf{x}} = \arg\min_{\mathbf{x}} \|A\mathbf{x}-\mathbf{b}\|^2.
+$$
+
+Geometrically, $A\hat{\mathbf{x}}$ is the projection of $\mathbf{b}$ onto the column space of $A$. The residual $\mathbf{r}=\mathbf{b}-A\hat{\mathbf{x}}$ is orthogonal to every column of $A$:
+
+$$
+A^{\mathsf{T}}\mathbf{r} = \mathbf{0} \quad \Rightarrow \quad A^{\mathsf{T}}A\hat{\mathbf{x}} = A^{\mathsf{T}}\mathbf{b}.
+$$
+
+Those are the **normal equations**. The orthogonality claim is the same projection story you met with dot products, now in the column space.
+
+## Worked intuition
+
+Elimination is dishwashing for equations: stack them, cancel variables methodically, do not smuggle arithmetic errors. Each row operation is a legal rewrite that preserves the solution set (for exact arithmetic).
+
+Least squares is shadow-casting. $\mathbf{b}$ is a point hanging off the subspace of reachable $A\mathbf{x}$ vectors. Drop a perpendicular. The foot of the perpendicular is the closest reachable prediction. Squared length of the leftover is the residual sum of squares.
+
+Fitting a line $y \approx mx+c$ through many noisy points is this story in coordinates: stack rows $(x_i, 1)$, form $A$, and solve for $(m,c)$ in the least-squares sense.
+
+Algebrica's Gaussian elimination and systems pages drill the moves; the inner-product page refreshes why orthogonality of the residual is the defining geometry.
+
+## Common confusions
+
+**Row reduction changes the answer.** Done correctly, it changes the costume, not the solution set. Pivoting strategies matter for numerical stability; the exact-arithmetic ideal is equivalence.
+
+**Least squares always finds "the truth."** It finds the closest point in a chosen model class under Euclidean residual length. Wrong features, wrong subspace, wrong answer - optimally wrong.
+
+**Normal equations are always the best computational path.** Forming $A^{\mathsf{T}}A$ can worsen conditioning. QR and SVD methods often compute the same geometric projection more stably. The geometry stays; the algorithm can upgrade.
+
+**Orthogonal residual means "uncorrelated with reality."** It means orthogonal to the column space you chose. Features you did not include can still correlate with the residual.
+
+**Overdetermined means inconsistent always.** Sometimes the extra equations agree. Overdetermined describes shape (more equations than unknowns), not automatic contradiction.
+
+**Elimination solves least squares directly without a criterion.** Elimination solves exact linear systems. Least squares adds a projection criterion when exactness fails.
+
+## History & stories
+
+Gauss used elimination and least squares in concrete scientific computation. MacTutor's Gauss biography and the matrices historical topic page keep the story grounded. Legendre published on least squares around the same era; priority disputes exist and need not detain the geometry.
+
+The durable gift is twofold: systematic simplification of linear systems, and a projection ethic when data overconstrain a linear model.
+
+<StoryNote title="From The Joy of X">
+  Strogatz often treats approximation as a virtue: replace a hard shape with a controllable one. Least squares is that ethic in linear clothing - the best shadow instead of a shrug.
+</StoryNote>
+
+## Real world
+
+Surveyors collect more measurements than strict degrees of freedom; residuals get distributed rather than ignored. Laboratory calibrations fit lines through noisy instrument readings. Spreadsheet "Add trendline" is ordinary least squares wearing a chart menu.
+
+Anytime you accept that equations disagree and still want one parameter vector, you are in this chapter.
+
+## AI / ML bridge
+
+Ordinary linear regression is least squares on a design matrix. Regularized cousins (ridge) modify the normal equations to trade residual fit against parameter size. Many "closed form" ML demos are this geometry; large-scale training later replaces the closed form with iterative methods, but the projection idea remains the north star for linear models.
+
+Honest limit: deep nets are not ordinary least squares. They inherit the residual-minimization instinct and replace the linear column space with a nonlinear feature map learned from data.
+
+## For the rereader
+
+After eigenvalues and SVD, notice that SVD gives a gold-standard route to least-squares solutions and rank-deficient cases. The normal equations are the elementary door; SVD is the reinforced door.
+
+A sharper nuance: if columns of $A$ are linearly dependent, $A^{\mathsf{T}}A$ is singular and $\hat{\mathbf{x}}$ is not unique. Geometry still picks a unique closest point $A\hat{\mathbf{x}}$ in the column space; the parameter vector may slide along a null space.
+
+Also reread conditioning. A tiny change in $\mathbf{b}$ can swing $\hat{\mathbf{x}}$ wildly if columns are nearly dependent. Residual size and parameter sensitivity are different diagnostics.
+
+On a third visit, compute a 3-equation, 2-unknown least-squares toy by hand: form $A^{\mathsf{T}}A$, solve, check $A^{\mathsf{T}}\mathbf{r}=\mathbf{0}$ numerically.
+
+## Elimination studio
+
+Reduce
+
+$$
+\begin{cases}
+x+y=3\\
+2x+4y=8
+\end{cases}
+$$
+
+by subtracting twice the first row from the second. Read the solution. Then perturb the second right-hand side to $9$ and watch inconsistency appear. Least squares would reopen the problem as projection.
+
+## Projection studio
+
+In $\mathbb{R}^2$, let columns of $A$ span a line. Pick $\mathbf{b}$ off the line. Draw the perpendicular. That picture *is* linear regression in disguise when the "line" is a 1D column space in higher dimension.
+
+## Practice prompts
+
+1. What does a pivot of zero force you to do during elimination?
+2. Why is $\|A\mathbf{x}-\mathbf{b}\|^2$ the squared distance from $\mathbf{b}$ to $A\mathbf{x}$?
+3. State the orthogonality condition that characterizes least-squares residuals.
+
+## Extended examples
+
+**Two points determine a line; twenty points overdetermine it.** Exact interpolation through noise is often worse than least squares. Overfit versus fit is already visible in this linear toy.
+
+**Underdetermined systems.** Fewer independent equations than unknowns: infinitely many solutions if consistent. Least squares still picks a particular notion of "small" solution when combined with extra criteria (later: pseudoinverse).
+
+**Weighted least squares.** Not all residuals deserve equal trust. Weighting changes the inner product. Same geometry, different meter.
+
+**Algebra systems preview.** High-school elimination of two equations is Gaussian elimination without matrices. Matrices make the bookkeeping scalable.
+
+**ML residual plot.** Plot residuals versus predictions. Structure in the residual often means missing features (column space too small), not a failure of projection math.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** Elimination simplifies exact linear systems; least squares projects when exactness fails.
+
+**One picture.** A vector $\mathbf{b}$ dropping a perpendicular onto a subspace.
+
+**One equation.** $A^{\mathsf{T}}A\hat{\mathbf{x}}=A^{\mathsf{T}}\mathbf{b}$.
+
+**One warning.** Normal equations can be numerically rude; geometry still holds.
+
+**One ethic.** Careful bookkeeping under conflicting measurements (Gauss's spirit).
+
+**One Strogatz hook.** Controllable approximation instead of shrug.
+
+**One Algebrica stop.** Gaussian elimination plus inner products.
+
+**One AI seed.** Linear regression is least squares on a design matrix.
+
+**Cross-links.** Dot-product projections; bases for column space dimension; SVD next for stable decompositions.
+
+**Workplace failure.** Interpreting a large residual as "math failed" rather than "model class too thin."
+
+**Reread schedule.** After your first singular $A^{\mathsf{T}}A$, return. After ridge regression, return and see the modified normal equations.
+
+**Notation scratchpad.**
+- Row echelon form / pivots
+- Column space $\mathrm{Col}(A)$
+- Residual $\mathbf{r}=\mathbf{b}-A\hat{\mathbf{x}}$
+- Normal equations
+
+**Questions that stay alive.**
+- Is my system inconsistent or merely noisy?
+- Are my columns nearly dependent?
+- Am I optimizing the residual metric I actually care about?
+
+**Closing image.** Many ropes pulling a tent peg: elimination tidies exact pulls; least squares finds the compromise stake position.
+
+## Glossary of moves
+
+- **Row operation:** legal rewrite preserving the solution set.
+- **Gaussian elimination:** organized drive to echelon form.
+- **Column space:** reachable $A\mathbf{x}$ vectors.
+- **Least squares:** closest reachable point to $\mathbf{b}$.
+- **Normal equations:** algebra of the orthogonality condition.
+
+## Carry this forward
+
+- Matrix moves simplify systems; projection settles overdetermined fights.
+- Residuals orthogonal to $\mathrm{Col}(A)$ are the geometric signature of least squares.
+- Next: eigenvalues reveal stretch factors along special directions.

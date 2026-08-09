@@ -50,8 +50,11 @@ const components = {
       {...props}
     />
   ),
+  // MDX often wraps custom block components (figures, asides) in <p>.
+  // Real <p> cannot contain those, which causes browser "fixes" and hydration mismatches.
+  // Use a div with paragraph styling so nesting stays valid.
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mt-4 text-[15px] leading-7 text-foreground/90" {...props} />
+    <div className="mt-4 text-[15px] leading-7 text-foreground/90" {...props} />
   ),
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
     <ul className="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-7" {...props} />

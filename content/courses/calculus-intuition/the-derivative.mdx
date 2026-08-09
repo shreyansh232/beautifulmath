@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What does f'(x) mean?"
   - "Why does notation matter?"
-estimatedMinutes: 34
+estimatedMinutes: 68
 furtherReading:
   - title: "MacTutor - Gottfried Leibniz"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Leibniz/"
@@ -36,6 +36,18 @@ furtherReading:
 
 ---
 
+## How this idea was born
+
+Once you can ask how fast something changes at a single moment, a second need appears: a portable report of that steepness **everywhere**. Sensitivity analysis, orbits, and later machine learning all want a machine that, given a location, returns the local rate. One slope number is a reading. A slope-valued function is a dashboard.
+
+**Gottfried Wilhelm Leibniz** (1646-1716) chased a universal symbolic language. Independent of Newton, he built a calculus whose form invited others to compute. MacTutor's Leibniz biography is the short reference; the Newton-Leibniz priority dispute is real history, not a classroom cartoon. Steal the ethic: design notation so future minds can carry the idea without you in the room. His tiny-change and sum symbols survived because they make reasoning about rates and accumulations feel almost mechanical.
+
+For a modern rereader, that shift - from one number to a slope-valued function - is what makes calculus compositional, and why later gradient learning can ask for sensitivities everywhere at once. Good symbols are not cosmetics.
+
+<StoryNote title="Curiosity from history">
+  Leibniz's notation survived because it invites computation. Treat the fraction-looking form as a mnemonic with a deep idea inside, not as a license to cancel symbols carelessly in every context. MacTutor is the short biographical stop.
+</StoryNote>
+
 ## First principles
 
 If $f$ is smooth enough,
@@ -44,67 +56,174 @@ $$
 f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
 $$
 
-is the slope at $x = a$. The function $f'$ sends each $a$ to that slope.
+is the slope at $x = a$. The function $f'$ sends each $a$ to that slope (wherever the limit exists).
 
-Leibniz wrote $\frac{dy}{dx}$ to suggest a ratio of infinitesimal changes. Modern rigor uses limits; the intuition remains: tiny rise over tiny run.
+Leibniz wrote $\frac{dy}{dx}$ to suggest a ratio of infinitesimal changes. Modern rigor uses limits; the intuition remains: tiny rise over tiny run. Treat the fraction as a mnemonic with a deep idea inside, not as a license to cancel symbols carelessly in every context.
 
+<LimitZoomDiagram />
 
-## Slow down: a machine for slopes
-
-The derivative $f'$ is itself a function: feed it a location, get the slope there. That shift - from one slope number to a slope machine - is what makes calculus compositional and what makes gradient learning possible later.
-
-## Rules worth knowing early
-
-- $(cf)' = c f'$
-- $(f+g)' = f' + g'$
-- $(x^n)' = n x^{n-1}$
-- Chain rule: $(f(g(x)))' = f'(g(x)) g'(x)$
-
-The chain rule is the star for ML: change through a pipeline multiplies local sensitivities.
-
-## Linear approximation
-
-Near $a$,
+The derivative is the best local linear stand-in. Near $a$,
 
 $$
 f(x) \approx f(a) + f'(a)(x - a)
 $$
 
-The derivative is the best local linear stand-in.
+That approximation is why derivatives power sensitivity analysis: a small nudge $\Delta x$ predicts a change about $f'(a)\Delta x$.
 
-## Real world
+## Worked intuition
 
-If profit $P(q)$ depends on quantity $q$, $P'(q)$ is marginal profit at that scale.
+Think of $f'$ as a dashboard. Feed it $x = 2$ and read the slope there. Feed it $x = 5$ and read a different slope. The original $f$ is the landscape; $f'$ is the instrument panel that reports steepness at each mile marker.
 
-## AI / ML bridge
+Rules worth knowing early (after the picture is solid):
 
-Gradient descent steps opposite the gradient of loss. Each partial derivative asks: if I nudge this weight, how does loss respond?
+- $(cf)' = c f'$
+- $(f+g)' = f' + g'$
+- $(x^n)' = n x^{n-1}$
+- Chain rule: $(f(g(x)))' = f'(g(x))\, g'(x)$
 
-<LimitZoomDiagram />
-
-<StoryNote title="From The Joy of X">
-  <p>
-    Strogatz's calculus chapters insist the derivative is a story about change, not a memorized symbol. Leibniz's notation $\frac{dy}{dx}$ even looks like a ratio of tiny changes - a mnemonic with a deep idea inside.
-  </p>
-</StoryNote>
-
-<StoryNote title="Curiosity from history">
-  <p>
-    Newton and Leibniz developed calculus in different notations and communities; priority fights followed. What matters for learning is the shared core: limits of difference quotients unlocking geometry and motion.
-  </p>
-</StoryNote>
-
-## Dig deeper
+The chain rule is the star for machine learning: change through a pipeline multiplies local sensitivities. If loss depends on prediction, prediction on hidden layer, hidden layer on weights, the total sensitivity is a product of local slopes along the path.
 
 Algebrica's derivatives page lists rules after the definition. Learn the definition's picture first; rules are speed, not meaning.
 
-## Curiosity seeds
+Ask of every smooth graph: where is $f'=0$, where is $|f'|$ large, and where is $f'$ undefined? Those questions are already optimization and robustness in miniature.
 
-- What does $f'(a)=0$ suggest on a smooth graph?
-- Why might two different-looking formulas share a derivative?
+## Common confusions
+
+**Derivative as "the formula" rather than a function.** People memorize $(x^2)'=2x$ and forget that $2x$ is itself a function reporting slopes. The mental shift matters when you differentiate compositions and when you later pack many partials into a gradient.
+
+**Notation worship without meaning.** $\frac{dy}{dx}$ looks like a fraction because the intuition is fractional. It is not a free pass to treat differentials as ordinary numbers in every manipulation. Limits keep the story honest.
+
+**$f'(a)=0$ means "nothing is happening."** On a smooth graph, zero slope means flatness at that point: a local max, min, or shelf. The function value can still be large; the rate is what vanished.
+
+**Two formulas with the same derivative.** If $F'=G'$, then $F$ and $G$ differ by a constant (on an interval, under standard hypotheses). That is a preview of antiderivative families, not a paradox.
+
+**Higher derivatives as decoration.** $f''$ is the rate of the rate. It is not fancier for its own sake; it measures how slope itself changes. Concavity stories live here.
+
+**Differentiability implying nice global optimization.** Local slope zero is not global optimality on nonconvex landscapes. The derivative is local by nature.
+
+## History & stories
+
+Leibniz chased a universal symbolic language. His $dx$ and $\int$ notations survived because they make reasoning about tiny changes and sums feel almost mechanical. Independent of Newton, he built a calculus whose form invited others to compute. MacTutor's Leibniz biography is the standard short reference.
+
+Newton and Leibniz developed calculus in different notations and communities; priority fights followed. What matters for learning is the shared core: limits of difference quotients unlocking geometry and motion. Steal Leibniz's ethic even if you never care about the dispute: design notation so future minds can carry the idea without you.
+
+<StoryNote title="From The Joy of X">
+  Strogatz's calculus chapters insist the derivative is a story about change, not a memorized symbol. Leibniz's notation $\frac{dy}{dx}$ even looks like a ratio of tiny changes - a mnemonic with a deep idea inside.
+</StoryNote>
+
+<StoryNote title="Curiosity from history">
+  Newton and Leibniz developed calculus in different notations and communities; priority fights followed. What matters for learning is the shared core: limits of difference quotients unlocking geometry and motion.
+</StoryNote>
+
+## Real world
+
+Sensitivity analysis asks: how much does output move when an input nudges? That is a derivative when the relationship is smooth. If profit $P(q)$ depends on quantity $q$, then $P'(q)$ is marginal profit at that scale. Engineers linearize complicated maps near an operating point for the same reason: the derivative is the trustworthy local translator.
+
+## AI / ML bridge
+
+Gradients are derivatives, or their multivariable cousins. Gradient descent steps opposite the gradient of loss. Each partial derivative asks: if I nudge this weight, how does loss respond?
+
+Backpropagation is organized bookkeeping for the chain rule through a network. You do not need the implementation details yet. You need the moral: composition of functions becomes multiplication of local sensitivities, and that multiplication is what makes deep models trainable in principle.
+
+## For the rereader
+
+After integrals and gradients, return and reread the linear approximation line. Almost every "first-order" method in optimization and numerical analysis is that sentence in different clothes.
+
+A sharper nuance: differentiability is a local property with global consequences for optimization. Nonsmooth points (ReLU kinks, absolute values) are not exotic edge cases in modern ML; they are everyday terrain. The classical derivative still teaches you what you are approximating when you use subgradients or smoothed surrogates.
+
+Also notice how much pedagogy fails by teaching rules before the slope machine idea. If you ever teach this material, reverse that order on purpose.
+
+On a third visit, derive $(fg)'$ and $(f/g)'$ from the limit definition once, slowly. Even if you forget the algebra later, you will remember that rules are earned. Then reread Leibniz's ethic: notation that carries ideas without you in the room. Ask whether your own notes meet that bar.
+
+Keep a page of linear approximations you actually use: small percentage changes, rule-of-thumb sensitivities, "about how much if I nudge." Label each with the $f(a)+f'(a)(x-a)$ pattern.
+
+## A longer numerical studio
+
+Pick $f(x)=x^3$ and compute $f'(2)$ from the limit definition with a shrinking $h$. Then use the power rule and confirm you land on $12$. The agreement is the point: rules are compressed limits, not a second religion.
+
+Next, differentiate $f(g(x))$ with $f(u)=u^2$ and $g(x)=\sin x$ symbolically via the chain rule, then check numerically at a point by finite differences on the composition. Watching the product of local slopes match the overall difference quotient is the chain rule becoming bodily knowledge.
+
+Linear approximation deserves a studio of its own. At $a=1$ for $f(x)=\sqrt{x}$, compare $f(1.05)$ to $f(1)+f'(1)(0.05)$. Feel the error shrink as the nudge shrinks. That error story is why first-order methods dominate early optimization.
+
+## Notation as ethics
+
+Leibniz wanted symbols that think with you. $\frac{dy}{dx}$ remembers the tiny-ratio intuition. Newton's dot notation remembered fluxions in time. Modern $f'$ remembers the slope machine. None is sacred; each is a bet about what you want to see.
+
+When you write $\frac{dy}{dx}$, ask whether you are treating it as a mnemonic, as a limit, or as a formal differential. Sliding between those readings without noticing is a common source of algebraic comedy. Keep the reading labeled in your head.
+
+## Sensitivity in the wild
+
+Engineers linearize around operating points because the derivative is the best local translator. A small change in input predicts a change $f'(a)\Delta x$ in output. Controllers, approximate models, and "what-if" spreadsheets all lean on that sentence.
+
+If profit $P(q)$ depends on quantity, $P'(q)$ is marginal profit. If a loss $L(w)$ depends on a weight, $L'(w)$ (or a partial) is the training signal's one-dimensional ancestor. Same mathematics; different stakes.
+
+## Practice prompts
+
+1. Find two different antiderivative-looking formulas that share a derivative (preview: they differ by a constant). Why does that not contradict uniqueness of $f'$?
+2. Where is $f'(a)=0$ on $f(x)=x^3$? Is that a local max or min? What does the sign chart of $f'$ tell you that the zero alone does not?
+3. Write the chain rule in Leibniz notation and in prime notation for the same composition. Which helps you see the product of sensitivities more clearly?
+
+## Extended examples
+
+**Power rule from the definition (sketch).** For $f(x)=x^2$, expand $(x+h)^2-x^2=2xh+h^2$, divide by $h$, send $h\to0$, land on $2x$. The leftover $h$ term vanishing is the whole drama of the limit.
+
+**Chain rule in a pipeline.** Let prediction $\hat{y}=w\cdot x$ and loss $L=(\hat{y}-y)^2$. Then $\frac{dL}{dw}=\frac{dL}{d\hat{y}}\frac{d\hat{y}}{dw}$. Two local sensitivities, one product. Deep networks stack more factors; the algebra does not change in spirit.
+
+**Zero derivative checklist.** On a smooth closed interval, extrema occur where $f'=0$ or at endpoints (standard theorem hypotheses). A flat inflection can also show $f'=0$ without a local max/min. Sign charts save you from overclaiming.
+
+**Nonsmooth preview.** $f(x)=|x|$ fails at $0$. ReLU activations import that failure into networks. Subgradients and smoothing are later tools; the classical derivative still teaches the ideal you approximate.
+
+**Linearization error.** The difference between $f(a+h)$ and $f(a)+f'(a)h$ shrinks faster than $h$ for smooth enough $f$. That little-o story is why first-order steps work in a neighborhood and fail when you leap too far.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** The derivative is a machine that returns slope at each input.
+
+**One picture.** Zoom until the graph looks straight; read that straightness.
+
+**One formula.** $f'(a)=\lim_{h\to0}(f(a+h)-f(a))/h$.
+
+**One rule to protect.** Chain rule: sensitivities multiply along a composition.
+
+**One ethic.** Design notation so others can compute without you (Leibniz).
+
+**One Strogatz hook.** Derivative as a story about change, not a sticker symbol.
+
+**One Algebrica stop.** Derivatives page after the picture is solid.
+
+**One AI seed.** Backprop is chain-rule bookkeeping; gradients are packed derivatives.
+
+**Cross-links.** Rates lesson supplied the secant story. Integrals invert. Gradients multivariable-ize. Linear algebra will store gradients as vectors.
+
+**Workplace failure.** Quoting a derivative rule with no sense of what $f'$ returns as a function.
+
+**Reread schedule.** After backprop tutorials, return and rederive $f'(a)$ from the limit once. After meeting subgradients, return and forgive corners without abandoning the ideal.
+
+**Notation scratchpad.**
+- $f'$, $\frac{dy}{dx}$, $\partial$ for partials later
+- Linearization: $f(x)\approx f(a)+f'(a)(x-a)$
+- $(f\circ g)'=(f'\circ g)\cdot g'$
+
+**Questions that stay alive.**
+- Where is $f'=0$, undefined, or huge on graphs I care about?
+- Which of my notes treat $\frac{dy}{dx}$ as a mnemonic versus a limit?
+- Can I explain why shared derivatives imply $+C$ families?
+
+**Closing image.** An instrument panel riding along a landscape: at each mile marker, a slope readout. That panel is $f'$.
+
+## Glossary of moves
+
+- **Difference quotient:** average rate on an interval.
+- **Derivative at a point:** limiting difference quotient.
+- **Derivative as function:** $x\mapsto f'(x)$.
+- **Linearization:** best local straight stand-in.
+- **Chain rule:** multiply local sensitivities.
+- **Critical point:** where $f'=0$ or fails to exist (context-dependent usage).
+- **Smooth enough:** hypotheses that make theorems true; not a vibe.
 
 ## Carry this forward
 
-- Derivative = slope function.
-- Chain rule composes sensitivities.
-- Next: accumulation, the inverse story.
+- The derivative is a slope-valued function, not only a number at one point.
+- Leibniz notation remembers the tiny-ratio intuition; limits keep it rigorous.
+- The chain rule composes sensitivities and later powers backprop.
+- Next: accumulation, the inverse story (integrals and the fundamental theorem).

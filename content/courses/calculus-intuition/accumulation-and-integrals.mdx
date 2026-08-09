@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What does area under a curve mean?"
   - "How do sums become integrals?"
-estimatedMinutes: 34
+estimatedMinutes: 70
 furtherReading:
   - title: "MacTutor - Archimedes"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/"
@@ -23,7 +23,7 @@ furtherReading:
     url: "https://www.youtube.com/watch?v=rfG8ce4nNh0"
     kind: video
   - title: "Better Explained - Integral intuition"
-    url: "https://betterexplained.com/articles/a-calculus-analogy-accumulation-and-rates/"
+    url: "https://betterexplained.com/articles/a-gentle-introduction-to-learning-calculus/"
     kind: article
   - title: "Steven Strogatz - The Joy of X"
     url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
@@ -35,60 +35,187 @@ furtherReading:
     note: "Area accumulation and integral diagrams."
 ---
 
+## How this idea was born
+
+People needed **areas of curves** and totals built from rates long before school named the integral: distance from a changing speed, grain from a varying density, the region under a bow-shaped boundary that refuses to be a tidy rectangle. Derivatives measure change. Accumulation rebuilds the total.
+
+Long before formal calculus, **Archimedes** exhausted areas and volumes with relentless approximation: trap the unknown between shapes he could control. MacTutor's biography is the standard entry. Steal the ethic: patience with limits. Do not demand the whole answer on the first polygon. Squeeze until only one possibility remains. Centuries later, integral calculus industrializes that boldness with systematic sums and a handshake with differentiation.
+
+For a modern rereader, this chapter teaches you to rebuild totals from rates, then meets the fundamental theorem that makes calculus one subject rather than two clever tricks. Without that link, you have techniques. With it, you have a closed loop of ideas.
+
+<StoryNote>
+  Strogatz nicknames integral thinking a Veg-O-Matic view of the universe in <em>The Joy of X</em>: slice the hard shape into pieces you understand, then sum. Archimedes did it with exhaustion. Calculus made the slicing systematic.
+</StoryNote>
+
 ## First principles
 
-Slice an interval into thin widths $\Delta x$, height about $f(x_i)$, area about $f(x_i)\Delta x$. Sum the slices. As slices thin, the sum approaches the **definite integral** $\int_a^b f(x)\,dx$ when the limit exists.
+Slice an interval into thin widths $\Delta x$, take height about $f(x_i)$, and form area about $f(x_i)\Delta x$. Sum the slices. As slices thin, the sum approaches the **definite integral** $\int_a^b f(x)\,dx$ when the limit exists.
 
 <AreaUnderCurveDiagram />
 
-If $f$ is a rate, the integral accumulates net change.
+If $f$ is a rate, the integral accumulates net change. Signed area matters: when $f$ dips below zero, contributions subtract. Direction and deficit are not decoration.
 
-<StoryNote>
-  <p>
-    Strogatz nicknames integral thinking a Veg-O-Matic view of the universe in <em>The Joy of X</em>: slice the hard shape into pieces you understand, then sum. Archimedes did it with exhaustion. Calculus made the slicing systematic.
-  </p>
+A function $F$ with $F' = f$ is an **antiderivative** of $f$. Adding a constant does not change the derivative, so antiderivatives come in families $F + C$.
+
+**Fundamental theorem (intuition):** differentiating an accumulation from a fixed start recovers the rate; integrating a rate recovers net accumulation. Derivative and integral are inverse stories under suitable conditions.
+
+## Worked intuition
+
+Each thin rectangle $f(x_i)\Delta x$ is a tiny account of accumulation. Add them. Refine the partition. The integral is what the sum is trying to become.
+
+If you have ever approximated distance by reading a speedometer every few seconds and multiplying by time gaps, you have already lived a Riemann sum. Gaps matter. Sign matters if direction reverses. Sparse readings give a rough integral; dense readings give a better one. Calculus names the ideal limit of that refinement.
+
+Density over volume becomes mass. Power over time becomes energy. Loss over a probability distribution becomes expected risk. The pattern is always: local contribution times tiny measure, then sum, then refine.
+
+Algebrica's definite-integrals pages are diagram-forward companions. The fundamental theorem is the handshake between this lesson and the derivative pages.
+
+## Common confusions
+
+**Area always means "positive paint."** Signed integrals record cancellation. Integrating velocity can return displacement (net), not total distance traveled. Total distance needs absolute speed, or careful splitting where the sign changes.
+
+**Antiderivatives without $+C$.** Because constants vanish under differentiation, indefinite integrals name families. Forgetting $+C$ is forgetting that many heights share one slope function.
+
+**"Integral equals antiderivative" without limits.** The definite integral $\int_a^b f$ is a number (net accumulation). An antiderivative is a function. The fundamental theorem connects them: evaluate an antiderivative at the endpoints (under the usual hypotheses).
+
+**Confusing average height with total accumulation.** Average value of $f$ on $[a,b]$ is $\frac{1}{b-a}\int_a^b f$. The integral itself still has units of $f$ times $x$, not the units of $f$ alone.
+
+**Thinking every integral is geometric area.** Area is the best picture, not the only meaning. Accumulation of rate, mass from density, expectation from weighted loss: same pattern, different units.
+
+**Ignoring units in $\Delta x$.** The thin width carries units. Forget them and the sum's units become mystery meat.
+
+## History & stories
+
+Long before formal calculus, Archimedes exhausted areas and volumes with relentless approximation: trap the unknown between shapes he could control. Squeeze until only one possibility remains. MacTutor's Archimedes biography is the standard entry point. The ethic is patience with limits. Do not demand the whole answer on the first polygon.
+
+Centuries later, integral calculus industrializes that boldness with systematic sums and the fundamental theorem. Next time you approximate an irregular lake on a map with grid squares, you are in the same family of mind.
+
+<StoryNote title="From The Joy of X">
+  "It Slices, It Dices" develops that Veg-O-Matic view. "Take It to the Limit" already showed Archimedes doing exhaustion. Attribute these as pedagogy hooks, not as substitutes for primary historical sources.
 </StoryNote>
-
-
-## Slow down: sums that become area
-
-Each thin rectangle $f(x_i)\Delta x$ is a tiny account of accumulation. Add them. Refine the partition. The integral is what the sum is trying to become. If you have ever approximated distance by reading a speedometer every few seconds and multiplying by time gaps, you have already lived a Riemann sum.
-
-## Antiderivatives
-
-A function $F$ with $F' = f$ is an antiderivative of $f$. Adding a constant does not change the derivative, so antiderivatives come in families $F + C$.
-
-## Fundamental theorem (intuition)
-
-Differentiating an accumulation from a fixed start recovers the rate. Integrating a rate recovers net accumulation. Derivative and integral are inverse stories (under suitable conditions).
-
-Archimedes's method of exhaustion is the ancient ancestor of "approximate, then refine."
 
 ## Real world
 
-Speedometer readings over a trip, accumulated carefully, estimate distance. Gaps and sign (direction) matter.
+Distance from speed over time, total energy from power over time, and total rainfall from rate charts are accumulation problems. Accounting systems that add contributions over bins are discrete cousins of the same idea.
+
+A trip reconstructed from sparse GPS speeds is a Riemann sum in traffic. A continuous model is the dream of infinite refinement. Engineers live between those poles constantly.
 
 ## AI / ML bridge
 
-Risk $= \mathbb{E}[\ell(y, f(x))]$ accumulates loss across the data-generating process. Mini-batches estimate that integral/sum.
+Expected loss (risk) is an accumulation of loss weighted by a data-generating distribution:
 
-<StoryNote title="From The Joy of X">
-  <p>
-    "It Slices, It Dices" nicknames integral thinking a Veg-O-Matic view of the universe: slice the hard shape into pieces you understand, then sum. "Take It to the Limit" already showed Archimedes doing it with exhaustion. Calculus made the slicing systematic.
-  </p>
-</StoryNote>
+$$
+R(f) = \mathbb{E}[\ell(y, f(x))]
+$$
 
-## Dig deeper
+Training estimates that accumulation from samples: empirical risk is a Monte Carlo stand-in for an integral or sum over the true distribution. Mini-batches are coarser Riemann-like probes of the same landscape.
 
-Algebrica's definite integrals and finding-areas-by-integration pages are diagram-forward companions. The fundamental theorem is the handshake between this lesson and the derivative.
+You will meet expectation formally in probability. Here, notice only that ML's central objective is already an integral in spirit.
 
-## Curiosity seeds
+## For the rereader
 
-- If speed is always positive, what does the integral of speed represent?
-- Why do antiderivatives come with $+C$?
+After probability and information theory, reread the risk sentence. Cross-entropy training is accumulation of surprisal-like penalties under an empirical measure. The Veg-O-Matic joke becomes less funny and more accurate: modern learning is disciplined slicing of high-dimensional integrals we cannot write closed forms for.
+
+A sharper nuance: existence of integrals and smoothness of derivatives are not the same gift. Plenty of useful losses are continuous but not everywhere differentiable. Accumulation can still be well-defined while gradient methods need care at kinks.
+
+Also sit with signed area again. In generative modeling and physics-informed losses, cancellation and orientation keep mattering; "area under the curve" as a motivational poster is too thin.
+
+On a third visit, explain the fundamental theorem to a friend using only a speedometer and an odometer metaphor. If the friend asks about $+C$, you are in the right conversation. If they ask about signed area, even better.
+
+Keep a list of accumulations in your life: rainfall totals, battery drain, pages read, tokens spent. Each is a discrete integral waiting for a cleaner window.
+
+## A longer numerical studio
+
+Approximate $\int_0^1 x^2\,dx$ with four rectangles (right endpoints), then eight, then sixteen. Watch the sums climb toward $1/3$. That climb is the integral becoming real.
+
+Now approximate distance from a speed table: speeds $v_i$ at times with gaps $\Delta t_i$. Form $\sum v_i \Delta t_i$. Change the gaps. Notice how sparse sampling lies. This is a Riemann sum in traffic, and it is also how numerical integrators begin.
+
+Signed area studio: integrate a function that crosses zero. Watch positive and negative panels cancel in the net. Then compute total variation of area with absolute values. Net versus total is the displacement-versus-distance distinction in geometric clothes.
+
+## Exhaustion as a virtue
+
+Archimedes trapped areas between controllable shapes and squeezed. The modern integral keeps the squeeze and upgrades the bookkeeping. When a problem feels impossible whole, ask: what thin piece can I control? That question is the Veg-O-Matic ethic without the joke brand.
+
+Grid a lake on a map. Count squares. Refine the grid. You are doing exhaustion with graph paper. Calculus names the ideal limit; your hand already knew the move.
+
+## Risk as accumulation (preview with care)
+
+Expected loss accumulates loss contributions weighted by chance. Mini-batches estimate that accumulation. You will meet expectation formally in probability; here, notice only that training objectives are integrals or sums in spirit. The calculus and probability tracks are already shaking hands.
+
+## Practice prompts
+
+1. If speed is always positive, what does $\int |v|$ versus $\int v$ distinguish?
+2. Why does $+C$ appear for indefinite integrals but not for a definite integral's numerical value?
+3. Sketch how the fundamental theorem lets you recover a rate by differentiating an accumulation function $A(x)=\int_a^x f$.
+
+## Extended examples
+
+**Right versus left rectangles.** On an increasing function, right Riemann sums overestimate; left underestimate. Refinement squeezes them together when the integral exists. The squeeze is Archimedes's ethic in modern clothes.
+
+**Average value.** $\frac{1}{b-a}\int_a^b f$ is the constant height whose rectangle matches the net area. Useful in physics and in "mean temperature over a day" talk.
+
+**Accumulation functions.** $A(x)=\int_a^x f(t)\,dt$ turns a rate into a running total. Differentiating $A$ recovers $f$ under the FTC hypotheses. This is the cleanest handshake picture.
+
+**Discrete logs as cousins.** Summing token counts, rain gauge tips, or battery milliamp-hours is a Riemann sum with stubborn $\Delta x$. Calculus is the continuum dream of those logs.
+
+**Signed panels.** Sketch $f(x)=x$ from $-1$ to $2$. Net area is not the painted absolute area. Choose the quantity your application needs before you integrate.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** Integrals accumulate local contributions; rates rebuild totals.
+
+**One picture.** Thin rectangles summing toward a region under a curve.
+
+**One process.** Partition, form $f(x_i)\Delta x$, sum, refine.
+
+**One handshake.** Fundamental theorem: differentiation and integration invert (suitably).
+
+**One ethic.** Squeeze unknown shapes between controlled ones (Archimedes).
+
+**One Strogatz hook.** "It Slices, It Dices" - Veg-O-Matic slicing; exhaustion in the background.
+
+**One Algebrica stop.** Definite integrals pages for area diagrams.
+
+**One AI seed.** Risk is expected loss: an accumulation estimated by samples.
+
+**Cross-links.** Derivatives measure; integrals accumulate. Gradients descend on accumulated loss. Probability names the weights in that accumulation.
+
+**Workplace failure.** Reporting "area under the curve" as a KPI without signed-area or units clarity.
+
+**Reread schedule.** After empirical risk lectures, return here. After numerical integration bugs, return and redraw rectangles.
+
+**Notation scratchpad.**
+- $\int_a^b f(x)\,dx$
+- Antiderivative families $F+C$
+- Riemann sum $\sum f(x_i)\Delta x$
+
+**Questions that stay alive.**
+- Net versus total accumulation: which do I need?
+- Where do I already live a Riemann sum (GPS, logs, invoices)?
+- What does $+C$ protect me from forgetting?
+
+**Closing image.** A speedometer diary turned into distance by careful summing: calculus industrializing what drivers already approximate.
+
+## Glossary of moves
+
+- **Riemann sum:** weighted heights times widths, then add.
+- **Definite integral:** limit of Riemann sums (when it exists).
+- **Indefinite integral / antiderivative:** reverse derivative, plus $C$.
+- **Signed area:** net accumulation with orientation.
+- **FTC:** differentiation and integration as inverse stories.
+- **Average value:** integral divided by length of interval.
+- **Empirical risk:** sample average standing in for an integral/sum of loss.
+
+## One more vignette
+
+Archimedes squeezing a circle between polygons is not a museum curiosity. It is the emotional tone of integration: refuse the demand for the whole answer on the first try. Every numerical integrator, every mini-batch estimate of risk, every rainfall total from tipping buckets inherits that tone. When you feel impatient for a closed form, remember the polygons. Patience with refinement is a mathematical virtue with engineering consequences.
+
+## Why reread this chapter at all
+
+A personal knowledge base earns its keep on the second and third visit. The first visit teaches vocabulary. Later visits catch workplace failures, connect neighboring courses, and sharpen taste. If a section felt long, that is intentional: lasting chapters are denser than skim cards. Skim the field notes when time is short; return to worked examples when a bug in your thinking appears.
 
 ## Carry this forward
 
-- Integrals accumulate.
-- FTC links slope and area.
-- Next: gradients in many variables for learning.
+- Integrals accumulate local contributions; rates integrate to net change.
+- Antiderivatives come in $+C$ families; the FTC links slope and area.
+- Risk in ML is expected loss: an accumulation estimated from samples.
+- Next: gradients in many variables, where learning walks downhill on that accumulated loss.

@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "Why do the ratios only depend on the angle?"
   - "What is tangent, intuitively?"
-estimatedMinutes: 34
+estimatedMinutes: 68
 furtherReading:
   - title: "MacTutor - Aryabhata"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Aryabhata_I/"
@@ -39,6 +39,20 @@ furtherReading:
 
 ---
 
+## How this idea was born
+
+People needed heights they could not climb: a tree across a river, a ramp's rise from its run, a tower judged from a safe distance. Surveying and astronomy kept asking the same practical question: if you can measure an angle and one length, what else can you trust?
+
+Once turns are measurable, fix an acute angle in a right triangle and the side lengths refuse to be arbitrary. Scale the triangle up or down and the **ratios** stay the same, because similar triangles share angle structure. Sine, cosine, and tangent begin as names for those stable ratios.
+
+In the fifth and sixth centuries, **Aryabhata** gave sine tables (half-chords) in the *Aryabhatiya* that made trigonometry a working computational tool in Indian astronomy. MacTutor stresses the craft: compute carefully, reuse structure, and let the sky demand better ratios. Mnemonics help memory; similarity explains why the mnemonics work.
+
+This chapter is the triangle doorway for a modern rereader. Everything later (unit circle, waves, cosine similarity) reuses the same ratios in new costumes. Learn to label opposite, adjacent, and hypotenuse before you lean on SOH-CAH-TOA.
+
+<StoryNote title="Curiosity from history">
+  Aryabhata's sine tables (half-chords) made trigonometry a working computational tool in Indian astronomy. The ethic is craft: compute carefully, reuse structure, let the sky demand better ratios.
+</StoryNote>
+
 ## First principles
 
 In a right triangle, fix an acute angle $\theta$. Name the sides relative to $\theta$:
@@ -57,47 +71,150 @@ $$
 \tan\theta = \frac{\text{opposite}}{\text{adjacent}}
 $$
 
-Because similar right triangles share angles, these ratios depend on $\theta$, not on how large you draw the triangle.
+Because similar right triangles share angles, these ratios depend on $\theta$, not on how large you draw the triangle. Scale cancels in a ratio of lengths.
+
+**SOH-CAH-TOA** is a memory aid:
+
+- **S**ine = **O**pposite / **H**ypotenuse
+- **C**osine = **A**djacent / **H**ypotenuse
+- **T**angent = **O**pposite / **A**djacent
+
+Say the labels before you say the mnemonic. The mnemonic cannot fix a mislabeled sketch.
 
 
-## Slow down: label before you compute
+## Worked intuition
 
-Most trig mistakes are labeling mistakes. Circle the angle. Name opposite and adjacent out loud. Only then write sine or cosine. The mnemonic SOH-CAH-TOA cannot save a mislabeled triangle. Similarity can: the ratios are properties of the angle's shape family.
+### Label before you compute
 
-## Memory aid (with eyes open)
+Most trig mistakes are labeling mistakes. Circle the angle. Name opposite and adjacent out loud. Only then write sine or cosine. SOH-CAH-TOA cannot save a mislabeled triangle.
 
-SOH-CAH-TOA is a mnemonic, not an explanation. The explanation is similarity: scale cancels in a ratio of lengths.
+Opposite and adjacent are relative to the angle you chose. Switch which acute angle you focus on, and the labels swap roles.
 
-## Solving for a length
+**Labeling drill 1.** In a right triangle, the right angle sits at the bottom-left corner. You care about the bottom-right acute angle. The bottom side is **adjacent**, the left side is **opposite**, the diagonal is **hypotenuse**.
 
-If you know one side and an acute angle, the definitions rearrange into formulas for the missing sides. Always sketch and label opposite/adjacent before you compute.
+**Labeling drill 2.** Same triangle, but now you care about the top acute angle. The left side becomes **adjacent**, the bottom side becomes **opposite**. Hypotenuse stays fixed.
+
+### Similarity is the explanation
+
+SOH-CAH-TOA is a mnemonic, not an explanation. The explanation is shape families: all right triangles with a given acute angle $\theta$ are scaled copies of each other. Ratios of corresponding sides are invariants of that family.
+
+If triangle $ABC$ has legs $3$ and $4$ and hypotenuse $5$, then any similar triangle with the same acute angle has sides $6, 8, 10$ or $1.5, 2, 2.5$. In every case, $\sin\theta = 3/5 = 6/10 = 1.5/2.5$.
+
+### Solving for a length
+
+If you know one side and an acute angle, the definitions rearrange into formulas for the missing sides. Always sketch. Always label. Then rearrange:
+
+$$
+\text{opposite} = (\sin\theta)\,(\text{hypotenuse}), \quad
+\text{adjacent} = (\cos\theta)\,(\text{hypotenuse})
+$$
+
+Tangent is the steepness ratio: rise over run relative to $\theta$. It can be larger than 1 when opposite exceeds adjacent (angles above $45^\circ$ in a right triangle).
+
+**Example 1 - tree height.** You stand $40$ m from a tree. The angle of elevation to the top is $35^\circ$. The tree height $h$ is opposite; your distance is adjacent. $\tan 35^\circ = h/40$, so $h = 40 \tan 35^\circ \approx 28$ m.
+
+**Example 2 - ladder.** A $5$ m ladder leans against a wall. The base is $2$ m from the wall. How high does it reach? Hypotenuse $= 5$, adjacent $= 2$, so $\cos\theta = 2/5$ and height $= 5\sin\theta$. You can also use Pythagoras: height $= \sqrt{25-4} = \sqrt{21} \approx 4.58$ m.
+
+**Example 3 - ramp.** ADA guidelines often cite slope ratios. A ramp with run $12$ and rise $1$ has $\tan\theta = 1/12 \approx 0.083$, a gentle angle. Steeper ramps mean larger tangent.
+
+**Example 4 - special angles preview.** In a $45^\circ$-$45^\circ$-$90^\circ$ triangle with legs $1$, hypotenuse $= \sqrt{2}$. So $\sin 45^\circ = \cos 45^\circ = 1/\sqrt{2}$ and $\tan 45^\circ = 1$. In a $30^\circ$-$60^\circ$-$90^\circ$ triangle with short leg $1$, hypotenuse $= 2$, long leg $= \sqrt{3}$. Then $\sin 30^\circ = 1/2$, $\cos 30^\circ = \sqrt{3}/2$, $\tan 30^\circ = 1/\sqrt{3}$. The unit circle will make these numbers feel inevitable.
+
+### Inverse ratios (preview)
+
+If $\sin\theta = 0.6$, what is $\theta$? The inverse sine function $\arcsin$ (or $\sin^{-1}$ on calculators) answers that question. For now, know that every ratio question has two directions: angle to ratio (forward) and ratio to angle (inverse). The unit circle will make inverse trig less mysterious.
+
+### Complementary angles
+
+In a right triangle, the two acute angles sum to $90^\circ$. So $\sin\theta = \cos(90^\circ - \theta)$. If one acute angle is $35^\circ$, the other is $55^\circ$, and $\sin 35^\circ = \cos 55^\circ$. This "co-" prefix in cosine originally meant complement. Worth remembering when you check answers.
+
+### Checking answers with bounds
+
+For any acute angle in a right triangle, $0 < \sin\theta < 1$ and $0 < \cos\theta < 1$. If your computation gives $\sin\theta = 1.3$, something went wrong: labeling, calculator mode, or an inverted ratio. Bounds are cheap sanity checks before you trust a number.
+
+**Labeling drill 3:** A right triangle has hypotenuse $13$ and one leg $5$. Before computing any trig ratio, find the missing leg with Pythagoras ($12$). Now pick either acute angle and name opposite, adjacent, and hypotenuse. Only then write $\sin$, $\cos$, or $\tan$.
+
+**Shadow problem (similarity):** A $2$ m stick casts a $1.5$ m shadow. A building casts a $45$ m shadow at the same time. Assuming parallel sun rays, the building height is $2 \cdot (45/1.5) = 60$ m. The trig ratio is hiding inside the proportion.
+
+<StoryNote title="From The Joy of X">
+  Before the unit circle frees sine from acute angles, right triangles teach the ratios as similarity invariants. Same angle, same shape family, same opp/hyp - even when the drawing grows.
+</StoryNote>
+
+
+## Common confusions
+
+**Using SOH-CAH-TOA without labeling.** The mnemonic is useless if "opposite" points at the wrong side.
+
+**Thinking the ratios depend on triangle size.** They depend on the angle (and on being in a right triangle for these elementary definitions).
+
+**Forgetting the hypotenuse is fixed as the side opposite the right angle.** Students sometimes call the longest-looking drawn segment the hypotenuse even when the right angle was mis-marked.
+
+**Expecting tangent to stay below 1.** $\tan\theta > 1$ whenever opposite $>$ adjacent for acute $\theta$.
+
+**Treating acute-triangle definitions as the whole subject.** They are the doorway. The unit circle extends the same ideas to oriented angles beyond $0^\circ$ to $90^\circ$.
+
+**Swapping sine and cosine.** Cosine uses adjacent; sine uses opposite. Both divide by hypotenuse. If your answer is greater than 1 for an acute angle in a right triangle, you probably inverted a ratio or swapped labels.
+
+**Using the wrong angle.** "Angle of elevation" is measured from horizontal up. "Angle of depression" from horizontal down. Sketch the horizontal ray first.
+
+**Calculator mode.** Ensure your calculator is in the unit (degrees or radians) your problem uses. A degree problem with radian mode gives answers that look plausible but are wrong.
+
+
+## History and stories
+
+In the *Aryabhatiya*, Aryabhata (476-550) gave sine tables (half-chords) that made trigonometry a working computational tool in Indian astronomy. MacTutor's biography emphasizes that table-building craft: compute carefully, reuse structure, let astronomy demand better ratios.
+
+This sits in a longer chord-to-sine story that also includes Greek and later Islamic mathematicians. Do not flatten it into "Aryabhata invented sine overnight." Prefer MacTutor's trig history topic for the cross-cultural arc.
+
+Surveying a tree with a clinometer is the same spirit outdoors: turn a measured angle into a length you could not reach with a tape.
+
+The word "sine" traces through Latin *sinus* ("fold, bay") from Arabic *jiba*, itself from Sanskrit *jya* (chord-related terminology in Indian astronomy). The etymology is a reminder that trigonometry traveled across cultures before it landed in your textbook.
 
 ## Real world
 
-Surveying, architecture slopes, and game-engine camera pitches use these ratios constantly.
+- Tree or building height from a measured angle of elevation
+- Ramp rise from run (accessibility slopes, skate ramps)
+- Architecture and surveying
+- Game-engine camera pitches and simple collision geometry
 
-<StoryNote title="Curiosity from history">
-  <p>
-    Aryabhata's sine tables (half-chords) made trigonometry a working computational tool in Indian astronomy. The ethic is craft: compute carefully, reuse structure, let the sky demand better ratios.
-  </p>
-</StoryNote>
+Anywhere a right triangle hides inside a measurement problem, these ratios are the shortcut.
 
-<StoryNote title="From The Joy of X">
-  <p>
-    Before the unit circle frees sine from acute angles, right triangles teach the ratios as similarity invariants. Same angle, same shape family, same opp/hyp - even when the drawing grows.
-  </p>
-</StoryNote>
+**Drone photography:** gimbal pitch angles control how much sky versus ground appears in frame. Small pitch changes are right-triangle steepness in disguise.
 
-## Dig deeper
+**Roof pitch:** builders describe slope as "rise per 12 inches run" (e.g., 4:12). That is tangent in carpentry clothing.
+
+**Lighthouse visibility:** the distance to the horizon from height $h$ involves a right triangle with Earth's radius. Trig and Pythagoras cooperate. The geometry chapter's distance ideas meet trig ratios here.
+
+
+## AI / ML bridge
+
+This lesson's frontmatter leaves the AI/ML hook empty on purpose. Right-triangle ratios are geometric building blocks. Forcing a neural-net slogan here would be dishonest.
+
+The genuine bridges arrive immediately next: unit-circle coordinates feed rotation matrices, and cosine-as-alignment becomes a similarity score in embedding space. Learn the ratios cleanly now so those later links are earned, not plastered on.
+
+If you want a honest forward pointer: when embeddings are normalized to unit length, dot products become cosine values. That is the unit circle chapter wearing data-science clothes. Right triangles built the ratios; the circle will normalize them.
+
+
+## For the rereader
+
+When the unit circle normalizes the hypotenuse to 1, adjacent/hypotenuse collapses to an $x$-coordinate and opposite/hypotenuse collapses to a $y$-coordinate. You will see that these definitions were never a different subject.
 
 Algebrica's right-triangle trigonometry page walks SOH-CAH-TOA with pictures. Use it after you can label opposite and adjacent without peeking.
 
-## Curiosity seeds
+Say the labels out loud before you write sine. That habit survives every later course.
 
-- Why does scaling the triangle cancel in a ratio?
-- Can tangent be larger than $1$? When?
+**Second-pass challenge:** Given $\sin\theta = 3/5$ for an acute $\theta$ in a right triangle, find $\cos\theta$ and $\tan\theta$ without a calculator. Hint: draw the triangle with opposite $3$, hypotenuse $5$, then Pythagoras gives adjacent $4$. So $\cos\theta = 4/5$, $\tan\theta = 3/4$.
+
+**Curiosity question:** Why does the calculator's `sin` button return a number between $-1$ and $1$ even though opposite and hypotenuse are lengths? Because the ratio is scale-free. The button is already dividing for you.
+
+**Dig deeper (Algebrica):** The "Sine and cosine" page bridges triangle ratios to the unit circle. Read it after this chapter and notice how opp/hyp becomes a coordinate when the hypotenuse is 1.
+
+**Curiosity question:** Why is hypotenuse always the longest side? In a right triangle, the right angle is opposite the hypotenuse, and the other two angles are acute. Each acute angle is less than $90^\circ$, so the side opposite each acute angle is shorter than the hypotenuse. Pythagoras makes the same claim in squared form.
+
 
 ## Carry this forward
 
-- Trig ratios are similarity invariants.
+- Trig ratios are similarity invariants of an angle's right-triangle family.
+- Label opposite, adjacent, and hypotenuse before you compute.
+- Tangent measures steepness; it can exceed 1.
+- Special angles ($30^\circ$, $45^\circ$, $60^\circ$) come from familiar triangles.
 - Next: the unit circle extends the same ideas past acute angles.

@@ -15,7 +15,7 @@ prerequisites:
 curiositySeeds:
   - "What does a large dot product mean?"
   - "What is a projection?"
-estimatedMinutes: 34
+estimatedMinutes: 70
 furtherReading:
   - title: "MacTutor - Hermann Grassmann"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Grassmann/"
@@ -37,6 +37,18 @@ furtherReading:
 
 ---
 
+## How this idea was born
+
+Vectors can point anywhere. Physics needs work (force along a displacement). Recommendation systems need a meter for **alignment**: how much do two directions agree? Without that meter, "similar" stays a shrug.
+
+**Hermann Grassmann** (1809-1877) built a vast geometric algebra in the *Ausdehnungslehre*, ahead of its time and long ignored. MacTutor records how he kept developing the ideas anyway. Steal the ethic carefully: when you see a cleaner language for space, write it down even if the room is not ready. Inner products are that language's heartbeat; the dot product is the meter you meet first.
+
+From it you get lengths, angles, and projections - the geometry behind similarity search, least squares shadows, and attention scores. For a modern rereader, this chapter is where arrows stop being lonely and start talking about agreement.
+
+<StoryNote title="Curiosity from history">
+  Grassmann's geometric algebra was long ignored; he kept writing anyway. Attribute the career sketch to MacTutor. Do not invent a tidy "he invented the dot product overnight" anecdote. The chapter steals conviction about cleaner language for space.
+</StoryNote>
+
 ## First principles
 
 For $\mathbf{u}, \mathbf{v}$ in $\mathbb{R}^n$,
@@ -47,12 +59,7 @@ $$
 
 when the geometric interpretation applies. Large positive: aligned. Near zero: orthogonal. Negative: opposing.
 
-
-## Slow down: multiply matching parts
-
-Dot product adds the products of corresponding components. Geometrically it secretly contains $\cos\phi$. Projection uses that number to drop a perpendicular shadow of one vector onto another - the core of least squares later.
-
-## Projection
+Length comes free: $\|\mathbf{v}\| = \sqrt{\mathbf{v}\cdot\mathbf{v}}$.
 
 The shadow of $\mathbf{v}$ onto the direction of $\mathbf{u}$ is
 
@@ -62,37 +69,158 @@ $$
 
 (for $\mathbf{u} \neq 0$). That is "how much of $\mathbf{v}$ lies along $\mathbf{u}$."
 
-## Length
-
-$\|\mathbf{v}\| = \sqrt{\mathbf{v}\cdot\mathbf{v}}$.
-
-## Real world
-
-If you push a crate at an angle, only the component along the motion does work. Dot product filters the aligned part.
-
-## AI / ML bridge
-
-Cosine similarity is the dot product of normalized vectors. Attention logits are often scaled dot products between queries and keys.
-
 <ProjectionDiagram />
 
-<StoryNote title="From The Joy of X">
-  <p>
-    Angle between directions keeps reappearing - in trigonometry as cosine, in data as alignment. The dot product is the algebraic handshake: multiply matching components, sum, and out falls a number that knows about angle and length.
-  </p>
-</StoryNote>
+## Worked intuition
 
-## Dig deeper
+Dot product adds the products of corresponding components. Geometrically it secretly contains $\cos\theta$. Projection uses that number to drop a perpendicular shadow of one vector onto another - the core of least squares later.
+
+If you push a crate at an angle, only the component along the motion does work. Dot product filters the aligned part. Physics called this pattern "work" long before ML called a cousin "cosine similarity."
+
+Cosine similarity is the dot product of normalized vectors: divide by lengths so magnitude stops dominating angle. That is why recommenders often prefer cosine when vector lengths reflect popularity more than affinity.
 
 Algebrica's inner-product-spaces page and cosine-similarity page are the formal and applied twins of this lesson. Projection is "how much of this lies along that."
 
-## Curiosity seeds
+## Common confusions
 
-- When is the dot product zero?
-- Why do we divide by lengths to get cosine similarity?
+**Large dot product always means "similar."** Without normalization, long vectors can dominate. Two long nearly-orthogonal vectors can outscore two short aligned ones. Decide whether you care about angle, magnitude, or both.
+
+**Orthogonal means "unrelated in the real world."** Orthogonal means zero inner product in the chosen geometry. It is a mathematical silence, not a metaphysical claim about causation.
+
+**Projection as "delete the other parts forever."** Projection extracts a component along a subspace. The residual $\mathbf{v} - \mathrm{proj}_{\mathbf{u}}\mathbf{v}$ is the leftover, orthogonal to $\mathbf{u}$ in the Euclidean case. Least squares lives on that residual story.
+
+**Attention is "just" a soft lookup.** Scaled dot-product attention uses alignment scores between queries and keys, then softmax. The soft lookup is built on this chapter's meter.
+
+**Using cosine on uncentered data carelessly.** Mean structure can dominate angles. Sometimes people subtract means first; know whether you did.
+
+**Thinking projection removes noise always.** Projection onto a poor subspace can remove signal. The subspace choice is the plot.
+
+## History & stories
+
+Hermann Grassmann's *Ausdehnungslehre* built a vast geometric algebra ahead of its time and was long ignored. He kept developing the ideas anyway. MacTutor's Grassmann biography is the standard short map. The ethic is conviction: cleaner language for space is worth writing even when the room is not ready.
+
+You do not need Grassmann's full system to use $\mathbf{u}\cdot\mathbf{v}$. You do need his courage toward structure when coordinate mess tempts you to give up.
+
+<StoryNote title="From The Joy of X">
+  Angle between directions keeps reappearing - in trigonometry as cosine, in data as alignment. The dot product is the algebraic handshake: multiply matching components, sum, and out falls a number that knows about angle and length.
+</StoryNote>
+
+## Real world
+
+Work in physics is force dotted with displacement. Navigation and robotics constantly decompose motion into components along useful axes. Recommendation "similarity" is often a cosine of feature vectors. Search ranking and clustering reuse the same alignment instinct.
+
+Whenever someone says "these directions agree," hear a dot product humming - or hear a missing normalization warning.
+
+## AI / ML bridge
+
+Cosine similarity, attention scores (before softmax), and many kernels begin with a dot product. Embedding retrieval is nearest-neighbor geometry in disguise. Linear layers followed by a dot with a class weight vector are classification scores with an alignment reading.
+
+Least squares regression projects target vectors onto the column space of a design matrix. You will feel that sentence more after the bases chapter; the projection formula here is the seed.
+
+## For the rereader
+
+After bases, notice that an orthonormal basis makes coordinates into ready-made dot products with basis vectors. After probability, notice that expectation of a product (and covariance) are cousins of alignment meters on random variables - different category, similar thirst for "how much do these move together."
+
+A sharper nuance: changing the inner product changes the geometry. Mahalanobis distance is Euclidean geometry after a linear reshape. "Nearest neighbor" is never geometry-free; it always smuggles a metric.
+
+Also reread the residual sentence. Error vectors orthogonal to the fitted subspace are not a mystical ML invention; they are Euclidean projection talking.
+
+On a third visit, derive the projection formula from "residual orthogonal to $\mathbf{u}$" instead of memorizing it. The derivation sticks harder than the boxed equation.
+
+Keep a list of alignment meters in systems you use: recommendation scores, attention weights, search ranking. Ask which are cosine, which are raw dots, which are learned cousins.
+
+## A longer geometric studio
+
+Take $\mathbf{u}=(2,0)$ and $\mathbf{v}=(1,1)$. Compute the dot product, the cosine, and the projection of $\mathbf{v}$ onto $\mathbf{u}$. Draw the shadow. Draw the residual. Check that residual is orthogonal to $\mathbf{u}$ by another dot product. That closed loop - score, project, residual, verify - is the chapter in one page.
+
+Now normalize both vectors and recompute the dot product. Cosine similarity appears. Notice how length stopped dominating.
+
+## Work and similarity
+
+Physics: work is force dotted with displacement. Only the aligned component pays. Recommenders: cosine of feature vectors. Only the aligned taste dimensions pay. Different worlds; same meter.
+
+Attention logits are often scaled dot products between queries and keys. Softmax then turns alignment scores into weights. You do not need the full transformer here. You need to hear the meter humming under the architecture diagram.
+
+## Least squares seed
+
+Fitting a line is projecting a target vector onto the span of feature columns. The residual is orthogonal to that span in the Euclidean story. Remember that sentence when regression appears later; it is this chapter wearing statistics clothes.
+
+## Practice prompts
+
+1. When can a large dot product mislead you about "similarity"?
+2. Why divide by $\|\mathbf{u}\|\|\mathbf{v}\|$ to get cosine?
+3. Prove to yourself on paper that $\mathbf{v}-\mathrm{proj}_{\mathbf{u}}\mathbf{v}$ is orthogonal to $\mathbf{u}$ when the formula is used carefully.
+
+## Extended examples
+
+**Orthogonality check.** After projecting $\mathbf{v}$ onto $\mathbf{u}$, verify $(\mathbf{v}-\mathrm{proj})\cdot\mathbf{u}=0$ within rounding error. This check catches algebraic slips.
+
+**Cosine in recommenders.** Users as vectors of ratings (with missing entries handled carefully in real systems). Cosine focuses on taste direction; magnitude may reflect activity level.
+
+**Attention sketch.** Score $=q\cdot k / \sqrt{d}$. Softmax weights. Weighted sum of values. The score is this chapter; the rest is engineering.
+
+**Work example.** Force $(0,5)$ and displacement $(2,0)$ give work $0$ in the plane toy: push sideways relative to motion, no work. Alignment is not optional.
+
+**Kernel preview.** Many kernels begin as functions of a dot product. The geometry of alignment keeps generalizing.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** Dot products meter alignment; projections drop shadows along directions.
+
+**One picture.** A vector and its perpendicular residual after projection.
+
+**One formula.** $\mathbf{u}\cdot\mathbf{v}=\|\mathbf{u}\|\|\mathbf{v}\|\cos\theta$.
+
+**One warning.** Long vectors can dominate raw dots; cosine normalizes.
+
+**One ethic.** Write cleaner geometric language even if the room is not ready (Grassmann).
+
+**One Strogatz hook.** Angle as recurring character; dot product as handshake.
+
+**One Algebrica stop.** Inner-product spaces and cosine similarity pages.
+
+**One AI seed.** Cosine similarity, attention logits, kernels: alignment meters.
+
+**Cross-links.** Vectors supply the objects. Matrices can implement projections. Bases become pleasant when orthonormal. Least squares is projection onto column space.
+
+**Workplace failure.** Saying "similar embeddings" without saying cosine versus Euclidean versus learned score.
+
+**Reread schedule.** After attention chapters, return. After a recommendation bug, return and check normalization.
+
+**Notation scratchpad.**
+- $\mathbf{u}\cdot\mathbf{v}=\sum_i u_i v_i$
+- $\mathrm{proj}_{\mathbf{u}}\mathbf{v}=\frac{\mathbf{u}\cdot\mathbf{v}}{\mathbf{u}\cdot\mathbf{u}}\mathbf{u}$
+- Residual $\mathbf{v}-\mathrm{proj}_{\mathbf{u}}\mathbf{v}$
+
+**Questions that stay alive.**
+- Angle, magnitude, or both - which do I want?
+- Is my residual orthogonal as a check?
+- Which subspace am I projecting onto, and why that one?
+
+**Closing image.** A crate pushed at an angle: only the aligned force works; the rest is wasted sideways effort.
+
+## Glossary of moves
+
+- **Dot product:** $\sum u_i v_i$; alignment meter.
+- **Cosine similarity:** dot of normalized vectors.
+- **Orthogonal:** dot product zero.
+- **Projection:** shadow along a direction/subspace.
+- **Residual:** leftover after projection.
+- **Length from dot:** $\|v\|=\sqrt{v\cdot v}$.
+- **Attention score (sketch):** scaled dot product before softmax.
+
+## One more vignette
+
+Push a suitcase whose wheels fight you sideways. The wasted effort is the component orthogonal to motion. Physics named it in work; ML names cousins in alignment scores. Once you feel wasted sideways effort in your shoulders, cosine similarity stops being a slogan and becomes a filter for what counts.
+
+## Why reread this chapter at all
+
+A personal knowledge base earns its keep on the second and third visit. The first visit teaches vocabulary. Later visits catch workplace failures, connect neighboring courses, and sharpen taste. If a section felt long, that is intentional: lasting chapters are denser than skim cards. Skim the field notes when time is short; return to worked examples when a bug in your thinking appears.
+
+If you only remember one habit from this chapter, make it this: name the assumption you are silently using. Windows for rates, axes for vectors, priors for updates, losses for averages - unspoken assumptions are where knowledge bases go soft.
 
 ## Carry this forward
 
-- Dot = alignment meter.
-- Projection extracts components.
+- Dot product meters alignment; cosine strips length to focus on angle.
+- Projection extracts components; residuals carry the leftover.
 - Next: bases and dimension, why spaces need the right scaffolding.

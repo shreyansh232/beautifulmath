@@ -19,3 +19,9 @@
 - Additional StoryNote hooks from Steven Strogatz, The Joy of X (2012), mapped to chapter themes without inventing quotations.
 - Diagram ideas cross-checked against Algebrica topic pages (CC BY-NC 4.0: link and inspire; do not paste their SVGs).
 - Historical vignettes cross-checked against MacTutor where named.
+
+## Knowledge-base expansion
+- Personal KB structure added with deepening (idealization, betweenness, vertical angles, non-Euclidean hint) and desk-reference naming/turn checklists.
+- Themes: geometry as second language; Euclid organize-not-invent; postulates as game rules; coordinates as place↔number dictionary; Joy of X Square Dancing; feature-space points and hyperplanes bridge.
+
+- Opening rewritten to story-before-symbols.

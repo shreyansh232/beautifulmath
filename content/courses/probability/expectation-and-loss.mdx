@@ -1,7 +1,7 @@
 ---
 title: "Expectation and loss"
 slug: "expectation-and-loss"
-order: 3
+order: 4
 summary: "Expectation is the probability-weighted average. Loss functions turn prediction errors into numbers; risk is expected loss."
 mathematician:
   name: "Andrey Kolmogorov"
@@ -11,10 +11,11 @@ realWorld: "Insurance premiums, expected wait times, and average damage under ri
 aiMlHook: "Training minimizes empirical risk: average loss on data, a stand-in for expected loss under the true distribution."
 prerequisites:
   - "chance-and-probability"
+  - "random-variables-and-distributions"
 curiositySeeds:
   - "What is expected value?"
   - "What is a loss function?"
-estimatedMinutes: 34
+estimatedMinutes: 68
 furtherReading:
   - title: "MacTutor - Andrey Kolmogorov"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Kolmogorov/"
@@ -35,6 +36,18 @@ furtherReading:
     note: "Expectation definitions and diagrams for discrete and continuous cases."
 ---
 
+## How this idea was born
+
+Under risk, people need **averages that respect chance**: what an insurer should expect to pay, what a fair game should return, what a planner should treat as a center of mass when outcomes scatter. Probability weights outcomes. Expectation turns those weights into a single summary that training algorithms, insurers, and planners optimize against.
+
+**Andrey Kolmogorov** axiomatized probability in 1933, giving the subject a measure-theoretic spine so expectation and dependence could live in one rigorous house. MacTutor is the short stop. Steal the ethic: pin down the rules so creativity does not collapse into confusion. Loss functions turn prediction mistakes into numbers; **risk** is expected loss. This chapter is where chance becomes an objective.
+
+For a modern rereader, remember that expectation is a summary, not a destiny, and not always a value the random variable can take. Variance and ruin still matter.
+
+<StoryNote title="From The Joy of X">
+  "All About e" includes the dating / secretary problem as popular pedagogy connecting expectation to optimal stopping. Attribute it that way, not as a substitute for the research literature on the secretary problem.
+</StoryNote>
+
 ## First principles
 
 For a discrete random variable $X$ with values $x_i$ and probabilities $p_i$,
@@ -47,52 +60,162 @@ It is the center of mass of the distribution.
 
 <DistributionDiagram />
 
-Linearity: $\mathbb{E}[aX + bY] = a\mathbb{E}[X] + b\mathbb{E}[Y]$ always (no independence needed).
+Linearity: $\mathbb{E}[aX + bY] = a\mathbb{E}[X] + b\mathbb{E}[Y]$ always (no independence needed). That convenience is almost unfairly useful.
+
+Variance: $\mathrm{Var}(X) = \mathbb{E}[(X - \mathbb{E}X)^2]$ measures spread around the center.
+
+A loss $\ell(y, \hat{y})$ scores a mistake. **Risk** is $\mathbb{E}[\ell(Y, f(X))]$. Machine learning estimates risk with an average over samples (empirical risk).
+
+## Worked intuition
+
+A lottery with tiny chance of a huge prize can have a shiny expected value and still be a bad personal plan - variance and ruin matter too. Expectation is a summary, not a destiny, and not always a value the random variable can take (the average of a fair die is $3.5$).
+
+Casinos set rules so their expectation is positive. Insurance prices premiums around expected claims plus margin. Waiting-time models use expectation as a planning number with variance as a honesty check.
+
+In ML, choosing a loss is choosing which mistakes hurt in the average that training will minimize. MSE, cross-entropy, hinge: different geometries of error.
+
+Algebrica's mean-or-expected-value page develops discrete and continuous cases.
+
+Strogatz's dating (secretary) problem shows expectation as strategy: interview candidates in random order, reject the first roughly $1/e$ as calibration, then take the next who beats all of them. Expectation is not only average payoff; it can tell you when to stop searching.
+
+## Common confusions
+
+**Expectation as a typical outcome.** Means can sit where no probability mass lives. Modes and medians answer different questions.
+
+**Linearity requiring independence.** Linearity of expectation holds without independence. Variance calculations do not get the same free pass.
+
+**Empirical risk as the true risk.** The average on a sample is a stand-in. Generalization asks whether that stand-in tracks the expectation under the true distribution. Overfitting is the gap becoming a chasm.
+
+**Ignoring tails while optimizing means.** Fat-tailed losses can make mean-focused training brittle. Companion metrics matter.
+
+**Optimizing average reward while ignoring ruin.** A strategy with positive expectation can still bankrupt you via variance. Kelly-style thinking exists because means are incomplete.
+
+**Assuming empirical risk decreases imply true risk decreases.** Overfitting is the counterexample industry.
+
+## History & stories
+
+Andrey Kolmogorov axiomatized probability in 1933, giving the subject a measure-theoretic spine so expectation and dependence could live in one rigorous house. MacTutor's Kolmogorov biography is the standard short reference. Foundations for a wild field: pin down the rules so creativity does not collapse into confusion.
+
+You can compute discrete expectations without measure theory. You cannot appreciate why the general theory needed spine until the house gets large.
 
 <StoryNote>
-  <p>
-    One of Strogatz's crowd-pleasers in <em>The Joy of X</em> is the dating (or secretary) problem: interview candidates in random order, reject the first roughly $1/e$ as calibration, then take the next who beats all of them. Expectation is not only "average payoff." It can tell you when to stop searching.
-  </p>
+  One of Strogatz's crowd-pleasers in <em>The Joy of X</em> is the dating (or secretary) problem: interview candidates in random order, reject the first roughly $1/e$ as calibration, then take the next who beats all of them. Expectation is not only "average payoff." It can tell you when to stop searching.
 </StoryNote>
-
-
-## Slow down: average is a weighted center
-
-Expectation is a center of mass. A lottery with tiny chance of a huge prize can have a shiny expected value and still be a bad personal plan - variance and ruin matter too. In ML, choosing a loss is choosing which mistakes hurt in the average that training will minimize.
-
-## Variance (brief)
-
-$\mathrm{Var}(X) = \mathbb{E}[(X - \mathbb{E}X)^2]$ measures spread.
-
-## Loss and risk
-
-A loss $\ell(y, \hat{y})$ scores a mistake. **Risk** is $\mathbb{E}[\ell(Y, f(X))]$. Machine learning estimates risk with an average over samples.
 
 ## Real world
 
-A fair game has expected net gain near zero. Casinos set rules so their expectation is positive.
+Insurance premiums, expected wait times, and average damage under risk scenarios are expectations. Project planning that quotes only means without spreads is incomplete communication.
+
+A fair game has expected net gain near zero. Real casinos and real markets rarely offer you that courtesy.
 
 ## AI / ML bridge
 
-MSE, cross-entropy, hinge loss: different geometries of error. Optimization (calculus) + linear maps (linear algebra) + expectation (this lesson) meet in training.
+Training minimizes empirical risk: average loss on data, a stand-in for expected loss under the true distribution. Optimization (calculus) + linear maps (linear algebra) + expectation (this lesson) meet in training.
 
-<StoryNote title="From The Joy of X">
-  <p>
-    "All About e" includes the dating / secretary problem: interview, calibrate on the first roughly $1/e$, then take the next candidate who beats them. Expectation is not only average payoff. It can tell you when to stop searching.
-  </p>
-</StoryNote>
+Stochastic gradient descent estimates $\nabla$ of an expectation with mini-batch averages: chance and calculus shaking hands every step.
 
-## Dig deeper
+## For the rereader
 
-Algebrica's mean-or-expected-value page develops discrete and continuous cases. Loss functions in ML are how prediction mistakes become numbers you can average.
+After entropy, notice that cross-entropy risk is expected surprisal under a model. After gradients, notice that differentiating under the expectation (when justified) is how backprop on average loss works.
 
-## Curiosity seeds
+A sharper nuance: different losses imply different "best" predictors for the same data-generating process (mean for squared error, median for absolute error, under standard conditions). Choosing $\ell$ is choosing a geometry of error, not a neutral default.
 
-- Why is expectation not always a value the random variable can actually take?
-- How is empirical risk an average standing in for an expectation?
+Also reread linearity without independence. Many clever proofs in probability are just that gift used carefully.
+
+On a third visit, compute a mean and a median for a tiny skewed dataset and explain which loss each optimizes under standard theory. Choice of summary is choice of geometry.
+
+Keep a museum of times an average misled you (or your team). Annotate the missing variance or tail story.
+
+## A longer center-of-mass studio
+
+Place point masses on a number line at $1,2,6$ with weights $0.5,0.25,0.25$. Compute the expectation as the balance point. Move the mass at $6$ farther to $20$ with tiny weight $0.05$ (renormalize). Watch the mean chase the outlier while the median resists. Means are sensitive; choose losses knowing that.
+
+## Secretary problem as strategy
+
+Strogatz's "All About e" includes the dating/secretary rule of thumb involving $1/e$. Treat it as a curiosity about expectation meeting stopping rules, not as dating advice. The mathematical thrill is that an optimal-stopping threshold can be expressed with $e$. Expectation here is strategy, not only average payoff.
+
+## Loss geometries
+
+Squared error punishes large residuals harshly. Absolute error is more median-friendly. Cross-entropy (next chapter) punishes confident wrong probabilities. Choosing $\ell$ is choosing which mistakes should dominate the average that training minimizes.
+
+## Practice prompts
+
+1. Why can $\mathbb{E}[X]$ fail to be a possible value of $X$?
+2. Show linearity on a tiny joint example without independence.
+3. How is empirical risk an average standing in for an expectation?
+
+## Extended examples
+
+**Die mean.** $\mathbb{E}=3.5$ for a fair six-sided die. No face shows $3.5$. Expectation need not be attainable.
+
+**Linearity demo.** Let $X$ and $Y$ be indicators of dependent events. Still $\mathbb{E}[X+Y]=\mathbb{E}X+\mathbb{E}Y$. Dependence can wait for variance.
+
+**Loss choice.** On targets with outliers, compare training with squared versus absolute loss in a tiny spreadsheet. Watch which fit chases outliers.
+
+**Empirical risk curve.** Plot average training loss versus epoch beside a validation average. The gap is the generalization drama in one figure.
+
+**Casino edge.** A game with $\mathbb{E}[\text{net}]=-0.01$ per play is a business. Repeated play makes the law of large numbers a weapon against you.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** Expectation is a probability-weighted average; risk is expected loss.
+
+**One picture.** Center of mass of a distribution on the number line.
+
+**One gift.** Linearity of expectation without independence.
+
+**One warning.** Means can mislead under fat tails and ruin constraints.
+
+**One ethic.** Foundations so creativity does not collapse (Kolmogorov).
+
+**One Strogatz hook.** "All About e" - secretary/dating problem as expectation meeting strategy.
+
+**One Algebrica stop.** Mean or expected value page.
+
+**One AI seed.** Empirical risk minimization; SGD as noisy gradients of an expectation.
+
+**Cross-links.** Probability weights; integrals accumulate; gradients descend on estimated risk; entropy/cross-entropy specialize the loss.
+
+**Workplace failure.** Optimizing an average KPI while ignoring variance and tails.
+
+**Reread schedule.** After choosing a loss function, return. After an overfitting incident, return and separate empirical from true risk.
+
+**Notation scratchpad.**
+- $\mathbb{E}[X]=\sum x_i p_i$
+- $\mathrm{Var}(X)=\mathbb{E}[(X-\mathbb{E}X)^2]$
+- Risk $\mathbb{E}[\ell(Y,f(X))]$
+
+**Questions that stay alive.**
+- Which geometry of error did I choose?
+- Is my mean a possible value, and do I care?
+- What ruin scenarios survive a pretty expectation?
+
+**Closing image.** A balance point under unequal masses: the mean as physics, not destiny.
+
+## Glossary of moves
+
+- **Expectation:** probability-weighted average / center of mass.
+- **Linearity:** $\mathbb{E}[aX+bY]=a\mathbb{E}X+b\mathbb{E}Y$ always.
+- **Variance:** expected squared deviation.
+- **Loss:** scores a prediction mistake.
+- **Risk:** expected loss.
+- **Empirical risk:** average loss on samples.
+- **Proper summary:** mean vs median depends on loss geometry.
+
+## One more vignette
+
+Casinos do not need every guest to lose tonight. They need the expectation to lean their way across the crowd and the week. ML training is a cousin: it needs average loss to lean downward across batches and epochs. Variance still decides whether your particular path feels like doom. Means without spreads are incomplete weather reports.
+
+## Why reread this chapter at all
+
+A personal knowledge base earns its keep on the second and third visit. The first visit teaches vocabulary. Later visits catch workplace failures, connect neighboring courses, and sharpen taste. If a section felt long, that is intentional: lasting chapters are denser than skim cards. Skim the field notes when time is short; return to worked examples when a bug in your thinking appears.
+
+If you only remember one habit from this chapter, make it this: name the assumption you are silently using. Windows for rates, axes for vectors, priors for updates, losses for averages - unspoken assumptions are where knowledge bases go soft.
+
+Write one sentence in your own words before leaving the page. If you cannot, the chapter is not done with you yet - and that is useful information, not failure.
 
 ## Carry this forward
 
-- Expectation = weighted average.
-- Risk = expected loss.
-- Next: information and surprise (Shannon).
+- Expectation is a probability-weighted average; risk is expected loss.
+- Empirical risk stands in for true risk; generalization polices the gap.
+- Next: information and surprise (Shannon), where cross-entropy becomes the classifier's native tongue.

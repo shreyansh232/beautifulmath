@@ -1,0 +1,137 @@
+---
+title: "Sequences and fitting"
+slug: "sequences-and-fitting"
+order: 8
+summary: "Sequences list terms by a rule; series sum them. Linear and quadratic patterns jump off tables, and least squares fits a simple model to noisy data - algebra meeting measurement."
+mathematician:
+  name: "Carl Friedrich Gauss"
+  years: "1777-1855"
+  vignette: "Gauss used least squares in astronomical orbit work and published on it in 1809, claiming he had used the method earlier. Adrien-Marie Legendre published least squares in 1805 and fought for priority. MacTutor records a real dispute, not a cartoon villain. The ethic: when data overdetermines a model, minimize a clear measure of total error - and cite carefully."
+realWorld: "Population tables, sensor calibration, and trend lines in spreadsheets are sequences and fits. Anytime you draw a best-fit line, you are doing this chapter."
+aiMlHook: "Linear regression with squared error is least squares. Much of classical ML starts here: choose a model family, minimize a loss on data."
+prerequisites:
+  - "graphs-seeing-relationships"
+  - "exponentials-and-logarithms"
+curiositySeeds:
+  - "How do first differences reveal a linear sequence?"
+  - "Why square errors in least squares?"
+estimatedMinutes: 74
+furtherReading:
+  - title: "MacTutor - Carl Friedrich Gauss"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Gauss/"
+    kind: reference
+  - title: "MacTutor - Adrien-Marie Legendre"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Legendre/"
+    kind: reference
+    note: "1805 publication of least squares; priority dispute with Gauss."
+  - title: "Algebrica - Analyzing the graphs of functions"
+    url: "https://algebrica.org/analyzing-the-graphs-of-functions/"
+    kind: article
+    note: "Shape-reading habits that transfer to plotted data."
+  - title: "3Blue1Brown - Gradient descent (loss minimization intuition)"
+    url: "https://www.youtube.com/watch?v=IHZwWFHWa-w"
+    kind: video
+    note: "Optional preview of minimizing error more generally."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Patterns, prediction, and living with imperfect data."
+
+---
+
+## How this idea was born
+
+A single equation describes a relationship. A **sequence** describes a procession: term after term, year after year, measurement after measurement. Farmers, astronomers, and census-takers needed rules for "what comes next" and honest ways to summarize messy tables when no exact rule fits every point.
+
+Finite patterns (arithmetic, geometric) are old. The modern habit of fitting a line or curve to overdetermined observations crystallized around **least squares**: choose parameters that minimize the sum of squared residuals. Adrien-Marie Legendre published the method in 1805. Carl Friedrich Gauss published on it in 1809, acknowledged Legendre's appearance in print, and still claimed earlier use. MacTutor's Legendre biography records how bitterly that priority fight was felt. Teach the method; do not flatten the credit into one name.
+
+For a modern rereader, this chapter closes the algebra track's second arc: from exact claims (equations, inequalities) through special functions (quadratics, exponentials) to **patterns plus data**.
+
+<StoryNote title="Curiosity from history">
+  Legendre published first (1805). Gauss claimed earlier private use and published in 1809. Both statements can be discussed; historians still untangle evidence. Prefer "Legendre 1805; Gauss 1809 with a priority dispute" over a single inventor myth.
+</StoryNote>
+
+## First principles
+
+A **sequence** $\{a_n\}$ assigns a term to each index $n$ (usually $n = 1, 2, 3, \ldots$).
+
+- **Arithmetic:** constant difference $d$, so $a_n = a_1 + (n-1)d$.
+- **Geometric:** constant ratio $r$, so $a_n = a_1 r^{n-1}$ (cousin of exponentials).
+
+A **series** sums terms: $s_n = a_1 + \cdots + a_n$. Closed forms exist for arithmetic and geometric series; infinite series wait for calculus.
+
+**Finite differences:** for a sequence, first differences $\Delta a_n = a_{n+1} - a_n$. Constant first differences suggest linear (arithmetic). Constant second differences suggest quadratic.
+
+**Least squares (linear case):** given points $(x_i, y_i)$, choose line $\hat{y} = mx + b$ to minimize
+
+$$
+S(m,b) = \sum_i (y_i - (mx_i + b))^2
+$$
+
+Squared error penalizes large misses heavily and makes the calculus (or algebra) of minimization clean. The normal equations that follow are linear systems - a reunion with the systems lesson.
+
+
+## Worked intuition
+
+### Spotting patterns in a table
+
+Sequence: $3, 7, 11, 15, \ldots$. First differences all $4$ → arithmetic with $d = 4$. Formula $a_n = 3 + (n-1)4$.
+
+Sequence: $2, 6, 12, 20, 30$. First differences $4, 6, 8, 10$; second differences constant $2$ → quadratic pattern (like $n(n+1)$).
+
+### Geometric link
+
+$5, 10, 20, 40$ has ratio $2$. Same multiplicative story as $5 \cdot 2^{n-1}$, which is exponential in the index.
+
+### Tiny least-squares sketch
+
+Points $(0,1)$, $(1,3)$, $(2,4)$. Guess a line. Residuals for $y = 1.5x + 1.2$ are small; for a wild line they explode. Minimizing $S$ picks the best $(m,b)$ in the squared-error sense - not magic truth, a chosen loss.
+
+
+## Common confusions
+
+**Confusing sequence with series.** Sequence lists; series sums.
+
+**Declaring a pattern from too few terms.** Many formulas pass through three points; more data disciplines the claim.
+
+**Thinking least squares proves the model is true.** It finds best parameters inside a chosen family. Wrong family, wrong story.
+
+**Awarding Gauss sole invention of least squares.** Cite Legendre's 1805 publication and the dispute.
+
+
+## History and stories
+
+Astronomers needed orbits from noisy observations - more equations than unknowns. Least squares was a practical answer: define total squared misfit, minimize it. Probability justifications (Gauss-Markov type stories) came with and after the method; beginners can start with the algebraic definition.
+
+Gauss's broader fame (number theory, astronomy, magnetism) can overshadow Legendre's publication priority. Holding both names is historical hygiene.
+
+
+## Real world
+
+- **Census and finance tables:** arithmetic and geometric growth approximations.
+- **Spreadsheet trendlines:** often least squares under the hood.
+- **Calibration:** fit sensor reading to true value with a line or quadratic.
+- **Sports and biometrics:** progressions across weeks of training.
+
+
+## AI / ML bridge
+
+Ordinary least squares regression is still a baseline model. Squared loss appears in many training objectives; absolute loss and Huber loss are cousins with different robust properties.
+
+Neural nets minimize losses that are spiritual descendants: choose parameters, score total error on data, adjust. The algebra of $S(m,b)$ is the seed.
+
+
+## For the rereader
+
+When statistics estimates variance and when linear algebra solves normal equations $X^\top X \hat\beta = X^\top y$, return here. When calculus minimizes functions of several variables, return to why squaring helps.
+
+**Drill:** For $1, 4, 9, 16$, compute first and second differences. What pattern class?
+
+**Curiosity:** Why not minimize the sum of *unsquared* residuals? Positive and negative errors cancel. Absolute values work but are less algebraically friendly; squares are a deliberate design choice.
+
+
+## Carry this forward
+
+- Sequences encode patterns; differences diagnose degree.
+- Least squares fits models to data with a clear loss.
+- Algebra track checkpoint: equations through fitting. Calculus and linear algebra deepen the same tools.

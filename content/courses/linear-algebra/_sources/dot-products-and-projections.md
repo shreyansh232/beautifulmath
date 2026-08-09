@@ -15,3 +15,10 @@
 - Additional StoryNote hooks from Steven Strogatz, The Joy of X (2012), mapped to chapter themes without inventing quotations.
 - Diagram ideas cross-checked against Algebrica topic pages (CC BY-NC 4.0: link and inspire; do not paste their SVGs).
 - Historical vignettes cross-checked against MacTutor where named.
+
+## Knowledge-base expansion
+- Expanded to personal-KB chapter structure on alignment, cosine, projection residuals, attention/least-squares seeds.
+- estimatedMinutes bumped into 60-75 range.
+- Verified hooks: Grassmann (MacTutor), Strogatz angle/alignment pedagogy, Algebrica inner-product spaces.
+
+Opening rewritten to story-before-symbols.

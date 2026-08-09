@@ -20,6 +20,16 @@ Before adding or changing any lesson, vignette, diagram caption, check, AI/ML br
 4. **Honest AI/ML bridges.** Only include an AI/ML link when it is genuine. If forced, omit it.
 5. **Inspiring mathematicians.** Vignettes should convey work ethic and passion, not a Wikipedia-style bio dump.
 
+### Knowledge-base quality (mandatory)
+
+This project is a personal knowledge base the owner will reread for years. Lessons must feel like lasting chapters, not skim cards:
+
+1. **Depth over brevity.** Prefer clear, detailed exposition with worked intuition, common confusions, and cross-links to later ideas.
+2. **Curiosity on purpose.** Include verified historical sparks, *The Joy of X* hooks where honest, and questions worth returning to.
+3. **Re-read value.** Each lesson should still reward a second visit: a "For the rereader" or equivalent section with sharper nuance is encouraged.
+4. **No filler.** Detail must teach; do not pad with repetition or generic encouragement.
+5. **Story before symbols.** Open each lesson with a human problem and a historical spark (people needed X; someone organized/invented Y), then move into first principles. Do not begin with bare formulas. Keep history verified; if a tale is disputed, say so.
+
 ### Preferred technical / diagram reference
 
 **[Algebrica](https://algebrica.org/)** (Antonio Lupetti) is a strong open knowledge base for definitions, worked structure, and editable SVG diagrams. Prefer linking specific Algebrica entries in `furtherReading` when a lesson topic has a matching page. Use it to cross-check formal statements and to inspire diagram clarity.

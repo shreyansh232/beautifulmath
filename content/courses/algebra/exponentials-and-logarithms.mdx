@@ -1,0 +1,145 @@
+---
+title: "Exponentials and logarithms"
+slug: "exponentials-and-logarithms"
+order: 7
+summary: "Exponential growth multiplies; a logarithm undoes that multiplication into addition. Napier and Briggs built tables so hard products became easier sums."
+mathematician:
+  name: "John Napier"
+  years: "1550-1617"
+  vignette: "Napier published logarithms in 1614 to ease astronomical calculation. His original Napierian logs are not identical to modern natural or common logs (notably Nap.log 1 ≠ 0). After meeting Henry Briggs, the program shifted toward base-10 tables with log 1 = 0. The ethic is compassion for computation: redesign the representation so human labor shrinks."
+realWorld: "Interest, radioactive decay, population models, and pH scales are exponential or logarithmic languages for multiplicative change."
+aiMlHook: "Softmax and cross-entropy live in log-probability space. Learning rates and exponential moving averages are exponential schedules. Logs turn products of likelihoods into sums."
+prerequisites:
+  - "functions-as-machines"
+  - "graphs-seeing-relationships"
+curiositySeeds:
+  - "Why is log the inverse of an exponential?"
+  - "What did Napier actually invent versus modern log_b?"
+estimatedMinutes: 72
+furtherReading:
+  - title: "MacTutor - John Napier"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Napier/"
+    kind: reference
+    note: "1614 logarithms; difference from modern logs; Briggs collaboration."
+  - title: "MacTutor - Henry Briggs"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Briggs/"
+    kind: reference
+    note: "Base-10 tables; Napier credited for log 1 = 0 idea in their discussions."
+  - title: "Algebrica - Exponential equations"
+    url: "https://algebrica.org/exponential-equations/"
+    kind: article
+  - title: "Algebrica - Logarithmic equations"
+    url: "https://algebrica.org/logarithmic-equations/"
+    kind: article
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Growth and the power of multiplicative thinking."
+
+---
+
+## How this idea was born
+
+Additive change is comfortable: walk three more miles. Multiplicative change is different: double the grain each season, halve the drug concentration each half-life, compound interest each year. When quantities grow or decay by repeated factors, linear intuition lies.
+
+Astronomers in Napier's day drowned in multiplications for sine tables and planetary models. In 1614 John Napier published logarithms so that hard products could become easier sums. MacTutor is careful: Napier's original logarithms are **not** the modern $\log_b$ you meet in school (in particular, Nap.log 1 is not 0). Henry Briggs traveled to Edinburgh; their discussions produced the practical program of base-10 logarithms with $\log 1 = 0$. Briggs gives Napier credit for key framing even when Briggs built the tables.
+
+For a modern rereader, $a^x$ (with $a > 0$, $a \neq 1$) is the growth machine, and $\log_a$ is its inverse: it answers "to what power must I raise $a$ to get this?"
+
+<StoryNote title="Curiosity from history">
+  Napier eased calculation; he did not hand us the exact textbook definition in one stroke. Briggs's tables and later natural logs (base $e$) are part of the same labor-saving story told carefully.
+</StoryNote>
+
+## First principles
+
+For base $a > 0$, $a \neq 1$,
+
+$$
+y = a^x \quad \Longleftrightarrow \quad x = \log_a y
+$$
+
+with $y > 0$. Domain of $\log_a$ is $(0, \infty)$; range is all reals.
+
+**Laws (the reason logs help):**
+
+$$
+\log_a(xy) = \log_a x + \log_a y, \quad \log_a(x/y) = \log_a x - \log_a y, \quad \log_a(x^k) = k\log_a x
+$$
+
+Products become sums. That is Napier's computational dream in modern clothes.
+
+**Common bases:** $\log_{10}$ (common), $\ln = \log_e$ (natural), $\log_2$ (information, CS). Change of base:
+
+$$
+\log_b x = \frac{\log_k x}{\log_k b}
+$$
+
+**Growth versus decay:** if $a > 1$, $a^x$ grows as $x$ increases. If $0 < a < 1$, it decays toward 0. Graphs: exponential curves, logarithmic slow climbs.
+
+
+## Worked intuition
+
+### Inverse as undo
+
+If $2^5 = 32$, then $\log_2 32 = 5$. The log recovers the exponent. Composition: $\log_a(a^x) = x$ and $a^{\log_a y} = y$ (on the proper domains).
+
+### Compound interest sketch
+
+$A = P(1+r)^t$ is exponential in $t$. Solving for time uses a log: $t = \log(A/P)/\log(1+r)$.
+
+### Half-life
+
+If quantity halves every $T$ years, $N(t) = N_0 (1/2)^{t/T}$. Taking $\ln$ isolates $t$ when you know a target $N$.
+
+### Graph literacy
+
+$y = 2^x$ passes through $(0,1)$, rises; $y = \log_2 x$ passes through $(1,0)$, defined only for $x > 0$. They are reflections across $y = x$, the geometric signature of inverse functions from the functions lesson.
+
+
+## Common confusions
+
+**Writing $\log(x+y) = \log x + \log y$.** False. The sum law needs a **product** inside.
+
+**Allowing $\log$ of zero or negatives (in reals).** Domain is positive reals only.
+
+**Equating Napierian logs with $\ln$ without comment.** Related historical family; not identical objects. Say "Napier's logarithms" when you mean 1614.
+
+**Thinking $a^{x+y} = a^x + a^y$.** Exponents add inside a product of powers: $a^{x+y} = a^x a^y$.
+
+
+## History and stories
+
+Napier's 1614 *Mirifici Logarithmorum Canonis Descriptio* aimed at calculation. Briggs's visits (1615-1616) and subsequent *Arithmetica Logarithmica* made common logs a working tool for navigators and astronomers. Slide rules later embodied the same additive trick mechanically.
+
+The constant $e$ and natural logarithms grow from later calculus and series; do not back-date $\ln$ into Napier's first tables. The ethic travels: when multiplication is the bottleneck, change coordinates so addition does the work.
+
+
+## Real world
+
+- **Finance:** compound interest and continuous compounding limits.
+- **Science:** radioactive decay, cooling models, Richter and pH (log scales).
+- **Computing:** bit depth and information as $\log_2$.
+- **Sound:** decibels as logarithmic ratios of intensity.
+
+
+## AI / ML bridge
+
+Likelihoods multiply independent events; **log-likelihoods add**, which is stabler numerically and friendlier to gradients. Cross-entropy is an average of log probabilities. Softmax is normalized exponentials.
+
+Exponential moving averages and learning-rate decay schedules are exponential functions of step. The algebra is the same growth/decay language.
+
+
+## For the rereader
+
+When calculus differentiates $e^x$ and $\ln x$, return here: the inverse relationship explains why their derivatives are cousins. When information theory defines entropy, return to $\log_2$.
+
+**Drill:** Solve $3^{2x} = 81$ by writing $81 = 3^4$, then confirm with $\log_3$.
+
+**Curiosity:** Why do earthquake magnitudes use logs? Because energies span many orders of magnitude; a log compresses a multiplicative universe into an additive dial.
+
+
+## Carry this forward
+
+- Exponentials multiply; logs invert and turn products into sums.
+- Napier/Briggs: computation as compassion, with honest historical nuance.
+- Next: sequences and fitting, where patterns meet data.

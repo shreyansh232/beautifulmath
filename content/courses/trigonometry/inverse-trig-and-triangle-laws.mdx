@@ -1,0 +1,162 @@
+---
+title: "Inverse trig and triangle laws"
+slug: "inverse-trig-and-triangle-laws"
+order: 4
+summary: "Arcsin, arccos, and arctan pick principal angles from ratios. The laws of sines and cosines extend triangle solving beyond right angles - astronomy's old craft in modern form."
+mathematician:
+  name: "Muḥammad ibn Jābir al-Battānī"
+  years: "c. 858-929"
+  vignette: "al-Battānī refined astronomical parameters with careful observation and worked with sine-based methods in the Islamic mathematical tradition that had moved beyond Greek chords. He corrected Ptolemy where data demanded it, without discarding the whole framework. The ethic: inherit a handbook, improve the numbers, and keep the craft usable."
+realWorld: "Surveying, navigation, and robotics solve non-right triangles constantly: known sides and angles in mixed combinations."
+aiMlHook: "atan2(y, x) recovers a full-turn angle from coordinates - the practical inverse of the unit-circle map. Camera geometry and graphics code call it constantly."
+prerequisites:
+  - "right-triangle-ratios"
+  - "the-unit-circle"
+curiositySeeds:
+  - "Why restrict arcsin's range to [-π/2, π/2]?"
+  - "When do you reach for law of sines versus cosines?"
+estimatedMinutes: 75
+furtherReading:
+  - title: "MacTutor - al-Battani"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Al-Battani/"
+    kind: reference
+    note: "Zīj, observations, and sine-era astronomy building on and correcting Ptolemy."
+  - title: "MacTutor - Ptolemy"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Ptolemy/"
+    kind: reference
+    note: "Almagest chord methods as the Greek computational ancestor."
+  - title: "MacTutor - Trigonometric functions (history)"
+    url: "https://mathshistory.st-andrews.ac.uk/HistTopics/Trigonometric_functions/"
+    kind: reference
+    note: "Chords to half-chords (sines); layered contributions."
+  - title: "Algebrica - Arcsine and arccosine"
+    url: "https://algebrica.org/arcsine-and-arccosine/"
+    kind: article
+    note: "Principal ranges that make inverses well-defined."
+  - title: "Algebrica - The law of cosines"
+    url: "https://algebrica.org/law-of-cosines/"
+    kind: article
+    note: "Pythagoras generalized; pairs with the law of sines."
+  - title: "Algebrica - Arctangent and arccotangent"
+    url: "https://algebrica.org/arctangent-and-arccotangent/"
+    kind: article
+    note: "Principal range for arctan and connections to arcsin/arccos."
+
+---
+
+## How this idea was born
+
+Right triangles taught you ratios. The unit circle extended angles past acute. Real surveying and astronomy still needed more: given two sides and a non-included angle, or three sides and no right angle, recover the missing pieces. Ships, land parcels, and sky models are full of **oblique** triangles.
+
+Greek mathematical astronomy (Hipparchus, Ptolemy) computed with **chords**. Indian and later Islamic mathematicians shifted toward half-chords - sines - and built tables and spherical methods that made calculation friendlier. **al-Battānī** (c. 858-929) is a vivid figure in that sine-era craft: MacTutor highlights his *Zīj*, observational corrections to Ptolemaic parameters, and practical astronomical problem-solving. Do not claim he "invented" the modern textbook law of sines in isolation; place him in a long chain from chords to sines to triangle-solving toolkits. **Nasīr al-Dīn al-Tūsī** and others later organized plane and spherical laws more systematically as trigonometry became a subject in its own right.
+
+For a modern rereader, **inverse trig** recovers an angle from a ratio (with a chosen principal range), and the **laws of sines and cosines** solve general triangles.
+
+<StoryNote title="Curiosity from history">
+  Ptolemy's Almagest is chord-powered. al-Battānī works in a sine tradition and corrects parameters when observations disagree. Inheritance plus improvement, not a cartoon of one genius replacing another overnight.
+</StoryNote>
+
+## First principles
+
+Sine is not one-to-one on all reals, so an inverse needs a restricted range.
+
+$$
+\arcsin: [-1,1] \to [-\pi/2, \pi/2], \quad
+\arccos: [-1,1] \to [0, \pi], \quad
+\arctan: \mathbb{R} \to (-\pi/2, \pi/2)
+$$
+
+Then $\sin(\arcsin x) = x$ on $[-1,1]$, and similarly for the others on their domains. Going the other way, $\arcsin(\sin \theta) = \theta$ only when $\theta$ already lies in the principal range.
+
+**Law of sines** (any triangle with sides $a,b,c$ opposite angles $A,B,C$):
+
+$$
+\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R
+$$
+
+(where $R$ is the circumradius - optional enrichment).
+
+**Law of cosines:**
+
+$$
+c^2 = a^2 + b^2 - 2ab\cos C
+$$
+
+When $C = 90^\circ$, $\cos C = 0$ and Pythagoras returns. Algebrica's law of cosines page makes that specialization vivid.
+
+
+## Worked intuition
+
+### Principal values matter
+
+$\sin(150^\circ) = 1/2$, but $\arcsin(1/2) = 30^\circ$ (or $\pi/6$), not $150^\circ$. The inverse returns the principal angle; other angles with the same sine exist by symmetry.
+
+### Ambiguous case (SSA) preview
+
+Knowing two sides and a non-included angle can yield zero, one, or two triangles. The law of sines alone does not erase geometric ambiguity. Sketch before you trust a calculator output.
+
+### Choosing a law
+
+- **SAS or SSS:** law of cosines first (then sines for remaining angles, watching obtuse cases).
+- **ASA or AAS:** law of sines.
+- **SSA:** law of sines with extreme care (ambiguous case).
+
+### Example
+
+Sides $a = 7$, $b = 10$, included angle $C = 60^\circ$. Cosine law:
+
+$$
+c^2 = 49 + 100 - 2\cdot 7\cdot 10\cdot \tfrac{1}{2} = 79, \quad c = \sqrt{79}
+$$
+
+Then sines find $A$ and $B$.
+
+
+## Common confusions
+
+**Thinking $\arcsin(\sin \theta)$ always returns $\theta$.** Only on the principal interval.
+
+**Using degree mode vs radian mode inconsistently.** Calculators and formulas must agree on units.
+
+**Forgetting obtuse angles have negative cosines.** Cosine law handles obtuse triangles; do not force acute-only intuition.
+
+**Over-attributing a single inventor of the laws.** Chord methods, sine methods, and later systematic expositions are a relay.
+
+
+## History and stories
+
+Ptolemy's chord table and geometric theorems powered ancient computational astronomy. The shift to sines (half-chords) in Indian and Islamic mathematics changed the daily algebra of the craft. al-Battānī's observational program and sine-based practice sit in that relay. Later writers formulated plane and spherical laws in the tidy ratio forms textbooks now print.
+
+Steal the ethic: tables and identities exist so a hard geometric situation becomes finite arithmetic.
+
+
+## Real world
+
+- **Land surveying** and construction layouts
+- **Navigation** and bearing problems
+- **Robot arm inverse kinematics** (angles from reach constraints - cousins of inverse trig)
+- **Computer graphics:** recovering angles from vector components
+
+
+## AI / ML bridge
+
+`atan2(y, x)` uses both coordinates to return an angle in $(-\pi, \pi]$, respecting quadrant - exactly the unit-circle inverse problem engineering needs. Pose estimation and camera models lean on inverse trig constantly.
+
+This is an honest bridge: coordinate geometry in code, not a claim that al-Battānī trained neural nets.
+
+
+## For the rereader
+
+When complex numbers write $\arg(z)$, return to arctan/atan2. When linear algebra defines angles between vectors, return to arccos of normalized dot products - and remember that full story still wants the vectors chapter.
+
+**Drill:** Compute $\arccos(0)$ and $\arcsin(0)$. Why different principal values for related questions?
+
+**Curiosity:** How does the cosine law rewrite as a statement about the dot product of two side vectors? (Preview only until linear algebra.)
+
+
+## Carry this forward
+
+- Inverse trig needs principal ranges to be functions.
+- Sines and cosines laws solve general triangles.
+- Waves chapter already taught periodicity; here you recover angles and close triangles.
+- Trigonometry track continues into calculus with derivatives of these inverses.

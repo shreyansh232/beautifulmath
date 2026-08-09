@@ -1,0 +1,190 @@
+---
+title: "Transformations and symmetry"
+slug: "transformations-and-symmetry"
+order: 5
+summary: "Rigid motions move figures without stretching them. Symmetry is invariance under a chosen motion. Together they turn congruence into verbs: slide, turn, flip."
+mathematician:
+  name: "Felix Klein"
+  years: "1849-1925"
+  vignette: "Klein's Erlangen program (1872) offered a unifying habit of mind: a geometry is the study of properties unchanged by a chosen group of transformations. Euclidean geometry becomes the story of rigid motions and their invariants. The ethic is classification by what stays the same - and honesty about how far a school simplification travels from the full group-theoretic manifesto."
+realWorld: "Floor tilings, logos, kaleidoscopes, robot arms that preserve part sizes, and map overlays that must not stretch distances all live on rigid motions and symmetry."
+aiMlHook: "Image data augmentation often applies translations, rotations, and flips so a model learns features that survive those isometries - an honest use of rigid motions as label-preserving noise."
+prerequisites:
+  - "points-lines-angles"
+  - "triangles-and-congruence"
+curiositySeeds:
+  - "What stays the same when a shape moves?"
+  - "Is symmetry a property of the object or of the allowed moves?"
+estimatedMinutes: 70
+furtherReading:
+  - title: "MacTutor - Felix Klein"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Klein/"
+    kind: reference
+    note: "Career context for the Erlangen appointment and Klein's geometry work."
+  - title: "Klein - Erlangen program (English translation)"
+    url: "https://arxiv.org/abs/0807.3161"
+    kind: reference
+    note: "Primary manifesto: geometry as invariants of a transformation group."
+  - title: "Joyce - Euclid Elements Book I"
+    url: "https://mathcs.clarku.edu/~djoyce/java/elements/bookI/bookI.html"
+    kind: reference
+    note: "Congruence propositions that rigid motions make vivid."
+  - title: "Algebrica - Geometric interpretation of quadratic equations"
+    url: "https://algebrica.org/geometric-interpretation-quadratic-equations/"
+    kind: article
+    note: "Translations of graphs as rigid shifts - a coordinate cousin of this chapter."
+  - title: "Algebrica - Roots of unity"
+    url: "https://algebrica.org/roots-of-unity/"
+    kind: article
+    note: "Rotational symmetry of regular polygons on the unit circle (preview)."
+  - title: "3Blue1Brown - Essence of linear algebra (transformations)"
+    url: "https://www.youtube.com/watch?v=kYB8IZa5AuE"
+    kind: video
+    note: "Later linear maps generalize motion; start with the geometric feel of transforming space."
+---
+
+## How this idea was born
+
+Builders and designers need more than static shapes. They need verbs: slide a tile into place, turn a piece on a lathe, flip a pattern so the mirror side matches. Congruence already said two figures match (triangles chapter). Transformations name *how* one can become the other without tearing or stretching.
+
+Euclid's Elements organizes matching through constructions and superposition language. Nineteenth-century geometry, facing Euclidean and non-Euclidean systems side by side, needed a cleaner classifying idea. Felix Klein's Erlangen program (1872) proposed, in spirit: pick a group of allowed transformations; study what stays invariant. Euclidean plane geometry, in that spirit, is the geometry of **rigid motions** (isometries of the plane) and the quantities they preserve: distances, angles, areas.
+
+Caveat worth flying as a flag: classroom "transformation geometry" is a pedagogical simplification of Klein's group-theoretic manifesto. We steal the ethic (invariants under motion), not a claim that this lesson is the full Erlangen program.
+
+<StoryNote title="Curiosity from history">
+  Klein prepared the Erlangen program as an inaugural publication in 1872; it was not delivered as a ceremonial speech in the Hollywood sense. MacTutor and the English translation on arXiv are the safe doors. Treat school rigid motions as Erlangen spirit, flagged as simplified.
+</StoryNote>
+
+## First principles
+
+### Rigid motions (isometries)
+
+A **rigid motion** of the plane is a transformation that preserves distances: the distance between any two points equals the distance between their images. Standard building blocks:
+
+- **Translation:** every point slides by the same vector. No turning, no flipping.
+- **Rotation:** every point turns about a fixed center by a fixed angle.
+- **Reflection:** every point maps to its mirror image across a fixed line (the mirror line).
+
+Compositions of these are again distance-preserving. In the plane, orientation-preserving isometries are translations and rotations; reflections (and glide reflections) reverse orientation. You do not need the full classification theorem on day one. You need the feel: length is sacred; the figure can move.
+
+### Congruence as "there exists a rigid motion"
+
+Two figures are **congruent** when a rigid motion carries one onto the other. SSS, SAS, and ASA from the triangles chapter are criteria that guarantee such a motion exists for triangles. Transformations make the criteria kinetic: match by sliding, turning, or flipping.
+
+### Symmetry as invariance
+
+A figure has a **symmetry** when some nontrivial rigid motion maps the figure to itself. A square has rotations by $90^\circ$, $180^\circ$, $270^\circ$ about its center, and reflections across diagonals and midlines. An irregular blob may have only the identity. Symmetry is not decoration. It is "which motions leave this looking unchanged?"
+
+Klein's habit, simplified: the richer the allowed transformation group, the fewer invariants remain. Rigid motions keep distances. Similarities (later, or already glimpsed) keep angles but allow uniform scaling. Projective maps keep still less. This lesson stays with rigid motions.
+
+## Worked intuition
+
+**Example 1 - wallpaper.**  
+A repeating frieze pattern may be unchanged by a horizontal translation of one motif width. That translation is a symmetry of the infinite pattern.
+
+**Example 2 - matching triangles by motion.**  
+If SSS holds, you can place one triangle on the other by a rigid motion: the sides force the fit. Congruence criteria are existence proofs for isometries.
+
+**Example 3 - reflection vs rotation.**  
+Turning a glove in the plane never turns a left glove into a right glove. Reflection can. Orientation matters when manufacturing chiral parts.
+
+**Example 4 - logo design.**  
+A logo with $180^\circ$ rotational symmetry still "reads" after a half turn. Designers choose symmetries on purpose so recognition survives certain moves.
+
+**Example 5 - robot pick-and-place.**  
+A planar arm that only translates and rotates a rigid part keeps distances on the part fixed. Stretching would be a different machine story (affine or worse).
+
+## Common confusions
+
+- **"Any movement is a rigid motion."** Stretching, shearing, and non-uniform scaling change distances. Those are transformations, but not isometries.
+- **"Symmetry means looks pretty."** Operational definition: a nontrivial isometry leaves the set invariant.
+- **"Klein proved school reflections in 1872."** The Erlangen program is a unifying viewpoint for geometries via groups and invariants. This chapter uses the spirit carefully and flags the simplification.
+- **"Congruence and equality are identical words."** Congruence is geometric sameness up to rigid motion. Equality of numbers is a different grammar (Foundations).
+- **"Flips are cheating."** Reflections are legitimate isometries. Some congruence proofs need them; some manufacturing constraints forbid them.
+
+## History and stories
+
+<StoryNote title="Curiosity from history">
+  By 1872, non-Euclidean geometries existed beside Euclid's. Klein's contribution was a hierarchy: classify geometries by transformation groups and invariants. Euclidean geometry sits as the rigid-motion case in that landscape.
+</StoryNote>
+
+<StoryNote>
+  Euclid never wrote "translation vector" in modern notation. He did rely on the idea that figures can be made to coincide. Transformation language makes that kinetic intuition explicit for modern readers.
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  Strogatz's geometry chapters lean on shape you can feel. Rigid motions are that feeling turned into precise verbs: the square dance of the plane without tearing the floor.
+</StoryNote>
+
+## Real world
+
+Tilings, textile patterns, architectural ornaments, and molecular models (later chemistry) all catalog symmetries. CNC toolpaths and robot motion planners preserve part geometry when they stick to rigid motions. Cartographers distinguish distance-preserving local moves from projections that must distort something.
+
+## AI / ML bridge
+
+Data augmentation for images routinely applies translations, rotations, and reflections so classifiers become less brittle to pose. That works when labels *should* survive those isometries (a cat rotated is still a cat). It fails when orientation is itself the signal (digits $6$ and $9$ under careless $180^\circ$ turns). The bridge is honest: augmentation is applied isometries, not a metaphor glued on.
+
+## For the rereader
+
+On a second visit, separate:
+
+1. **Isometry** - distance-preserving map.
+2. **Generators** - translate, rotate, reflect (and their compositions).
+3. **Symmetry group of a figure** - isometries that leave it invariant.
+4. **Erlangen ethic** - geometry as invariants of a chosen transformation group (simplified here).
+
+Algebrica's graph-translation discussion is a coordinate cousin: shifting $y = ax^2$ is a rigid slide of a curve. Roots of unity preview rotational symmetry of regular $n$-gons on a circle.
+
+
+## Deepening the first principles
+
+### Orientation
+
+Orientation-preserving isometries of the plane are compositions of translations and rotations. Orientation-reversing ones need an odd number of reflections. Chiral pairs (left/right hands) are the human demo.
+
+### Fixed sets
+
+A nontrivial rotation fixes a point (the center). A reflection fixes a line. A nontrivial translation fixes no point. Reading fixed sets helps you classify which motion you are looking at.
+
+### Symmetry and uniqueness
+
+Knowing a figure's symmetries constrains measurement: if a shape must look the same after a $90^\circ$ turn, opposite sides and angles are locked together. Symmetry is a theorem engine, not only aesthetics.
+
+### From plane to space
+
+Space isometries add rotary translations and more reflection types. This lesson stays planar so the verbs stay visible. Linear algebra later represents many of these maps with matrices.
+
+### What Klein adds beyond Euclid
+
+Euclid builds theorems inside one geometry. Klein asks how geometries relate when you change the allowed moves. School rigid motions are the Euclidean chapter of that larger book.
+
+
+## A desk reference you will reuse
+
+### Motion checklist
+Translation: slide by a vector. Rotation: turn about a point by an angle. Reflection: flip across a line. Rigid: distances preserved.
+
+### Congruence checklist
+Figures congruent iff some isometry carries one to the other. Triangle criteria (SSS, SAS, ASA, HL for right triangles) guarantee that for triangles.
+
+### Symmetry checklist
+A symmetry is an isometry of the whole plane that maps the figure to itself. List them; they form a group under composition (identity included).
+
+### Erlangen checklist (simplified)
+Choose allowed transformations; study invariants. Rigid motions $\rightarrow$ Euclidean notions of length and congruence. Flag: full program is deeper than this lesson.
+
+### Connection forward
+Similarity allows scaling plus rigid motion. Linear algebra represents transforms with matrices. ML augmentation applies isometries to data. Complex numbers rotate and dilate the plane (trig / later algebra).
+
+### Mini-exercises for a second sitting
+1. Name all symmetries of an equilateral triangle.
+2. Can a translation equal a rotation about some point? When?
+3. Why might a classifier trained with random $180^\circ$ flips struggle on digit recognition?
+4. Explain congruence of two segments using a rigid motion.
+
+## Carry this forward
+
+- Rigid motions preserve distance; congruence is match-by-motion.
+- Symmetry is invariance under chosen motions.
+- Klein's Erlangen spirit classifies geometries by transformation groups (simplified here).
+- Next: polygon area and solid measure - how much region and space figures occupy.

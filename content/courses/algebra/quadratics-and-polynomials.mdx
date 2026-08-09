@@ -1,0 +1,158 @@
+---
+title: "Quadratics and polynomials"
+slug: "quadratics-and-polynomials"
+order: 6
+summary: "A quadratic is a parabola in disguise: completing the square, the formula, and factoring are three views of the same structure. Polynomials extend the pattern."
+mathematician:
+  name: "Muḥammad ibn Mūsā al-Khwārizmī"
+  years: "c. 780-c. 850"
+  vignette: "In Kitāb al-jabr wa-l-muqābala, al-Khwārizmī classified and solved quadratic types with geometric completing-the-square proofs. Without zero and negatives as coefficients, he needed several cases where we write one formula. The ethic is teachable method: restore, balance, and show why the steps work."
+realWorld: "Projectile arcs, profit models with diminishing returns, and area problems are classic quadratics. Sensor calibration often fits a parabola."
+aiMlHook: "Polynomial features and degree-2 kernels expand linear models. A parabola is still a model class: flexible enough to bend, simple enough to interpret."
+prerequisites:
+  - "functions-as-machines"
+  - "graphs-seeing-relationships"
+curiositySeeds:
+  - "Why does completing the square produce the quadratic formula?"
+  - "What does the discriminant decide geometrically?"
+estimatedMinutes: 75
+furtherReading:
+  - title: "MacTutor - Quadratic etc equations"
+    url: "https://mathshistory.st-andrews.ac.uk/HistTopics/Quadratic_etc_equations/"
+    kind: reference
+    note: "Babylonian algorithms, Euclid, Brahmagupta, al-Khwārizmī - carefully layered."
+  - title: "MacTutor - al-Khwārizmī"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Al-Khwarizmi/"
+    kind: reference
+  - title: "Algebrica - Quadratic equations"
+    url: "https://algebrica.org/quadratic-equations/"
+    kind: article
+  - title: "Algebrica - Quadratic formula"
+    url: "https://algebrica.org/quadratic-formula/"
+    kind: article
+    note: "Derivation via completing the square and the discriminant."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Working Your Quads: beauty under the formula."
+
+---
+
+## How this idea was born
+
+Merchants and surveyors met problems that linear rules could not finish: given an area and how much length exceeds width, find the sides; given a square and something added beside it, restore a pure square. Those are **quadratic** stories - unknown times unknown appears.
+
+MacTutor's history of quadratic equations warns against a slogan that "the Babylonians invented the quadratic formula." Old Babylonian tablets (second millennium BCE) show algorithmic procedures, essentially completing the square, for problems we would write as quadratics. They had no modern notion of "equation," and answers were positive lengths. Euclid later gave geometric square-completion. Hindu mathematicians (notably Brahmagupta) admitted negatives more freely. al-Khwārizmī (c. 9th century) classified types and proved solutions by geometry because zero and negative coefficients were not yet part of his toolkit.
+
+For a modern rereader, $ax^2 + bx + c = 0$ (with $a \neq 0$) is one family. Completing the square, the quadratic formula, and factoring are three cameras on the same object. The graph is a **parabola**.
+
+<StoryNote title="From The Joy of X">
+  "Working Your Quads" is Strogatz's reminder that the quadratic formula looks dry until you feel the geometry under it. Treat the book as pedagogy, not as a primary source for Babylonian tablets.
+</StoryNote>
+
+## First principles
+
+A **quadratic function** is $f(x) = ax^2 + bx + c$ with $a \neq 0$. Its graph is a parabola opening up ($a > 0$) or down ($a < 0$).
+
+The **vertex** sits at $x = -b/(2a)$. Completing the square rewrites
+
+$$
+f(x) = a\left(x + \frac{b}{2a}\right)^2 + \left(c - \frac{b^2}{4a}\right)
+$$
+
+so the shift and the minimum/maximum height are visible.
+
+The **quadratic formula** for $ax^2 + bx + c = 0$ is
+
+$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
+
+The **discriminant** $\Delta = b^2 - 4ac$ decides geometry:
+
+- $\Delta > 0$: two distinct real roots (two $x$-intercepts)
+- $\Delta = 0$: one repeated real root (vertex on the axis)
+- $\Delta < 0$: no real roots (parabola misses the $x$-axis); complex roots exist in $\mathbb{C}$
+
+**Factoring** over the reals works when roots are nice: if $f(x) = a(x-r)(x-s)$, roots are $r$ and $s$.
+
+A **polynomial** of degree $n$ is $a_n x^n + \cdots + a_0$ with $a_n \neq 0$. Quadratics are degree 2. Higher degrees bend more; the fundamental theorem of algebra (later) says degree $n$ has $n$ roots in $\mathbb{C}$, counting multiplicity.
+
+
+## Worked intuition
+
+### Completing the square by hand
+
+Solve $x^2 + 6x + 5 = 0$.
+
+$x^2 + 6x = -5$. Half of 6 is 3; square is 9. Add 9: $(x+3)^2 = 4$. So $x+3 = \pm 2$, hence $x = -1$ or $x = -5$.
+
+### Formula as packaged completion
+
+Apply the formula to $2x^2 - 4x - 6 = 0$:
+
+$$
+x = \frac{4 \pm \sqrt{16 + 48}}{4} = \frac{4 \pm 8}{4}
+$$
+
+Roots $3$ and $-1$. Same answers as factoring $2(x-3)(x+1) = 0$.
+
+### Reading the parabola
+
+For $y = x^2 - 4x + 3$, vertex at $x = 2$, $y = -1$. Roots at $1$ and $3$. Axis of symmetry $x = 2$. Sketch a few points and the U-shape from the graphs lesson returns with a name.
+
+### Polynomial preview
+
+$x^3 - x = x(x-1)(x+1)$ shows factoring still organizes higher degree when you can find roots. Not every cubic factors nicely over the integers; that is why later tools exist.
+
+
+## Common confusions
+
+**Forgetting $a \neq 0$.** If $a = 0$, the equation is linear, not quadratic.
+
+**Dropping the $\pm$.** Completing the square always opens two branches unless the square root is zero.
+
+**Thinking Babylonians had modern formulas.** They had algorithms for positive length problems. Respect both the achievement and the conceptual gap.
+
+**Confusing vertex formula with roots.** $-b/(2a)$ is the axis; roots need the discriminant.
+
+**Assuming every quadratic factors with integers.** The formula always works (in $\mathbb{C}$); nice integer factoring is a gift, not a right.
+
+
+## History and stories
+
+MacTutor's quadratic history is the honest spine: Babylonian completing-the-square algorithms for area problems; Euclid's geometry; Brahmagupta's more algebraic treatment with negatives; al-Khwārizmī's classified cases and geometric proofs; later European symbolic algebra packing cases into one formula.
+
+al-Khwārizmī's ethic is pedagogy: show a method a stranger can repeat, then justify it with a diagram. That is why his name echoes in "algebra" and "algorithm."
+
+
+## Real world
+
+- **Projectiles** (idealized): height versus time is quadratic under constant gravity.
+- **Area fencing problems:** maximize area for fixed perimeter leads to a parabola in the model.
+- **Optics and mirrors:** parabolic reflectors focus parallel rays (geometry of the curve).
+- **Business:** revenue models with price and quantity sometimes produce quadratic profit.
+
+
+## AI / ML bridge
+
+Linear regression fits a line. Add $x^2$ as a feature and you fit a parabola in the original $x$ while staying linear in the parameters. Polynomial feature maps and quadratic kernels are that idea at scale: bend the representation, keep optimization familiar.
+
+Do not overclaim: a neural net is not "just a big polynomial," but polynomial features are a real, honest bridge from this chapter to model classes.
+
+
+## For the rereader
+
+When calculus finds minima, return to the vertex as $-b/(2a)$ and see the derivative agree. When complex numbers arrive, return to $\Delta < 0$ and stop treating "no solution" as the end of the story.
+
+**Rereader drill:** Derive the quadratic formula once from completing the square without looking it up. The algebra is the lesson.
+
+**Curiosity:** Viète's formulas say sum of roots is $-b/a$ and product is $c/a$. Check them on $x^2 - 5x + 6 = 0$.
+
+
+## Carry this forward
+
+- Parabola, completing the square, formula, and factoring are one family.
+- Discriminant is geometry in a number.
+- Polynomials continue the degree ladder.
+- Next: exponentials and logarithms, where growth stops being polynomial.

@@ -43,7 +43,7 @@ export const COURSES: CourseMeta[] = [
     id: "foundations",
     title: "Foundations",
     description:
-      "Rebuild numbers, operations, ratios, and variables from first principles - the ground under everything that follows.",
+      "Rebuild numbers, operations, ratios, variables, decimals, powers, and estimation from first principles - the ground under everything that follows.",
     status: "available",
     order: 1,
   },
@@ -51,7 +51,7 @@ export const COURSES: CourseMeta[] = [
     id: "geometry",
     title: "Geometry",
     description:
-      "Points, shapes, and space - how numbers become pictures you can measure, compare, and prove.",
+      "Points, shapes, transformations, area, and solid measure - how numbers become pictures you can measure, compare, and prove.",
     status: "available",
     order: 2,
   },
@@ -59,7 +59,7 @@ export const COURSES: CourseMeta[] = [
     id: "algebra",
     title: "Algebra",
     description:
-      "Equations, functions, and graphs - the language for naming relationships before you know every number.",
+      "Equations, systems, functions, graphs, inequalities, quadratics, exponentials, and fitting - naming relationships before every number is known.",
     status: "available",
     order: 3,
   },
@@ -67,7 +67,7 @@ export const COURSES: CourseMeta[] = [
     id: "trigonometry",
     title: "Trigonometry",
     description:
-      "Angles, circles, and waves - the bridge from triangles to oscillation, rotation, and similarity scores.",
+      "Angles, triangle ratios, the unit circle, inverse trig and triangle laws, then waves - from turns to oscillation and similarity previews.",
     status: "available",
     order: 4,
   },
@@ -75,7 +75,7 @@ export const COURSES: CourseMeta[] = [
     id: "calculus-intuition",
     title: "Calculus intuition",
     description:
-      "Change, rates, and accumulation - the ideas behind learning curves and gradients.",
+      "Rates, derivatives, accumulation, limits and optimization, then gradients - the change toolkit behind learning curves.",
     status: "available",
     order: 5,
   },
@@ -83,7 +83,7 @@ export const COURSES: CourseMeta[] = [
     id: "linear-algebra",
     title: "Linear algebra",
     description:
-      "Vectors, matrices, and spaces - the native tongue of modern machine learning.",
+      "Vectors, matrices, projections, bases, elimination and least squares, eigen-structure, then SVD and PCA - the native tongue of modern machine learning.",
     status: "available",
     order: 6,
   },
@@ -91,7 +91,7 @@ export const COURSES: CourseMeta[] = [
     id: "probability",
     title: "Probability & information",
     description:
-      "Uncertainty, likelihood, and information - how models reason under doubt.",
+      "Chance, random variables, conditioning, expectation, correlation and calibration, then information - how models reason under doubt.",
     status: "available",
     order: 7,
   },

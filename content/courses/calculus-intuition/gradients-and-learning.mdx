@@ -1,7 +1,7 @@
 ---
 title: "Gradients and learning"
 slug: "gradients-and-learning"
-order: 4
+order: 5
 summary: "In many variables, the gradient packs all partial slopes into one vector that points toward steepest increase. Learning often walks the opposite way."
 mathematician:
   name: "Joseph-Louis Lagrange"
@@ -10,12 +10,13 @@ mathematician:
 realWorld: "Adjusting many recipe parameters to maximize taste, or tuning many machine settings to minimize defect rate, are gradient-flavored problems even when nobody writes ∇."
 aiMlHook: "This is the core of training neural nets: compute ∇_w L, step w ← w - η ∇_w L. Everything about backprop is efficient gradient computation."
 prerequisites:
+  - "rates-of-change"
   - "the-derivative"
-  - "accumulation-and-integrals"
 curiositySeeds:
   - "What is a partial derivative?"
   - "Why descend the gradient?"
-estimatedMinutes: 34
+  - "Recommended: linear-algebra/vectors (helpful, not required)"
+estimatedMinutes: 72
 furtherReading:
   - title: "MacTutor - Joseph-Louis Lagrange"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Lagrange/"
@@ -35,6 +36,10 @@ furtherReading:
     url: "https://algebrica.org/backpropagation/"
     kind: article
     note: "Chain rule in networks; diagrams that connect gradients to learning."
+  - title: "Algebrica - Vectors (recommended bridge)"
+    url: "https://algebrica.org/vectors/"
+    kind: article
+    note: "Directed lists; useful before treating ∇f as an arrow. Not a full linear algebra prerequisite."
   - title: "Steven Strogatz - The Joy of X"
     url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
     kind: book
@@ -42,66 +47,203 @@ furtherReading:
 
 ---
 
+## How this idea was born
+
+One knob is a dial you can feel. **Many knobs** at once - recipe parameters, machine settings, network weights - create a foggy hillside where every direction changes the score. One-variable derivatives were enough for a single slope. Learning and design need a single object that packages every partial slope: the **gradient**.
+
+**Joseph-Louis Lagrange** (1736-1813) sought analytic clarity in mechanics and optimization, preferring elegant algebraic forms over geometric clutter. MacTutor sketches the career. The gradient and constrained-optimization traditions that follow his spirit ask: what is the cleanest way to express how a quantity depends on many knobs? Steal the taste for clean structure when ideas get high-dimensional.
+
+This chapter is the bridge for a modern rereader from calculus intuition to the geometry of training. You need rates of change and the derivative; the previous limits-and-optimization chapter helps with critical points and linear-step honesty. A full linear algebra course is **not** required. The vectors lesson in linear algebra is recommended when you want more geometry; below is a self-contained mini bridge so steepest ascent does not arrive as jargon.
+
+<StoryNote title="Curiosity from history">
+  Lagrange's ethic is analytic clarity when many quantities interact. Attribute the career sketch to MacTutor; do not invent a single "invention of the gradient" anecdote. The chapter steals the taste for clean structure, not a fake origin myth.
+</StoryNote>
+
+## Mini bridge: vectors and the gradient package
+
+A **vector** here is an ordered list of numbers with a direction story: $(2, -1)$ means "2 steps along the first axis, 1 step opposite the second." You can scale a vector (stretch or flip) and add vectors (tip-to-tail chaining). You do not need bases, matrices, or eigenvalues yet.
+
+A **partial derivative** $\partial f/\partial x$ freezes the other knobs and reports the slope for one knob. Pack every partial into a list and you have the **gradient**:
+
+$$
+\nabla f = \left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \ldots\right).
+$$
+
+That list is a vector in parameter space. Its geometric claim (when the function is smooth enough and the gradient is nonzero): it points toward **steepest ascent** of $f$. Steepest descent is the flipped list $-\nabla f$. You may treat that claim as the definition of the package's job before you prove it from the multivariable chain rule.
+
 ## First principles
 
-For $f(x, y)$, the partial $\partial f/\partial x$ treats $y$ as fixed and differentiates in $x$. The **gradient**
+For $f(x, y)$, the partial $\partial f/\partial x$ treats $y$ as fixed and differentiates in $x$. The gradient
 
 $$
 \nabla f = \left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\right)
 $$
 
-points to the direction of steepest ascent (when it exists and is nonzero). Steepest descent is $-\nabla f$.
+points in the direction of steepest ascent (when it exists and is nonzero). Steepest descent is $-\nabla f$.
 
+Each coordinate of the gradient is a slope for one knob. Together they tell you how to nudge all knobs at once for the largest instantaneous increase of $f$.
 
-## Slow down: many knobs, one downhill
-
-Each partial derivative asks how loss changes if you tweak one knob. Bundle them into a gradient vector and you get a single arrow in parameter space. Learning algorithms walk against that arrow in small steps.
-
-## Why a vector?
-
-Each coordinate is a slope for one knob. Together they tell you how to nudge all knobs at once for the largest instantaneous increase.
-
-## Learning as descent
-
-If $L(w)$ is loss and $w$ are parameters:
+If $L(w)$ is loss and $w$ are parameters, a basic learning step is
 
 $$
 w_{\text{new}} = w_{\text{old}} - \eta \nabla L(w_{\text{old}})
 $$
 
-with step size $\eta > 0$. Too large: overshoot. Too small: crawl.
-
-## Connection to the chain rule
-
-Networks compose functions. The gradient of the composition multiplies local Jacobians (chain rule in higher dimensions). Backprop organizes that bookkeeping.
-
-## Real world
-
-Hill walking in fog with only a local slope measurement is gradient descent as metaphor: you cannot see the global minimum, only the ground under your feet.
-
-## AI / ML bridge
-
-This lesson is the bridge. Linear algebra will represent $w$ and data as vectors. Probability will treat loss as expectation. Calculus supplies the sensitivity.
+with step size $\eta > 0$. Too large: overshoot (linear approximation remainder bites). Too small: crawl.
 
 <GradientDescentDiagram />
 
+## Worked intuition
+
+Imagine walking a foggy hillside with only a local slope measurement under your feet. You cannot see the global minimum. You can feel which way is steepest uphill, then step the other way. That is gradient descent as metaphor: local information, iterative hope, no guarantee of the best valley on a nonconvex map.
+
+Networks compose functions. The gradient of a composition multiplies local Jacobians (chain rule in higher dimensions). Backpropagation organizes that bookkeeping so you do not reinvent the product rule by hand for every architecture.
+
+Algebrica's partial-derivatives and backpropagation pages connect multivariable slopes to the chain rule in networks. The diagram above is the cartoon; those pages are the schematics.
+
+Momentum methods (optional depth; see Distill's momentum essay) carry a kind of memory through the terrain so steps do not jitter as violently. You do not need momentum to understand the first principle: follow $-\nabla L$ carefully.
+
+## Common confusions
+
+**Gradient points downhill.** By standard convention, $\nabla L$ points uphill on the loss surface. Descent uses the negative. Sign errors here waste days.
+
+**"The" minimum.** Gradient descent finds a critical region given its start, step sizes, and noise. In deep learning the loss landscape is typically nonconvex; local minima, saddles, and flat regions are part of the lived experience. The algorithm is local, not omniscient.
+
+**Learning rate as a minor hyperparameter.** $\eta$ is the entire personality of the walk. Enormous steps leap out of valleys. Tiny steps stall in plateaus. Schedules exist because one fixed $\eta$ rarely fits every phase of training.
+
+**Partial derivatives ignore interactions forever.** A partial freezes other variables only for that instantaneous slope. As you step, other coordinates move too. The gradient is a local linear snapshot, not a promise about the whole journey.
+
+**Gradient magnitude as "importance" of a parameter forever.** Large partials mean high local sensitivity, not permanent importance across the whole training run.
+
+**Confusing stochastic noise with true landscape features.** Mini-batch gradients jitter. Not every spike is a cliff in the true risk.
+
+## History & stories
+
+Joseph-Louis Lagrange sought analytic clarity in mechanics and optimization, preferring elegant algebraic forms over geometric clutter. MacTutor's Lagrange biography sketches the career. The gradient and constrained-optimization traditions that follow his spirit ask: what is the cleanest way to express how a quantity depends on many knobs?
+
+You do not need eighteenth-century mechanics to use $\nabla$. You do need the taste for structure when dimension explodes. Calculus intuition checkpoint: rates, derivatives, integrals, and now packed multivariable slopes.
+
 <StoryNote title="From The Joy of X">
-  <p>
-    Once rates live in many directions, you need a vector of slopes - the gradient. Strogatz's change chapters prepare the intuition; modern learning algorithms turn that vector into a step downhill on a loss surface.
-  </p>
+  Once rates live in many directions, you need a vector of slopes - the gradient. Strogatz's change chapters prepare the intuition; modern learning algorithms turn that vector into a step downhill on a loss surface.
 </StoryNote>
 
-## Dig deeper
+## Real world
 
-Algebrica's partial derivatives and backpropagation pages connect multivariable slopes to the chain rule in networks. The diagram above is the cartoon; those pages are the schematics.
+Adjusting many recipe parameters to maximize taste, or tuning many machine settings to minimize defect rate, are gradient-flavored problems even when nobody writes $\nabla$. Anytime you have a score depending on many knobs and you tweak against measured sensitivity, you are in the same family.
 
-## Curiosity seeds
+Foggy hill-walking remains a fair metaphor for industrial tuning: sensors give local slopes; global optimality is a hope constrained by time and risk.
 
-- Why step opposite the gradient to reduce loss?
-- What goes wrong if the step size (learning rate) is enormous?
+## AI / ML bridge
+
+This lesson is the bridge. The training loop is:
+
+1. Compute loss $L(w)$ (an accumulation over data, from the integrals chapter).
+2. Compute $\nabla_w L$ via backprop (chain rule engineering).
+3. Step $w \leftarrow w - \eta \nabla_w L$.
+
+Linear algebra will represent $w$ and data as vectors and maps. Probability will treat loss as expectation. Calculus supplies the sensitivity. The three tracks meet in training.
+
+Everything glamorous about deep learning still sits on this humble geometry: point, measure slope, step carefully.
+
+## For the rereader
+
+After linear algebra, notice that $\nabla L$ is a vector in parameter space, and the step is an affine update. After probability, notice that stochastic gradient descent replaces full $\nabla L$ with a noisy estimate from a mini-batch: same direction in expectation (under standard setups), different variance.
+
+A sharper nuance: vanishing and exploding gradients are chain-rule pathologies in deep compositions. The classical one-variable chain rule already warned you that multiplying many factors can shrink or blow up. Depth makes that warning operational.
+
+Also reread the nonconvex honesty clause. Popular demos show convex bowls; production models rarely are. Curiosity without humility about landscapes becomes cargo-cult optimism.
+
+On a third visit, write the gradient descent update for a two-parameter least-squares toy and compute three steps by hand with a stubborn $\eta$. Nothing replaces hand computation for respecting step size.
+
+Keep a museum of loss curves: healthy decline, plateau, spike, divergence. Annotate each with a guessed diagnosis (learning rate, data bug, nonconvex trap). The museum trains judgment the way gradient steps train weights.
+
+## A longer geometric studio
+
+Draw a simple bowl $L(x,y)=x^2+y^2$. The gradient is $(2x,2y)$, pointing outward. Steepest descent steps toward the origin. Now elongate the bowl: $L(x,y)=x^2+10y^2$. Gradients still point "uphill," but the conditioning is worse: steps can zigzag. This is why learning-rate choice and preconditioning matter even in convex toys.
+
+Imagine fog on a nonconvex surface with two valleys. Start in different places; end in different places. Local information cannot see the other valley. That honesty should travel with every demo that shows a perfect bowl.
+
+## Backprop as bookkeeping
+
+Write a tiny composition: $L = (wx-y)^2$. Expand $\partial L/\partial w$ by hand. Then imagine ten nested layers and shudder. Backpropagation is the refusal to shudder: reverse-mode accumulation of local Jacobians so the chain rule stays tractable.
+
+Algebrica's backpropagation page is worth a slow evening once this chapter's cartoon gradient feels solid. The diagram in this lesson is the terrain; that page is the circuit schematic.
+
+## Step size as personality
+
+Fix a gradient direction and vary $\eta$. Too large: overshoot and diverge. Too small: crawl and waste time. Schedules that decay $\eta$ exist because early training and late training often want different personalities. Momentum adds memory so successive gradients can reinforce a direction. Optional Distill reading on momentum rewards curiosity without being required for the first principles.
+
+## Practice prompts
+
+1. Why does the update subtract $\nabla L$ rather than add it when minimizing?
+2. Invent a nonsmooth $L$ (absolute value in one coordinate). Where does the classical gradient fail, and what might a subgradient offer?
+3. Explain vanishing gradients as a chain-rule product of many factors smaller than one.
+
+## Extended examples
+
+**Two-parameter least squares by hand.** $L(w,b)=\frac12\sum_i (wx_i+b-y_i)^2$. Write $\partial L/\partial w$ and $\partial L/\partial b$. Take one gradient step. The algebra is tedious on purpose: respect what backprop automates.
+
+**Conditioning toy.** Compare steps on $x^2+y^2$ versus $x^2+100y^2$. Same algorithm, different zigzag. Ill-conditioning is why adaptive methods and preconditioning exist.
+
+**Saddle honesty.** In high dimensions, saddles are common. Gradient magnitude near zero is not always a cozy minimum. Flatness and curvature deserve companion diagnostics later (Hessians, but not required here).
+
+**Stochastic glimpse.** Replace full $\nabla L$ with a mini-batch estimate. You descend a noisy compass. In expectation, under standard setups, you still aim at the true risk gradient; in practice, you tune batch size against noise.
+
+**Sign ritual.** Before every derivation, write "minimize $L$" and circle the minus sign in $w\leftarrow w-\eta\nabla L$. Rituals prevent silly bugs.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** The gradient packs partial slopes into a steepest-ascent vector; learning steps the other way.
+
+**One picture.** A foggy hillside with a local slope arrow underfoot.
+
+**One update.** $w \leftarrow w - \eta \nabla L(w)$.
+
+**One warning.** $\eta$ is personality; sign errors waste days.
+
+**One ethic.** Clean structure when many knobs interact (Lagrange's spirit).
+
+**One Strogatz hook.** Many-direction change needing a vector of slopes.
+
+**One Algebrica stop.** Partial derivatives and backpropagation pages.
+
+**One AI seed.** This chapter *is* the training loop's calculus core.
+
+**Cross-links.** One-variable rates; multivariable packing; integrals as risk; linear algebra for the space $w$ lives in; probability for stochastic estimates of $\nabla L$.
+
+**Workplace failure.** "We trained with gradient descent" with no learning-rate story and no loss-curve reading.
+
+**Reread schedule.** After your first exploding/vanishing gradient incident, return. After momentum/Adam, return and separate geometry from optimizer folklore.
+
+**Notation scratchpad.**
+- $\nabla L = (\partial L/\partial w_1,\ldots)$
+- Descent direction $-\nabla L$
+- Chain rule / Jacobians in composition
+
+**Questions that stay alive.**
+- Is my landscape bowl-shaped in demos only?
+- What is my effective $\eta$ schedule saying?
+- Where do I confuse mini-batch noise with true cliffs?
+
+**Closing image.** Footsteps down a misty slope: local measurements, iterative hope, no claim of the only valley.
+
+## Glossary of moves
+
+- **Partial derivative:** slope in one coordinate with others frozen.
+- **Gradient:** vector of partials; steepest ascent direction.
+- **Descent step:** move opposite the gradient by $\eta$.
+- **Learning rate:** step-size personality.
+- **Backprop:** reverse-mode chain rule bookkeeping.
+- **Mini-batch gradient:** noisy estimate of the true risk gradient.
+- **Nonconvexity:** multiple valleys; local methods stay local.
+
+## One more vignette
+
+Foggy hills are more honest than classroom bowls. Real training feels like weather: sudden drops, long flats, mysterious rises when the batch is unlucky. The gradient is still your local instrument. It does not owe you a global tour. Holding both truths - the instrument works, the map is incomplete - is adult calculus for learning systems.
 
 ## Carry this forward
 
-- Gradients are multivariable slopes.
-- Descent follows $-\nabla L$.
-- Calculus intuition checkpoint complete. Linear algebra gives the language of spaces those gradients live in.
+- Gradients pack partial slopes into a steepest-ascent vector; learning walks $-\nabla L$.
+- Step size is first-class, not a footnote.
+- Backprop is the chain rule with engineering discipline.
+- Calculus intuition checkpoint complete. Linear algebra gives the language of the spaces those gradients live in.

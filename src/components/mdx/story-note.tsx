@@ -13,7 +13,7 @@ export function StoryNote({
       <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
         {title}
       </p>
-      <div className="mt-2 space-y-3 text-[15px] leading-7 text-foreground/90 [&_p]:mt-0">
+      <div className="mt-2 space-y-3 text-[15px] leading-7 text-foreground/90 [&>div]:mt-0">
         {children}
       </div>
     </aside>

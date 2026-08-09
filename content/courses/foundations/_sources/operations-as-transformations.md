@@ -32,3 +32,10 @@
 - Additional StoryNote hooks from Steven Strogatz, The Joy of X (2012), mapped to chapter themes without inventing quotations.
 - Diagram ideas cross-checked against Algebrica topic pages (CC BY-NC 4.0: link and inspire; do not paste their SVGs).
 - Historical vignettes cross-checked against MacTutor where named.
+
+## Knowledge-base expansion
+- Personal KB structure added with deepening (maps, invariants, cancellation) and desk-reference invertibility checklists.
+- Themes: operations as transformations; undo chains; commutativity vs everyday non-commuting processes; distributivity as rectangle; Ramanujan ethic (not inventor claim); Joy of X Commuting / Division and Its Discontents; multiply-and-add as ML elementary verb.
+
+- Opening rewritten to story-before-symbols.
+- Opening story cites Fibonacci Liber Abaci (1202) popularizing Hindu-Arabic calculation for merchants (MacTutor / standard histories); Ramanujan remains ethic figure, not inventor of arithmetic.

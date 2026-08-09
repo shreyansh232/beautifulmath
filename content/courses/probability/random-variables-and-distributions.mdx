@@ -1,0 +1,208 @@
+---
+title: "Random variables and distributions"
+slug: "random-variables-and-distributions"
+order: 2
+summary: "A random variable names a numerical outcome of chance. Its distribution (pmf for discrete cases) says how probability mass sits on those numbers - Bernoulli, binomial, and uniform as first citizens."
+mathematician:
+  name: "Jacob Bernoulli"
+  years: "1654-1705"
+  vignette: "Jacob Bernoulli's Ars Conjectandi pushed probability beyond parlor games toward a general art of conjecture, including the Bernoulli-trial setting and a law-of-large-numbers theorem he prized. MacTutor sketches the unfinished publication story. Steal the ethic: treat repeated chance experiments as objects you can name, count, and bound - not as superstition."
+realWorld: "Coin flips, defect counts on an assembly line, and fair lottery ticket numbers are random variables with familiar distributions."
+aiMlHook: "Classification labels, dropout masks, and Bernoulli likelihoods are discrete random variables in production clothing. Binomial counts appear whenever you tally independent binary events."
+prerequisites:
+  - "chance-and-probability"
+curiositySeeds:
+  - "What does a pmf guarantee?"
+  - "When is binomial the right model?"
+estimatedMinutes: 68
+furtherReading:
+  - title: "MacTutor - Jacob Bernoulli"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Bernoulli_Jacob/"
+    kind: reference
+  - title: "Algebrica - Discrete random variables"
+    url: "https://algebrica.org/discrete-random-variables/"
+    kind: article
+    note: "Maps outcomes to numbers; pmf conditions."
+  - title: "Algebrica - Bernoulli distribution"
+    url: "https://algebrica.org/bernoulli-distribution/"
+    kind: article
+  - title: "Algebrica - Binomial distribution"
+    url: "https://algebrica.org/binomial-distribution/"
+    kind: article
+  - title: "Algebrica - Uniform distribution"
+    url: "https://algebrica.org/uniform-distribution/"
+    kind: article
+  - title: "Khan Academy - Random variables"
+    url: "https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library"
+    kind: video
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Chance chapters that keep distributions tied to stories."
+
+---
+
+## How this idea was born
+
+Probability weights outcomes. Soon you need a cleaner habit: name a **number** produced by chance - profit, count, indicator of success - and describe how that number is distributed. Without that habit, every problem reinvents a new sample-space essay.
+
+**Jacob Bernoulli** (1654-1705), in *Ars Conjectandi*, pushed the art of conjecture toward repeated trials and limit laws; MacTutor sketches the career and the posthumous publication path. Steal the ethic: repeated chance experiments are objects you can name, count, and bound. The Bernoulli trial (success/failure with fixed $p$) is the seed crystal for the binomial count.
+
+For a modern rereader, this chapter inserts between raw chance and Bayes/expectation. Discrete random variables and their pmfs are the portable language.
+
+<StoryNote title="Curiosity from history">
+  Attribute Bernoulli via MacTutor. The phrase "Bernoulli trial" is later pedagogical language for the success/failure model he and successors systematized. Do not invent a single dice-table myth as the whole story.
+</StoryNote>
+
+## First principles
+
+A **random variable** $X$ assigns a real number to each outcome in a sample space. Discrete $X$ takes a countable set of values. Its **probability mass function** (pmf) is
+
+$$
+p_X(x) = P(X=x),
+$$
+
+with $p_X(x)\ge 0$ and $\sum_x p_X(x)=1$.
+
+Three first citizens:
+
+1. **Bernoulli($p$):** $X\in\{0,1\}$ with $P(X=1)=p$. One trial's success bit.
+2. **Binomial($n,p$):** number of successes in $n$ independent Bernoulli($p$) trials:
+
+$$
+P(X=k)=\binom{n}{k}p^k(1-p)^{n-k},\quad k=0,\ldots,n.
+$$
+
+3. **Discrete uniform** on a finite set: equal mass on each listed value (fair die: $1/6$ each).
+
+Continuous distributions (densities) wait for later depth; the discrete pmf picture already carries enormous applied weight.
+
+## Worked intuition
+
+A random variable is a numerical nickname for chance. The pmf is the histogram you would approach with infinite independent repeats (under the model).
+
+Bernoulli is a coin with probability $p$ of heads, coded $1$. Binomial is "how many heads in $n$ flips" when flips are independent and identically biased. Uniform is "no favorite among listed tickets."
+
+If trials are not independent, or $p$ drifts, binomial is the wrong poem. Models are claims.
+
+Algebrica's discrete RV, Bernoulli, binomial, and uniform pages are the formal companions with careful definitions.
+
+## Common confusions
+
+**Random variable as "unknown constant."** It is a function of outcomes. After the experiment, you see a realization; before, you hold a distribution.
+
+**pmf values as outcomes.** $p_X(3)=0.2$ is a probability, not the claim that $X$ somehow equals $0.2$.
+
+**Binomial without independence.** The counting formula assumes independent trials with shared $p$. Clustered defects need another model.
+
+**Uniform means "I know nothing" in every sense.** Discrete uniform is a specific equal-weight claim on a listed set. Continuous uniform and discrete uniform differ. Ignorance can sometimes motivate uniform priors; that is a modeling choice, not a theorem of nature.
+
+**Bernoulli only for fair coins.** $p$ can be any value in $[0,1]$.
+
+**Distribution as destiny of one trial.** The pmf organizes long-run frequencies or coherent weights; a single draw is still a single draw.
+
+## History & stories
+
+Jacob Bernoulli's *Ars Conjectandi* is a founding text for moving probability toward general conjecture and limit theorems. MacTutor is the short biography. Later Laplacean classical probability and Kolmogorov's axioms reshape foundations; this chapter stays with discrete named variables and their masses.
+
+<StoryNote title="From The Joy of X">
+  Strogatz keeps chance attached to stories you can simulate in your head. A pmf is that story turned into a table of weights.
+</StoryNote>
+
+## Real world
+
+Quality control counts defective items in a batch (binomial under i.i.d. assumptions). A/B tests tally conversions. Board games lean on uniform dice until the dice are worn.
+
+Anytime you replace a verbal outcome ("success") with a number and a weight table, you are here.
+
+## AI / ML bridge
+
+Binary labels and Bernoulli likelihoods power logistic regression and binary cross-entropy stories (expectation chapter continues the loss thread). Dropout masks are random Bernoulli gates. Binomial language appears in counting clicks, failures, and bootstrap inclusions.
+
+Honest scope: modern deep learning also leans on continuous noise (Gaussian reparameterizations, etc.). Discrete RVs remain first-class for classification and counting.
+
+## For the rereader
+
+After expectation, notice that means and variances are summaries of the pmf, not replacements for it. After information, notice that entropy is a functional of the distribution.
+
+A sharper nuance: two different mechanisms can share a marginal pmf. Matching a histogram does not uniquely identify a causal story.
+
+Also reread independence. Binomial's formula is brittle to hidden dependence; overdispersion in counts is a classic symptom.
+
+On a third visit, write the pmf of "sum of two fair dice" by enumeration and notice it is not uniform.
+
+## Bernoulli-to-binomial studio
+
+Simulate (mentally) $n=3$, $p=1/2$. List all $8$ outcome strings. Count successes. Match $\binom{3}{k}/8$. Independence made multiplication legal.
+
+## Uniform studio
+
+Fair six-sided die versus a die labeled $\{1,1,1,2,3,4\}$. Same physical object class, different distributions. Labels define $X$; symmetry defines weights only when the model says so.
+
+## Practice prompts
+
+1. What two conditions must every pmf satisfy?
+2. Why is $\mathrm{Binomial}(1,p)$ the same family as Bernoulli($p$)?
+3. Give a real counting process where binomial is tempting but independence fails.
+
+## Extended examples
+
+**Indicator variables.** Let $I_A=1$ if event $A$ occurs. Then $I_A$ is Bernoulli with $p=P(A)$. Indicators turn events into algebra.
+
+**Rare events.** Binomial with tiny $p$ and large $n$ approaches Poisson in the classical limit. Preview only; know the neighborhood exists.
+
+**One-hot categorical.** A discrete variable with $K$ labels can be coded with $K$ Bernoulli indicators that sum to $1$. Softmax outputs aim at that simplex.
+
+**Data versus model.** An empirical histogram estimates a pmf. Finite samples wiggle. The calibration chapter will press that honesty further.
+
+**ML likelihood.** Observing $y\in\{0,1\}$ under Bernoulli($\sigma(w\cdot x)$) is the classification likelihood seed.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** Random variables name numerical chance; pmfs place the mass.
+
+**One picture.** Bars over $0,1,\ldots,n$ for a binomial.
+
+**One seed.** Bernoulli trial → binomial count.
+
+**One warning.** Independence is part of the binomial claim.
+
+**One ethic.** Name, count, bound repeated chance (Bernoulli's spirit).
+
+**One Strogatz hook.** Chance as a story with weights.
+
+**One Algebrica stop.** Discrete RVs plus Bernoulli/binomial/uniform.
+
+**One AI seed.** Labels, masks, and binary likelihoods.
+
+**Cross-links.** Chance behind; Bayes and expectation ahead; correlation later for pairs.
+
+**Workplace failure.** Fitting binomial variance to clearly clustered counts.
+
+**Reread schedule.** After Bayes, return and treat parameters as uncertain. After entropy, return and score surprise of a pmf.
+
+**Notation scratchpad.**
+- $p_X(x)=P(X=x)$
+- Bernoulli($p$), Binomial($n,p$)
+- Support of $X$
+
+**Questions that stay alive.**
+- Is my variable discrete on purpose?
+- Are trials independent with shared $p$?
+- Am I confusing the pmf with a single draw?
+
+**Closing image.** A labeled spinner whose wedge sizes are the pmf - the variable reads the number where the pointer lands.
+
+## Glossary of moves
+
+- **Random variable:** numerical function of outcomes.
+- **pmf:** probability masses on values.
+- **Bernoulli:** single success bit.
+- **Binomial:** success count in $n$ i.i.d. Bernoulli trials.
+- **Discrete uniform:** equal masses on a finite list.
+
+## Carry this forward
+
+- Distributions make chance numerical and portable.
+- Bernoulli/binomial/uniform are the starter kit.
+- Next: update beliefs with conditioning and Bayes.

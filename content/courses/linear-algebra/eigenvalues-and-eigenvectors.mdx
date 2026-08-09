@@ -1,0 +1,207 @@
+---
+title: "Eigenvalues and eigenvectors"
+slug: "eigenvalues-and-eigenvectors"
+order: 6
+summary: "Ax = λx picks directions that a linear map only stretches or flips. Those eigen-directions are the map's simplest skeleton."
+mathematician:
+  name: "David Hilbert"
+  years: "1862-1943"
+  vignette: "Hilbert's work on integral equations and infinite-dimensional spaces helped make spectral thinking a central language of modern analysis. The word 'spectrum' in operator theory carries that heritage. Earlier, Cauchy and others developed key finite-dimensional spectral facts for symmetric matrices. Steal the ethic: find the directions where a complicated action becomes simple scaling."
+realWorld: "Vibrating modes of a bridge, principal axes of stress, and long-run behavior of linear dynamical systems all speak in eigenvalues."
+aiMlHook: "Covariance eigen-directions feed PCA. Stability of discrete linear updates hinges on whether eigenvalues sit inside the unit circle. Some algorithms explicitly track dominant eigenpairs."
+prerequisites:
+  - "matrices-as-linear-maps"
+  - "bases-dimension-structure"
+curiositySeeds:
+  - "What does Ax = λx mean geometrically?"
+  - "Why might a rotation have no real eigenvectors?"
+estimatedMinutes: 72
+furtherReading:
+  - title: "MacTutor - David Hilbert"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Hilbert/"
+    kind: reference
+  - title: "MacTutor - Matrices and determinants"
+    url: "https://mathshistory.st-andrews.ac.uk/HistTopics/Matrices_and_determinants/"
+    kind: reference
+    note: "Cauchy's spectral work on quadratic forms and symmetric matrices."
+  - title: "3Blue1Brown - Eigenvectors and eigenvalues"
+    url: "https://www.youtube.com/watch?v=PFDu9oVAE-g"
+    kind: video
+  - title: "Algebrica - Eigenvalues and eigenvectors"
+    url: "https://algebrica.org/eigenvalues-and-eigenvectors/"
+    kind: article
+    note: "Stretching directions with diagrams."
+  - title: "Algebrica - Matrix diagonalization"
+    url: "https://algebrica.org/matrix-diagonalization/"
+    kind: article
+    note: "When a basis of eigenvectors exists."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Structure themes that neighbor invariant directions."
+
+---
+
+## How this idea was born
+
+A matrix can rotate, shear, and stretch all at once. Most input arrows leave pointing a new way. Somewhere, if you are lucky, there are special arrows that the map only **scales**: longer, shorter, or flipped, but still on the same line. Those arrows are the map's simplest confession of what it does.
+
+The finite-dimensional story has deep nineteenth-century roots. MacTutor's matrices topic credits **Cauchy** with major spectral results for real symmetric matrices (including reality of eigenvalues in that setting). **David Hilbert** (1862-1943) later helped make spectral language central for operators and infinite-dimensional spaces; MacTutor sketches the career. Steal the ethic carefully across both eras: find directions where a complicated action becomes simple scaling. Do not flatten Cauchy into Hilbert or invent a single "Eureka, eigenvalues!" night.
+
+For a modern rereader, $A\mathbf{v}=\lambda\mathbf{v}$ is the sentence. Geometry first; characteristic polynomials second.
+
+<StoryNote title="Curiosity from history">
+  Attribute Hilbert via MacTutor and Cauchy's symmetric-matrix spectral work via the MacTutor matrices topic. Eigenvalue problems also appear earlier in differential-equation contexts (D'Alembert and others). Prefer a layered history over a lone inventor plaque.
+</StoryNote>
+
+## First principles
+
+A nonzero vector $\mathbf{v}$ is an **eigenvector** of square $A$ with **eigenvalue** $\lambda$ when
+
+$$
+A\mathbf{v} = \lambda\mathbf{v}.
+$$
+
+Geometrically: $A$ stretches $\mathbf{v}$ by $|\lambda|$ and flips it if $\lambda<0$, without rotating it off its line. The zero vector is excluded by convention; it would satisfy the equation for every $\lambda$ and teach nothing.
+
+Rearrange: $(A-\lambda I)\mathbf{v}=\mathbf{0}$. Nontrivial solutions exist when $A-\lambda I$ is singular, i.e.
+
+$$
+\det(A-\lambda I)=0.
+$$
+
+Roots of that characteristic polynomial are the eigenvalues (in $\mathbb{C}$, counting multiplicity).
+
+If enough independent eigenvectors exist, they form a basis in which $A$ acts by pure scaling on each axis: **diagonalization**. Not every matrix earns that luxury (Jordan blocks appear when geometric multiplicity falls short). Symmetric real matrices are the friendly case: real eigenvalues and an orthonormal eigenbasis (spectral theorem in the finite-dimensional Euclidean setting).
+
+## Worked intuition
+
+Watch a linear transformation of the plane. Most arrows twist. Eigenarrows are the stubborn ones that stay on their rails. $\lambda=2$ means "double along this rail." $\lambda=1/2$ means "halve." $\lambda=-1$ means "flip."
+
+A pure rotation by $90^{\circ}$ has no real eigenvectors: nothing stays on its line. Over complex numbers it still has eigenvalues on the unit circle. The field matters.
+
+Powers $A^k$ become easy on eigen-directions: multiply by $\lambda^k$. Long-run behavior of $\mathbf{x}_{t+1}=A\mathbf{x}_t$ is dominated by the largest $|\lambda|$.
+
+Algebrica's eigenvalues page draws the stretch picture; the diagonalization page explains when a full eigenbasis exists.
+
+## Common confusions
+
+**Eigenvalues are the diagonal entries always.** Only in special bases (triangular form reveals eigenvalues on the diagonal). In a random basis they hide.
+
+**Every matrix has a full set of real eigenvectors.** False. Real rotations are the classroom counterexample. Complex eigenvalues come in conjugate pairs for real matrices.
+
+**"The" eigenvector for $\lambda$.** Eigenspaces can be higher-dimensional. Any nonzero vector in the eigenspace works; scaling an eigenvector stays an eigenvector for the same $\lambda$.
+
+**Large eigenvalue means "important feature" in every application.** In dynamics, large $|\lambda|$ dominates growth. In PCA (next chapter), large eigenvalues of covariance mean high variance directions. Context sets the moral.
+
+**Diagonalization always succeeds.** Need a full basis of eigenvectors. Defective matrices need a broader Jordan story.
+
+**Eigenvectors must be orthogonal.** Not in general. Symmetric (or Hermitian) cases give orthogonal eigenbases; general matrices need not.
+
+## History & stories
+
+Cauchy developed key spectral facts while studying quadratic forms; MacTutor's matrices topic is the careful pointer. Hilbert's later operator-theoretic work made "spectrum" a keyword of twentieth-century analysis and mathematical physics. The finite-dimensional $A\mathbf{v}=\lambda\mathbf{v}$ picture is the doorway; Hilbert spaces are the mansion.
+
+Steal the shared instinct: complicated linear action becomes intelligible once invariant directions are named.
+
+<StoryNote title="From The Joy of X">
+  Strogatz returns often to structure that survives rewriting. Eigenvectors are structure for a linear map: directions that keep their identity while only their scale changes.
+</StoryNote>
+
+## Real world
+
+A vibrating string or bridge has modal shapes; frequencies relate to eigenvalues of an operator or matrix model. Principal stress axes align with eigenvectors of a stress tensor. Population models $\mathbf{n}_{t+1}=A\mathbf{n}_t$ grow like the dominant eigenvalue when that mode is excited.
+
+Anytime you ask "what does this linear rule do if I wait a long time?", eigenvalues answer.
+
+## AI / ML bridge
+
+PCA diagonalizes (a version of) the covariance matrix: leading eigenvectors are principal directions of variance. PageRank-style updates and Markov chains track stationary structure tied to eigenvalue $1$ for stochastic matrices (under hypotheses). Some optimization analyses linearize updates and read stability from spectral radius.
+
+Honest scope: deep learning training dynamics are nonlinear. Eigen-stories appear in local linearizations, Hessian spectra, and classical linear models - not as a full account of SGD on a deep net.
+
+## For the rereader
+
+After SVD, notice singular values are not eigenvalues of $A$ in general, but they relate to eigenvalues of $A^{\mathsf{T}}A$ and $AA^{\mathsf{T}}$. Keep the nouns straight.
+
+A sharper nuance: algebraic multiplicity (root multiplicity) versus geometric multiplicity (eigenspace dimension). Diagonalizability fails when geometric multiplicity lags.
+
+Also reread the symmetric gift. Covariance matrices are symmetric positive semidefinite; that is why PCA eigen-directions are so well behaved.
+
+On a third visit, compute eigenpairs of $\begin{pmatrix}2&1\\1&2\end{pmatrix}$ by hand and draw the stretches.
+
+## Stretch studio
+
+Apply $A=\begin{pmatrix}3&0\\0&1/2\end{pmatrix}$ to the unit circle in the standard basis. Axes stretch by $3$ and $1/2$. Those axes are eigen-directions. Now change basis: same geometry, messier matrix entries, same $\lambda$'s.
+
+## Dynamics studio
+
+Iterate $\mathbf{x}\leftarrow A\mathbf{x}$ for a diagonal $A$ with entries $1.1$ and $0.5$. Watch the first coordinate dominate. Dominant eigen-direction eats the long run.
+
+## Practice prompts
+
+1. Why must an eigenvector be nonzero by definition?
+2. What does $\lambda=0$ say about invertibility of $A$?
+3. Give a $2\times 2$ real matrix with no real eigenvectors.
+
+## Extended examples
+
+**Reflection.** Eigenvalues $1$ and $-1$: axis fixed, perpendicular flipped.
+
+**Projection matrix.** Eigenvalues $1$ (onto the subspace) and $0$ (killed complement), for an orthogonal projection.
+
+**Defective toy.** A nontrivial Jordan block has repeated eigenvalue but only a one-dimensional eigenspace. Powers grow like polynomials times $\lambda^k$, not pure geometric.
+
+**Trace and determinant.** For $2\times 2$, trace is sum of eigenvalues, determinant is product (counting multiplicity). Quick sanity checks.
+
+**ML Hessian glimpse.** At a critical point, Hessian eigenvalues sort saddle versus local min versus local max in the smooth finite-dimensional story. Deep loss landscapes complicate the tale; the local linear algebra remains the vocabulary.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** Eigenvectors are directions a matrix only stretches; eigenvalues are the stretch factors.
+
+**One picture.** Most arrows twist; eigenarrows stay on rails.
+
+**One equation.** $A\mathbf{v}=\lambda\mathbf{v}$.
+
+**One warning.** Real matrices need not have real eigenframes.
+
+**One ethic.** Seek directions where action simplifies (Hilbert/Cauchy spectral spirit).
+
+**One Strogatz hook.** Structure that survives rewriting.
+
+**One Algebrica stop.** Eigenvalues and diagonalization pages.
+
+**One AI seed.** Covariance eigen-directions and stability spectra.
+
+**Cross-links.** Bases; diagonalization; SVD as a cousin for rectangular maps.
+
+**Workplace failure.** Calling every "important direction" an eigenvector without naming the matrix.
+
+**Reread schedule.** After PCA, return. After first Jordan-block encounter, return.
+
+**Notation scratchpad.**
+- Characteristic polynomial $\det(A-\lambda I)$
+- Eigenspace $\ker(A-\lambda I)$
+- Spectral radius $\max|\lambda|$
+
+**Questions that stay alive.**
+- Do I need real eigenpairs or is complex OK?
+- Is my matrix symmetric for free orthogonality?
+- Which eigenvalue dominates my dynamics?
+
+**Closing image.** A transformation of space with a few rails that refuse to twist.
+
+## Glossary of moves
+
+- **Eigenvector:** nonzero vector on an invariant line.
+- **Eigenvalue:** scale factor along that line.
+- **Characteristic equation:** $\det(A-\lambda I)=0$.
+- **Diagonalizable:** owns a full eigenbasis.
+- **Spectral radius:** largest $|\lambda|$.
+
+## Carry this forward
+
+- $A\mathbf{v}=\lambda\mathbf{v}$ is stretch-without-twist on a line.
+- Symmetric matrices are the friendly spectral case.
+- Next: SVD factors any matrix as rotation-scale-rotation; PCA harvests variance-maximizing axes.

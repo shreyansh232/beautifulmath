@@ -20,3 +20,11 @@
 - Additional StoryNote hooks from Steven Strogatz, The Joy of X (2012), mapped to chapter themes without inventing quotations.
 - Diagram ideas cross-checked against Algebrica topic pages (CC BY-NC 4.0: link and inspire; do not paste their SVGs).
 - Historical vignettes cross-checked against MacTutor where named.
+
+## Knowledge-base expansion
+- Expanded to personal-KB chapter structure: Why this chapter exists; First principles; Worked intuition; Common confusions; History & stories; Real world; AI/ML bridge; For the rereader; Carry this forward (plus studio/field-note deepenings).
+- estimatedMinutes bumped into 60-75 range.
+- Verified hooks retained: Newton (MacTutor), Strogatz "Change We Can Believe In," Algebrica difference quotient.
+- No new historical claims invented; dunk/motion pedagogy attributed to Strogatz as popular exposition.
+
+Opening rewritten to story-before-symbols.

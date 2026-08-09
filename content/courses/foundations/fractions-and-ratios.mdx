@@ -5,7 +5,7 @@ order: 3
 summary: "A fraction is a number; a ratio is a comparison. Both speak the language of relative size - the same language probability and many ML metrics will speak later."
 mathematician:
   name: "Eudoxus of Cnidus"
-  years: "c. 408–355 BCE"
+  years: "c. 408-355 BCE"
   vignette: "When the Pythagorean hope that “all is whole-number ratio” cracked against irrationals, Greek mathematics could have shrunk. Eudoxus’s answer - preserved in Euclid’s Book V - was to rebuild comparison carefully: two ratios match when no whole-number test can tell them apart. That is not a footnote. It is the ethic of refusing to abandon a question just because the first story failed. Dedekind later tipped his hat to the same spirit while constructing the reals."
 realWorld: "A map marked 1:50,000, a medicine dose of 5 mg per kg, and a 12% interest rate are all ratio statements: one quantity spoken relative to another of the same kind of measurement."
 aiMlHook: "Probabilities, precision, recall, and class frequencies are ratios of counts or masses. Softmax turns raw scores into a set of positive weights that sum to 1 - a normalized family of relative sizes."
@@ -15,7 +15,7 @@ prerequisites:
 curiositySeeds:
   - "What is a ratio really?"
   - "Why do probabilities look like fractions?"
-estimatedMinutes: 34
+estimatedMinutes: 70
 furtherReading:
   - title: "MacTutor - Eudoxus of Cnidus"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Eudoxus/"
@@ -29,8 +29,8 @@ furtherReading:
     url: "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-ratios-prop-topic/cc-6th-ratios-intro/v/introduction-to-ratios-and-rates"
     kind: video
     note: "Warm visual intro to ratio language."
-  - title: "Better Explained - Fractions"
-    url: "https://betterexplained.com/articles/fractions/"
+  - title: "Algebrica - Rational numbers (intuition companion)"
+    url: "https://algebrica.org/rational-numbers/"
     kind: article
     note: "Friendly first-principles essay on what fractions mean."
   - title: "Steven Strogatz - The Hilbert Hotel (NYT)"
@@ -47,23 +47,32 @@ furtherReading:
     note: "Fractions as numbers, with supporting diagrams."
 ---
 
-## Two ideas people blur
+## How this idea was born
 
-People say “fraction” and “ratio” as if they were twins. They are relatives, not clones.
+People rarely need only absolute size. A harvest of forty measures means little until you know forty out of two hundred. Maps need "this length stands for that length." Recipes, wages, and medicine doses speak in parts and comparisons: relative size, not only raw count.
+
+Greek mathematics ran into a crisis when lengths appeared that were not ratios of whole numbers (the diagonal of a unit square is the classic case). The hope that "all is whole-number ratio" cracked. Eudoxus of Cnidus answered by rebuilding comparison carefully. His theory of proportion, preserved in Euclid's Book V, treats two ratios as matching when no whole-number test can tell them apart. Dedekind later tipped his hat to the same spirit while constructing the reals. The ethic is refusing to abandon a question just because the first story failed.
+
+For a modern rereader, this chapter is still the language of **relative size**: fractions as numbers on the line, ratios as comparisons of like magnitudes. You will return here for percentages, map scales, probability, precision and recall, and every time someone confuses "part of a whole" with "how this compares to that."
+
+<StoryNote title="Curiosity from history">
+  When incommensurable lengths appeared, Greek geometry could have shrunk. Eudoxus's proportion theory (Euclid Book V) is the careful rebuild: compare by tests that still work when whole-number ratios fail. MacTutor is the safe biography door.
+</StoryNote>
+
+## First principles
+
+### Two ideas people blur
+
+People say "fraction" and "ratio" as if they were twins. They are relatives, not clones.
 
 - A **fraction** $\frac{a}{b}$ (with $b \neq 0$) is a **number** on the line.
 - A **ratio** $a : b$ is a **comparison** of two magnitudes of the same kind.
 
-You can often encode a ratio as $\frac{a}{b}$, but Euclid’s Book V is careful: it talks about when two comparisons are the same.
+You can often encode a ratio as $\frac{a}{b}$, but Euclid's Book V is careful: it talks about when two *comparisons* are the same.
 
-> How does this work? Start with same-kind quantities - length with length, mass with mass. Mixing kinds (“3 meters to 2 kilograms”) is a rate with units, not a pure Euclidean ratio.
+Start with same-kind quantities - length with length, mass with mass. Mixing kinds ("$3$ meters to $2$ kilograms") is a **rate** with units, not a pure Euclidean ratio.
 
-
-## Slow down: same kind, then compare
-
-A ratio comparing meters to seconds is a rate, not a pure fraction of like quantities. Keep the kinds straight. Probability compares like outcomes to like totals. Map scales compare length to length. The shared idea is relative size.
-
-## First principles: parts of a whole
+### Parts of a whole
 
 The school fraction $\frac{3}{4}$ says: partition a whole into $4$ equal parts and take $3$. Equivalently, $\frac{3}{4}$ is the number $x$ such that $4x = 3$.
 
@@ -75,33 +84,74 @@ $$
 \frac{3}{4} = \frac{6}{8}
 $$
 
-because $3 \times 8 = 4 \times 6$.
+because $3 \times 8 = 4 \times 6$. Cross-multiplying is not a magic spell; it is the sameness of relative relationship.
 
-## Ratios: sameness of comparison
+<FractionPieDiagram />
 
-Euclid’s Book V, Definition 5 says - in modern paraphrase - that $a : b = c : d$ when for every pair of whole numbers $m, n$, the comparison of $ma$ with $nb$ matches the comparison of $mc$ with $nd$.
+### Ratios: sameness of comparison
+
+Euclid's Book V, Definition 5 says - in modern paraphrase - that $a : b = c : d$ when for every pair of whole numbers $m, n$, the comparison of $ma$ with $nb$ matches the comparison of $mc$ with $nd$.
 
 The spirit is light: **two ratios are the same when no whole-number test can tell them apart.**
 
 This mattered because some lengths are incommensurable - not a ratio of whole numbers - yet still comparable. The diagonal of a unit square and the side still have a ratio in Eudoxus's sense.
 
+Attribution note: Archimedes associates a key proportion idea with Eudoxus; the theory as we meet it is preserved in Euclid. Historians urge some caution about sole attribution. The *ethic* is solid either way: rebuild comparison carefully when the first story fails.
+
+### Percentages and normalization
+
+Percentages are ratios with denominator $100$ by convention. Softmax (later) and probability distributions are families of relative weights forced to sum to $1$. Same dialect, different clothes.
+
+## Worked intuition
+
+**Example 1 - equivalence.**  
+Is $\frac{15}{20}$ the same as $\frac{3}{4}$? Check $15 \times 4 = 60$ and $20 \times 3 = 60$. Same relative relationship.
+
+**Example 2 - map scale.**  
+A map marked $1:50{,}000$ means one unit on the map corresponds to $50{,}000$ of the same length unit on the ground. That is length-to-length ratio language, often written like a fraction of like quantities.
+
+**Example 3 - dose as rate.**  
+"$5$ mg per kg" mixes mass of drug with mass of body. It is a rate, not a pure Euclidean ratio of one kind. Keep the kinds straight so the units stay honest.
+
+**Example 4 - class imbalance.**  
+A dataset with $90$ cats and $10$ dogs has class fractions $0.9$ and $0.1$. Accuracy can look high while the rare class is ignored. Relative size tells the truth absolute counts hide.
+
+**Example 5 - Hilbert's Hotel as countable infinity.**  
+The positive rationals are infinite, yet they can be paired with the natural numbers (they are countable). The reals between $0$ and $1$ will not fit that pairing (Cantor's diagonal argument). Some infinities are larger than others. Fractions sit on the "listable" side of that cliff.
+
+## Common confusions
+
+- **"Fraction and ratio are synonyms."** Fraction: number. Ratio: comparison. Encoding a ratio as a fraction is common and useful, but Euclid's care still matters.
+- **"Every comparison is a fraction of whole numbers."** Not if you allow arbitrary lengths. $\sqrt{2}:1$ is a ratio of magnitudes that is not a ratio of integers.
+- **"Bigger denominator means bigger fraction."** Only with fixed numerator. $\frac{1}{100} < \frac{1}{10}$. Relative size depends on both parts.
+- **"Percentages always clarify."** They can hide base rates. "$50\%$ improvement" from a tiny baseline is not the same story as from a large one.
+- **"Probability is a different subject."** Probability compares like outcomes to like totals. It speaks this chapter's language.
+
+## History and stories
+
 <StoryNote>
-  <p>
-    Strogatz retells Hilbert's Hotel in <em>The Joy of X</em>: a full infinite hotel can still free a room by shifting guests, and can even house infinitely many new buses of guests. The punchline is sharper for fractions. The positive rationals are infinite, yet they pair perfectly with the natural numbers. Then Cantor's diagonal argument shows the reals between 0 and 1 will not fit. Some infinities are larger than others.
-  </p>
+  Strogatz retells Hilbert's Hotel in <em>The Joy of X</em>: a full infinite hotel can still free a room by shifting guests, and can even house infinitely many new buses of guests. The punchline is sharper for fractions. The positive rationals are infinite, yet they pair perfectly with the natural numbers. Then Cantor's diagonal argument shows the reals between 0 and 1 will not fit. Some infinities are larger than others.
 </StoryNote>
 
-## Why relative size is a superpower
+<StoryNote title="Curiosity from history">
+  When Greek mathematicians met lengths that were not ratios of whole numbers, the crisis was real. The diagonal of a unit square will not sit still as a nice fraction. That discomfort is not a bug in you. It is the birth of richer number systems. Eudoxus's proportion theory, as preserved in Euclid Book V, is the careful rebuild.
+</StoryNote>
 
-Absolute size says “$40$.” Relative size says “$40$ out of $200$” - $\frac{1}{5}$. Context changes meaning. Percentages are ratios with denominator $100$ by convention.
+<StoryNote title="From The Joy of X">
+  Strogatz's infinity chapters are popular exposition, not primary scholarship - and they earn their keep. Vertigo is allowed. If "full" can still make room, your intuition about size needs an upgrade. Fractions are the friendly infinite set that still lines up with the counting numbers.
+</StoryNote>
+
+Once you see ratios, you start seeing them everywhere: recipes, map scales, medical dosages per kilogram, batting averages, model precision and recall.
 
 ## Real world
 
-Cooking dilutions, map scales, medicine doses per kilogram - all designed proportions so one quantity tracks another.
+Cooking dilutions, map scales, medicine doses per kilogram, interest rates, gear ratios - all designed so one quantity tracks another.
+
+Surveying and architecture lean on similar figures (geometry track) whose side ratios match. Probability in medicine (true positive rates, base rates) is ratio literacy with consequences.
 
 ## AI / ML bridge
 
-If a dataset has $90$ cats and $10$ dogs, the class fractions are $0.9$ and $0.1$. Precision is (true positives) / (predicted positives). Softmax produces
+If a dataset has $90$ cats and $10$ dogs, the class fractions are $0.9$ and $0.1$. Precision is (true positives) / (predicted positives). Recall is (true positives) / (actual positives). Softmax produces
 
 $$
 p_i = \frac{e^{z_i}}{\sum_j e^{z_j}}
@@ -109,22 +159,77 @@ $$
 
 Each $p_i$ is a relative weight in a whole that sums to $1$. Ratio thinking in a suit.
 
-<FractionPieDiagram />
+This bridge is honest because ML metrics *are* ratios of counts or masses. It is not a claim that Eudoxus invented softmax.
 
-## Sharing, measuring, comparing
+## For the rereader
 
-Fractions answer "how much of a whole?" Ratios answer "how does this compare to that?" Probability later speaks the same relative-size dialect. Euclid's Book V (Eudoxus) made ratio comparison careful enough to survive irrationals.
+On a second visit, separate three layers:
 
-<StoryNote title="Curiosity from history">
-  <p>
-    When Greek mathematicians met lengths that were not ratios of whole numbers, the crisis was real. The diagonal of a unit square will not sit still as a nice fraction. That discomfort is not a bug in you. It is the birth of richer number systems.
-  </p>
-</StoryNote>
+1. **School fraction arithmetic** - compute with $\frac{a}{b}$ as numbers.
+2. **Euclidean ratio theory** - compare magnitudes even when they are incommensurable.
+3. **Infinity hierarchy** - rationals countable; continuum larger.
 
-## Curiosity seeds
+Read Joyce's rendering of Elements Book V, Definition 5 slowly. The equimultiples test is the ancestor of "no finite test can tell these comparisons apart."
 
-- Is every ratio a fraction of whole numbers? (Spoiler: not if you allow arbitrary lengths.)
-- Why do map scales feel like fractions even when written $1:50000$?
+Algebrica's rational-numbers page is the diagram companion when you want fraction-as-number clarity beside the Book V story.
+
+
+## Deepening the first principles
+
+### Three readings of $\frac{a}{b}$
+
+1. **Part-whole:** $a$ parts out of $b$ equal parts.
+2. **Division answer:** the number $x$ with $bx=a$.
+3. **Measure:** $a$ units when the unit is $\frac{1}{b}$ of a whole.
+
+Fluency is switching readings without changing the number. Confusion is freezing on one reading when a problem needs another.
+
+### Rates versus pure ratios
+
+Speed in $\frac{\text{km}}{\text{h}}$ compares unlike kinds. Euclid's pure ratio compares like magnitudes. Science lives on rates; Book V lives on careful like-kind comparison. Both are "relative size," but units tell you which grammar you are in.
+
+### Mediant and bad fraction instincts
+
+The mediant $\frac{a+c}{b+d}$ is not the average of $\frac{a}{b}$ and $\frac{c}{d}$. Sports winning percentages and batting averages create famous traps when people average ratios incorrectly. Relative size does not always average the way absolute size does.
+
+### Density of rationals
+
+Between any two reals sits a rational (and infinitely many). Fractions are "sparse" as a list yet "dense" on the line. That double life is why they feel both manageable and inexhaustible.
+
+### Incommensurability without panic
+
+The side and diagonal of a square cannot both be integer multiples of a shared tiny unit. That is a theorem, not a mood. Eudoxus-style proportion still lets you say the diagonal-to-side comparison is a definite ratio of magnitudes. The number system expands; comparison does not surrender.
+
+### Probability as ratio dialect
+
+$P(A)=\frac{\#(A)}{\#(S)}$ in a finite uniform model is fraction language. Conditional probability is ratio language with a restricted whole. Softmax is normalized relative weight. This chapter is the shared tongue.
+
+
+## A desk reference you will reuse
+
+### Language checklist
+- Fraction: number $\frac{a}{b}$.
+- Ratio: comparison $a:b$ of like magnitudes.
+- Rate: comparison of unlike kinds (with units).
+- Percent: ratio with denominator $100$ by convention.
+
+### Equivalence checklist
+$\frac{a}{b}=\frac{c}{d}$ iff $ad=bc$ (nonzero denominators). Reduce by dividing out common factors. Expanding by multiplying numerator and denominator by the same nonzero $k$ preserves the number.
+
+### Infinity checklist (popular Strogatz / Cantor themes)
+- Naturals infinite.
+- Positive rationals countable (pairable with naturals).
+- Reals uncountable (diagonal argument).
+Vertigo is pedagogical, not a bug.
+
+### Connection forward
+Variables will name unknown parts of ratios ("let the concentration be $c$"). Probability will normalize relative weights. Similarity in geometry will lock side ratios. Softmax will output a family of fractions summing to one.
+
+### Mini-exercises for a second sitting
+1. Prove $\frac{14}{21}=\frac{2}{3}$ with cross-multiplication.
+2. Classify each as fraction, ratio, or rate: map $1:25000$; $60$ km/h; $\frac{3}{8}$ of a cake.
+3. Why is averaging two ratios by averaging numerators and denominators separately dangerous?
+4. In what sense is $\sqrt{2}:1$ a ratio but not a ratio of integers?
 
 ## Carry this forward
 

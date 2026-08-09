@@ -19,3 +19,9 @@
 - Additional StoryNote hooks from Steven Strogatz, The Joy of X (2012), mapped to chapter themes without inventing quotations.
 - Diagram ideas cross-checked against Algebrica topic pages (CC BY-NC 4.0: link and inspire; do not paste their SVGs).
 - Historical vignettes cross-checked against MacTutor where named.
+
+## Knowledge-base expansion
+- Personal KB structure added with AA similarity, area scale k², altitude similarities, converse, norms beyond ℓ2.
+- Themes: similarity as same recipe different serving; Pythagoras as squares-on-sides; Babylonian triples honesty; picture-proofs (Joy of X); Euclidean distance / nearest-neighbor bridge.
+
+- Opening rewritten to story-before-symbols.

@@ -31,3 +31,9 @@
 - Additional StoryNote hooks from Steven Strogatz, The Joy of X (2012), mapped to chapter themes without inventing quotations.
 - Diagram ideas cross-checked against Algebrica topic pages (CC BY-NC 4.0: link and inspire; do not paste their SVGs).
 - Historical vignettes cross-checked against MacTutor where named.
+
+## Knowledge-base expansion
+- Personal KB structure added with deepening (three readings of a/b, rates vs ratios, density, mediant traps) and infinity checklist.
+- Themes: fraction vs ratio vs rate; Euclid Book V / Eudoxus equimultiples; incommensurability without panic; Hilbert Hotel and countable rationals (Joy of X / Strogatz NYT); softmax and precision-recall as ratio dialect.
+
+- Opening rewritten to story-before-symbols.

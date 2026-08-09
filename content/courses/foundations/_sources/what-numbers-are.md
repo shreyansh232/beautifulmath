@@ -36,3 +36,9 @@
 - Additional StoryNote hooks from Steven Strogatz, The Joy of X (2012), mapped to chapter themes without inventing quotations.
 - Diagram ideas cross-checked against Algebrica topic pages (CC BY-NC 4.0: link and inspire; do not paste their SVGs).
 - Historical vignettes cross-checked against MacTutor where named.
+
+## Knowledge-base expansion
+- Personal KB structure added (why / first principles / worked intuition / confusions / history / real world / AI-ML / rereader / carry forward), plus deepening and desk-reference sections.
+- Themes: matching before naming; place value as base-polynomial compression; zero placeholder vs actor; Brahmagupta BSS honesty on division by zero; signed numbers as orientation; Joy of X pebbles / Location Location Location / Enemy of My Enemy; numerical embeddings bridge.
+
+- Opening rewritten to story-before-symbols.

@@ -1,0 +1,160 @@
+---
+title: "Inequalities: claims about regions"
+slug: "inequalities"
+order: 5
+summary: "An inequality is a claim about an ordered region, not a single number. Multiplying by a negative flips the order; intervals name the solution set."
+mathematician:
+  name: "Thomas Harriot"
+  years: "1560-1621"
+  vignette: "Harriot solved equations with a clarity that feels modern: completing the square, respecting both roots, treating negatives seriously. The famous < and > symbols appear in his posthumous Praxis (1631), though MacTutor notes the manuscript evidence is messy - Harriot himself used different signs, and editors shaped the printed book. The ethic worth stealing is careful notation in service of clear claims, not a slogan that one person alone invented inequality."
+realWorld: "Budgets, speed limits, dosing ranges, and pass/fail cutoffs are inequalities: allowed regions, not single answers."
+aiMlHook: "Constraints in optimization (weights within bounds, probabilities between 0 and 1, logits clipped) are inequality claims. Feasible regions are geometry."
+prerequisites:
+  - "equations-as-relationships"
+  - "graphs-seeing-relationships"
+curiositySeeds:
+  - "Why does multiplying by a negative flip an inequality?"
+  - "What is an interval as a solution set?"
+estimatedMinutes: 70
+furtherReading:
+  - title: "MacTutor - Thomas Harriot"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Harriot/"
+    kind: reference
+    note: "Equations work and careful notes on who introduced < and > in print."
+  - title: "MacTutor - Earliest Uses of Symbols of Relation"
+    url: "https://mathshistory.st-andrews.ac.uk/Miller/mathsym/relation/"
+    kind: reference
+    note: "History of =, <, > and the Praxis attribution debate."
+  - title: "Algebrica - Inequalities"
+    url: "https://algebrica.org/inequalities/"
+    kind: article
+    note: "Order relations, equivalence, and solution sets."
+  - title: "Algebrica - Quadratic inequalities"
+    url: "https://algebrica.org/quadratic-inequalities/"
+    kind: article
+    note: "Sign analysis and the flip when leading coefficient is negative."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Order and comparison as everyday mathematical muscle."
+
+---
+
+## How this idea was born
+
+Equality answers "are these the same?" Life often asks a different question: "is this enough?", "is this too fast?", "is this under the limit?" Budgets, bridges, medicine doses, and exam cutoffs care about *regions* of allowed values, not a single perfect number.
+
+Ancient and medieval mathematicians compared magnitudes constantly (larger, smaller, between), but modern compact symbols took centuries. The symbols `<` and `>` first appear in print in Thomas Harriot's *Artis Analyticae Praxis* (1631), published after his death. MacTutor and the Miller symbols pages urge care: Harriot's surviving manuscripts used different signs, and editors assembled the Praxis. Do not flatten that into "Harriot invented inequality." Steal the ethic instead: make order claims as crisp as equality claims.
+
+For a modern rereader, an **inequality** is a truth claim about order. Solving it means naming every value that keeps the claim true - usually an interval or a union of intervals on the number line.
+
+<StoryNote title="Curiosity from history">
+  Comparing sizes is ancient. Writing comparison with two strokes (`<`, `>`) is early modern print culture. Keep the human need (region claims) separate from the notation story.
+</StoryNote>
+
+## First principles
+
+An inequality asserts an order relation between expressions, such as
+
+$$
+F(x) > G(x), \quad F(x) \le G(x)
+$$
+
+Solving means finding the **solution set**: every allowed $x$ for which the claim holds.
+
+**Preserving versus flipping.** Adding the same quantity to both sides preserves order. Multiplying or dividing both sides by a **positive** number preserves order. Multiplying or dividing by a **negative** number **reverses** the inequality direction.
+
+Why? On the number line, multiplying by $-1$ reflects through the origin. Reflection reverses left and right, so "left of" becomes "right of."
+
+**Intervals** name solution sets compactly:
+
+| Notation | Meaning |
+|----------|---------|
+| $(a, b)$ | $a < x < b$ |
+| $[a, b]$ | $a \le x \le b$ |
+| $(a, \infty)$ | $x > a$ |
+| $(-\infty, b]$ | $x \le b$ |
+
+Open ends exclude the endpoint; closed ends include it. Infinity is never a number you "reach," only a way to say unbounded.
+
+<NumberLineDiagram />
+
+
+## Worked intuition
+
+### Linear inequalities
+
+Solve $3x - 2 < 7$. Add 2: $3x < 9$. Divide by 3 (positive): $x < 3$. Solution: $(-\infty, 3)$.
+
+Now solve $-2x + 1 \ge 5$. Subtract 1: $-2x \ge 4$. Divide by $-2$ and **flip**: $x \le -2$. Solution: $(-\infty, -2]$.
+
+**Check:** pick $x = -3$ (should work) and $x = 0$ (should fail) in the second inequality.
+
+### Compound claims and unions
+
+$1 < x \le 4$ is the half-open interval $(1, 4]$. "$x < 0$ or $x > 2$" is $(-\infty, 0) \cup (2, \infty)$.
+
+### Region on a graph
+
+For one variable, shade the number line. For two variables, $y > 2x + 1$ shades a half-plane above the line $y = 2x + 1$ (dashed if strict). Graphs from the previous chapter become boundaries of regions.
+
+### Quadratic preview
+
+$x^2 - 1 > 0$ factors as $(x-1)(x+1) > 0$. The product is positive outside the roots: $x < -1$ or $x > 1$. Algebrica's quadratic inequalities page walks sign charts carefully; use them when parabolas return in the next lesson.
+
+
+## Common confusions
+
+**Forgetting to flip when multiplying by a negative.** The number-one trap. Reflect on the number line until the flip feels inevitable.
+
+**Treating inequalities like equations with one answer.** Equations often isolate a point. Inequalities isolate a set.
+
+**Mixing open and closed endpoints.** If the original claim is strict (`<`), do not include the boundary unless a separate argument justifies it.
+
+**Dividing by an expression that might be negative.** If you divide by $(x-2)$, you must case-split on the sign of $(x-2)$, or rearrange differently.
+
+**Writing $\infty$ as if it were a real number you can plug in.** Interval notation uses $\infty$ as a direction marker, not a value.
+
+
+## History and stories
+
+People compared lengths, weights, and times long before algebra textbooks. Greek geometry spoke in "greater than" language without modern symbols. What changed in early modern Europe was compact symbolic algebra: Recorde's `=` (1557), then printed order signs in the Harriot circle's Praxis (1631).
+
+MacTutor's Harriot biography stresses two honest points at once: Harriot's equation-solving was remarkably advanced, and the attribution of `<` and `>` is historically delicate because the printed book was edited after his death. Prefer "first appear in the 1631 Praxis" over "Harriot invented `<`."
+
+The deeper story is conceptual: once equations were claims you could transform, inequalities became claims you could transform, with one extra rule about orientation.
+
+
+## Real world
+
+- **Speed limits:** $v \le 60$ mph is a closed half-line of legal speeds.
+- **Medication windows:** concentration must satisfy $a \le c \le b$.
+- **Budgets:** spending $s$ with $s \le B$.
+- **Tolerances in manufacturing:** $|x - x_0| \le \varepsilon$ is a closed interval around the target.
+- **Grading cutoffs:** score $\ge 70$ to pass.
+
+Every threshold policy is an inequality wearing a necktie.
+
+
+## AI / ML bridge
+
+Optimization problems rarely ask for "the" weight vector. They ask for weights that minimize loss **subject to** constraints: nonnegativity, box bounds, probability simplex membership ($p_i \ge 0$, $\sum p_i = 1$). Those constraints are inequalities.
+
+Clipping activations, ReLU's "$x$ if $x>0$ else 0," and confidence thresholds ($P(\text{class}) \ge \tau$) are inequality logic inside models. Feasible regions are geometry you already meet on the number line and half-plane.
+
+
+## For the rereader
+
+Return when you meet absolute-value inequalities and when calculus uses $\varepsilon$-$\delta$ language: those are refined region claims. Return when linear programming draws polygons of feasible points.
+
+**Second-pass drill:** Solve $-3(x+1) > 6$ two ways: distribute first, or divide by $-3$ first (and flip). Same interval?
+
+**Curiosity question:** Why is $x^2 \ge 0$ true for all real $x$, while $x > 0$ is not? Equality versus strict order matters at the boundary $x = 0$.
+
+
+## Carry this forward
+
+- Inequalities claim order; solutions are regions (often intervals).
+- Multiplying by a negative flips the claim.
+- Graphs turn inequalities into half-planes and shaded sets.
+- Next: quadratics, where parabola geometry meets polynomial algebra.

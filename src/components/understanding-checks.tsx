@@ -37,6 +37,11 @@ export function UnderstandingChecks({ courseId, slug, checks }: Props) {
     setRevealed((r) => ({ ...r, [id]: true }));
   }
 
+  function retry(id: string) {
+    setRevealed((r) => ({ ...r, [id]: false }));
+    setSelected((s) => ({ ...s, [id]: null }));
+  }
+
   function complete() {
     markLessonComplete(lessonKey(courseId, slug));
     notifyProgressChanged();
@@ -49,9 +54,16 @@ export function UnderstandingChecks({ courseId, slug, checks }: Props) {
           Check your understanding
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Short questions - no timer, no scoreboard. Just see if the idea stuck.
+          {checks.length} short questions - no timer, no scoreboard. Just see if
+          the idea stuck.
         </p>
       </div>
+
+      {checks.length === 0 ? (
+        <p className="text-sm text-muted-foreground">
+          Checks for this lesson are not wired yet.
+        </p>
+      ) : null}
 
       {checks.map((check, index) => {
         const picked = selected[check.id];
@@ -120,10 +132,21 @@ export function UnderstandingChecks({ courseId, slug, checks }: Props) {
                 </Button>
               )}
               {isOpen && (
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {correct ? "Yes. " : "Not quite - "}
-                  {check.explanation}
-                </p>
+                <div className="mt-4 space-y-3">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {correct ? "Yes. " : "Not quite - "}
+                    {check.explanation}
+                  </p>
+                  {!correct && (
+                    <Button
+                      size="sm"
+                      variant="secondary"
+                      onClick={() => retry(check.id)}
+                    >
+                      Try again
+                    </Button>
+                  )}
+                </div>
               )}
             </div>
           </fieldset>

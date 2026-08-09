@@ -1,20 +1,20 @@
 ---
 title: "Waves, identities, and similarity"
 slug: "waves-identities-similarity"
-order: 4
-summary: "Sine and cosine are periodic waves. Identities are compressed geometry. Cosine similarity turns the same angle idea into a score used across modern ML."
+order: 5
+summary: "Sine and cosine are periodic waves with amplitude, frequency, and phase. Identities are compressed geometry. Cosine similarity is a later preview once vectors arrive."
 mathematician:
   name: "Joseph Fourier"
   years: "1768-1830"
   vignette: "Fourier argued that complicated periodic behavior can be built from sines and cosines. The controversies around rigor came later. The ethic worth stealing is bold decomposition: break a hard oscillation into simpler waves you can analyze."
 realWorld: "Sound, light polarization abstractions, tides, and AC power are wave phenomena. Even a spinning neon sign traces sine and cosine in time."
-aiMlHook: "Cosine similarity scores how aligned two vectors are, ignoring pure length. Retrieval, embeddings, and many ranking systems use it daily - trigonometry as a relevance meter."
+aiMlHook: "Periodic features and Fourier-style decompositions appear in signal models. Cosine similarity (angle between embedding vectors) is a preview that waits on linear algebra's dot product - not required to finish this chapter."
 prerequisites:
   - "the-unit-circle"
 curiositySeeds:
-  - "What does periodic mean?"
-  - "Why cosine similarity ignores magnitude?"
-estimatedMinutes: 34
+  - "What do amplitude, frequency, and phase each control?"
+  - "How is wave cosine related to (but not the same as) cosine similarity?"
+estimatedMinutes: 78
 furtherReading:
   - title: "MacTutor - Joseph Fourier"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/"
@@ -27,7 +27,7 @@ furtherReading:
   - title: "Algebrica - Cosine similarity"
     url: "https://algebrica.org/cosine-similarity/"
     kind: article
-    note: "The ML-facing angle between vectors."
+    note: "Optional preview: ML angle score once you have vectors."
   - title: "3Blue1Brown - But what is a Fourier series?"
     url: "https://www.youtube.com/watch?v=r6sGWTCMz2k"
     kind: video
@@ -39,7 +39,19 @@ furtherReading:
 
 ---
 
-## Periodicity
+## How this idea was born
+
+Once you can follow a point around a circle, a new human need appears: **repeating motion through time**. Sound, tides, spinning wheels, and AC power all ask how something comes back again and again. Read circle coordinates against time (or against the angle as a horizontal axis) and **waves** appear. Periodicity is circular motion written as a repeating graph.
+
+**Joseph Fourier** (1768-1830) argued that complicated periodic behavior can be built from sines and cosines. MacTutor tracks both the bold heat-analysis idea and the long later fight over rigor. Steal the ethic, not the mythology: break a hard oscillation into simpler waves you can analyze. Identities package geometric facts so you stop re-deriving them every time.
+
+This chapter is the wave-and-identity core of the trigonometry track. Inverse trig and triangle laws come next for solving general triangles. Cosine similarity appears only as an optional **preview** at the end: same word "cosine," but it needs vectors and dot products from linear algebra before it is a working tool.
+
+<StoryNote title="From The Joy of X">
+  Fourier's dream - building complicated periodic behavior from sines and cosines - is the grown-up sequel to "Sine Qua Non." Strogatz makes the waves feel inevitable. Identities are compressed geometry you can reuse instead of re-deriving every time.
+</StoryNote>
+
+## First principles
 
 As $\theta$ increases by $2\pi$, the point on the unit circle returns to the same place. Therefore
 
@@ -51,65 +63,169 @@ Plotting $\sin\theta$ against $\theta$ produces a wave that repeats forever.
 
 <SineWaveDiagram />
 
-That is why trigonometry models cycles: the circle is the geometry of repetition.
+That is why trigonometry models cycles: the circle is the geometry of repetition. On the unit circle, **cosine is still the $x$-coordinate** and **sine the $y$-coordinate**. The wave graph is that coordinate read out as the angle (or time) runs.
 
-
-## Slow down: repetition is circular motion read out
-
-Watch a Ferris wheel rider's height versus time: a sine wave appears. The circle was always there; the wave is the shadow of rotation on one axis. Fourier later stacks many such shadows to build richer signals.
-
-## Identities as compressed geometry
-
-An **identity** is an equality true for all allowed inputs. The parent identity is still
+An **identity** is an equality true for all allowed inputs. The parent identity remains
 
 $$
 \sin^2\theta + \cos^2\theta = 1
 $$
 
-Others (angle-addition formulas, double-angle formulas) expand from geometry or algebra on complex exponentials later. Do not memorize a wall of them on day one. Learn what an identity *is*: reusable structure.
+Others (angle-addition formulas, double-angle formulas) expand from geometry or, later, from complex exponentials. On day one, learn what an identity *is*: reusable structure, not a wall to memorize.
 
-## Cosine similarity
+### Amplitude, frequency, and phase
 
-For nonzero vectors $\mathbf{u}, \mathbf{v}$,
+A practical signal model is
+
+$$
+y(t) = A\sin(\omega t + \phi)
+$$
+
+- **Amplitude** $A$: vertical stretch. Peak height is $|A|$ (from the midline). On the unit circle, plain $\sin\theta$ has amplitude 1; $A\sin\theta$ scales that shadow.
+- **Angular frequency** $\omega$: how fast the angle advances. Period $T = 2\pi/\omega$ (when $\omega > 0$). Ordinary frequency $f$ in hertz satisfies $\omega = 2\pi f$ when $t$ is in seconds, so $f = 1/T$.
+- **Phase** $\phi$: horizontal shift of the wave. Positive $\phi$ (in the $+\phi$ convention above) advances the oscillation; equivalently, $y = A\sin(\omega(t - t_0))$ delays by time $t_0$ when $\phi = -\omega t_0$.
+
+**Period** alone (without $\omega$) is the special case of the unit-circle angle: smallest positive $T$ with $f(\theta + T) = f(\theta)$, namely $2\pi$ for $\sin$ and $\cos$.
+
+Transform checklist for $A\sin(\omega t + \phi)$:
+
+1. Start from $\sin t$ (amplitude 1, period $2\pi$, phase 0).
+2. Replace $t$ by $\omega t$ to compress/stretch time (frequency).
+3. Add $\phi$ inside to slide the graph (phase).
+4. Multiply by $A$ to stretch vertically (amplitude).
+
+
+## Worked intuition
+
+### Repetition is circular motion read out
+
+Watch a Ferris wheel rider's height versus time: a sine wave appears. The circle was always there; the wave is the shadow of rotation on one axis. Sirens, tides, and alternating current are circle-shadows in different costumes.
+
+If the wheel turns at constant speed, the angle $\theta$ grows linearly with time $t$, so height looks like $\sin(\omega t)$ for some angular frequency $\omega$. Frequency and period are reciprocals in the right units: if period is $T$, then $\omega = 2\pi/T$.
+
+**Example - sound.** A pure musical tone is often modeled as $A\sin(2\pi f t)$ where $f$ is frequency in Hz. Middle C is about $261.6$ Hz. The sine is not the whole story of timbre (real instruments add overtones), but the skeleton is trig.
+
+**Example - tides.** Coastal tides are approximately periodic with period near 12.4 hours (lunar semidiurnal). Models superpose several sinusoids with different periods. Fourier's ethic in wet shoes.
+
+### Fourier's decomposition ethic
+
+Joseph Fourier (1768-1830) argued that complicated periodic behavior can be built from sines and cosines. MacTutor notes the long later fight over rigor. The ethic worth stealing is bold decomposition: break a hard oscillation into simpler waves you can analyze. Controversies about foundations came later; do not flatten them into "Fourier was wrong" or "Fourier settled everything."
+
+Fourier studied heat diffusion; the mathematical tool outgrew the original problem. That pattern (a technique born for one job, adopted everywhere) repeats across applied math.
+
+### Identity as compressed geometry
+
+**Double-angle (preview):** $\sin(2\theta) = 2\sin\theta\cos\theta$. Geometrically, this encodes how sine behaves when you double the turn. You can derive it from the unit circle with area arguments or accept it as a stored fact until you need the proof.
+
+**Angle addition (preview):** $\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$. The formula looks arbitrary until you see it as "rotate by $\alpha$, then by $\beta$" in matrix language. Algebrica's trigonometric identities page groups these by family instead of dumping a flat list.
+
+**Pythagorean rearrangements:** From $\sin^2\theta + \cos^2\theta = 1$, divide by $\cos^2\theta$ to get $1 + \tan^2\theta = \sec^2\theta$ (where defined). Each rearrangement is the same circle fact in different algebra clothes.
+
+### Amplitude / frequency / phase in examples
+
+**Sound:** $A\sin(2\pi f t)$ with $f$ in Hz. Middle C is about $261.6$ Hz. Louder means larger $|A|$; higher pitch means larger $f$; starting the tone at a different moment is phase.
+
+**AC voltage:** $V(t) = V_0\sin(\omega t + \phi)$. Phase differences between circuits matter for power. Same frequency, different $\phi$, can cancel or reinforce when summed.
+
+**Shift identity:** $y = \sin(\theta - \pi/2)$ matches $y = \cos\theta$. Cosine is sine with a quarter-period head start - phase as geometry, not a new function family.
+
+### Cosine similarity (preview only)
+
+You do **not** need this to finish the wave chapter. Skim if curious; return after linear algebra.
+
+On the unit circle, $\cos\theta$ is already an $x$-coordinate. Much later, when two vectors $\mathbf{u}, \mathbf{v}$ exist, one *defines* the angle $\phi$ between them by
 
 $$
 \cos\phi = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\,\|\mathbf{v}\|}
 $$
 
-where $\phi$ is the angle between them. The score is $1$ when they point the same way, $0$ when orthogonal, and $-1$ when opposite.
+(when lengths are nonzero). That score is called **cosine similarity** in ML. It needs the **dot product** and vector length - topics from linear algebra, not from the unit circle alone.
+
+**What you can take now:** the *word* cosine still means adjacent/hypotenuse or $x$ on the unit circle. The *formula* above is a preview of "angle between directions in higher dimensions," not homework for this lesson.
 
 <StoryNote>
-  <p>
-    This is the same cosine you met on the unit circle, now asked a data question: how aligned are these two directions? Length is stripped away by the denominators so pure scale does not fake similarity.
-  </p>
+  Same family name (cosine), different job description until vectors arrive. Keep unit-circle cosine primary. Treat embedding retrieval scores as a postcard from a future course.
 </StoryNote>
+
+
+## Common confusions
+
+**Thinking periodicity means "waves are mysterious."** Period $2\pi$ is the circle closing. Mystery dissolves into geometry.
+
+**Memorizing identity lists without a parent picture.** Start from $\sin^2 + \cos^2 = 1$ and geometric derivations. Lists without structure fade.
+
+**Mixing up amplitude, frequency, and phase.** Amplitude is height; frequency is how often; phase is where in the cycle you start. Changing one does not automatically change the others.
+
+**Mixing up period and frequency.** Period is time (or angle) per cycle; frequency is cycles per unit time. They invert: $f = 1/T$ when units align.
+
+**Treating cosine similarity as required trig homework.** It is an optional preview that needs vectors. Unit-circle cosine comes first.
+
+**Overclaiming Fourier invented ML metrics.** Fourier's wave decomposition and later cosine similarity share trigonometric ancestry. They are not the same historical object.
+
+
+## History and stories
+
+Fourier's work on heat and series of sines and cosines reshaped applied mathematics. The rigor debates that followed are real history, not a gotcha. Bold ideas often arrive before the community agrees on precise hypotheses.
+
+Lagrange and others pushed back on early Fourier claims about which functions could be expanded. The mathematics was eventually made rigorous (think Dirichlet conditions, Lebesgue theory much later). The lesson for learners: a powerful idea can be right in practice long before the proofs settle.
+
+Strogatz's wave chapters make the worldview feel inevitable: once circular motion and its shadows are vivid, stacking waves becomes a natural next ambition. Treat *The Joy of X* as pedagogy, not as a substitute for MacTutor when you want biographical detail.
+
+Audio synthesizers and signal processing are living descendants of the decomposition ethic. So are many seasonal models and AC analyses.
+
+<StoryNote title="Curiosity from history">
+  Fourier's heat work sparked decades of debate about which functions admit sine-cosine expansions. The controversy was about foundations, not about whether sines appear in nature. MacTutor's Fourier biography tracks both the bold idea and the long cleanup.
+</StoryNote>
+
 
 ## Real world
 
-Audio synthesizers, signal processing, and seasonal forecasts lean on sinusoidal building blocks. Fourier's insight is that many complicated periodic signals are sums of simpler waves.
+- Sound and musical synthesis (amplitude, pitch/frequency, phase onset)
+- Tides and other approximately periodic natural signals
+- AC power and phase relationships
+- Spinning signs and mechanical oscillators tracing sine and cosine in time
+
+Even when a signal is not perfectly periodic, sinusoidal building blocks remain a powerful language for approximation.
+
+**JPEG and MP3** use frequency-domain ideas (cousins of Fourier decomposition) to compress data. You do not need the full engineering stack to appreciate the ethic: store waves, not raw wiggles.
+
+**Seasonal business data** (retail spikes, daylight hours) often get modeled with sinusoidal trends plus noise. The fit is approximate; the trig is a deliberate choice of shape family.
+
+**EEG brain waves** are labeled alpha, beta, delta by frequency bands. Clinicians read spectra; the underlying language is oscillation.
+
 
 ## AI / ML bridge
 
-Embedding models map text or images to vectors. Cosine similarity ranks neighbors by direction. Your trig intuition is doing product work.
+Periodic features and Fourier-style bases appear in signal models and some positional encodings. That is the honest near-term bridge from this chapter.
 
-<StoryNote title="From The Joy of X">
-  <p>
-    Fourier's dream - building complicated periodic behavior from sines and cosines - is the grown-up sequel to "Sine Qua Non." Strogatz makes the waves feel inevitable. Identities are compressed geometry you can reuse instead of re-deriving every time.
-  </p>
-</StoryNote>
+**Cosine similarity (later):** once linear algebra gives you vectors and dot products, embedding retrieval often ranks neighbors by $\cos\phi$. Until then, keep unit-circle cosine primary. Do not wait on embeddings to finish waves and identities.
 
-## Dig deeper
 
-Algebrica's trigonometric identities and cosine-similarity pages connect pure trig to the ML score you will keep meeting: alignment of directions, length stripped away.
+## For the rereader
 
-## Curiosity seeds
+When calculus returns, derivatives of sine and cosine will feel natural if waves and circular motion are already one picture. When linear algebra returns, reopen the cosine-similarity postcard and connect normalized dot products to angles.
 
-- Why does cosine similarity ignore vector length on purpose?
-- What everyday signals are approximately periodic?
+Ask of every periodic plot: where is the hidden circle? What are $A$, $\omega$, and $\phi$?
+
+**Second-pass synthesis:** Sketch $y = 2\sin(3t + \pi/4)$. Read off amplitude, period, and a phase shift relative to $2\sin(3t)$.
+
+**Curiosity question:** Could you build a square wave from sines alone? Fourier series says yes, but you need infinitely many terms. That is why digital square clocks look crisp but audio square waves buzz with overtones.
+
+### Superposition preview
+
+Sounds add. If two pure tones play together, the pressure signal is the sum of two sines (possibly with phase offsets). Fourier's big idea is the reverse: under good conditions, any reasonable periodic signal is a sum of sines and cosines. You will not prove that here. But the Ferris-wheel picture makes "sum of waves" feel plausible before the analysis course arrives.
+
+### Period in degrees versus radians
+
+The period of sine is $360^\circ$ or $2\pi$ radians. Same cycle, different unit on the horizontal axis. Plotting software often defaults to radians. If your wave looks "too compressed," check the axis label.
+
+**Practice:** For $y = 3\sin(2t)$, state amplitude, period, and angular frequency. Then sketch one full cycle.
+
 
 ## Carry this forward
 
-- Sine and cosine are periodic.
-- Identities package geometric facts.
-- Cosine similarity is angle-as-score.
-- Next up the path: calculus rates, then linear algebra's higher-dimensional geometry.
+- Sine and cosine are periodic because the circle repeats.
+- $A\sin(\omega t + \phi)$ packages amplitude, frequency, and phase.
+- Identities package geometric facts for reuse.
+- Cosine similarity is a linear-algebra preview, not a prerequisite here.
+- Next in trigonometry: inverse trig and triangle laws for general triangles.

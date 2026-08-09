@@ -1,0 +1,206 @@
+---
+title: "Correlation, sampling, and calibration"
+slug: "correlation-sampling-calibration"
+order: 5
+summary: "Covariance and correlation measure linear co-movement. Sampling adds uncertainty about estimates. Calibration asks whether a stated probability matches long-run frequency."
+mathematician:
+  name: "Francis Galton"
+  years: "1822-1911"
+  vignette: "Galton pursued quantitative habits for heredity and measurement, helping push regression and correlation into scientific practice. MacTutor sketches the wide-ranging career. The ethic to steal carefully: when two measurements dance together, measure the dance - and remember that association is not a full causal story. (Pearson's product-moment coefficient later standardized a common formula.)"
+realWorld: "Height and arm span, marketing spend and sales, and weather forecasts versus outcomes all invite correlation, sampling humility, and calibration checks."
+aiMlHook: "Model probabilities need calibration: a predicted 0.8 should happen about 80% of the time in a well-calibrated bucket. Feature correlations drive multicollinearity and representation redundancy; sampling error haunts every metric on a finite test set."
+prerequisites:
+  - "random-variables-and-distributions"
+  - "expectation-and-loss"
+curiositySeeds:
+  - "Can uncorrelated variables still depend on each other?"
+  - "What does a reliability diagram show?"
+estimatedMinutes: 72
+furtherReading:
+  - title: "MacTutor - Francis Galton"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Galton/"
+    kind: reference
+  - title: "MacTutor - Karl Pearson"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Pearson/"
+    kind: reference
+    note: "Product-moment correlation and biometrics context."
+  - title: "Algebrica - Variance and covariance"
+    url: "https://algebrica.org/variance-and-covariance-of-a-random-variable/"
+    kind: article
+    note: "Covariance and correlation coefficient definitions."
+  - title: "Algebrica - Discrete random variables"
+    url: "https://algebrica.org/discrete-random-variables/"
+    kind: article
+  - title: "Google Developers - Calibration (ML glossary / guides)"
+    url: "https://developers.google.com/machine-learning/crash-course/classification/prediction-bias"
+    kind: article
+    note: "Practical ML intuition for probability quality; pair with reliability-diagram thinking."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Chance and data chapters on humility under uncertainty."
+
+---
+
+## How this idea was born
+
+Expectation summarizes a single random variable. Life immediately asks about **pairs**: when $X$ runs high, does $Y$ tend to follow? A second human need arrives with every dataset: your estimate is from a **sample**, not the oracle distribution. A third need is uniquely modern in ML dashboards: when a model says "$80\%$," does the world agree?
+
+**Francis Galton** (1822-1911) helped push regression and correlation into quantitative scientific practice; MacTutor sketches the career. **Karl Pearson** later standardized the product-moment correlation coefficient widely used today; MacTutor's Pearson biography covers that biometric program. Steal Galton's measuring instinct carefully, and keep the moral warning loud: association is not automatic causation. (Galton's broader historical legacy is complicated; this chapter borrows the measurement ethic, not a sanitized hero poster.)
+
+For a modern rereader, covariance/correlation, sampling uncertainty, and calibration are three instruments on one workbench.
+
+<StoryNote title="Curiosity from history">
+  Attribute Galton and Pearson via MacTutor. Correlation's roots involve both; the common $\rho$ formula is often associated with Pearson's product-moment work building on Galton's program. Avoid a single-night invention tale.
+</StoryNote>
+
+## First principles
+
+For random variables $X,Y$ with finite means and variances,
+
+$$
+\mathrm{Cov}(X,Y)=\mathbb{E}[(X-\mu_X)(Y-\mu_Y)],
+$$
+
+$$
+\mathrm{Corr}(X,Y)=\frac{\mathrm{Cov}(X,Y)}{\sigma_X\sigma_Y}\in[-1,1]
+$$
+
+(when $\sigma_X\sigma_Y>0$). Correlation scales covariance to a unitless linear-association score. $\pm 1$ signals perfect linear relationship almost surely; $0$ means uncorrelated, **not** necessarily independent.
+
+**Sampling uncertainty:** an estimate $\hat\rho$ or $\bar X$ from $n$ draws wobbles. Larger $n$ typically tightens the wobble (under standard assumptions), but dependence, bias, and heavy tails can spoil naive confidence. Always ask what was sampled and how.
+
+**Calibration** of probabilities: among cases where a model predicts probability near $p$, the observed frequency should be near $p$ if the model is calibrated. Reliability diagrams bucket predictions and compare forecast average to outcome rate. Sharpness (confident predictions) without calibration is stylish false precision.
+
+## Worked intuition
+
+Covariance is an expected product of centered deviations: same-direction wanderings push it positive; opposite wanderings push it negative. Correlation divides out scales so meters and millimeters can talk.
+
+Sampling is the humility layer. A correlation of $0.4$ on $n=20$ noisy points is a rumor; on $n=10^5$ carefully collected points it is a stronger claim (still not causation).
+
+Calibration is keeping promises about frequencies. Weather forecasts taught this publicly; classifiers must relearn it whenever they optimize a proxy loss that does not enforce reliability.
+
+Algebrica's variance-and-covariance page is the formal stop for the first instrument.
+
+## Common confusions
+
+**Uncorrelated implies independent.** False in general. Independence implies uncorrelated (when moments exist); the converse needs extra structure ( jointly Gaussian is the famous friendly case).
+
+**Correlation implies causation.** The slogan is famous because the mistake is common. Confounders and selection create dances without direct arrows.
+
+**Calibration equals accuracy.** A model can be calibrated and still useless (always predict the base rate). A model can be accurate on hard labels yet miscalibrated on probabilities.
+
+**Bigger sample fixes bias.** Sample size fights variance; bias from bad sampling frames needs design fixes.
+
+**$|\rho|$ near 1 always means "strong for my task."** Linear association can be strong while the relationship you care about is nonlinear or conditional.
+
+**Test-set metrics without sampling talk.** Every reported AUC/accuracy is an estimate. Especially fragile on small or shifting populations.
+
+## History & stories
+
+Galton's program made co-relation a scientific habit; Pearson's product-moment coefficient standardized a workhorse formula; later statistics deepened sampling distributions and errors-in-variables. Calibration as a named ML concern rides on older meteorological and probabilistic forecasting ethics: stated probabilities should mean something in frequency.
+
+<StoryNote title="From The Joy of X">
+  Strogatz's chance chapters reward humility about tails and surprises. Sampling uncertainty and miscalibration are how that humility shows up in dashboards.
+</StoryNote>
+
+## Real world
+
+Doctors reading risk scores need calibration, not only ranking. Marketers correlating ad spend with sales must hunt confounders (seasonality). Pollsters live and die by sampling frames.
+
+A forecast office that says "$70\%$ rain" on many days should see rain on about $70\%$ of those days. That is the public face of this chapter.
+
+## AI / ML bridge
+
+Modern classifiers often emit scores that need temperature scaling or isotonic regression to improve calibration after training. Expected calibration error (ECE) is a common summary (imperfect, bucket-dependent). Feature correlations drive multicollinearity in linear models and redundancy in representations. Finite test sets make every leaderboard number a random variable.
+
+Honest scope: perfect calibration everywhere is rare under shift. Still, unchecked confidence is a known failure mode in deployed systems. Ranking metrics (AUC) can look fine while probabilities are lying - know which question you asked.
+
+## For the rereader
+
+After information/entropy, notice that cross-entropy training encourages calibrated probabilities under ideal conditions, but model misspecification and dataset shift break the dream. After PCA, notice that correlation/covariance matrices are the fuel.
+
+A sharper nuance: sample correlation has a skewed sampling distribution near $\pm 1$. Fisher transformations exist for a reason; rule-of-thumb error bars mislead at the edges.
+
+Also reread independence versus correlation with a quadratic example: $Y=X^2$ with symmetric $X$ can yield $\mathrm{Cov}(X,Y)=0$ while dependence is total.
+
+On a third visit, build a tiny reliability diagram by hand: ten predictions of $0.9$, count outcomes, compare.
+
+## Correlation studio
+
+Plot points on a line with tiny noise: $\rho\approx 1$. Plot a circle cloud: $\rho\approx 0$ despite structure. Linear meters miss circular dependence. That picture should stay glued to every correlation report.
+
+## Sampling studio
+
+Draw $n=5$ samples from a fair coin and estimate $p$. Repeat mentally. Feel the wobble. Now $n=500$. Same estimator, different humility.
+
+## Calibration studio
+
+Bucket predicted probabilities: $[0.0,0.1), [0.1,0.2), \ldots$. In each bucket, compare mean prediction to mean outcome. Points on the diagonal are calibrated. Above or below is systematic lie.
+
+## Practice prompts
+
+1. Why divide covariance by $\sigma_X\sigma_Y$ to get correlation?
+2. Give an example of dependence with zero correlation.
+3. How can a model be calibrated yet have poor decision utility?
+
+## Extended examples
+
+**Spurious seasonal correlation.** Ice cream sales and drowning incidents rise together via summer. Correlation true; causal arrow elsewhere.
+
+**Class imbalance.** Always predicting $P=0.01$ in a $1\%$ positive world can be calibrated in a coarse sense and still miss ranking quality. Separate questions.
+
+**Bootstrap glimpse.** Resample your dataset to see metric wobble. It is not magic, but it makes sampling uncertainty visceral.
+
+**Multicollinearity.** Two features with $|\rho|\approx 1$ make linear coefficients unstable. The joint predictive power may still be fine; interpretation of single coefficients is not.
+
+**ML monitoring.** Track calibration drift after deployment. Populations shift; yesterday's reliability diagram expires.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** Correlation scores linear co-movement; sampling humbles estimates; calibration keeps probability promises.
+
+**One picture.** Reliability diagram versus diagonal.
+
+**One formula.** $\rho=\mathrm{Cov}/(\sigma_X\sigma_Y)$.
+
+**One warning.** Uncorrelated $\neq$ independent; association $\neq$ causation.
+
+**One ethic.** Measure the dance, doubt the causal story (Galton/Pearson lineage with humility).
+
+**One Strogatz hook.** Surprise and tail humility in chance.
+
+**One Algebrica stop.** Variance and covariance page.
+
+**One AI seed.** Calibrate probabilities; respect finite-test noise.
+
+**Cross-links.** Expectation/variance; Bayes updating; PCA covariance geometry; information as next chapter.
+
+**Workplace failure.** Shipping 0.99 confidences that fire half the time.
+
+**Reread schedule.** After your first production miscalibration incident, return. After a multicollinearity bug, return.
+
+**Notation scratchpad.**
+- $\mathrm{Cov}$, $\mathrm{Corr}$, $\rho$
+- Sample size $n$
+- Reliability / ECE mindset
+
+**Questions that stay alive.**
+- What was my sampling frame?
+- Is linear association the relationship I care about?
+- Do my probabilities match frequencies in buckets that matter?
+
+**Closing image.** Two dancers, a finite crowd estimating their tempo, and a clock that should match the announced beat - association, sample, calibration.
+
+## Glossary of moves
+
+- **Covariance:** expected product of centered deviations.
+- **Correlation:** scaled linear association in $[-1,1]$.
+- **Sampling uncertainty:** estimator wobble from finite data.
+- **Calibration:** predicted probabilities match outcome frequencies.
+- **Reliability diagram:** bucketed calibration picture.
+
+## Carry this forward
+
+- Pairs need covariance language; estimates need sample humility; probabilities need calibration.
+- Next: information and entropy score surprise and uncertainty.

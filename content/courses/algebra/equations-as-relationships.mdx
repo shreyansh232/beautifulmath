@@ -13,7 +13,7 @@ prerequisites: []
 curiositySeeds:
   - "What is an equation really claiming?"
   - "Why do we do the same thing to both sides?"
-estimatedMinutes: 34
+estimatedMinutes: 68
 furtherReading:
   - title: "MacTutor - Francois Viete"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Viete/"
@@ -37,6 +37,18 @@ furtherReading:
     note: "Structured treatment of linear equations with visuals."
 ---
 
+## How this idea was born
+
+Word problems are older than school algebra. A tub filling while another empties, a merchant's inventory, a wage scaled by days worked: the hard part is not the arithmetic. It is translating a story into a claim that two amounts must be the same, then rearranging that claim without breaking it.
+
+François Viète (1540-1603) insisted on writing unknowns and parameters with letters so structure could be seen at a glance. In his century that was a radical bet: symbols could carry generality, not only a single problem. MacTutor's biography is the safe door. The ethic worth stealing is make the pattern visible so the next mind does not reinvent the method for every new number.
+
+For a modern rereader, an equation is a **relationship claim**, not a puzzle with a secret answer key. Solving means finding which values make the claim true, and which moves preserve truth. This chapter is the front door to the algebra track. Everything later (systems, functions, graphs) still rests on naming what must be equal, then applying honest moves.
+
+<StoryNote title="From The Joy of X">
+  "My Tub Runneth Over" is Strogatz's pep talk for word problems: translate the story into relationships first, then compute. The peril is skipping the translation step.
+</StoryNote>
+
 ## First principles
 
 An **equation** asserts equality:
@@ -45,18 +57,32 @@ $$
 \text{left expression} = \text{right expression}
 $$
 
-It is a **truth claim** about quantities. Solving means finding values of the unknowns that make the claim true.
+It is a truth claim about quantities. The equals sign is not a button that means "compute the next step." It means "these two names refer to the same amount."
 
 <BalanceDiagram />
 
-If two piles weigh the same, adding the same weight to both keeps them equal. Subtracting the same, or scaling both by the same nonzero factor, does too. That is why we "do the same thing to both sides."
+If two piles weigh the same, adding the same weight to both keeps them equal. Subtracting the same weight, or scaling both by the same nonzero factor, does too. That is why school algebra says "do the same thing to both sides." You are applying an invertible transformation that preserves the truth of the claim.
+
+A solution is any value of the unknown(s) that makes the claim true. Some equations have one solution, some have many, some have none. "Solve" means describe the solution set honestly, not force a single number into existence.
+
+**Invertible moves** (for one unknown) include:
+
+- Add or subtract the same quantity on both sides
+- Multiply or divide both sides by the same **nonzero** number
+- Swap sides ($a = b$ and $b = a$ say the same thing)
+
+**Non-invertible moves** (dangerous without care):
+
+- Multiplying both sides by zero (destroys information)
+- Dividing by an expression that might be zero (can drop solutions or invent fake ones)
+- Squaring both sides (can introduce extraneous solutions)
+
+Algebrica's [linear equations](https://algebrica.org/linear-equations/) page walks the same balance logic with step-by-step visuals. Use it when you want a second voice on the same first principles.
 
 
-## Slow down: claims, not puzzles
+## Worked intuition
 
-An equation is a claim that two expressions name the same amount. Solving is searching for values that make the claim true. Word problems become kinder when you translate stories into claims before you touch arithmetic.
-
-## Linear equations
+### Linear equations in one unknown
 
 A linear equation in one unknown looks like:
 
@@ -64,44 +90,153 @@ $$
 ax + b = c
 $$
 
-(with $a \neq 0$). Undo from the outside:
+with $a \neq 0$. Undo from the outside:
 
-1. Subtract $b$: $ax = c - b$
-2. Divide by $a$: $x = \frac{c-b}{a}$
+1. Subtract $b$ from both sides: $ax = c - b$
+2. Divide both sides by $a$: $x = \frac{c-b}{a}$
 
-You are not performing magic. You are applying invertible transformations.
+You are not performing magic. You are reversing operations that were applied to $x$, in reverse order, because each step is invertible when $a \neq 0$.
+
+### A story that becomes a claim
+
+"Three tickets and a \$4 fee cost \$40" is not a riddle. Translate first:
+
+$$
+3x + 4 = 40
+$$
+
+Then subtract 4, then divide by 3. The arithmetic is short because the translation did the hard work.
 
 <StoryNote>
-  <p>
-    Strogatz's chapter on word problems in <em>The Joy of X</em> ("My Tub Runneth Over") is a pep talk for the terrified: translate the story into relationships first, then compute. The peril is not the arithmetic. It is skipping the translation step.
-  </p>
+  Strogatz's chapter on word problems in <em>The Joy of X</em> ("My Tub Runneth Over") is a pep talk for the terrified: translate the story into relationships first, then compute. The peril is not the arithmetic. It is skipping the translation step.
 </StoryNote>
 
-## Why symbols beat special cases
+### A second story: scaling a recipe
 
-Writing $ax + b = c$ once covers infinitely many word problems. Viète's push toward literal notation (letters for knowns and unknowns) is the ancestor of that leverage. Al-Khwārizmī earlier taught restoration and balancing in words and geometry. Together they show a through-line: **method first, then numbers**.
+A recipe for 4 servings uses 3 cups of flour. You need 10 servings. Let $c$ be cups of flour:
+
+$$
+\frac{c}{10} = \frac{3}{4}
+$$
+
+Cross-multiply (multiply both sides by $10 \cdot 4$): $4c = 30$, so $c = 7.5$ cups. The equation is a proportion claim: flour per serving must match.
+
+### Equations with parentheses
+
+Solve $2(x - 3) + 5 = 15$:
+
+1. Distribute: $2x - 6 + 5 = 15$
+2. Combine like terms: $2x - 1 = 15$
+3. Add 1: $2x = 16$
+4. Divide: $x = 8$
+
+Distributing is not a separate trick. It is rewriting the left side so you can see the same $ax + b = c$ skeleton underneath.
+
+### Checking your answer
+
+Always substitute back into the **original** equation:
+
+For $3x + 4 = 40$ with $x = 12$: left side is $3(12) + 4 = 40$. Right side is $40$. The claim holds.
+
+Checking is cheap insurance. It catches sign errors, division mistakes, and (later) extraneous solutions from non-invertible moves like squaring both sides.
+
+### Why symbols beat special cases
+
+Writing $ax + b = c$ once covers infinitely many word problems. Change $a$, $b$, and $c$, keep the method. That is the leverage Viète fought for when he pushed literal notation: letters for knowns and unknowns so structure is visible at a glance.
+
+Al-Khwārizmī earlier taught restoration and balancing in words and geometry (the Arabic roots behind "algebra"). The through-line is method first, then numbers. Do not invent a new ritual for every fresh set of digits.
+
+### Solution sets beyond "one number"
+
+| Equation | Solution set (reals) | What happened? |
+|----------|---------------------|----------------|
+| $2x + 6 = 14$ | $\{4\}$ | One solution |
+| $x = x$ | All real numbers | Identity: always true |
+| $x = x + 1$ | Empty set | Contradiction: never true |
+| $x^2 = 9$ | $\{-3, 3\}$ | Quadratic: two roots |
+
+Honesty about the set is part of solving. "No solution" and "infinitely many" are valid answers, not failures.
+
+
+## Common confusions
+
+**Treating equals as "and then."** Students sometimes write a chain of scratch work as if equals means "next I did." Keep equations as genuine claims. Scratch elsewhere if needed.
+
+**Doing different things to different sides.** Adding 3 on the left and 5 on the right breaks the claim. The balance picture is not a metaphor for children only. It is the rule.
+
+**Multiplying or dividing by zero carelessly.** Multiplying both sides by 0 turns every equation into $0 = 0$ and erases information. Dividing by an expression that might be zero can invent fake solutions or lose real ones. Invertible moves matter.
+
+**Assuming every equation has exactly one answer.** $x = x$ is always true. $x = x + 1$ is never true. $x^2 = 1$ has two real solutions. Honesty about solution sets is part of algebraic maturity.
+
+**Skipping translation on word problems.** If you jump to arithmetic before naming the relationship, you are gambling. Strogatz's tub chapter is basically therapy for that skip.
+
+**Confusing "solve for $x$" with "simplify."** Simplifying $3x + 2x$ to $5x$ is not solving. Solving finds which $x$ values make a claim true.
+
+**Forgetting units.** In applied problems, $x$ might be dollars, hours, or kilograms. A number without its unit is half an answer. The equation enforces the relationship; the unit tells you what the relationship is about.
+
+**Sign errors when moving terms.** Subtracting $b$ from both sides of $ax + b = c$ gives $ax = c - b$, not $ax = c + b$. If your answer looks absurd on check, suspect the sign first.
+
+
+## History and stories
+
+François Viète (1540-1603) insisted on writing unknowns and parameters with letters so generality could be seen. MacTutor and standard histories of algebra treat this as a hinge toward modern symbolic method. It looks obvious now. In his century it was a bet that symbols could carry a whole family of problems, not just one numeric case.
+
+Earlier, al-Khwārizmī's tradition framed equations through restoration and balancing. Later school algebra still echoes that ethic even when the notation is modern.
+
+Do not confuse popular anecdotes with primary history. Classroom legends about mathematicians inventing equations overnight are usually folklore. Prefer MacTutor-style biographies and primary-adjacent accounts when you want the real texture.
+
+<StoryNote title="From The Joy of X">
+  "Working Your Quads" argues that even the quadratic formula hides ravishing ideas: completing the square is geometry and algebra shaking hands. Linear equations are the doorway; quadratics show the house has more rooms.
+</StoryNote>
+
+Viète's notation bet paid off because it let you **see** structure. When you write $3x + 4 = 40$ instead of "three times some number plus four equals forty," you are standing on centuries of people who decided that symbols should carry generality, not just one story at a time.
+
 
 ## Real world
 
-"Three tickets and a \$4 fee cost \$40" is $3x + 4 = 40$. The story changes; the structure does not.
+Anywhere two descriptions must match, you have an equation:
+
+- **Budgets:** money allocated equals money spent plus remaining. If you earn \$2,000 and spend \$1,350 plus savings $s$, then $2000 = 1350 + s$.
+- **Recipes:** scaled ingredient amounts preserve ratios while totaling a new batch size.
+- **Engineering constraints:** force balance, voltage laws, and inventory identities are equality claims with physical units.
+- **Unit conversion:** 1 mile = 1.609 km is an equation relating two names for the same distance.
+- **Speed-distance-time:** $d = rt$ relates three quantities; if two are known, the third is pinned by equality.
+
+The story changes. The structure does not. That is why learning $ax + b = c$ is worth more than memorizing "ticket problems."
+
+**Curiosity question:** Pick any receipt in your life. Can you write an equation that says "subtotal + tax = total"? What is the unknown?
+
 
 ## AI / ML bridge
 
-A model $\hat{y} = w x + b$ is an equation with parameters $w, b$. Fitting data chooses $w, b$ so predictions sit close to targets. Exact equality becomes "as equal as possible" under a loss.
+A simple model $\hat{y} = w x + b$ is an equation with parameters $w$ and $b$. Fitting data chooses those parameters so predictions sit close to targets. Exact equality becomes "as equal as possible" under a loss function.
 
-<StoryNote title="From The Joy of X">
-  <p>
-    "Working Your Quads" argues that even the quadratic formula hides ravishing ideas: completing the square is geometry and algebra shaking hands. Linear equations are the doorway; quadratics show the house has more rooms.
-  </p>
-</StoryNote>
+Training is often the soft cousin of solving: you cannot make every residual zero, so you minimize total disagreement. The emotional core is still an equality instinct. Make the two sides agree as well as the world allows.
 
-## Curiosity seeds
+For each data point $(x_i, y_i)$, a linear model wants $\hat{y}_i = w x_i + b$ to match $y_i$. With noise, exact match is impossible. Least squares (preview from the systems chapter) picks $w$ and $b$ so the sum of squared errors is as small as possible. You are still asking: when does my equation claim match reality?
 
-- When does "do the same to both sides" fail if you are careless (for example, multiplying by zero)?
-- Can every word problem be one equation, or do some need a system?
+
+## For the rereader
+
+Return here when later chapters feel purely procedural. Ask:
+
+- What claim is being made?
+- Which operations preserve the claim?
+- What would make this equation have no solution, or infinitely many?
+
+Completing the square (previewed in Strogatz's quads chapter) will later show geometry hiding inside algebra. Linear models in ML will feel less alien if you remember: parameters are unknowns in a family of equations, and loss is soft equality.
+
+Every time you write $3x + 4 = 40$, you also wrote a template for infinitely many stories. That is the re-readable gift of this chapter.
+
+**Rereader drill:** Take $5(x - 2) = 3x + 4$. Solve it cold. Check by substitution. Name which moves were invertible. If you got $x = 7$, verify: left is $5(5) = 25$, right is $3(7) + 4 = 25$. Good.
+
+**Second pass question:** Why is "do the same thing to both sides" not just a classroom rule, but the definition of preserving a truth claim?
+
 
 ## Carry this forward
 
-- Equations claim equality.
-- Solving undoes operations symmetrically.
-- Next: several unknowns at once.
+- Equations claim equality between expressions.
+- Solving applies invertible moves that preserve truth.
+- Translate stories into claims before you touch arithmetic.
+- Check solutions by substituting into the original claim.
+- Next: several unknowns at once, when one relationship is not enough.

@@ -1,7 +1,7 @@
 ---
 title: "Information and entropy"
 slug: "information-and-entropy"
-order: 4
+order: 6
 summary: "Information measures surprise. Entropy is expected surprise under a distribution. Cross-entropy ties probability to the losses classifiers use."
 mathematician:
   name: "Claude Shannon"
@@ -10,12 +10,12 @@ mathematician:
 realWorld: "Compression, noisy phone lines, and efficient codes all trade in entropy: how much uncertainty a source has, and how many bits you need."
 aiMlHook: "Cross-entropy loss is the workhorse of classification. KL divergence measures how one distribution mismatches another. Language models live here."
 prerequisites:
-  - "chance-and-probability"
   - "expectation-and-loss"
+  - "correlation-sampling-calibration"
 curiositySeeds:
   - "What is a bit of information?"
   - "Why does cross-entropy work as a loss?"
-estimatedMinutes: 34
+estimatedMinutes: 72
 furtherReading:
   - title: "MacTutor - Claude Shannon"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Shannon/"
@@ -39,6 +39,18 @@ furtherReading:
 
 ---
 
+## How this idea was born
+
+Communication through noise forces a hard question: how much **surprise** does a message carry, and how many bits do you need to send it reliably? Compression, phone lines, and codes all trade in uncertainty that can be measured, not only felt.
+
+**Claude Shannon**'s 1948 paper founded information theory: bits, entropy, and communication through noise. MacTutor and the primary paper (linked in further reading) are the stops. Steal the ethic: playful rigor. Treat "information" as something you can define and measure, then build systems that respect the math. Entropy is expected surprisal. Cross-entropy ties that instinct to the losses classifiers use every day.
+
+For a modern rereader, chance gave you weights and expectation gave you averages; this chapter asks how surprised you should be, then averages that surprise. Language models live here.
+
+<StoryNote title="Curiosity from history">
+  Shannon's 1948 paper is the founding document. Attribute gadgets-and-juggling color to popular portraits (and MacTutor), not as a substitute for reading how he defined entropy.
+</StoryNote>
+
 ## First principles
 
 If an event has probability $p$, its **surprisal** (self-information) is
@@ -57,56 +69,158 @@ $$
 
 A sure outcome has entropy 0. A fair coin has entropy 1 bit.
 
-
-## Slow down: surprise has weight
-
-If a fair coin flip landing heads barely surprises you, a fair die landing on a predicted face surprises you more. Shannon turned that graded surprise into bits. Entropy averages it. Cross-entropy asks how surprised a model should be by the truth.
-
-## Cross-entropy
-
 If true labels follow $p$ and a model predicts $q$,
 
 $$
 H(p, q) = -\sum_i p_i \log q_i
 $$
 
-When $p$ is a one-hot label, this becomes $-\log q_{\text{correct}}$: the classifier loss.
+is **cross-entropy**. When $p$ is a one-hot label, this becomes $-\log q_{\text{correct}}$: the usual classifier loss.
 
-## KL divergence (preview)
+**KL divergence** (preview): $D_{\mathrm{KL}}(p \| q) = H(p, q) - H(p)$ measures extra surprise from using $q$ instead of $p$.
 
-$D_{\mathrm{KL}}(p \| q) = H(p, q) - H(p)$ measures extra surprise from using $q$ instead of $p$.
+## Worked intuition
+
+If a fair coin flip landing heads barely surprises you, a fair die landing on a predicted face surprises you more (probability $1/6$ versus $1/2$). Shannon turned that graded surprise into bits. Entropy averages it. Cross-entropy asks how surprised a model should be by the truth.
+
+English text has lower entropy than random letters: compression exploits that structure. Shannon made the intuition quantitative. Noisy channels need codes that respect entropy limits; that is communication theory's heart.
+
+Algebrica may not center Shannon entropy on one page, but its discrete random variables treatment is the right substrate. Shannon's 1948 paper (in further reading) is worth skimming for definitions alone.
+
+Cross-entropy is merciless toward confident wrongness: if $q_{\text{correct}}$ is tiny, $-\log q_{\text{correct}}$ is huge. That pain is the training signal.
+
+## Common confusions
+
+**Information as "meaning."** Shannon information is about surprise and coding length under a distribution, not about semantic importance. A rare nonsense string can carry many bits.
+
+**Entropy as "disorder" without a distribution.** Entropy is a functional of a probability distribution. Metaphorical disorder talk is optional and often sloppy.
+
+**Cross-entropy versus accuracy.** Accuracy counts winners. Cross-entropy scores probabilistic honesty. A model can be accurate yet poorly calibrated, or the reverse on hard sets.
+
+**KL as a symmetric distance.** $D_{\mathrm{KL}}(p \| q)$ is not generally equal to $D_{\mathrm{KL}}(q \| p)$, and it is not a metric. It is a directed extra-surprisal score.
+
+**Calling any large file "high entropy" without a model.** Entropy needs a distribution. A large deterministic file can compress to almost nothing.
+
+**Equating mutual information with causation.** Dependence is not cause. Information measures statistical connection, not mechanism.
+
+## History & stories
+
+Claude Shannon's 1948 paper founded information theory: bits, entropy, and communication through noise. MacTutor's Shannon biography and accessible portraits (such as Veritasium's *The Bit Player* material linked in further reading) convey the playful rigor. He played as hard as he thought, building gadgets and juggling ideas.
+
+Treat information as measurable, then build systems that respect the math. That ethic is why compression, coding, and modern probabilistic ML share a vocabulary.
+
+<StoryNote title="From The Joy of X">
+  Strogatz's data chapters sit next door: once chance has a language, information can score how uncertain a distribution still is. Cross-entropy in ML is that scoring instinct aimed at a model's predicted probabilities.
+</StoryNote>
 
 ## Real world
 
-English text has lower entropy than random letters: compression exploits that structure. Shannon made that intuition quantitative.
+Compression, noisy phone lines, and efficient codes all trade in entropy: how much uncertainty a source has, and how many bits you need. File formats, error-correcting codes, and streaming protocols are engineering descendants of the same ideas.
+
+Whenever a system says "this message was unexpected," Shannon offers a meter.
 
 ## AI / ML bridge
 
-Training a classifier with cross-entropy pushes $q$ toward $p$. Generative models and language models are probability machines scored by information-theoretic losses.
+Cross-entropy loss is the workhorse of classification. KL divergence measures how one distribution mismatches another. Language models are probability machines scored by information-theoretic losses: next-token training is cross-entropy on steroids.
 
-<StoryNote title="Curiosity from history">
-  <p>
-    Claude Shannon's 1948 paper forged information into a measurable quantity. Surprise became mathematics: rarer events carry more information when they occur. Entropy measures average surprise for a source.
-  </p>
-</StoryNote>
+Training a classifier with cross-entropy pushes $q$ toward $p$. Generative models often minimize divergences between data and model distributions. Calibration and proper scoring rules live in the same neighborhood.
 
-<StoryNote title="From The Joy of X">
-  <p>
-    Strogatz's data chapters sit next door: once chance has a language, information can score how uncertain a distribution still is. Cross-entropy in ML is that scoring instinct aimed at a model's predicted probabilities.
-  </p>
-</StoryNote>
+## For the rereader
 
-## Dig deeper
+After Bayes, notice that information gain from an observation relates to how much entropy drops after conditioning. After gradients, notice that $-\log q$ is a smooth, steep penalty near confident mistakes - a loss landscape choice, not an accident.
 
-Algebrica may not center Shannon entropy on one page, but its discrete random variables treatment is the right substrate. Shannon's paper (in further reading) is worth skimming for definitions alone.
+A sharper nuance: bits versus nats is a base-of-logarithm convention ($\log_2$ versus $\ln$). The geometry is the same up to a constant factor. Papers switch bases casually; keep the factor in mind when comparing numbers.
 
-## Curiosity seeds
+Also reread the "meaning versus surprise" distinction. Product copy that says "our model has high information" without a distribution is marketing fog. You now have language to demand the distribution.
 
-- Why is the entropy of a sure thing zero?
-- How does cross-entropy punish confident wrong answers?
+On a third visit, compute cross-entropy for two fictional classifier outputs on the same one-hot label: one humble, one arrogantly wrong. Feel the pain differential.
+
+Keep a list of compressions you admire (file formats, abbreviations, diagrams). Ask what entropy they exploited.
+
+## A longer surprise studio
+
+Compute surprisal $-\log_2 p$ for $p\in\{1,1/2,1/4,1/8\}$. Watch rare events cost more bits. Then compute entropy of a fair coin versus a coin with $P(H)=0.9$. Certainty shrinks entropy. That shrinkage is why compression loves structure and why a sure label has entropy zero.
+
+## Cross-entropy pain
+
+For a one-hot true class, loss $-\log q_{\text{correct}}$ explodes as $q_{\text{correct}}\to 0$. Plot it mentally. Confident wrongness is expensive. That expense is the training signal's sharpness.
+
+Compare two models with the same accuracy but different probabilities on the correct class. Cross-entropy distinguishes them; accuracy may not. Probabilistic honesty is a different virtue than hard-decision correctness.
+
+## KL as extra surprise
+
+$D_{\mathrm{KL}}(p\|q)=H(p,q)-H(p)$ is extra surprise from using $q$ in place of $p$. It is directed. Swapping $p$ and $q$ can change the number a lot. Do not call it "distance" without caveats.
+
+## Practice prompts
+
+1. Why is entropy of a sure thing zero?
+2. How does cross-entropy punish confident wrong answers?
+3. Bits versus nats: what changes if you switch $\log_2$ to $\ln$?
+
+## Extended examples
+
+**Two-coin entropy.** Fair coin: $H=1$ bit. Biased $0.99$: $H$ near zero. Plot $H$ versus bias mentally; peak at fairness for binary variables.
+
+**Cross-entropy table.** True label class $2$. Model A assigns $0.7$ there; model B assigns $0.2$. Losses $-\log 0.7$ versus $-\log 0.2$. Pain differential is the lesson.
+
+**Compression link.** A file of a million zeros compresses absurdly well. Entropy of the source is low under a model that expects zeros. Random bytes do not.
+
+**KL asymmetry toy.** Let $p$ be fair coin, $q$ nearly sure heads. Compare $D_{\mathrm{KL}}(p\|q)$ and $D_{\mathrm{KL}}(q\|p)$. Feel the directionality.
+
+**Language model glimpse.** Next-token training minimizes cross-entropy of predicted token distributions versus data. This chapter is the scorekeeper's manual.
+
+## Field notes for a personal knowledge base
+
+**One sentence.** Information is surprisal; entropy is expected surprisal; cross-entropy scores models.
+
+**One picture.** Rare events costing more bits when they occur.
+
+**One formula.** $H(p)=-\sum p_i\log_2 p_i$.
+
+**One warning.** Shannon information is not semantic "meaning."
+
+**One ethic.** Playful rigor: define and measure, then build (Shannon).
+
+**One Strogatz hook.** Data chapters next door: scoring residual uncertainty.
+
+**One Algebrica stop.** Discrete random variables as substrate.
+
+**One AI seed.** Cross-entropy classification; KL; language-model training.
+
+**Cross-links.** Expectation averages surprisal into entropy. Bayes conditioning can reduce entropy. Calculus/optimization minimize cross-entropy risk. Linear algebra stores distribution vectors.
+
+**Workplace failure.** "High information content" marketing without a distribution.
+
+**Reread schedule.** After training a classifier, return and plot $-\log q$. After a compression win, return and name the entropy you exploited.
+
+**Notation scratchpad.**
+- Surprisal $-\log_2 p$
+- Cross-entropy $H(p,q)=-\sum p_i\log q_i$
+- $D_{\mathrm{KL}}(p\|q)=H(p,q)-H(p)$
+
+**Questions that stay alive.**
+- Bits or nats - which base am I in?
+- Accuracy versus probabilistic honesty - which am I claiming?
+- What structure am I compressing?
+
+**Closing image.** A telegraph through noise: surprise made countable, so engineering can respect the math.
+
+## Glossary of moves
+
+- **Surprisal:** $-\log p$; rarer costs more.
+- **Entropy:** expected surprisal.
+- **Cross-entropy:** expected surprisal under a model's $q$.
+- **KL divergence:** extra surprisal of using $q$ instead of $p$.
+- **Bit / nat:** log base convention.
+- **Calibration cousin:** probabilistic honesty beyond hard accuracy.
+- **Compression:** exploit low entropy structure.
+
+## One more vignette
+
+Shannon's playful rigor is permission: treat surprise as measurable without draining wonder from communication. A joke landing, a rare token in a language model, a sensor spike - each can be scored in bits and still feel human. Measurement does not have to kill meaning; it has to stop "information" from meaning whatever a slide deck wants.
 
 ## Carry this forward
 
-- Information = surprisal.
-- Entropy = expected surprisal.
+- Information is surprisal; entropy is expected surprisal; cross-entropy scores models against truth.
+- KL measures extra surprise from a mismatched distribution.
 - Probability track checkpoint: chance, updating, expectation, information. You now have the math spine for much of modern ML.

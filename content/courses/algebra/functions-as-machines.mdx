@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What makes something a function?"
   - "What is composition?"
-estimatedMinutes: 34
+estimatedMinutes: 68
 furtherReading:
   - title: "MacTutor - Leonhard Euler"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Euler/"
@@ -35,66 +35,187 @@ furtherReading:
     note: "Domain, range, and function language with diagrams."
 ---
 
+## How this idea was born
+
+People needed reliable rules long before they had the modern word "function." Convert temperature. Price by weight. Tax by bracket. Given this input, you want exactly one sensible output, every time, so the rule can be reused, shared, and chained with other rules.
+
+Leonhard Euler wrote mathematics the way a generous teacher speaks: clearly, abundantly, and with notation that sticks. Popularizing the habit of writing something like f(x) was not vanity. It was a tool so relationships could be named, composed, and reused. MacTutor's biography is the safe door. The ethic: invent language that makes hard ideas handleable, then use it everywhere.
+
+For a modern rereader, this chapter is where algebra stops being only about solving for an unknown and starts being about building machines. An equation asks "when is this true?" A function says "given this input, here is the output, every time." Functions add the promise of **reliability**.
+
+<StoryNote title="From The Joy of X">
+  Strogatz's "Power Tools" chapter treats functions as transformers: name the machine, then compose, invert, or graph it. Attribute as pedagogy, not as a primary source for Euler's biography.
+</StoryNote>
+
 ## First principles
 
-A **function** $f$ from a set of inputs to outputs assigns **exactly one** output $f(x)$ to each allowed $x$.
+A **function** $f$ from a set of inputs (the domain) to outputs assigns **exactly one** output $f(x)$ to each allowed $x$.
 
 <FunctionMachineDiagram />
 
-If one input could yield two different outputs, it is not a function. Vertical-line tests on graphs encode the same idea.
+If one input could yield two different outputs, it is not a function. The vertical-line test on a graph encodes the same idea: a vertical line should meet the graph at most once if $y$ is a function of $x$.
+
+Domain matters. $\sqrt{x}$ on the reals needs $x \ge 0$. A pricing formula may only accept nonnegative quantities. Specifying the domain is part of specifying the machine.
+
+The **range** is the set of outputs actually produced as $x$ runs through the domain. Domain is "what you may feed in." Range is "what can come out."
+
+Examples:
+
+- $f(x) = 2x + 1$ (linear; domain often all reals unless context restricts)
+- $g(x) = x^2$ (each $x$ still has one square; many different $x$ can share an output)
+- Piecewise rules (tax brackets) are still functions if each allowed input lands in exactly one piece
+
+Algebrica's [functions](https://algebrica.org/functions/) entry defines domain, range, and notation with clear diagrams. Use it when you want a second pass on vocabulary.
 
 
-## Slow down: one input, one output
+## Worked intuition
 
-The vertical-line test is a cartoon of the definition: if a single $x$ tried to claim two $y$ values, the machine would be indecisive. Functions are decisive maps. That decisiveness is what lets you compose $f\circ g$ without ambiguity - feed forward, as neural nets do layer after layer.
+### Decisive maps
 
-## Examples
+The vertical-line test is a cartoon of the definition: if a single $x$ tried to claim two $y$ values, the machine would be indecisive. Functions are decisive. That decisiveness is what lets you compose safely.
 
-- $f(x) = 2x + 1$ (linear)
-- $g(x) = x^2$ (each $x$ still has one square; many $x$ share an output)
-- Domain matters: $\sqrt{x}$ needs $x \ge 0$ in the reals
+**Function or not?**
 
-## Composition
+| Rule | Function? | Why |
+|------|-----------|-----|
+| $f(x) = x^2$ | Yes | Each input has one square |
+| "Square root of $x$" on reals | Yes (if we mean the principal root $\sqrt{x} \ge 0$) | Convention picks one output |
+| Circle $x^2 + y^2 = 1$ as $y$ of $x$ | No | One $x$ can give two $y$ values |
+| Table: $1 \to 3$, $2 \to 5$, $3 \to 5$ | Yes | Each input appears once with one output |
 
-$(f \circ g)(x) = f(g(x))$: feed $x$ into $g$, then feed that result into $f$. Order usually matters.
+### Composition
 
-## Why this is the gateway to models
+$(f \circ g)(x) = f(g(x))$: feed $x$ into $g$, then feed that result into $f$. Order usually matters. Converting units twice in a row is composition. So is "discount then tax" versus "tax then discount."
+
+<StoryNote>
+  In the "Power Tools" chapter of <em>The Joy of X</em>, Strogatz puts it bluntly: the function of functions is to transform. Name the machine, feed it an input, trust the output rule. That is the whole plot.
+</StoryNote>
+
+**Composition worked example:**
+
+Let $f(x) = 2x + 1$ and $g(x) = x^2$.
+
+- $(f \circ g)(3) = f(g(3)) = f(9) = 19$
+- $(g \circ f)(3) = g(f(3)) = g(7) = 49$
+
+Same inputs, different order, different machines.
+
+### Piecewise functions
+
+Tax brackets are the classic piecewise machine:
+
+$$
+T(x) = \begin{cases}
+0.10x & \text{if } 0 \le x \le 10{,}000 \\
+1000 + 0.20(x - 10{,}000) & \text{if } x > 10{,}000
+\end{cases}
+$$
+
+Each allowed income $x$ falls in exactly one bracket, so $T$ is a function. The rule changes, but decisiveness does not.
+
+### Invertibility (when it exists)
+
+Unit conversion $C = \frac{5}{9}(F - 32)$ is a function from Fahrenheit to Celsius. It is invertible here, so you can undo it. Squaring is a function on the reals, but it is not invertible on all reals without restricting the domain, because many inputs share an output.
+
+Thinking "can I undo this?" is already advanced functional thinking, even before formal inverse notation.
+
+To find an inverse, swap input and output roles and solve. If $C = \frac{5}{9}(F - 32)$, then $F = \frac{9}{5}C + 32$. The inverse machine runs backward. Check: compose forward then backward and you should return to where you started.
+
+### Evaluating and checking
+
+If $h(x) = 3x - 2$, then $h(5) = 13$ and $h(-1) = -5$. Evaluation is not solving. You are applying the machine, not asking when the output equals something.
+
+If someone asks "solve $h(x) = 10$," you are finding inputs that produce output 10: $3x - 2 = 10$, so $x = 4$. Function evaluation and equation solving meet at that question, but they start from different directions.
+
+**Quick check:** For $f(x) = 2x + 1$, does $f(3) = 7$? Substitute: $2(3) + 1 = 7$. Yes. Evaluation is one substitution away from verification.
+
+That habit (substitute, compare) is the same checking instinct from the equations chapter, now applied to machines.
+
+
+### Why this is the gateway to models
 
 A formula is a function. A spreadsheet column computed from another is a function. A trained predictor $\hat{y} = f_w(x)$ is a function whose internal knobs $w$ we choose.
 
 Euler's $f(x)$ notation makes that reusable: name the machine, then apply it.
 
-<StoryNote>
-  <p>
-    In the "Power Tools" chapter of <em>The Joy of X</em>, Strogatz puts it bluntly: the function of functions is to transform. Name the machine, feed it an input, trust the output rule. That is the whole plot.
-  </p>
+
+## Common confusions
+
+**Confusing "many inputs, one output" with "not a function."** $g(x) = x^2$ sends both $2$ and $-2$ to $4$. That is fine. The ban is the opposite: one input must not fork into two outputs.
+
+**Thinking vertical lines are functions of $x$.** A vertical line has one $x$ and many $y$ values. It fails the definition as a function $y = f(x)$.
+
+**Ignoring domain.** Writing $\sqrt{x}$ without context hides whether you mean reals or complexes. In school algebra, assume reals unless told otherwise, and state restrictions.
+
+**Assuming composition is commutative.** $f \circ g$ and $g \circ f$ are different machines in general. Try $f(x) = x + 1$ and $g(x) = 2x$.
+
+**Treating functions as only formulas.** Tables, graphs, and algorithms can define functions. The essence is the unique-output rule, not the presence of an algebraic expression.
+
+**Confusing $f(x)$ with $f \cdot x$.** The parentheses mean "apply $f$ to $x$," not multiplication. Context matters, but in function notation, $f(x)$ is almost always application.
+
+**Mixing up range and codomain.** The codomain is the set you declare outputs live in. The range is what actually appears. For $f(x) = x^2$ on the reals, the range is $[0, \infty)$ even if you casually say "outputs are real numbers."
+
+**Treating $f(a + b)$ as $f(a) + f(b)$.** In general, $f(a + b) \neq f(a) + f(b)$. Try $f(x) = x^2$: $f(2 + 3) = 25$ but $f(2) + f(3) = 4 + 9 = 13$. Only special functions (linear ones) distribute over addition.
+
+
+## History and stories
+
+Leonhard Euler (1707-1783) wrote mathematics the way a generous teacher speaks: clearly, abundantly, and with notation that sticks. MacTutor and standard histories credit him with popularizing $f(x)$ notation. That was not vanity. It was language so relationships could be named, composed, and reused.
+
+Before compact function notation, people described processes in words. Naming the machine lets you say "apply $f$ again" or "compose with $g$" without re-explaining. Notation revolutions matter emotionally: they shrink the distance between having an idea and sharing it.
+
+<StoryNote title="Curiosity from history">
+  Euler's $f(x)$ notation looks small. It is a cultural invention: name the machine, reuse it, compose it. Once functions are objects, calculus and ML can move them around like parts.
 </StoryNote>
+
+Do not treat "Euler invented functions" as a slogan. The concept of correspondence is older; the portable notation and Euler's prolific clarity helped make the modern habit stick.
+
 
 ## Real world
 
-Unit conversion $C = \frac{5}{9}(F - 32)$ is a function from Fahrenheit to Celsius. Invertible here, so you can undo it.
+- **Temperature converters and currency converters:** fixed rules, one input, one output.
+- **Pricing formulas and piecewise tax brackets:** the rule may change by interval, but each input still lands in exactly one interval.
+- **Spreadsheet columns** that depend on other columns: `=A2*1.08` is a function of A2.
+- **Physical laws** written as $F = ma$ style rules (force as a function of mass and acceleration, in context).
+- **GPS distance estimates:** input two coordinates, output a distance via a formula (great-circle or flat-earth approximation).
+
+Anywhere you plug in and trust a determined output, you are using a function, whether or not someone wrote $f(x)$.
+
+**Curiosity question:** Is "tip = 18% of bill" a function of the bill amount? What is the domain in a real restaurant (negative bills? zero bill?)?
+
+**Checking a real-world function:** If Celsius $C = \frac{5}{9}(F - 32)$, verify that $F = 32$ gives $C = 0$ (freezing) and $F = 212$ gives $C = 100$ (boiling). The machine should match known anchor points.
+
 
 ## AI / ML bridge
 
-Layers compose: $f_3(f_2(f_1(x)))$. Backpropagation is the chain rule on that composition. You will meet that formally in calculus intuition.
+A neural network is a giant composed function: layer after layer of maps from activations to activations. Training adjusts the parameters inside that function.
 
-<StoryNote title="Curiosity from history">
-  <p>
-    Euler's $f(x)$ notation looks small. It is a cultural invention: name the machine, reuse it, compose it. Once functions are objects, calculus and ML can move them around like parts.
-  </p>
-</StoryNote>
+Layers compose: $f_3(f_2(f_1(x)))$. Backpropagation is the chain rule on that composition (you will meet that formally in calculus intuition). If you ever feel lost in a model diagram, ask: what is the input, what is the output, and is the map decisive?
 
-## Dig deeper
+Each layer is a function with learnable weights. The full network is their composition. Activation functions (ReLU, sigmoid) are small machines inside bigger machines. The entire architecture is modular because functions compose.
 
-Algebrica's "Functions" and "Composite functions" entries reward a slow read. Composition is the secret grammar of neural nets.
+A softmax layer at the end turns a vector of scores into a probability distribution: each input vector maps to exactly one output vector of probabilities that sum to 1. That is still a function, just one whose outputs are vectors rather than single numbers.
 
-## Curiosity seeds
 
-- Is a vertical line a function of $x$? Why does the vertical-line test care?
-- Where do you already use composition (unit conversions chained together)?
+## For the rereader
+
+When graphs arrive, remember: a graph is the set of input-output pairs of a function made visible. When calculus arrives, derivatives measure how a function's output changes as the input nudges.
+
+Algebrica's "Functions" and "Composite functions" entries reward a slow reread. Composition is the secret grammar of neural nets and of ordinary chained conversions.
+
+Your future self reading old notes is a stranger who needs clear machine names. Name the blender.
+
+**Rereader drill:** Let $f(x) = x + 2$ and $g(x) = 3x$. Compute $(f \circ g)(2)$ and $(g \circ f)(2)$ without peeking. Did order matter?
+
+**Second pass question:** Why does the vertical-line test work? Say it in words about inputs and outputs, not about pictures.
+
+**Third pass curiosity:** Can you write a piecewise function that is *not* a tax bracket? (Hint: absolute value $f(x) = |x|$ is piecewise: $x$ when $x \ge 0$, $-x$ when $x < 0$. Each input still lands in exactly one branch.)
+
 
 ## Carry this forward
 
-- One input, one output.
+- One allowed input, exactly one output.
 - Composition builds complexity from simple maps.
+- Domain is part of the definition.
+- Check whether a rule is a function before you compose or invert it.
 - Next: seeing functions as graphs in the plane.

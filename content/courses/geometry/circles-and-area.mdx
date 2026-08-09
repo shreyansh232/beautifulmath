@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What is π really?"
   - "How do you measure area of a curved region?"
-estimatedMinutes: 34
+estimatedMinutes: 72
 furtherReading:
   - title: "MacTutor - Archimedes"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/"
@@ -39,17 +39,33 @@ furtherReading:
 
 ---
 
+## How this idea was born
+
+Wheels, storage jars, city walls, and planted circles force a stubborn question: how do you measure a curved boundary, and how much region sits inside? Straightedge lengths are friendly. Curves feel evasive until someone invents a method that squeezes the unknown between things you already trust.
+
+Archimedes hunted exact relations for curved figures by exhaustion: trap the circle between polygons that tighten, and make the gap arbitrarily small. The ethic is patience with approximation that becomes exact in the limit, the same spirit calculus later names formally. Euclid's Book XII already relates circle areas in an exhaustion tradition associated with Eudoxus; Archimedes pushes circle measurement with famous polygon bounds. Credit the method, not a lone myth.
+
+For a modern rereader, this chapter is the on-ramp to trigonometry's unit circle and to calculus's limiting arguments. Return here whenever π feels like a magic spell instead of a ratio, or whenever "curved" feels like "unmeasurable."
+
+<StoryNote title="From The Joy of X">
+  "Take It to the Limit" is Strogatz on Archimedes and the power of tightening bounds. Exhaustion is calculus wearing a toga: squeeze a curved mystery between known shapes.
+</StoryNote>
+
 ## First principles
 
-A **circle** is the set of all points at a fixed distance $r$ (the **radius**) from a center. The **diameter** is $2r$. The **circumference** $C$ and radius are linked by
+### Circle vocabulary
+
+The **diameter** is $2r$. The **circumference** $C$ and radius are linked by
 
 $$
 C = 2\pi r
 $$
 
-where $\pi$ is the constant ratio of circumference to diameter for every circle.
+where $\pi$ is the constant ratio of circumference to diameter for every circle in Euclidean geometry. That sameness itself is the quiet miracle: one number for every circle.
 
 <CircleDiagram />
+
+### Area and scaling
 
 **Area** measures two-dimensional extent. For a circle,
 
@@ -57,51 +73,153 @@ $$
 A = \pi r^2
 $$
 
-Area scales with the square of length: double the radius, quadruple the area.
+Area scales with the square of length: double the radius, quadruple the area. Linear size doubles; material cost can quadruple. That surprise is worth sitting with.
 
-
-## Slow down: curved does not mean unmeasurable
-
-Exhaustion and integrals exist because humans refused to shrug at curves. Bound the mystery between known polygons or rectangles, tighten, and name what remains. $\pi$ is the celebrity constant of that refusal.
-
-## Exhaustion as a method
+### Exhaustion as a method
 
 Archimedes (and earlier Eudoxus-style ideas preserved in Euclid) compared curved regions to polygons that hug them more and more tightly. That is not hand-waving. It is controlled approximation: if every overestimate and underestimate can be forced arbitrarily close, the area is pinned down.
 
-You will meet the same pattern again as Riemann sums in calculus.
+You will meet the same pattern again as Riemann sums in calculus. Exhaustion is calculus wearing a toga.
 
-## Coordinates preview
+### Coordinates preview
 
-In the plane, the circle of radius $r$ centered at the origin is $x^2 + y^2 = r^2$. Set $r = 1$ and you get the **unit circle**, the stage for sine and cosine in the next course.
+In the plane, the circle of radius $r$ centered at the origin is $x^2 + y^2 = r^2$. Set $r = 1$ and you get the **unit circle**, the stage for sine and cosine in the next course. Pythagoras is hiding in that equation: it *is* the set of points at distance $r$ from the origin.
 
-## Real world
+## Worked intuition
 
-Pizza area vs diameter pricing, track lengths, and cable spool radii are circle arithmetic. Engineers estimate material from area formulas long before they cut metal.
+**Example 1 - pizza pricing.**  
+If price tracked area, a pizza with twice the diameter would cost about four times as much (same crust recipe, area $\propto r^2$). Markets do not always price that way - which is why comparing "per square inch" is ratio literacy from Foundations wearing dinner.
 
-## AI / ML bridge
+**Example 2 - track length.**  
+A circular track of radius $r$ has one-lap length $2\pi r$. Widen the lane by $\Delta r$ and the lap grows by about $2\pi\Delta r$. Circumference is linear in $r$; area is quadratic.
 
-Constraining vectors to unit length puts them on a sphere (circle in 2D). Angles between those vectors become meaningful similarity scores. Geometry of constrained sets is not optional in modern ML. It is daily language.
+**Example 3 - bounding $\pi$.**  
+Archimedes trapped $\pi$ between bounds using inscribed and circumscribed polygons. More sides, tighter squeeze. The method matters more than any single numerical approximation.
+
+**Example 4 - unit circle as stage.**  
+On $x^2+y^2=1$, a point can be written $(\cos\theta, \sin\theta)$ once trigonometry arrives. Angles become coordinates on a curve of fixed radius. Normalization in ML (next section) is the same geometric instinct.
+
+**Example 5 - taxicab "circle."**  
+Under taxicab distance ($|x|+|y|$), the set of points at fixed distance from the origin is a diamond, not a round Euclidean circle. "Circle" means "constant distance." Change the distance, change the shape. Definitions travel with their metrics.
+
+## Common confusions
+
+- **"π is 22/7 exactly."** $22/7$ is a rational approximation. $\pi$ is irrational (proved much later than Archimedes). Approximations are tools; the constant is the ratio.
+- **"Area and circumference scale the same way."** Circumference $\propto r$; area $\propto r^2$. Mixing those scalings causes real-world pricing and material errors.
+- **"Curved means you cannot measure exactly."** Exhaustion (and later integrals) exist because humans refused that shrug. Exactness can arrive as a limit of controlled approximations.
+- **"The unit circle is a new topic."** It is this lesson with $r=1$, prepared for trigonometry.
+- **"Normalization is ML jargon unrelated to geometry."** Forcing vectors to fixed length places them on a sphere (a circle in 2D). Geometry of constraints is daily ML language.
+
+## History and stories
 
 <StoryNote title="From The Joy of X">
-  <p>
-    "Take It to the Limit" is Strogatz on Archimedes and the power of the infinite: squeeze a curved mystery between known shapes that tighten. Exhaustion is calculus wearing a toga.
-  </p>
+  "Take It to the Limit" is Strogatz on Archimedes and the power of the infinite: squeeze a curved mystery between known shapes that tighten. Exhaustion is calculus wearing a toga.
 </StoryNote>
 
 <StoryNote title="Curiosity from history">
-  <p>
-    Archimedes estimated $\pi$ by bounding a circle with polygons. Aryabhata later gave a strikingly accurate rational approximation in the <em>Aryabhatiya</em>. Different centuries, same itch: pin down the circle's stubborn constant.
-  </p>
+  Archimedes estimated $\pi$ by bounding a circle with polygons. Aryabhata later gave a strikingly accurate rational approximation in the <em>Aryabhatiya</em>. Different centuries, same itch: pin down the circle's stubborn constant. MacTutor's Archimedes entry is the biography door for exhaustion and circle results.
 </StoryNote>
 
-## Dig deeper
+<StoryNote>
+  The chase for better $\pi$ continues in every computing age because $\pi$ is a personality of space: circumference over diameter, stubbornly the same for every Euclidean circle. Wonder why sameness itself is the miracle - not only the digits after the point.
+</StoryNote>
+
+Lineage note: Euclid Book XII relates circles as squares on diameters in the exhaustion tradition associated with Eudoxus; Archimedes pushes circle measurement with famous polygon bounds. Credit the method, not a lone myth.
+
+## Real world
+
+Wheels, gears, satellite dishes, and circular plazas all start from constant-radius geometry. Area tells you paint, material, or capacity. Cable spool radii, irrigation pivots, and roundabout design are circle arithmetic in boots.
+
+Engineers estimate material from area formulas long before they cut metal. Scaling mistakes ($r$ vs $r^2$) show up as budget surprises.
+
+## AI / ML bridge
+
+Constraining vectors to unit length puts them on a sphere (circle in 2D). Angles between those vectors become meaningful similarity scores. Softmax and many probability simplices live in constrained regions whose geometry matters for how updates move.
+
+This bridge is honest: normalization is a geometric constraint, not a metaphor glued on. When ML "projects onto the sphere," it is using this chapter's constant-distance idea in higher dimensions.
+
+## For the rereader
+
+On a second visit, hold three ideas at once:
+
+1. **$\pi$ as ratio** - circumference over diameter, constant across Euclidean circles.
+2. **Exhaustion** - squeeze the unknown between known polygons; tighten.
+3. **Scaling degrees** - lengths $\propto r$, areas $\propto r^2$, volumes $\propto r^3$ (preview).
 
 Algebrica's unit-circle page is the on-ramp to trigonometry next. Area $A=\pi r^2$ is also a preview of how continuous magnitude can still be computed.
 
-## Curiosity seeds
+Strogatz's "Take It to the Limit" is popular exposition with the right emotional thesis: patience with approximation that becomes exact in the limit. Calculus will name what Archimedes practiced.
 
-- Why does area scale with the square of length?
-- What would a "circle" be in taxicab distance?
+
+## Deepening the first principles
+
+### Length degree vs area degree
+
+Under uniform scaling by $k$, lengths multiply by $k$, areas by $k^2$, volumes by $k^3$. Circle formulas are the celebrity case: $C\propto r$, $A\propto r^2$. Any time a headline compares "size" without saying which degree, ask.
+
+### Why exhaustion is not cheating
+
+If you can make the gap between outer and inner polygonal areas smaller than any pre-assigned positive tolerance, the circle's area is the unique number trapped between them. That is a definition of being forced by approximations - the ancestor of the definite integral.
+
+### $\pi$ in many costumes
+
+$\pi$ appears as $C/d$, as area over $r^2$, later in radians as half a turn, later in Gaussian integrals and Fourier analysis. One constant, many doors. This chapter owns the first door: ratio of circumference to diameter.
+
+### Sector, arc, and fraction of a turn
+
+A central angle that is a fraction $f$ of a full turn cuts an arc of length $f\cdot 2\pi r$ and a sector of area $f\cdot \pi r^2$. Fractions chapter meets circle chapter: relative turn times whole circle measures.
+
+### From Archimedes to floating point
+
+Modern $\pi$ computations are algorithmic descendants of "better bounds." The cultural itch is continuous; the hardware changes. Aryabhata's rational approximation (historical note, not a digit competition) shows the itch is cross-civilizational.
+
+### Constraints as geometry in ML
+
+Unit-norm constraints, spherical embeddings, and angular margins are circle/sphere thinking. Probability simplices are constrained regions too (nonnegative weights summing to one). Geometry of "allowed sets" shapes learning dynamics. This course ends by handing you the curved stage trigonometry will dance on.
+
+
+## A desk reference you will reuse
+
+### Formula checklist
+$C=2\pi r$, $A=\pi r^2$, diameter $2r$, unit circle $x^2+y^2=1$. Sector/arc: fraction of full turn times whole measures.
+
+### Scaling checklist
+Lengths $\propto r$, areas $\propto r^2$, volumes $\propto r^3$. Pizza and paint care about the quadratic.
+
+### Method checklist
+Exhaustion: inner and outer polygons; tighten the gap; pin the magnitude. Ancestor of integrals. Archimedes as MacTutor-backed exemplar; Eudoxus/Euclid lineage for the style.
+
+### $\pi$ checklist
+Ratio $C/d$, constant for Euclidean circles; irrational; $22/7$ approximate not exact. Many costumes later; this chapter owns the ratio door.
+
+### Connection forward
+Trigonometry lives on the unit circle. Calculus names limits exhaustion practiced. ML normalization places vectors on spheres. Geometry course checkpoint complete.
+
+### Mini-exercises for a second sitting
+1. If radius doubles, what happens to circumference? To area?
+2. Explain in one sentence why exhaustion is more than "guessing $\pi$."
+3. Write the equation of the circle radius $5$ centered at the origin.
+4. A central angle is $\frac{1}{6}$ of a full turn: arc length and sector area in terms of $r$.
+
+
+## Seeing and arguing
+
+Circles are constancy: fixed distance from a center. Area is extent. Exhaustion is the refusal to treat curves as unknowable. $\pi$ is the stubborn sameness of $C/d$.
+
+Archimedes is the MacTutor-backed emblem of that refusal; Eudoxus and Euclid supply lineage for the method. Aryabhata's approximation notes that the itch to pin $\pi$ is cross-civilizational. Strogatz's "Take It to the Limit" translates the feeling into modern popular prose: approximation that becomes exact in the limit.
+
+Before you leave for trigonometry, stare at $x^2+y^2=1$ until it feels like both Pythagoras and "circle of radius one." Sine and cosine will be coordinates on that curve. Radians will measure turn by arc length. Everything ahead is this chapter specialized and instrumented.
+
+In ML, unit-norm constraints are spheres. Softmax lives in a simplex. Constrained sets have shapes; learning moves inside those shapes. Geometry did not end when calculus and probability arrived. It became the stage.
+
+If you only remember one sentence: **constant radius; area scales with $r^2$; squeeze curves between polygons until the magnitude has nowhere to hide.**
+
+
+### Sector arithmetic reminder
+If a pizza is cut into $8$ equal central angles, each sector is $\frac{1}{8}$ of the area $\pi r^2$ and each crust arc is $\frac{1}{8}$ of $2\pi r$. Equal central angles make equal sectors - fractions meeting circles without new magic.
+
+### Limit preview without calculus notation
+Imagine inscribed regular $n$-gons with $n$ growing. Perimeters climb toward the circumference; areas climb toward $\pi r^2$. You do not need epsilon symbols yet to respect the squeeze. Archimedes already lived there.
 
 ## Carry this forward
 

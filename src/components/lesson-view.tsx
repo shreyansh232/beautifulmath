@@ -13,9 +13,17 @@ type Props = {
   checks: CheckItem[];
   prev: LessonMeta | null;
   next: LessonMeta | null;
+  prerequisiteLessons?: LessonMeta[];
 };
 
-export function LessonView({ meta, body, checks, prev, next }: Props) {
+export function LessonView({
+  meta,
+  body,
+  checks,
+  prev,
+  next,
+  prerequisiteLessons = [],
+}: Props) {
   return (
     <article className="mx-auto w-full max-w-[90rem] px-6 py-10 lg:px-10 lg:py-12">
       <TrackLessonVisit courseId={meta.course} slug={meta.slug} />
@@ -48,6 +56,22 @@ export function LessonView({ meta, body, checks, prev, next }: Props) {
             </span>
           ))}
         </p>
+        {prerequisiteLessons.length > 0 ? (
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <span className="text-foreground/80">Before this: </span>
+            {prerequisiteLessons.map((lesson, i) => (
+              <span key={lesson.path}>
+                {i > 0 ? ", " : null}
+                <Link
+                  href={lesson.path}
+                  className="underline underline-offset-2"
+                >
+                  {lesson.title}
+                </Link>
+              </span>
+            ))}
+          </p>
+        ) : null}
       </div>
 
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,22rem)] lg:gap-14 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,26rem)]">

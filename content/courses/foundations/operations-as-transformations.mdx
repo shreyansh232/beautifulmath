@@ -5,7 +5,7 @@ order: 2
 summary: "Addition, subtraction, multiplication, and division are not rituals. They are transformations - ways of changing a quantity - and some of them can be undone."
 mathematician:
   name: "Srinivasa Ramanujan"
-  years: "1887–1920"
+  years: "1887-1920"
   vignette: "Ramanujan did not wait for permission to be intimate with numbers. He filled notebooks the way some people fill diaries - thousands of results, often without proofs on the page, because the notebooks were for him. Carr’s Synopsis taught him a style of compressed discovery; Hardy later gave him a stage. The ethic worth stealing is not mysticism. It is obsession with structure until patterns stop feeling accidental - work that continues when nobody is grading you."
 realWorld: "Scaling a recipe, converting currency, or resizing an image are multiplications: one quantity transforms another by a factor. Undoing the scale is division - when the factor is not zero."
 aiMlHook: "A neural network’s most basic verb is multiply-and-add: weights scale inputs and combine them. Training later asks how to reverse the effect of those operations on a loss - the same invertibility instinct, raised to many layers."
@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What is an operation?"
   - "Why can some steps be undone?"
-estimatedMinutes: 34
+estimatedMinutes: 65
 furtherReading:
   - title: "MacTutor - Srinivasa Ramanujan"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/"
@@ -42,9 +42,21 @@ furtherReading:
     note: "Commutative, associative, distributive laws with clean structure."
 ---
 
-## First principles: an operation is a verb
+## How this idea was born
 
-A number sits still. An **operation** does something to it.
+Everyday life is full of verbs applied to quantities. Combine two piles. Take some away. Scale a recipe for more guests. Split a harvest into equal shares. Undo a mistake when you can, and notice when you cannot. Long before school worksheets, people needed those moves to be reliable: same inputs, same results, and a clear sense of which steps reverse.
+
+Arithmetic traditions wrote laws for those verbs, including awkward cases like zero and debt. In medieval Europe, Leonardo of Pisa (Fibonacci) helped popularize Hindu-Arabic place-value calculation in *Liber Abaci* (1202), so merchants could add, multiply, and convert with a compact digit system rather than only with abacus habits. The lesson's sidebar figure, Srinivasa Ramanujan, did not invent addition. What he models is the ethic of living inside operations until patterns stop feeling accidental: notebooks packed with structure, often without proofs on the page, because the pages were for him. Steal the obsession with how transformations fit together, not a mysticism myth.
+
+For a modern rereader, this chapter reframes operations as **transformations**: structured ways a quantity can change, some of which can be undone. You will return here whenever algebra asks you to isolate an unknown, whenever a recipe scales, and whenever a model multiplies an input by a weight. Invertibility is the difference between a step you can reverse and a step that loses information forever.
+
+<StoryNote title="From The Joy of X">
+  Strogatz's rock-pile intuition makes commutativity visible: rearrange the piles and the total does not care about order. A rule to memorize becomes something you can see.
+</StoryNote>
+
+## First principles
+
+### An operation is a verb
 
 Think of a machine with an input and an output:
 
@@ -54,16 +66,15 @@ $$
 
 Addition by $5$ sends every number $x$ to $x + 5$. Multiplication by $3$ sends $x$ to $3x$. These are **transformations** of quantity.
 
-School often teaches operations as procedures on worksheets. The first-principles view is simpler: **operations are structured ways the world (or a model) can change a quantity.**
+Ask three questions of every operation you meet:
 
+1. What transformation am I applying?
+2. Does it have an inverse?
+3. What stays invariant?
 
-## Slow down: undo as superpower
+### Addition: combining and shifting
 
-Solving equations is mostly invertibility with manners: do the same to both sides, using operations that can be undone. Addition undoes by subtraction. Multiplication undoes by division when the factor is nonzero. Keep asking "can I reverse this step?"
-
-## Addition: combining
-
-If you have a pile of $a$ and a pile of $b$ of the same kind, their combine-count is $a + b$.
+If you have a pile of $a$ and a pile of $b$ of the same kind, their combine-count is $a + b$. On the number line, addition by $k$ is a **shift**.
 
 Properties that fall out of the idea:
 
@@ -71,72 +82,147 @@ Properties that fall out of the idea:
 - **Associative:** $(a + b) + c = a + (b + c)$
 - **Identity:** $a + 0 = a$
 
-Subtraction asks for the **undo** of an addition. On the integers, every addition by $k$ has an inverse.
+Subtraction asks for the **undo** of an addition. On the integers, every addition by $k$ has an inverse: subtract $k$, or add $-k$.
 
 <InverseOpsDiagram />
 
-> Why does this work? Because addition by $k$ is a shift, and shifts can be shifted back.
+Why does this work? Because addition by $k$ is a shift, and shifts can be shifted back.
 
-## Multiplication: scaling (and more)
+### Multiplication: scaling and structure
 
 For whole numbers, $3 \times 4$ can be read as three copies of four. Better: see it as **scaling** and **structure**.
 
 <ScalingDiagram />
 
-Arrays show why $3 \times 4 = 4 \times 3$: rearrange the grid and the count is unchanged.
+Arrays show why $3 \times 4 = 4 \times 3$: rearrange the grid and the count is unchanged. Commutativity stops being a rule to memorize and becomes something you can see.
 
-<StoryNote>
-  <p>
-    In <em>The Joy of X</em>, Strogatz leans on the same rock-pile intuition for arithmetic: rearrange the piles and the total does not care about order. Commutativity stops being a rule to memorize and becomes something you can see.
-  </p>
-</StoryNote>
-
-Division asks: **what input, after scaling by $k$, produces this output?** If $k \neq 0$, multiplication by $k$ is invertible.
+Division asks: **what input, after scaling by $k$, produces this output?** If $k \neq 0$, multiplication by $k$ is invertible:
 
 $$
 \text{If } y = kx \text{ and } k \neq 0, \text{ then } x = \frac{y}{k}.
 $$
 
-Division by zero has no inverse story: multiplication by $0$ crushes every input to $0$.
+Division by zero has no inverse story: multiplication by $0$ crushes every input to $0$. Information about the original $x$ is gone.
 
-## Structure over memorization
+### Distributivity: the rectangle law
 
-Times tables are useful muscle memory. They are not the concept. Ask:
+The law $a(b+c)=ab+ac$ is a rectangle split in two. Factoring and expanding are the same picture in two outfits. When a coupon applies to a subtotal of several items, distributivity is money, not mysticism.
 
-1. What transformation am I applying?
-2. Does it have an inverse?
-3. What stays invariant?
+## Worked intuition
 
-When algebra arrives, you move symbols using these laws. When linear algebra arrives, matrices package many multiply-and-add transformations at once.
+**Example 1 - undo a chain.**  
+Start with $x$, add $3$, multiply by $2$, get $14$. Working backward: divide by $2$ to get $7$, subtract $3$ to get $x = 4$. Solving equations is invertibility with manners: do the same to both sides, using operations that can be undone.
+
+**Example 2 - scale a recipe.**  
+A recipe for $4$ becomes a recipe for $10$ by multiplying every ingredient by $\tfrac{10}{4} = 2.5$. Halving undoes doubling. Scaling by zero would erase the recipe; that is why nonzero matters.
+
+**Example 3 - order that changes the bill.**  
+Discount $10\%$ then add $8\%$ tax, versus tax then discount: the cash-register order can change what you pay. Commutativity is a claim about order, not a vibe. Sometimes everyday processes refuse to commute.
+
+**Example 4 - invariants.**  
+Adding the same amount to both sides of a balanced scale preserves equality. Multiplying both sides by the same nonzero factor preserves equality. Multiplying both sides by zero "preserves" a trivial equality $0=0$ while destroying the information you cared about.
+
+## Common confusions
+
+- **"Operations are just worksheets."** Procedures are muscle memory. The concept is transformation plus structure (laws) plus invertibility.
+- **"Multiplication always means repeated addition."** That reading works for whole numbers. Scaling, rates, and later matrices need a broader verb: multiply transforms by a factor or a linear map.
+- **"Division by zero is a taboo for no reason."** The reason is structural: there is no inverse for the crush-to-zero map.
+- **"If it works left-to-right, order never matters."** Associativity and commutativity are separate claims. Subtraction and division are not commutative in general: $5-3 \neq 3-5$.
+- **"Times tables are the concept."** Useful memory, thin concept. Ask what stays the same when you rearrange an array.
+
+## History and stories
+
+<StoryNote>
+  In <em>The Joy of X</em>, Strogatz leans on rock-pile intuition for arithmetic: rearrange the piles and the total does not care about order. Commutativity stops being a rule to memorize and becomes something you can see.
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  "Commuting" asks a cash-register question: discount then tax, or tax then discount? Sometimes order changes the bill. Commutativity is not a vibe. It is a claim about order.
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  "Division and Its Discontents" shows how units and decimal points betray us (including a famous phone-bill decimal disaster). Operations are precise only when quantities and units are honest.
+</StoryNote>
+
+<StoryNote title="Curiosity from history">
+  Ramanujan is here for ethic, not for inventing addition. MacTutor and Berndt's accounts stress notebooks as personal, obsessive compilations of structure - thousands of results, often without proofs on the page. Carr's <em>Synopsis</em> taught a compressed style; Hardy later gave him a stage. Steal the habit: stay with patterns until they stop feeling accidental.
+</StoryNote>
+
+Most school drills treat operations as chores. Flip the question: which everyday processes commute, and which punish you for swapping steps? Baking often fails if you swap "mix wet" and "bake." Putting a file in the trash then emptying the trash does not undo like subtraction undoes addition.
 
 ## Real world
 
-Double a recipe: multiply by $2$. Halve it: multiply by $\tfrac{1}{2}$. Convert currency: multiply by a rate. Each is the same verb - scale - wearing different clothes.
+Double a recipe: multiply by $2$. Halve it: multiply by $\tfrac{1}{2}$. Convert currency: multiply by a rate. Resize an image: scale pixel dimensions by a factor. Each is the same verb - scale - wearing different clothes.
+
+Unit mistakes are operation mistakes: multiply by $1000$ when you meant divide, or shift a decimal point, and the transformation lies. Strogatz's phone-bill anecdote (popular exposition, not a primary source) exists to make that visceral.
 
 ## AI / ML bridge
 
-At the smallest scale, a neuron computes a weighted sum - multiplications and additions - then applies a nonlinearity. Training traces those multiplications backward. For now: **learning systems are webs of numerical transformations**, some invertible, some not.
+At the smallest scale, a neuron computes a weighted sum - multiplications and additions - then applies a nonlinearity. Training traces those multiplications backward through a loss. For now: **learning systems are webs of numerical transformations**, some invertible, some not.
 
-<StoryNote title="From The Joy of X">
-  <p>
-    "Commuting" asks a cash-register question: discount then tax, or tax then discount? Sometimes order changes the bill. Commutativity is not a vibe. It is a claim about order.
-  </p>
-</StoryNote>
+When linear algebra arrives, matrices package many multiply-and-add transformations at once. Matrix multiplication will stop commuting in general - a reminder that "operation" is a bigger word than school arithmetic.
 
-<StoryNote title="From The Joy of X">
-  <p>
-    "Division and Its Discontents" shows how units and decimal points betray us (including a famous phone-bill decimal disaster). Operations are precise only when quantities and units are honest.
-  </p>
-</StoryNote>
+## For the rereader
 
-## Dig deeper
+On a second visit, track **information loss**. Addition by $k$ is reversible; multiplication by nonzero $k$ is reversible; multiplication by zero is not; many nonlinear maps are not. Algebra is largely the art of staying inside reversible moves until the unknown is isolated.
 
-The distributive law $a(b+c)=ab+ac$ is a rectangle split in two. Algebrica's "Properties of real numbers" pairs cleanly with that picture. When you meet matrices later, multiplication will stop commuting in general - a reminder that "operation" is a bigger word than school arithmetic.
+Also revisit distributivity as geometry: one rectangle, two writings. Algebrica's "Properties of real numbers" pairs cleanly with that picture.
 
-## Curiosity seeds
+Finally, notice that "undo" is a moral of problem-solving, not only a button on a calculator. Every equation you solve is a story of transformations applied symmetrically.
 
-- Name three real-life processes where order matters.
-- Why can we not invert multiplication by zero?
+
+## Deepening the first principles
+
+### Operations as maps
+
+Formally, a unary operation on a set $S$ is a function $S\to S$ (or partly defined). Addition by $5$ is $x\mapsto x+5$. Multiplication by $3$ is $x\mapsto 3x$. Binary operations take two inputs. The map view makes invertibility precise: a map is invertible when it is bijective onto its image in the right way - school language says "undo."
+
+### What stays invariant
+
+Addition preserves differences in a controlled sense (shifting both readings on a thermometer). Multiplication by a positive scale preserves order. Multiplication by a negative reverses order. Asking "what survives this transformation?" is the grown-up version of checking your work.
+
+### Why associativity earns its keep
+
+Without associativity, grouping would change meaning and notation would collapse. $((a+b)+c)$ equaling $(a+(b+c))$ lets you write $a+b+c$ without panic. Matrix multiplication remains associative but not commutative - a preview that "nice properties" are à la carte, not a buffet you always get.
+
+### Cancellation laws
+
+If $a+c=b+c$, then $a=b$ (cancel addition). If $ac=bc$ and $c\neq 0$, then $a=b$ (cancel nonzero multiplication). Cancellation fails when you try to cancel a zero factor: $2\cdot 0 = 3\cdot 0$ does not imply $2=3$. The crush-to-zero map explains why.
+
+### Units as part of the transformation
+
+"$3$" times "what?" A quantity without units is a naked number; many disasters are unit disasters. Currency conversion is multiplication by a rate with units $\frac{\text{target}}{\text{source}}$. Dimensional honesty is operation honesty.
+
+### From arithmetic to algebra to linear maps
+
+The same verbs scale up: do the same to both sides; scale vectors by weights; apply a matrix. Ramanujan's notebooks are here as ethic - stay intimate with structure - not as a claim that he invented arithmetic. When you meet gradients later, you are asking how tiny changes in inputs transform a loss through chains of multiply-and-add.
+
+
+## A desk reference you will reuse
+
+### Invertibility checklist
+- Adding $k$: undo by subtracting $k$.
+- Multiplying by $k
+eq 0$: undo by dividing by $k$.
+- Multiplying by $0$: no undo; information lost.
+- Chains: undo outside-in, the reverse order of application.
+
+### Law checklist
+- Commutative? Associative? Identity? Inverses?
+- Distributivity links addition and multiplication: the rectangle law.
+- Do not assume matrix multiplication will commute later.
+
+### Order-matters catalogue
+Bake then frost vs frost then bake. Tax then discount vs discount then tax. Delete file then empty trash vs the reverse. Use the catalogue whenever someone says "order never matters."
+
+### Connection forward
+Fractions treat division as producing a number on the line. Equations treat undo chains as a method. Neural nets treat multiply-and-add as the elementary verb. You already speak that verb.
+
+### Mini-exercises for a second sitting
+1. Start from $x$, apply $+4$ then $	imes 3$ to get $21$. Recover $x$ by undoing.
+2. Show with an array why $6	imes 7=7	imes 6$.
+3. Give a cash-register scenario where swapping discount and tax changes the bill.
+4. Why does $ac=bc$ fail to imply $a=b$ when $c=0$?
 
 ## Carry this forward
 

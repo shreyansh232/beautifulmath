@@ -1,0 +1,214 @@
+---
+title: "Decimals, powers, and estimation"
+slug: "decimals-powers-estimation"
+order: 5
+summary: "Decimals extend place value past the units place. Powers compress repeated multiplication and reveal how length, area, and volume scale. Estimation keeps both honest when exact digits are not the point."
+mathematician:
+  name: "Simon Stevin"
+  years: "1548-1620"
+  vignette: "Stevin wrote for stargazers, surveyors, carpet-makers, wine-gaugers, mint-masters, and merchants - then taught them to compute with tenths the way they already computed with whole numbers. De Thiende (1585) did not invent decimal fractions, but it made them teachable in Europe with a clarity that changed daily practice. The ethic is generosity of method: write so ordinary work can move faster without abandoning precision."
+realWorld: "Prices, metric measures, compound interest, screen resolutions, and material costs all lean on decimal place value and on knowing when length scales as k, area as k², and volume as k³."
+aiMlHook: "Learning rates, temperature parameters, and feature scales are often chosen by order-of-magnitude sense, not by exact fractions. Powers and logarithms also show up wherever scores turn into multiplicative weights (exponentials, softmax numerators)."
+prerequisites:
+  - "what-numbers-are"
+  - "operations-as-transformations"
+  - "fractions-and-ratios"
+curiositySeeds:
+  - "Why do decimals feel easier than fractions?"
+  - "How do powers explain why big things get expensive fast?"
+estimatedMinutes: 72
+furtherReading:
+  - title: "MacTutor - Simon Stevin"
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Stevin/"
+    kind: reference
+    note: "De Thiende, decimal advocacy, and Stevin's broader engineering work."
+  - title: "MacTutor - The real numbers: Pythagoras to Stevin"
+    url: "https://mathshistory.st-andrews.ac.uk/HistTopics/Real_numbers_1/"
+    kind: article
+    note: "Longer arc from Greek magnitudes to Stevin's number sense."
+  - title: "Algebrica - Powers"
+    url: "https://algebrica.org/powers/"
+    kind: article
+    note: "Exponents, negative and rational powers, and geometric readings of a² and a³."
+  - title: "Algebrica - Radicals"
+    url: "https://algebrica.org/radicals/"
+    kind: article
+    note: "Roots as solving xⁿ = a, tied cleanly to rational exponents."
+  - title: "Better Explained - Exponents"
+    url: "https://betterexplained.com/articles/understanding-exponents-why-are-2-0-and-2-negative/"
+    kind: article
+    note: "Friendly intuition for zero and negative exponents."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Location, Location, Location on place value; growth themes elsewhere repay a revisit."
+---
+
+## How this idea was born
+
+Merchants and surveyors already lived in halves, quarters, and awkward remainders. Place value for whole numbers was a compression miracle (Foundations lesson 1). The next itch was obvious: keep the same positional language past the units place, so tenths and hundredths behave like tens and hundreds turned the other way. Fraction arithmetic works, but writing every price and measure as $\frac{a}{b}$ slows daily trade.
+
+Decimal fractions appear in earlier Islamic and Chinese mathematical traditions; Stevin did not invent them from nothing. What he did in *De Thiende* (*La Disme*, 1585) was write an elementary, thorough European account aimed at people who measure and buy for a living, and argue that coinage, weights, and measures should go decimal too. His circled-place notation is not modern point notation, yet the ethic is modern: extend place value so computation with parts feels as routine as computation with wholes.
+
+Powers answer a different human itch: repeated multiplication for growth, area, and volume. Double a length and you do not double the paint or the stone. Estimation is the third skill in this chapter: knowing which digits matter before you drown in them.
+
+<StoryNote title="Curiosity from history">
+  MacTutor is careful: Stevin presented the first elementary and thorough European account of decimal fractions and introduced their use widely; earlier Arabic and Chinese uses exist. Credit the popularizer of method, not a lone invention myth.
+</StoryNote>
+
+## First principles
+
+### Decimals as place value past one
+
+In base ten, the numeral $23.45$ means
+
+$$
+2 \times 10^1 + 3 \times 10^0 + 4 \times 10^{-1} + 5 \times 10^{-2}.
+$$
+
+Tenths, hundredths, thousandths are the same idea as tens and hundreds: each step left multiplies by $10$; each step right divides by $10$. Decimals are not a rival to fractions. They are a notation for fractions whose denominators are powers of ten (and for infinite expansions that approximate other reals).
+
+Terminating decimals are exact finite tenths-stacks. Repeating decimals encode rationals whose reduced denominator has a prime factor other than $2$ or $5$. Irrationals never settle into a repeating block. The numeral is a language; the number is the magnitude.
+
+### Powers as repeated multiplication (and then more)
+
+For a positive integer $n$,
+
+$$
+a^n = a \cdot a \cdots a \quad (n \text{ factors}).
+$$
+
+Then the laws
+
+$$
+a^m a^n = a^{m+n}, \qquad (a^m)^n = a^{mn}, \qquad (ab)^n = a^n b^n
+$$
+
+are bookkeeping for how exponents add when you multiply like bases. Zero and negative exponents earn their keep by keeping those laws consistent: $a^0 = 1$ (for $a \neq 0$), and $a^{-n} = 1/a^n$.
+
+Roots undo powers: $\sqrt[n]{a}$ is a number whose $n$th power is $a$ (principal root for reals when we stay with nonnegative $a$ and even $n$). Rational exponents unify the story: $a^{m/n} = \sqrt[n]{a^m}$ under the usual domain cautions. Algebrica's powers and radicals pages are the diagram companions.
+
+### Scaling degrees
+
+If every length scales by a factor $k > 0$, then:
+
+- lengths multiply by $k$,
+- areas multiply by $k^2$,
+- volumes multiply by $k^3$.
+
+That is why $a^2$ and $a^3$ are not just algebra: they are area of a square and volume of a cube of side $a$. Growth formulas like compound interest also speak power language: repeated multiplicative factors stack into exponents.
+
+### Estimation as numerical fluency
+
+Estimation asks: what order of magnitude is right, and which digits are theater? Rounding to significant figures, comparing $10^n$ scales, and sanity-checking a product by approximating factors are all the same habit: refuse to treat every printed digit as equally meaningful.
+
+## Worked intuition
+
+**Example 1 - money as decimals.**  
+$\$12.07$ is $12 + 0 \times 10^{-1} + 7 \times 10^{-2}$ dollars. Place value past the point is why cashiers and spreadsheets speak the same dialect as whole-number arithmetic.
+
+**Example 2 - converting a decimal to a fraction.**  
+$0.375 = \frac{375}{1000} = \frac{3}{8}$. Terminating decimals are fractions with denominator a power of ten, then reduced.
+
+**Example 3 - area surprise.**  
+A square rug of side $2$ m has area $4$ m². Side $4$ m has area $16$ m². Doubling length quadrupled area. Material cost tracks $k^2$, not $k$, if thickness is fixed.
+
+**Example 4 - compound growth.**  
+Principal $P$ growing by factor $(1+r)$ each period for $n$ periods becomes $P(1+r)^n$. The exponent counts repeated multiplicative steps. Estimation: if $r$ is small and $n$ moderate, $(1+r)^n$ is roughly near $1+nr$ at first glance, but that linear guess fails when $n$ grows.
+
+**Example 5 - Fermi-style check.**  
+About how many seconds in a year? $365 \times 24 \times 3600$. Roughly $400 \times 20 \times 4000 = 3.2 \times 10^7$. The true value is about $3.15 \times 10^7$. Order of magnitude first; polish second.
+
+## Common confusions
+
+- **"Decimals are a different kind of number from fractions."** They are a notation for (some) rationals and for decimal expansions of reals. $\frac{1}{2} = 0.5$ is one magnitude, two outfits.
+- **"Stevin invented decimals."** Earlier uses exist. Stevin's lasting gift is systematic European exposition and advocacy for decimal practice.
+- **"Squaring doubles."** Squaring multiplies a number by itself. Scaling a figure by $2$ multiplies area by $4$. Do not blur "square the side length" with "double the side length."
+- **"More decimal places always means more truth."** Past the measurement noise, extra digits are costume jewelry. Estimation is knowing when to stop.
+- **"Negative exponents are exotic."** $10^{-3}$ is one thousandth. Place value to the right of the point *is* negative powers of ten.
+
+## History and stories
+
+<StoryNote title="Curiosity from history">
+  Stevin dedicated decimal teaching to practical readers and predicted decimal coinage and measures. Robert Norton's 1608 English <em>Disme</em> helped carry the idea; the U.S. dime still remembers the tenth. Notation evolved (Clavius, Napier, and others) toward the point we use now.
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  Strogatz's place-value celebration ("Location, Location, Location") is the emotional sibling of this chapter. Position does work for you. Decimals simply keep hiring position after the units place.
+</StoryNote>
+
+<StoryNote>
+  Hindu-Arabic place-value numerals for whole numbers traveled centuries before European decimal-fraction fashion caught up. The story is transmission and teaching, not a single lightning bolt in Bruges.
+</StoryNote>
+
+## Real world
+
+Checkout totals, metric lengths, pharmacy doses to the milligram, and engineering tolerances are decimal fluency. Builders who confuse linear scale with area or volume scale waste money. Interest, depreciation, and population models lean on powers. Scientists estimate before they simulate so absurd outputs get caught early.
+
+## AI / ML bridge
+
+Hyperparameters are often chosen by decades: learning rates like $10^{-3}$ vs $10^{-4}$ are order-of-magnitude bets. Feature normalization asks whether inputs live near $1$ or near $10^6$. Softmax and many score-to-weight maps use exponentials, which are continuous cousins of power growth. This bridge is honest because ML practice is soaked in scales and exponents; it is not a claim that Stevin invented gradient descent.
+
+## For the rereader
+
+On a second visit, hold three layers:
+
+1. **Notation** - decimals as place value with negative powers of ten.
+2. **Algebra of exponents** - product, power, and root laws, including zero and negatives.
+3. **Geometry of degree** - $k$, $k^2$, $k^3$ under uniform scaling.
+
+Algebrica's powers page makes $a^2$ and $a^3$ geometric again. Radicals remind you that roots answer $x^n = a$. Estimation is the adult habit that keeps both layers from lying with false precision.
+
+
+## Deepening the first principles
+
+### Finite vs infinite decimal stories
+
+Every terminating decimal is rational. Every repeating decimal is rational. The converse needs care: a rational's decimal terminates or repeats; an irrational's does not. $1/3 = 0.333\ldots$ is exact as an infinite expansion, exact as a fraction, and approximate if you chop digits.
+
+### Scientific notation as estimation's formal clothes
+
+Writing $6.02 \times 10^{23}$ separates significant digits from magnitude. The same separation helps when comparing model sizes, dataset counts, or FLOPs: argue in powers of ten first.
+
+### Why base ten is convention, not destiny
+
+Place value works in any integer base $b > 1$. Base ten is cultural and anatomical convenience, not mathematical necessity. Computers prefer powers of two; the *idea* of positional magnitude is shared.
+
+### Roots and domain honesty
+
+Even roots of negatives are not real. Odd roots of negatives can be. Rational exponents inherit those cautions. Fluency is knowing when the real-number story pauses and a larger system (later) continues.
+
+### Compound interest vs linear intuition
+
+Humans often feel additive change; powers are multiplicative. That mismatch is why "only a few percent" compounds into a shock over long $n$. Estimation that stays linear will misread exponential worlds.
+
+
+## A desk reference you will reuse
+
+### Decimal checklist
+Unpack digits with powers of ten (negative to the right of the point). Convert terminating decimals to fractions over $10^k$, then reduce. Treat extra digits past measurement error as optional.
+
+### Exponent checklist
+$a^m a^n = a^{m+n}$, $(a^m)^n = a^{mn}$, $a^0 = 1$ ($a \neq 0$), $a^{-n} = 1/a^n$. Roots undo powers; $a^{m/n}$ ties them (with domain care).
+
+### Scaling checklist
+Lengths $\propto k$, areas $\propto k^2$, volumes $\propto k^3$. Paint, fabric, and stone care about degree.
+
+### Estimation checklist
+Order of magnitude first; significant figures next; exact arithmetic last when it earns its keep.
+
+### Connection forward
+Variables name unknown bases and exponents. Geometry will reuse area and volume scaling. Calculus will turn discrete compound steps into continuous growth. Probability will need decimal fluency for small chances.
+
+### Mini-exercises for a second sitting
+1. Write $0.208$ as a reduced fraction and as a sum of powers of ten.
+2. If every edge of a cube scales by $3$, what happens to surface area? To volume?
+3. Estimate $19.8 \times 5.1$ without a calculator; then refine.
+4. Why is $10^{-2}$ a natural spelling of "one hundredth"?
+
+## Carry this forward
+
+- Decimals extend place value past the units place.
+- Powers compress repeated multiplication and reveal scaling degrees.
+- Estimation protects you from false precision.
+- Next geometry chapters will make area and rigid motion spatial again; algebra will put letters on these patterns.

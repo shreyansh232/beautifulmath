@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What does 'similar' mean precisely?"
   - "Why does a² + b² = c²?"
-estimatedMinutes: 34
+estimatedMinutes: 70
 furtherReading:
   - title: "MacTutor - Pythagoras"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Pythagoras/"
@@ -34,20 +34,35 @@ furtherReading:
     note: "Geometry chapters that make proof and picture feel playful."
 ---
 
-## Similarity
+## How this idea was born
+
+People needed scaled copies long before they had school names for them. A map must shrink a landscape without scrambling its shape. A model ship must keep proportions. A ladder against a wall, a rope stretched for surveying, a diagonal across a field: right corners keep asking how the three lengths fit together.
+
+Babylonian mathematicians knew the numerical relation we now write as the Pythagorean theorem centuries before the Greek tradition named it. What Greek sources emphasize (with a legendary fog around Pythagoras himself) is proof and the geometric meaning of "square on a side" as an actual square, not only a squared number. Stay honest about the timeline. Steal the ethic of proof over slogan.
+
+For a modern rereader, similarity is still "same recipe, different serving size," and the right-triangle law is about **areas of squares on the sides**, not only multiplying numbers. Return here for distance formulas, screen diagonals, nearest-neighbor intuition, and every time someone treats Pythagoras as a slogan instead of a picture you can rearrange.
+
+<StoryNote title="Curiosity from history">
+  MacTutor's Pythagoras entry notes earlier Babylonian knowledge of the relation. Attribute proof-and-geometry emphasis to Greek tradition; do not claim a single inventor for a relation that traveled.
+</StoryNote>
+
+## First principles
+
+### Similarity
 
 Two figures are **similar** when one is a scaled (and possibly rotated/reflected) copy of the other. Corresponding angles match. Corresponding sides stay in **constant ratio**.
 
 That ratio is the scale factor. Map scales and model airplanes are similarity in the wild.
 
-Thales-style shadow stories (pyramid height from a stick's shadow) are similarity arguments: sun rays make matching angles, so height ratios match shadow ratios. Treat specific ancient anecdotes carefully. The geometric idea is solid even when the biography is foggy.
+Thales-style shadow stories (pyramid height from a stick's shadow) are similarity arguments: sun rays make matching angles, so height ratios match shadow ratios. Treat specific ancient anecdotes carefully (late sources, legendary fog). The geometric idea is solid even when the biography is foggy.
 
+<SimilarTrianglesDiagram />
 
-## Slow down: scale versus shape
+### Scale versus shape
 
-Similarity says the recipe of angles is the same; only the serving size changes. Pythagoras then specializes to right triangles, turning side lengths into a rigid numeric law. Coordinates hitch a ride: distance becomes a formula.
+Similarity says the recipe of angles is the same; only the serving size changes. Congruence is the special case of scale factor $1$ (plus rigid motion). Keep the words separate.
 
-## The Pythagorean relation
+### The Pythagorean relation
 
 In a right triangle with legs $a, b$ and hypotenuse $c$:
 
@@ -59,43 +74,142 @@ $$
 
 Geometrically: the area of the square on the hypotenuse equals the sum of the areas of the squares on the legs. Algebraically: the same statement in symbols.
 
-<StoryNote>
-  <p>
-    Strogatz's geometry chapters in <em>The Joy of X</em> keep returning to this theme: a picture can carry a proof. Rearrangement arguments for Pythagoras are the classic example - move tiles until the equality becomes obvious.
-  </p>
-</StoryNote>
-
-## Why this unlocks coordinates
+### Why this unlocks coordinates
 
 Place a right triangle on the plane with the right angle at the origin. Then $c$ is the distance from $(0,0)$ to $(a,b)$. Distance becomes a formula. That is the seed of analytic geometry and, later, vector length.
 
+<CoordinatePlaneDiagram />
+
+In $n$ dimensions the same idea becomes
+
+$$
+\sqrt{x_1^2 + \cdots + x_n^2}
+$$
+
+the default Euclidean length of a feature vector.
+
+## Worked intuition
+
+**Example 1 - 3-4-5.**  
+If legs are $3$ and $4$, hypotenuse is $5$ because $9+16=25$. Builders use this as a quick square check: lay out $3$ and $4$ units along the axes; the diagonal should be $5$ if the corner is right.
+
+**Example 2 - screen diagonal.**  
+A laptop marketed by diagonal length is selling a hypotenuse. Width and height are legs. Pythagoras (and pixel aspect assumptions) connect the three.
+
+**Example 3 - ladder against a wall.**  
+Ladder length $c$, base $a$ from the wall, height $b$ up the wall: $a^2+b^2=c^2$ if the wall and ground meet at a right angle. Safety angles are trigonometry's next chapter; the distance skeleton is here.
+
+**Example 4 - similar shadows.**  
+A stick of height $h$ casts shadow $s$; a taller object casts shadow $S$. If sun rays are parallel, triangles are similar and $\frac{H}{h} = \frac{S}{s}$. Hard height from easy shadow - with honesty about when the similarity assumptions hold.
+
+**Example 5 - distance in the plane.**  
+Distance from $(1,2)$ to $(4,6)$: differences $3$ and $4$, so $\sqrt{9+16}=5$. The distance formula is Pythagoras wearing coordinates.
+
+## Common confusions
+
+- **"Similar means congruent."** Similar allows scaling. Congruent is same size and shape.
+- **"a² + b² = c² for every triangle."** Only right triangles (with $c$ the side opposite the right angle). Obtuse and acute triangles have different relations (law of cosines later).
+- **"Pythagoras discovered it alone."** Babylonian tablets knew Pythagorean triples earlier. Greek tradition emphasizes proof and geometric squares. Stay honest about the longer human timeline (MacTutor).
+- **"Squared means multiply by itself, end of story."** In the classical geometric reading, you literally compare areas of squares built on the sides.
+- **"Nearest neighbor is a different subject."** In Euclidean feature space it is this theorem in higher dimensions.
+
+## History and stories
+
+<StoryNote>
+  Strogatz's geometry chapters in <em>The Joy of X</em> keep returning to this theme: a picture can carry a proof. Rearrangement arguments for Pythagoras are the classic example - move tiles until the equality becomes obvious.
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  Strogatz's geometry chapters keep returning to picture-proofs: rearrange squares until Pythagoras becomes obvious. A proof can be a dance of tiles, not only a wall of symbols.
+</StoryNote>
+
+<StoryNote title="Curiosity from history">
+  Babylonian tablets knew Pythagorean triples long before classical Greece. What Greek tradition emphasizes is proof and the geometric meaning of "square on a side." Steal the ethic of proof over slogan - and stay honest about the longer human timeline. MacTutor's Pythagoras entry is explicit about earlier knowledge.
+</StoryNote>
+
+Some of the most convincing Pythagoras arguments never write an equals sign first. They move squares like puzzle pieces until the areas match by sight. Try sketching a right triangle and the three squares; see if you can feel an argument before you symbolize it.
+
 ## Real world
 
-A 3-4-5 triangle is a builder's square. Screen size quoted as a diagonal is hypotenuse talk. GPS and mapping software repeatedly solve right-triangle (and spherical) distance problems.
+A 3-4-5 triangle is a builder's square. Screen size quoted as a diagonal is hypotenuse talk. GPS and mapping software repeatedly solve right-triangle (and spherical) distance problems. Architecture, carpentry, and navigation lean on right angles plus this relation daily.
 
 ## AI / ML bridge
 
 When a model says "nearby points," it usually means a distance. The Euclidean default is Pythagoras generalized. Cosine similarity (trigonometry track) is a sibling idea that cares about angle more than length.
 
-<SimilarTrianglesDiagram />
-<CoordinatePlaneDiagram />
+This bridge is genuine: the formula in your loss functions and neighbor searches is often exactly this theorem in $n$ dimensions. Naming it keeps the geometry visible inside the metrics.
 
-<StoryNote title="From The Joy of X">
-  <p>
-    Strogatz's geometry chapters keep returning to picture-proofs: rearrange squares until Pythagoras becomes obvious. A proof can be a dance of tiles, not only a wall of symbols.
-  </p>
-</StoryNote>
+## For the rereader
 
-<StoryNote title="Curiosity from history">
-  <p>
-    Babylonian tablets knew Pythagorean triples long before classical Greece. What Greek tradition emphasizes is proof and the geometric meaning of "square on a side." Steal the ethic of proof over slogan - and stay honest about the longer human timeline.
-  </p>
-</StoryNote>
+On a second visit, separate **similarity** (angles and proportional sides) from **Pythagoras** (right-angle area law), then watch coordinates marry them into a distance formula.
 
-## Curiosity seeds
+Read Algebrica's Pythagorean theorem page for diagrams and the bridge toward the trig identity $\sin^2\theta + \cos^2\theta = 1$ - same relation on the unit circle.
 
-- How does the distance formula hide Pythagoras?
-- Can you find a non-right triangle where $a^2+b^2=c^2$? What goes wrong?
+Be historically honest every time the name "Pythagoras" appears: triples earlier; proof culture later. Picture-proofs that rearrange tiles are not childish. They are sometimes clearer than symbol walls.
+
+
+## Deepening the first principles
+
+### AA similarity
+
+In Euclidean geometry, two angles matching forces the third (angle sum), so AA is enough to declare triangles similar. That shortcut is why shadow arguments and parallel-line angle chase show up everywhere.
+
+### Scale factor algebra
+
+If corresponding sides are $a/a' = b/b' = c/c' = k$, then areas scale by $k^2$. Similarity is not only side ratios; it predicts how paint, pizza, and material scale. Confusing $k$ with $k^2$ is a real-world error with Foundations' ratio fingerprints.
+
+### Altitude-to-hypotenuse similarities
+
+In a right triangle, the altitude to the hypotenuse creates two smaller triangles similar to each other and to the original. That classical configuration is one route to proving Pythagoras. Similarity is not a side quest; it is machinery for the main theorem.
+
+### Rearrangement proofs
+
+Picture-proofs rearrange areas until equality is visible. They are rigorous when the rearrangements are justified - not when they are merely pretty. Strogatz's enthusiasm (popular exposition) matches a serious tradition: geometry can argue by motion of pieces.
+
+### Converse and recognition
+
+If $a^2+b^2=c^2$ for a triangle's sides, the angle opposite $c$ is right (Euclidean converse). Builders use the converse constantly: check a corner by checking the diagonal. Recognition goes both ways.
+
+### From plane distance to norms
+
+Euclidean length is one norm among many. Taxicab and max norms change "circles" and nearest neighbors. ML sometimes chooses those norms deliberately. Pythagoras is the $\ell_2$ story; knowing it is a choice prevents metric provincialism.
+
+
+## A desk reference you will reuse
+
+### Similarity checklist
+Equal corresponding angles; proportional corresponding sides; scale factor $k$; areas scale by $k^2$. AA often suffices for triangles in Euclidean geometry.
+
+### Pythagoras checklist
+Right angle opposite hypotenuse $c$: $a^2+b^2=c^2$. Geometric reading: areas of squares on the sides. Converse: the relation forces a right angle.
+
+### Coordinates checklist
+Distance from $(x_1,y_1)$ to $(x_2,y_2)$ is $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$. Higher dimensions: root-sum-square of component differences.
+
+### Historical honesty checklist
+Babylonian triples earlier; Greek emphasis on proof and geometric squares (MacTutor). Picture-proofs are serious when rearrangements are justified.
+
+### Connection forward
+Circles: constant distance is Pythagoras's equation $x^2+y^2=r^2$. Trigonometry: $\sin^2+\cos^2=1$ on the unit circle. ML: Euclidean norm and nearest neighbors.
+
+### Mini-exercises for a second sitting
+1. A $6$-$8$-$?$ right triangle: find the hypotenuse.
+2. Screen $16$ by $9$: express diagonal via Pythagoras.
+3. Two similar triangles with scale $3$; if the small area is $10$, what is the large area?
+4. Distance from $(0,0,0)$ to $(1,2,2)$ in $3$D.
+
+
+## Seeing and arguing
+
+Similarity is the grammar of scale models. Pythagoras is the grammar of right-angle distance. Coordinates translate both into formulas you can compute without redrawing.
+
+A good second sitting is to prove (or fully understand a standard proof of) Pythagoras two ways: one similarity-based (altitude to hypotenuse) and one rearrangement-based. The point is not collectible proofs. The point is that geometric truth can wear more than one outfit.
+
+Historical honesty is non-negotiable in this chapter. Babylonian tablets knew triples; Greek culture emphasized proof and squares-on-sides. Naming the theorem after Pythagoras is tradition; pretending the relation had a single birthday is not history.
+
+In data work, every time you type a Euclidean norm, whisper this chapter. Nearest neighbor is a geometric claim about squares of differences. Cosine similarity will arrive when angles matter more than lengths - trigonometry's cousin, not a replacement.
+
+If you only remember one sentence: **same shape under scale; on a right triangle, squares on the sides add.**
 
 ## Carry this forward
 

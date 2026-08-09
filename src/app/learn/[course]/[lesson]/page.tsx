@@ -5,6 +5,7 @@ import {
   getAdjacentLessons,
   getCourseLessons,
   getLessonContent,
+  getLessonMeta,
   getLessonSlugs,
 } from "@/lib/courses/content";
 import { getLessonChecks } from "@/lib/courses/checks";
@@ -41,6 +42,15 @@ export default async function LessonPage({ params }: PageProps) {
   const body = await renderLessonMdx(data.content);
   const { prev, next } = getAdjacentLessons(course, lesson);
   const checks = getLessonChecks(course, lesson);
+  const prerequisiteLessons = (data.meta.prerequisites ?? [])
+    .map((slug) => {
+      if (slug.includes("/")) {
+        const [c, s] = slug.split("/");
+        return getLessonMeta(c, s);
+      }
+      return getLessonMeta(course, slug);
+    })
+    .filter((l): l is NonNullable<typeof l> => l !== null);
 
   // Ensure course has lessons registered (for typing / future use)
   void getCourseLessons(course);
@@ -52,6 +62,7 @@ export default async function LessonPage({ params }: PageProps) {
       checks={checks}
       prev={prev}
       next={next}
+      prerequisiteLessons={prerequisiteLessons}
     />
   );
 }

@@ -15,15 +15,16 @@ export default function PathPage() {
     <div className="mx-auto w-full max-w-[90rem] px-6 py-12 lg:px-10 lg:py-16">
       <div className="max-w-2xl">
         <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-          Your path
+          Your knowledge base
         </p>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl sm:leading-tight">
           Beautiful Math
         </h1>
         <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-          Rebuild shaky foundations from first principles. Every lesson peels an
-          idea to its core, ties it to the real world, meets a mathematician, and
-          - when the link is honest - shows where it reappears in AI and ML.
+          A personal library for rebuilding math from first principles and
+          returning to it. Each chapter is detailed on purpose: core ideas,
+          stories that spark curiosity, real-world ties, and - when the link is
+          honest - bridges into AI and ML.
         </p>
         <div className="mt-8">
           <ContinueLearning fallbackHref={startHref} />
