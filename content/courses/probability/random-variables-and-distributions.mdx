@@ -14,7 +14,8 @@ prerequisites:
 curiositySeeds:
   - "What does a pmf guarantee?"
   - "When is binomial the right model?"
-estimatedMinutes: 68
+estimatedMinutes: 62
+coreMinutes: 21
 furtherReading:
   - title: "MacTutor - Jacob Bernoulli"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Bernoulli_Jacob/"
@@ -53,6 +54,12 @@ For a modern rereader, this chapter inserts between raw chance and Bayes/expecta
 <StoryNote title="Curiosity from history">
   Attribute Bernoulli via MacTutor. The phrase "Bernoulli trial" is later pedagogical language for the success/failure model he and successors systematized. Do not invent a single dice-table myth as the whole story.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -110,16 +117,20 @@ Jacob Bernoulli's *Ars Conjectandi* is a founding text for moving probability to
 </StoryNote>
 
 ## Real world
-
 Quality control counts defective items in a batch (binomial under i.i.d. assumptions). A/B tests tally conversions. Board games lean on uniform dice until the dice are worn.
 
 Anytime you replace a verbal outcome ("success") with a number and a weight table, you are here.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Binary labels and Bernoulli likelihoods power logistic regression and binary cross-entropy stories (expectation chapter continues the loss thread). Dropout masks are random Bernoulli gates. Binomial language appears in counting clicks, failures, and bootstrap inclusions.
 
 Honest scope: modern deep learning also leans on continuous noise (Gaussian reparameterizations, etc.). Discrete RVs remain first-class for classification and counting.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -200,6 +211,8 @@ Fair six-sided die versus a die labeled $\{1,1,1,2,3,4\}$. Same physical object 
 - **Bernoulli:** single success bit.
 - **Binomial:** success count in $n$ i.i.d. Bernoulli trials.
 - **Discrete uniform:** equal masses on a finite list.
+
+</DeepPath>
 
 ## Carry this forward
 

@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "What do singular values measure?"
   - "Why center data before PCA?"
-estimatedMinutes: 75
+estimatedMinutes: 73
+coreMinutes: 24
 furtherReading:
   - title: "MacTutor - Karl Pearson"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Pearson/"
@@ -53,7 +54,15 @@ For a modern rereader, SVD is the factorization; PCA is the statistical mission 
   Prefer Stewart-style surveys for SVD attribution (Beltrami, Jordan, and later figures). Prefer MacTutor for Pearson's career. Do not collapse SVD and PCA into one inventor anecdote; they meet in applications.
 </StoryNote>
 
+<TurningPoint title="Before you read on">
+  Imagine a flat oval cloud of points. You may draw many diameters.
+
+Which one direction keeps the most spread if you project every point onto a line? Hold that guess while PCA names it.
+</TurningPoint>
+
 ## First principles
+
+<PcaEllipseDiagram />
 
 Any real $m\times n$ matrix $A$ admits a **singular value decomposition**
 
@@ -102,16 +111,20 @@ Beltrami and Jordan opened the SVD; later mathematicians extended and applied it
 </StoryNote>
 
 ## Real world
-
 JPEG-like low-rank thinking, eigenfaces-style image bases, climate modes from spatiotemporal grids, and "how many sensors do we actually need?" reviews all lean on SVD/PCA ideas.
 
 A spreadsheet with twenty correlated columns often has only a few dominant singular directions. The rest may be noise or rare structure - decide with domain knowledge, not only scree plots.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 PCA remains a standard preprocessing and visualization tool. Truncated SVD appears in topic models, recommender latent-factor warm starts, and stable linear algebra subroutines. Latent semantic analysis is a classical SVD-on-term-document story.
 
 Honest boundary: end-to-end deep learning usually learns nonlinear features with task loss, not maximum-variance linear axes. Still, when someone claims a mysterious 50D embedding is "necessary," PCA of activations or inputs is a fair sanity check. If two PCA axes already separate classes, your problem may be simpler than the narrative.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -193,6 +206,8 @@ Scatter a thin tilted Gaussian cloud. Draw the long axis by eye. That is PC1. Co
 - **Low-rank approximation:** keep top $\sigma$'s.
 - **PCA:** orthogonal variance-maximizing basis for centered data.
 - **Scree plot:** singular values or explained variance versus index.
+
+</DeepPath>
 
 ## Carry this forward
 

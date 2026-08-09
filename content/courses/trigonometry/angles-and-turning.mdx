@@ -13,7 +13,8 @@ prerequisites: []
 curiositySeeds:
   - "What is a radian?"
   - "Why divide a circle into 360 degrees?"
-estimatedMinutes: 65
+estimatedMinutes: 78
+coreMinutes: 26
 furtherReading:
   - title: "MacTutor - Hipparchus"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Hipparchus/"
@@ -49,6 +50,12 @@ This chapter exists so a modern rereader can feel that origin story before the r
 <StoryNote title="Curiosity from history">
   Hipparchus built chord tables that turned geometry into computable astronomy. Historians of trigonometry treat that table-building craft as foundational: not a slogan, but a handbook the sky could be predicted with.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -159,7 +166,6 @@ The 360-part circle is often linked to Babylonian base-60 arithmetic and astrono
 
 
 ## Real world
-
 Pilots and sailors speak in degrees. Mathematicians and physicists often prefer radians once calculus enters. Surveyors, game engines, and robotics stacks constantly convert.
 
 Your phone's orientation sensors are angle machines whether you notice or not. So is every rotating UI animation.
@@ -171,6 +177,8 @@ Your phone's orientation sensors are angle machines whether you notice or not. S
 **CNC machining** rotates cutting tools through precise angles. Shop floor drawings may show degrees; the control software often converts internally to radians for interpolation.
 
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 Rotations in 2D are angle parameters. In graphics and robotics, models often output angles, or better, $(\cos\theta, \sin\theta)$ pairs, because raw angle wraparound is awkward for naive regression.
@@ -180,7 +188,9 @@ Encoding angle as $(\cos\theta, \sin\theta)$ avoids the discontinuity between $3
 A naive model trained to predict heading as a single number in $[0, 360)$ can average $10^\circ$ and $350^\circ$ to get $180^\circ$, which is nonsense for navigation. The circular mean lives on the circle, not the real line.
 
 Pose estimation networks in computer vision often regress sin and cos of joint angles separately, then recover $\theta$ with `atan2`. The training target respects periodicity from the start.
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -209,6 +219,7 @@ You do not need to memorize every entry on day one. But these six pairs should e
 
 **Practice prompt:** Convert $135^\circ$, $270^\circ$, and $\frac{5\pi}{6}$ radians to the other unit. Check that $135^\circ + 270^\circ$ in degrees matches the radian sum after conversion.
 
+</DeepPath>
 
 ## Carry this forward
 

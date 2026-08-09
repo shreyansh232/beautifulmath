@@ -1068,3 +1068,334 @@ export function FractionPieDiagram() {
     </Diagram>
   );
 }
+
+/** Parabola from area-preserving rectangle sides */
+export function ParabolaDiagram() {
+  return (
+    <Diagram caption="Fix area, vary one side: the other side is A/x. Plotting that height against x draws a hyperbola; related quadratic shapes appear when you expand (x)(s-x).">
+      <svg
+        viewBox="0 0 420 220"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Parabola sketch y equals x squared"
+      >
+        <line x1="40" y1="180" x2="400" y2="180" stroke="currentColor" strokeOpacity="0.4" />
+        <line x1="210" y1="20" x2="210" y2="200" stroke="currentColor" strokeOpacity="0.4" />
+        <path
+          d="M 90 180 Q 210 20 330 180"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <text x="340" y="40" className="fill-current" fontSize="12" opacity="0.75">
+          y = x² shape
+        </text>
+        <text x="210" y="210" textAnchor="middle" className="fill-current" fontSize="11" opacity="0.7">
+          x
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Residuals for two candidate fit lines */
+export function ResidualFitDiagram() {
+  return (
+    <Diagram caption="Same points, two candidate lines. Vertical gaps are residuals - squared and summed, one line wins.">
+      <svg
+        viewBox="0 0 440 220"
+        className="mx-auto h-auto w-full max-w-lg text-foreground"
+        role="img"
+        aria-label="Two fit lines with residual gaps"
+      >
+        {[
+          [70, 150],
+          [130, 120],
+          [190, 105],
+          [250, 70],
+          [310, 55],
+        ].map(([x, y], i) => (
+          <circle key={i} cx={x} cy={y} r="4" className="fill-current" />
+        ))}
+        <line x1="50" y1="170" x2="340" y2="40" stroke="currentColor" strokeWidth="1.5" />
+        <line
+          x1="50"
+          y1="140"
+          x2="340"
+          y2="90"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeDasharray="5 4"
+          strokeOpacity="0.55"
+        />
+        <line x1="190" y1="105" x2="190" y2="78" stroke="currentColor" strokeOpacity="0.5" />
+        <line x1="250" y1="70" x2="250" y2="95" stroke="currentColor" strokeOpacity="0.5" strokeDasharray="3 3" />
+        <text x="360" y="55" className="fill-current" fontSize="11">
+          better fit
+        </text>
+        <text x="360" y="100" className="fill-current" fontSize="11" opacity="0.7">
+          weaker fit
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Triangle law choice: ASA vs SSS sketch */
+export function TriangleLawsDiagram() {
+  return (
+    <Diagram caption="Different knowns unlock different tools: sides and included angle (SAS), three sides (SSS), or angle pairs for the law of sines.">
+      <svg
+        viewBox="0 0 420 200"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Triangle with sides a b c and angles A B C labeled"
+      >
+        <polygon
+          points="80,160 220,40 340,160"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <text x="60" y="170" className="fill-current" fontSize="12">
+          A
+        </text>
+        <text x="215" y="30" className="fill-current" fontSize="12">
+          B
+        </text>
+        <text x="345" y="170" className="fill-current" fontSize="12">
+          C
+        </text>
+        <text x="145" y="110" className="fill-current" fontSize="12" opacity="0.75">
+          c
+        </text>
+        <text x="285" y="110" className="fill-current" fontSize="12" opacity="0.75">
+          a
+        </text>
+        <text x="200" y="175" className="fill-current" fontSize="12" opacity="0.75">
+          b
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Limit approaching a value */
+export function ContinuityLimitDiagram() {
+  return (
+    <Diagram caption="A limit asks what y approaches as x approaches a, even if the function is undefined exactly at a.">
+      <svg
+        viewBox="0 0 420 200"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Curve with a hollow point and arrows approaching"
+      >
+        <path
+          d="M 40 150 C 120 40, 200 40, 280 120 S 380 160, 400 80"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <circle cx="220" cy="78" r="5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="180" cy="70" r="3" className="fill-current" opacity="0.5" />
+        <circle cx="260" cy="95" r="3" className="fill-current" opacity="0.5" />
+        <text x="230" y="60" className="fill-current" fontSize="11" opacity="0.75">
+          approach
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Basis as two spanning arrows */
+export function BasisDiagram() {
+  return (
+    <Diagram caption="A basis is an independent spanning set: every vector is a unique combination of the basis arrows.">
+      <svg
+        viewBox="0 0 360 220"
+        className="mx-auto h-auto w-full max-w-sm text-foreground"
+        role="img"
+        aria-label="Two basis vectors and a combination"
+      >
+        <line x1="40" y1="180" x2="320" y2="180" stroke="currentColor" strokeOpacity="0.3" />
+        <line x1="60" y1="200" x2="60" y2="30" stroke="currentColor" strokeOpacity="0.3" />
+        <line x1="60" y1="180" x2="200" y2="120" stroke="currentColor" strokeWidth="2" markerEnd="url(#arrow)" />
+        <line x1="60" y1="180" x2="120" y2="60" stroke="currentColor" strokeWidth="2" />
+        <line
+          x1="60"
+          y1="180"
+          x2="260"
+          y2="60"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeDasharray="4 3"
+          strokeOpacity="0.7"
+        />
+        <text x="205" y="115" className="fill-current" fontSize="12">
+          e₁
+        </text>
+        <text x="125" y="55" className="fill-current" fontSize="12">
+          e₂
+        </text>
+        <text x="265" y="55" className="fill-current" fontSize="12" opacity="0.75">
+          v
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Eigen direction stretch */
+export function EigenDiagram() {
+  return (
+    <Diagram caption="An eigenvector keeps its direction under A; only its length scales by λ.">
+      <svg
+        viewBox="0 0 400 220"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Vector before and after stretch along same direction"
+      >
+        <line x1="40" y1="180" x2="180" y2="60" stroke="currentColor" strokeWidth="2" />
+        <line
+          x1="220"
+          y1="180"
+          x2="360"
+          y2="40"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <text x="90" y="150" className="fill-current" fontSize="12">
+          v
+        </text>
+        <text x="280" y="130" className="fill-current" fontSize="12">
+          Av = λv
+        </text>
+        <text x="200" y="210" textAnchor="middle" className="fill-current" fontSize="11" opacity="0.7">
+          same direction, new length
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Overdetermined lines / least squares */
+export function LeastSquaresDiagram() {
+  return (
+    <Diagram caption="Three noisy lines rarely meet at one point. Least squares picks the compromise that minimizes total squared miss.">
+      <svg
+        viewBox="0 0 400 220"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Three lines nearly meeting with a compromise point"
+      >
+        <line x1="40" y1="40" x2="360" y2="180" stroke="currentColor" strokeOpacity="0.6" />
+        <line x1="40" y1="160" x2="360" y2="50" stroke="currentColor" strokeOpacity="0.6" />
+        <line x1="60" y1="200" x2="340" y2="30" stroke="currentColor" strokeOpacity="0.6" />
+        <circle cx="200" cy="110" r="5" className="fill-current" />
+        <text x="215" y="105" className="fill-current" fontSize="11">
+          best compromise
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** PCA principal axis on a cloud */
+export function PcaEllipseDiagram() {
+  return (
+    <Diagram caption="A cloud of points has a long axis of most spread. PCA finds that direction first.">
+      <svg
+        viewBox="0 0 400 220"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Ellipse of points with principal axis"
+      >
+        <ellipse
+          cx="200"
+          cy="110"
+          rx="140"
+          ry="55"
+          transform="rotate(-25 200 110)"
+          fill="none"
+          stroke="currentColor"
+          strokeOpacity="0.45"
+        />
+        {[
+          [120, 130],
+          [150, 100],
+          [180, 120],
+          [210, 90],
+          [240, 110],
+          [270, 85],
+          [160, 140],
+          [230, 130],
+        ].map(([x, y], i) => (
+          <circle key={i} cx={x} cy={y} r="3" className="fill-current" opacity="0.8" />
+        ))}
+        <line x1="70" y1="160" x2="330" y2="60" stroke="currentColor" strokeWidth="2" />
+        <text x="300" y="55" className="fill-current" fontSize="11">
+          first PC
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Calibration reliability sketch */
+export function CalibrationDiagram() {
+  return (
+    <Diagram caption="Calibration asks: when you say 90%, do about 9 in 10 happen? Reliability is claimed probability versus observed frequency.">
+      <svg
+        viewBox="0 0 360 220"
+        className="mx-auto h-auto w-full max-w-sm text-foreground"
+        role="img"
+        aria-label="Diagonal perfect calibration line with points near it"
+      >
+        <line x1="40" y1="180" x2="320" y2="180" stroke="currentColor" strokeOpacity="0.35" />
+        <line x1="40" y1="180" x2="40" y2="30" stroke="currentColor" strokeOpacity="0.35" />
+        <line x1="40" y1="180" x2="300" y2="40" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 3" />
+        {[
+          [80, 155],
+          [130, 130],
+          [180, 105],
+          [230, 85],
+          [280, 55],
+        ].map(([x, y], i) => (
+          <circle key={i} cx={x} cy={y} r="4" className="fill-current" />
+        ))}
+        <text x="180" y="210" textAnchor="middle" className="fill-current" fontSize="11" opacity="0.7">
+          predicted probability
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Entropy bars for a fair vs biased coin */
+export function EntropyBarsDiagram() {
+  return (
+    <Diagram caption="A fair coin has higher average surprise than a coin that almost always lands the same way.">
+      <svg
+        viewBox="0 0 400 200"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Two entropy bar pairs for fair and biased coins"
+      >
+        <text x="100" y="30" textAnchor="middle" className="fill-current" fontSize="12">
+          fair
+        </text>
+        <rect x="70" y="50" width="28" height="100" fill="currentColor" fillOpacity="0.25" />
+        <rect x="108" y="50" width="28" height="100" fill="currentColor" fillOpacity="0.25" />
+        <text x="300" y="30" textAnchor="middle" className="fill-current" fontSize="12">
+          biased
+        </text>
+        <rect x="270" y="50" width="28" height="150" fill="currentColor" fillOpacity="0.35" />
+        <rect x="308" y="170" width="28" height="30" fill="currentColor" fillOpacity="0.15" />
+        <text x="200" y="195" textAnchor="middle" className="fill-current" fontSize="11" opacity="0.7">
+          outcome weights
+        </text>
+      </svg>
+    </Diagram>
+  );
+}
+

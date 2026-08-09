@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import { UnderstandingChecks, type CheckItem } from "@/components/understanding-checks";
 import { FurtherReading } from "@/components/further-reading";
 import { TrackLessonVisit } from "@/components/lesson-progress";
+import { ChapterMap } from "@/components/chapter-map";
 import type { LessonMeta } from "@/lib/courses/types";
 import { courseTitle } from "@/lib/courses/types";
 import type { ReactNode } from "react";
@@ -24,6 +25,10 @@ export function LessonView({
   next,
   prerequisiteLessons = [],
 }: Props) {
+  const deepMinutes = meta.estimatedMinutes;
+  const coreMinutes =
+    meta.coreMinutes ?? Math.max(12, Math.round(deepMinutes * 0.35));
+
   return (
     <article className="mx-auto w-full max-w-[90rem] px-6 py-10 lg:px-10 lg:py-12">
       <TrackLessonVisit courseId={meta.course} slug={meta.slug} />
@@ -48,8 +53,9 @@ export function LessonView({
         <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
           <span className="inline-flex items-center gap-1.5">
             <Clock className="size-3.5" />
-            ~{meta.estimatedMinutes} min
+            Core ~{coreMinutes} min
           </span>
+          <span>Deep study ~{deepMinutes} min</span>
           {meta.curiositySeeds.slice(0, 2).map((seed) => (
             <span key={seed} className="text-foreground/80">
               {seed}
@@ -125,7 +131,7 @@ export function LessonView({
             Lesson threads
           </p>
           <div className="mt-5 space-y-7">
-            <Thread label="Real world" body={meta.realWorld} />
+            <Thread label="Real world" body={meta.realWorld} href="#real-world" />
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
                 Mathematician
@@ -141,20 +147,47 @@ export function LessonView({
               </p>
             </div>
             {meta.aiMlHook && (
-              <Thread label="AI / ML bridge" body={meta.aiMlHook} />
+              <details className="group">
+                <summary className="cursor-pointer list-none">
+                  <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+                    Later bridge · AI / ML
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground group-open:hidden">
+                    Optional trail - open when useful.
+                  </p>
+                </summary>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/90">
+                  {meta.aiMlHook}
+                </p>
+              </details>
             )}
           </div>
+          <ChapterMap />
         </aside>
       </div>
     </article>
   );
 }
 
-function Thread({ label, body }: { label: string; body: string }) {
+function Thread({
+  label,
+  body,
+  href,
+}: {
+  label: string;
+  body: string;
+  href?: string;
+}) {
   return (
     <div>
       <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
-        {label}
+        {href ? (
+          <a href={href} className="no-underline hover:text-foreground">
+            {label}
+          </a>
+        ) : (
+          label
+        )}
       </p>
       <p className="mt-2 text-sm leading-relaxed text-foreground/90">{body}</p>
     </div>

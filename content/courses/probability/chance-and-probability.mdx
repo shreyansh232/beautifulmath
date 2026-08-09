@@ -13,7 +13,8 @@ prerequisites: []
 curiositySeeds:
   - "What is a probability?"
   - "What does random mean here?"
-estimatedMinutes: 65
+estimatedMinutes: 78
+coreMinutes: 27
 furtherReading:
   - title: "MacTutor - Blaise Pascal"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Pascal/"
@@ -45,6 +46,12 @@ For a modern rereader, A/B tests and weather forecasts still speak that language
 <StoryNote title="Curiosity from history">
   Pascal and Fermat's correspondence on games of chance is a standard founding story in the history of probability (MacTutor). Treat colorful gambling anecdotes as popular retellings unless you have a primary citation in hand.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -106,16 +113,20 @@ Later, Laplace and others systematized classical probability; Kolmogorov's twent
 </StoryNote>
 
 ## Real world
-
 Dice, cards, A/B tests, and weather forecasts all speak probability. Insurance and epidemiology live on weighted outcomes. Every dashboard percentage is a modeling claim wearing a confident font.
 
 Most "fair coin" talk is modeling. Real coins can be biased; real markets have fat tails; real storms cluster. Ask of every probability number: what assumptions minted it?
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Classifiers output probabilities (or scores turned into them). Softmax turns scores into a distribution over classes. Calibration asks whether 0.8 really means "about 80% of the time" among cases labeled 0.8.
 
 Cross-entropy loss (coming with Shannon) punishes confident wrong probabilities. The seed here is simpler: models emit weights over outcomes, and those weights inherit every modeling sin from this chapter if you are careless.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -214,6 +225,8 @@ A forecast that says "30%" without a definition is a mood. A forecast that says 
 ## Why reread this chapter at all
 
 A personal knowledge base earns its keep on the second and third visit. The first visit teaches vocabulary. Later visits catch workplace failures, connect neighboring courses, and sharpen taste. If a section felt long, that is intentional: lasting chapters are denser than skim cards. Skim the field notes when time is short; return to worked examples when a bug in your thinking appears.
+
+</DeepPath>
 
 ## Carry this forward
 

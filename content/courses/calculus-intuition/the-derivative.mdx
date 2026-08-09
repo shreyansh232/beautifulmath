@@ -14,7 +14,8 @@ prerequisites:
 curiositySeeds:
   - "What does f'(x) mean?"
   - "Why does notation matter?"
-estimatedMinutes: 68
+estimatedMinutes: 78
+coreMinutes: 28
 furtherReading:
   - title: "MacTutor - Gottfried Leibniz"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Leibniz/"
@@ -47,6 +48,12 @@ For a modern rereader, that shift - from one number to a slope-valued function -
 <StoryNote title="Curiosity from history">
   Leibniz's notation survived because it invites computation. Treat the fraction-looking form as a mnemonic with a deep idea inside, not as a license to cancel symbols carelessly in every context. MacTutor is the short biographical stop.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -116,14 +123,18 @@ Newton and Leibniz developed calculus in different notations and communities; pr
 </StoryNote>
 
 ## Real world
-
 Sensitivity analysis asks: how much does output move when an input nudges? That is a derivative when the relationship is smooth. If profit $P(q)$ depends on quantity $q$, then $P'(q)$ is marginal profit at that scale. Engineers linearize complicated maps near an operating point for the same reason: the derivative is the trustworthy local translator.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Gradients are derivatives, or their multivariable cousins. Gradient descent steps opposite the gradient of loss. Each partial derivative asks: if I nudge this weight, how does loss respond?
 
 Backpropagation is organized bookkeeping for the chain rule through a network. You do not need the implementation details yet. You need the moral: composition of functions becomes multiplication of local sensitivities, and that multiplication is what makes deep models trainable in principle.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -220,6 +231,8 @@ If profit $P(q)$ depends on quantity, $P'(q)$ is marginal profit. If a loss $L(w
 - **Chain rule:** multiply local sensitivities.
 - **Critical point:** where $f'=0$ or fails to exist (context-dependent usage).
 - **Smooth enough:** hypotheses that make theorems true; not a vibe.
+
+</DeepPath>
 
 ## Carry this forward
 

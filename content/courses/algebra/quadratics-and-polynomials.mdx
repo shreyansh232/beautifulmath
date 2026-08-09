@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "Why does completing the square produce the quadratic formula?"
   - "What does the discriminant decide geometrically?"
-estimatedMinutes: 75
+estimatedMinutes: 32
+coreMinutes: 14
 furtherReading:
   - title: "MacTutor - Quadratic etc equations"
     url: "https://mathshistory.st-andrews.ac.uk/HistTopics/Quadratic_etc_equations/"
@@ -50,7 +51,15 @@ For a modern rereader, $ax^2 + bx + c = 0$ (with $a \neq 0$) is one family. Comp
   "Working Your Quads" is Strogatz's reminder that the quadratic formula looks dry until you feel the geometry under it. Treat the book as pedagogy, not as a primary source for Babylonian tablets.
 </StoryNote>
 
+<TurningPoint title="Before you read on">
+  Keep a rectangle's area fixed at 36. If one side is 4, the other is 9. If one side is 6, the other is 6. If one side is 9, the other is 4.
+
+Before formulas: sketch how the free side changes as you vary the first side. Where is the free side smallest? What shape is that plot hinting at?
+</TurningPoint>
+
 ## First principles
+
+<ParabolaDiagram />
 
 A **quadratic function** is $f(x) = ax^2 + bx + c$ with $a \neq 0$. Its graph is a parabola opening up ($a > 0$) or down ($a < 0$).
 
@@ -127,19 +136,22 @@ al-Khwārizmī's ethic is pedagogy: show a method a stranger can repeat, then ju
 
 
 ## Real world
-
 - **Projectiles** (idealized): height versus time is quadratic under constant gravity.
 - **Area fencing problems:** maximize area for fixed perimeter leads to a parabola in the model.
 - **Optics and mirrors:** parabolic reflectors focus parallel rays (geometry of the curve).
 - **Business:** revenue models with price and quantity sometimes produce quadratic profit.
 
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 Linear regression fits a line. Add $x^2$ as a feature and you fit a parabola in the original $x$ while staying linear in the parameters. Polynomial feature maps and quadratic kernels are that idea at scale: bend the representation, keep optimization familiar.
 
 Do not overclaim: a neural net is not "just a big polynomial," but polynomial features are a real, honest bridge from this chapter to model classes.
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -149,6 +161,7 @@ When calculus finds minima, return to the vertex as $-b/(2a)$ and see the deriva
 
 **Curiosity:** Viète's formulas say sum of roots is $-b/a$ and product is $c/a$. Check them on $x^2 - 5x + 6 = 0$.
 
+</DeepPath>
 
 ## Carry this forward
 

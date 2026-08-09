@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "What is a bit of information?"
   - "Why does cross-entropy work as a loss?"
-estimatedMinutes: 72
+estimatedMinutes: 75
+coreMinutes: 25
 furtherReading:
   - title: "MacTutor - Claude Shannon"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Shannon/"
@@ -51,7 +52,15 @@ For a modern rereader, chance gave you weights and expectation gave you averages
   Shannon's 1948 paper is the founding document. Attribute gadgets-and-juggling color to popular portraits (and MacTutor), not as a substitute for reading how he defined entropy.
 </StoryNote>
 
+<TurningPoint title="Before you read on">
+  You must send one of two messages: "fair coin came up heads" versus "this nearly-always-heads coin came up heads."
+
+Which message should cost more bits on average, and why?
+</TurningPoint>
+
 ## First principles
+
+<EntropyBarsDiagram />
 
 If an event has probability $p$, its **surprisal** (self-information) is
 
@@ -114,16 +123,20 @@ Treat information as measurable, then build systems that respect the math. That 
 </StoryNote>
 
 ## Real world
-
 Compression, noisy phone lines, and efficient codes all trade in entropy: how much uncertainty a source has, and how many bits you need. File formats, error-correcting codes, and streaming protocols are engineering descendants of the same ideas.
 
 Whenever a system says "this message was unexpected," Shannon offers a meter.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Cross-entropy loss is the workhorse of classification. KL divergence measures how one distribution mismatches another. Language models are probability machines scored by information-theoretic losses: next-token training is cross-entropy on steroids.
 
 Training a classifier with cross-entropy pushes $q$ toward $p$. Generative models often minimize divergences between data and model distributions. Calibration and proper scoring rules live in the same neighborhood.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -218,6 +231,8 @@ $D_{\mathrm{KL}}(p\|q)=H(p,q)-H(p)$ is extra surprise from using $q$ in place of
 ## One more vignette
 
 Shannon's playful rigor is permission: treat surprise as measurable without draining wonder from communication. A joke landing, a rare token in a language model, a sensor spike - each can be scored in bits and still feel human. Measurement does not have to kill meaning; it has to stop "information" from meaning whatever a slide deck wants.
+
+</DeepPath>
 
 ## Carry this forward
 

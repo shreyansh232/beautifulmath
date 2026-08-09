@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "Why does multiplying by a negative flip an inequality?"
   - "What is an interval as a solution set?"
-estimatedMinutes: 70
+estimatedMinutes: 43
+coreMinutes: 15
 furtherReading:
   - title: "MacTutor - Thomas Harriot"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Harriot/"
@@ -51,6 +52,12 @@ For a modern rereader, an **inequality** is a truth claim about order. Solving i
 <StoryNote title="Curiosity from history">
   Comparing sizes is ancient. Writing comparison with two strokes (`<`, `>`) is early modern print culture. Keep the human need (region claims) separate from the notation story.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -126,7 +133,6 @@ The deeper story is conceptual: once equations were claims you could transform, 
 
 
 ## Real world
-
 - **Speed limits:** $v \le 60$ mph is a closed half-line of legal speeds.
 - **Medication windows:** concentration must satisfy $a \le c \le b$.
 - **Budgets:** spending $s$ with $s \le B$.
@@ -136,12 +142,16 @@ The deeper story is conceptual: once equations were claims you could transform, 
 Every threshold policy is an inequality wearing a necktie.
 
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 Optimization problems rarely ask for "the" weight vector. They ask for weights that minimize loss **subject to** constraints: nonnegativity, box bounds, probability simplex membership ($p_i \ge 0$, $\sum p_i = 1$). Those constraints are inequalities.
 
 Clipping activations, ReLU's "$x$ if $x>0$ else 0," and confidence thresholds ($P(\text{class}) \ge \tau$) are inequality logic inside models. Feasible regions are geometry you already meet on the number line and half-plane.
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -151,6 +161,7 @@ Return when you meet absolute-value inequalities and when calculus uses $\vareps
 
 **Curiosity question:** Why is $x^2 \ge 0$ true for all real $x$, while $x > 0$ is not? Equality versus strict order matters at the boundary $x = 0$.
 
+</DeepPath>
 
 ## Carry this forward
 

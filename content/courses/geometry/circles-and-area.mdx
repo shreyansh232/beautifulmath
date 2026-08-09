@@ -14,7 +14,8 @@ prerequisites:
 curiositySeeds:
   - "What is π really?"
   - "How do you measure area of a curved region?"
-estimatedMinutes: 72
+estimatedMinutes: 78
+coreMinutes: 28
 furtherReading:
   - title: "MacTutor - Archimedes"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/"
@@ -50,6 +51,12 @@ For a modern rereader, this chapter is the on-ramp to trigonometry's unit circle
 <StoryNote title="From The Joy of X">
   "Take It to the Limit" is Strogatz on Archimedes and the power of tightening bounds. Exhaustion is calculus wearing a toga: squeeze a curved mystery between known shapes.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -127,16 +134,20 @@ Under taxicab distance ($|x|+|y|$), the set of points at fixed distance from the
 Lineage note: Euclid Book XII relates circles as squares on diameters in the exhaustion tradition associated with Eudoxus; Archimedes pushes circle measurement with famous polygon bounds. Credit the method, not a lone myth.
 
 ## Real world
-
 Wheels, gears, satellite dishes, and circular plazas all start from constant-radius geometry. Area tells you paint, material, or capacity. Cable spool radii, irrigation pivots, and roundabout design are circle arithmetic in boots.
 
 Engineers estimate material from area formulas long before they cut metal. Scaling mistakes ($r$ vs $r^2$) show up as budget surprises.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Constraining vectors to unit length puts them on a sphere (circle in 2D). Angles between those vectors become meaningful similarity scores. Softmax and many probability simplices live in constrained regions whose geometry matters for how updates move.
 
 This bridge is honest: normalization is a geometric constraint, not a metaphor glued on. When ML "projects onto the sphere," it is using this chapter's constant-distance idea in higher dimensions.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -220,6 +231,8 @@ If a pizza is cut into $8$ equal central angles, each sector is $\frac{1}{8}$ of
 
 ### Limit preview without calculus notation
 Imagine inscribed regular $n$-gons with $n$ growing. Perimeters climb toward the circumference; areas climb toward $\pi r^2$. You do not need epsilon symbols yet to respect the squeeze. Archimedes already lived there.
+
+</DeepPath>
 
 ## Carry this forward
 

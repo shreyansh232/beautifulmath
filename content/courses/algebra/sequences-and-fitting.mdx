@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "How do first differences reveal a linear sequence?"
   - "Why square errors in least squares?"
-estimatedMinutes: 74
+estimatedMinutes: 47
+coreMinutes: 16
 furtherReading:
   - title: "MacTutor - Carl Friedrich Gauss"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Gauss/"
@@ -51,7 +52,15 @@ For a modern rereader, this chapter closes the algebra track's second arc: from 
   Legendre published first (1805). Gauss claimed earlier private use and published in 1809. Both statements can be discussed; historians still untangle evidence. Prefer "Legendre 1805; Gauss 1809 with a priority dispute" over a single inventor myth.
 </StoryNote>
 
+<TurningPoint title="Before you read on">
+  Three points sit roughly on a rising trend. You may draw two different straight guesses.
+
+Before reading the least-squares story: which guess do you trust more, and what visible evidence (gaps above/below the line) would make you switch?
+</TurningPoint>
+
 ## First principles
+
+<ResidualFitDiagram />
 
 A **sequence** $\{a_n\}$ assigns a term to each index $n$ (usually $n = 1, 2, 3, \ldots$).
 
@@ -107,19 +116,22 @@ Gauss's broader fame (number theory, astronomy, magnetism) can overshadow Legend
 
 
 ## Real world
-
 - **Census and finance tables:** arithmetic and geometric growth approximations.
 - **Spreadsheet trendlines:** often least squares under the hood.
 - **Calibration:** fit sensor reading to true value with a line or quadratic.
 - **Sports and biometrics:** progressions across weeks of training.
 
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 Ordinary least squares regression is still a baseline model. Squared loss appears in many training objectives; absolute loss and Huber loss are cousins with different robust properties.
 
 Neural nets minimize losses that are spiritual descendants: choose parameters, score total error on data, adjust. The algebra of $S(m,b)$ is the seed.
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -129,6 +141,7 @@ When statistics estimates variance and when linear algebra solves normal equatio
 
 **Curiosity:** Why not minimize the sum of *unsquared* residuals? Positive and negative errors cancel. Absolute values work but are less algebraically friendly; squares are a deliberate design choice.
 
+</DeepPath>
 
 ## Carry this forward
 

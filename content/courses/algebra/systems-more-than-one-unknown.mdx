@@ -14,7 +14,8 @@ prerequisites:
 curiositySeeds:
   - "When does a system have one solution?"
   - "What does inconsistent mean?"
-estimatedMinutes: 70
+estimatedMinutes: 74
+coreMinutes: 25
 furtherReading:
   - title: "MacTutor - Carl Friedrich Gauss"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Gauss/"
@@ -48,6 +49,12 @@ For a modern rereader, a **system** is a bundle of truth claims that must hold t
 <StoryNote title="Curiosity from history">
   Gauss obsessed over correctness and economy of thought. Use him for the craft of reduction. Do not erase earlier algorithmic traditions that also solved linear systems in their own notation.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -198,7 +205,6 @@ PageRank-style importance (importance defined in terms of other importances) is 
 
 
 ## Real world
-
 - **Two grocery items with two independent receipts:** apples and oranges, two shopping trips, two total prices. Two equations, two unknowns.
 - **Mixture problems:** amount of solute and amount of solution as coupled constraints. "How much pure acid in a 20% solution?"
 - **Kirchhoff's laws in simple circuits:** enough independent equations to find currents at junctions.
@@ -210,6 +216,8 @@ Whenever someone says "we don't have enough information," they are speaking syst
 **Curiosity question:** You know two numbers sum to 10 and one is twice the other. Write the system before you solve. Does the geometry match your expectation?
 
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 With many data points you get many approximate equations for few weights. Ordinary least squares finds the compromise that minimizes squared residuals. You cannot satisfy every equation exactly, so you minimize total squared error.
@@ -217,7 +225,9 @@ With many data points you get many approximate equations for few weights. Ordina
 Later linear algebra says this compactly: $Xw \approx y$. Geometrically, you project onto a column space. Emotionally, you already know the plot from this chapter: too many claims, not enough free parameters, choose the fairest near-miss.
 
 Imagine fitting a line through noisy data. Each point whispers "your line should pass through me." They cannot all be satisfied. Least squares picks the slope and intercept that minimize total squared vertical distance. Exact systems algebra becomes approximate systems algebra, and the geometric picture (many lines of desire, one best compromise) is the same family of ideas.
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -231,6 +241,7 @@ Ask also: which of my constraints are secretly duplicates? Independence is as im
 
 **Second pass question:** Why does adding two equations (when coefficients align) preserve truth? It is the same "do the same thing to both sides" ethic, applied to two claims at once.
 
+</DeepPath>
 
 ## Carry this forward
 

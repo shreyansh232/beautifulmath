@@ -14,7 +14,8 @@ prerequisites:
 curiositySeeds:
   - "What is a graph of a function?"
   - "What does slope mean on a line?"
-estimatedMinutes: 72
+estimatedMinutes: 77
+coreMinutes: 26
 furtherReading:
   - title: "MacTutor - Rene Descartes"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Descartes/"
@@ -47,6 +48,12 @@ For a modern rereader, a **graph** is a rule made visible. This chapter closes t
 <StoryNote title="From The Joy of X">
   "The Conic Conspiracy" is Strogatz on graphs as family resemblance among curves. Attribute as popular exposition of geometric families, not as a primary source for Descartes.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -168,7 +175,6 @@ Before formulas, humans drew paths of planets and tides. A modern graph is that 
 
 
 ## Real world
-
 - **Dashboards and time series:** stock price, temperature, or traffic as $y$ versus time $t$.
 - **ECG traces and other biomedical signals** plotted over time.
 - **Speed versus time:** slope of the graph is acceleration; area under the curve foreshadows distance (a calculus preview).
@@ -182,6 +188,8 @@ Looking carefully is not anti-math. It is math's first instrument.
 **Checking a graph claim:** If a company's revenue graph shows a straight line from (2019, 1M dollars) to (2024, 6M dollars), the slope is $\frac{5\text{M}}{5\text{ years}} = 1\text{M dollars/year}$. Does the headline's "fivefold growth" match? (Yes: 1M to 6M is 6x, not 5x. Graphs catch sloppy language.)
 
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 Plotting training loss versus step is reading a function $L(t)$. Sudden spikes, plateaus, and smooth descent are geometric language for optimization behavior.
@@ -191,7 +199,9 @@ ROC curves, calibration plots, and embedding scatterplots are how practitioners 
 A loss curve that dives then flatlines tells a story: early rapid improvement, then diminishing returns. A spike might mean a bad learning-rate step or bad batch. You are doing graph reading, not mysticism.
 
 Embedding scatterplots in two dimensions are graphs of a higher-dimensional function compressed for human eyes. Each point is an object (a word, an image, a user) placed so that nearby points mean "similar" under the model's notion of similarity. The axes may not have physical units, but the graph-reading habits still apply: clusters, outliers, and gaps are evidence.
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -211,6 +221,7 @@ Curiosity often starts as "why does it bend there?"
 
 **Third pass curiosity:** The graph of $y = |x|$ has a corner at the origin. You can see the bend without computing a derivative. What question would calculus answer about that corner that your eyes already noticed?
 
+</DeepPath>
 
 ## Carry this forward
 

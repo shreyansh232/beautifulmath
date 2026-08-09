@@ -14,7 +14,8 @@ prerequisites:
 curiositySeeds:
   - "What is an operation?"
   - "Why can some steps be undone?"
-estimatedMinutes: 65
+estimatedMinutes: 78
+coreMinutes: 28
 furtherReading:
   - title: "MacTutor - Srinivasa Ramanujan"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/"
@@ -53,6 +54,12 @@ For a modern rereader, this chapter reframes operations as **transformations**: 
 <StoryNote title="From The Joy of X">
   Strogatz's rock-pile intuition makes commutativity visible: rearrange the piles and the total does not care about order. A rule to memorize becomes something you can see.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -151,16 +158,20 @@ Adding the same amount to both sides of a balanced scale preserves equality. Mul
 Most school drills treat operations as chores. Flip the question: which everyday processes commute, and which punish you for swapping steps? Baking often fails if you swap "mix wet" and "bake." Putting a file in the trash then emptying the trash does not undo like subtraction undoes addition.
 
 ## Real world
-
 Double a recipe: multiply by $2$. Halve it: multiply by $\tfrac{1}{2}$. Convert currency: multiply by a rate. Resize an image: scale pixel dimensions by a factor. Each is the same verb - scale - wearing different clothes.
 
 Unit mistakes are operation mistakes: multiply by $1000$ when you meant divide, or shift a decimal point, and the transformation lies. Strogatz's phone-bill anecdote (popular exposition, not a primary source) exists to make that visceral.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 At the smallest scale, a neuron computes a weighted sum - multiplications and additions - then applies a nonlinearity. Training traces those multiplications backward through a loss. For now: **learning systems are webs of numerical transformations**, some invertible, some not.
 
 When linear algebra arrives, matrices package many multiply-and-add transformations at once. Matrix multiplication will stop commuting in general - a reminder that "operation" is a bigger word than school arithmetic.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -223,6 +234,8 @@ Fractions treat division as producing a number on the line. Equations treat undo
 2. Show with an array why $6	imes 7=7	imes 6$.
 3. Give a cash-register scenario where swapping discount and tax changes the bill.
 4. Why does $ac=bc$ fail to imply $a=b$ when $c=0$?
+
+</DeepPath>
 
 ## Carry this forward
 

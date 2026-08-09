@@ -14,7 +14,8 @@ prerequisites:
 curiositySeeds:
   - "Why radius 1?"
   - "How can sine be negative?"
-estimatedMinutes: 72
+estimatedMinutes: 48
+coreMinutes: 17
 furtherReading:
   - title: "MacTutor - Ptolemy"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Ptolemy/"
@@ -52,6 +53,12 @@ For a modern rereader, once you can read a point on the circle as a cosine-sine 
 <StoryNote title="Curiosity from history">
   Ptolemy's <em>Almagest</em> carried chord methods that made spherical astronomy computable for centuries. Different notation than modern sine, same ambition: turn angles into lengths you can tabulate.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -147,7 +154,6 @@ Popular stories that flatten Ptolemy into either pure hero or pure villain of as
 Ptolemy's chord of an angle is related to modern sine by a factor of 2 and a half-angle shift. You do not need the exact conversion formula to appreciate the continuity: tables for the sky, updated notation, same computational hunger.
 
 ## Real world
-
 Any repeating cycle can be drawn as motion around a circle:
 
 - Wheel and gear positions
@@ -163,6 +169,8 @@ The double view (point on a circle, coordinate oscillating in time) is the whole
 
 **Planetarium software:** star positions use spherical coordinates (declination, right ascension). The unit circle is the equatorial slice of that larger sphere.
 
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
@@ -180,7 +188,9 @@ Understanding that matrix geometrically makes linear algebra feel less like symb
 **Augmentation in vision:** training pipelines randomly rotate images by small angles. Each pixel coordinate passes through this matrix (with interpolation). The trig is not decorative; it is the transform.
 
 **Attention mechanisms** sometimes use rotary position embeddings (RoPE), which apply rotation-like operations in embedding space. The details are research-grade, but the intuition starts here: encode position as a turn.
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -210,6 +220,7 @@ Reflect across the $x$-axis: $\sin$ flips sign, $\cos$ stays. Reflect across the
 
 **Practice:** Without a calculator, find $\sin(\pi/6)$, $\cos(\pi/4)$, and $\sin(\pi)$ using special triangles and the anchor table.
 
+</DeepPath>
 
 ## Carry this forward
 

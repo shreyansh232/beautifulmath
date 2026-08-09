@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "Can uncorrelated variables still depend on each other?"
   - "What does a reliability diagram show?"
-estimatedMinutes: 72
+estimatedMinutes: 67
+coreMinutes: 23
 furtherReading:
   - title: "MacTutor - Francis Galton"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Galton/"
@@ -54,7 +55,15 @@ For a modern rereader, covariance/correlation, sampling uncertainty, and calibra
   Attribute Galton and Pearson via MacTutor. Correlation's roots involve both; the common $\rho$ formula is often associated with Pearson's product-moment work building on Galton's program. Avoid a single-night invention tale.
 </StoryNote>
 
+<TurningPoint title="Before you read on">
+  Someone issues ten forecasts at "90% confidence." When the dust settles, only five of the ten events happened.
+
+Is that evidence of bad luck, or of miscalibration? What count near ten would make 90% feel honest?
+</TurningPoint>
+
 ## First principles
+
+<CalibrationDiagram />
 
 For random variables $X,Y$ with finite means and variances,
 
@@ -105,16 +114,20 @@ Galton's program made co-relation a scientific habit; Pearson's product-moment c
 </StoryNote>
 
 ## Real world
-
 Doctors reading risk scores need calibration, not only ranking. Marketers correlating ad spend with sales must hunt confounders (seasonality). Pollsters live and die by sampling frames.
 
 A forecast office that says "$70\%$ rain" on many days should see rain on about $70\%$ of those days. That is the public face of this chapter.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Modern classifiers often emit scores that need temperature scaling or isotonic regression to improve calibration after training. Expected calibration error (ECE) is a common summary (imperfect, bucket-dependent). Feature correlations drive multicollinearity in linear models and redundancy in representations. Finite test sets make every leaderboard number a random variable.
 
 Honest scope: perfect calibration everywhere is rare under shift. Still, unchecked confidence is a known failure mode in deployed systems. Ranking metrics (AUC) can look fine while probabilities are lying - know which question you asked.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -199,6 +212,8 @@ Bucket predicted probabilities: $[0.0,0.1), [0.1,0.2), \ldots$. In each bucket, 
 - **Sampling uncertainty:** estimator wobble from finite data.
 - **Calibration:** predicted probabilities match outcome frequencies.
 - **Reliability diagram:** bucketed calibration picture.
+
+</DeepPath>
 
 ## Carry this forward
 

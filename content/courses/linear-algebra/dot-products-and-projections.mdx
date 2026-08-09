@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "What does a large dot product mean?"
   - "What is a projection?"
-estimatedMinutes: 70
+estimatedMinutes: 78
+coreMinutes: 27
 furtherReading:
   - title: "MacTutor - Hermann Grassmann"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Grassmann/"
@@ -48,6 +49,12 @@ From it you get lengths, angles, and projections - the geometry behind similarit
 <StoryNote title="Curiosity from history">
   Grassmann's geometric algebra was long ignored; he kept writing anyway. Attribute the career sketch to MacTutor. Do not invent a tidy "he invented the dot product overnight" anecdote. The chapter steals conviction about cleaner language for space.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -106,16 +113,20 @@ You do not need Grassmann's full system to use $\mathbf{u}\cdot\mathbf{v}$. You 
 </StoryNote>
 
 ## Real world
-
 Work in physics is force dotted with displacement. Navigation and robotics constantly decompose motion into components along useful axes. Recommendation "similarity" is often a cosine of feature vectors. Search ranking and clustering reuse the same alignment instinct.
 
 Whenever someone says "these directions agree," hear a dot product humming - or hear a missing normalization warning.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Cosine similarity, attention scores (before softmax), and many kernels begin with a dot product. Embedding retrieval is nearest-neighbor geometry in disguise. Linear layers followed by a dot with a class weight vector are classification scores with an alignment reading.
 
 Least squares regression projects target vectors onto the column space of a design matrix. You will feel that sentence more after the bases chapter; the projection formula here is the seed.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -218,6 +229,8 @@ Push a suitcase whose wheels fight you sideways. The wasted effort is the compon
 A personal knowledge base earns its keep on the second and third visit. The first visit teaches vocabulary. Later visits catch workplace failures, connect neighboring courses, and sharpen taste. If a section felt long, that is intentional: lasting chapters are denser than skim cards. Skim the field notes when time is short; return to worked examples when a bug in your thinking appears.
 
 If you only remember one habit from this chapter, make it this: name the assumption you are silently using. Windows for rates, axes for vectors, priors for updates, losses for averages - unspoken assumptions are where knowledge bases go soft.
+
+</DeepPath>
 
 ## Carry this forward
 

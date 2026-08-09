@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "Why restrict arcsin's range to [-π/2, π/2]?"
   - "When do you reach for law of sines versus cosines?"
-estimatedMinutes: 75
+estimatedMinutes: 48
+coreMinutes: 17
 furtherReading:
   - title: "MacTutor - al-Battani"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Al-Battani/"
@@ -56,7 +57,15 @@ For a modern rereader, **inverse trig** recovers an angle from a ratio (with a c
   Ptolemy's Almagest is chord-powered. al-Battānī works in a sine tradition and corrects parameters when observations disagree. Inheritance plus improvement, not a cartoon of one genius replacing another overnight.
 </StoryNote>
 
+<TurningPoint title="Before you read on">
+  A surveyor knows two sides and a non-included angle of a triangle. Is that enough to pin the triangle uniquely?
+
+Predict: unique, two possibilities, or impossible - then watch which law unlocks the case.
+</TurningPoint>
+
 ## First principles
+
+<TriangleLawsDiagram />
 
 Sine is not one-to-one on all reals, so an inverse needs a restricted range.
 
@@ -131,19 +140,22 @@ Steal the ethic: tables and identities exist so a hard geometric situation becom
 
 
 ## Real world
-
 - **Land surveying** and construction layouts
 - **Navigation** and bearing problems
 - **Robot arm inverse kinematics** (angles from reach constraints - cousins of inverse trig)
 - **Computer graphics:** recovering angles from vector components
 
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 `atan2(y, x)` uses both coordinates to return an angle in $(-\pi, \pi]$, respecting quadrant - exactly the unit-circle inverse problem engineering needs. Pose estimation and camera models lean on inverse trig constantly.
 
 This is an honest bridge: coordinate geometry in code, not a claim that al-Battānī trained neural nets.
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -153,6 +165,7 @@ When complex numbers write $\arg(z)$, return to arctan/atan2. When linear algebr
 
 **Curiosity:** How does the cosine law rewrite as a statement about the dot product of two side vectors? (Preview only until linear algebra.)
 
+</DeepPath>
 
 ## Carry this forward
 

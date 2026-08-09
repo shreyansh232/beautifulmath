@@ -16,7 +16,8 @@ curiositySeeds:
   - "What is a partial derivative?"
   - "Why descend the gradient?"
   - "Recommended: linear-algebra/vectors (helpful, not required)"
-estimatedMinutes: 72
+estimatedMinutes: 78
+coreMinutes: 28
 furtherReading:
   - title: "MacTutor - Joseph-Louis Lagrange"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Lagrange/"
@@ -70,6 +71,12 @@ $$
 $$
 
 That list is a vector in parameter space. Its geometric claim (when the function is smooth enough and the gradient is nonzero): it points toward **steepest ascent** of $f$. Steepest descent is the flipped list $-\nabla f$. You may treat that claim as the definition of the package's job before you prove it from the multivariable chain rule.
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -128,10 +135,11 @@ You do not need eighteenth-century mechanics to use $\nabla$. You do need the ta
 </StoryNote>
 
 ## Real world
-
 Adjusting many recipe parameters to maximize taste, or tuning many machine settings to minimize defect rate, are gradient-flavored problems even when nobody writes $\nabla$. Anytime you have a score depending on many knobs and you tweak against measured sensitivity, you are in the same family.
 
 Foggy hill-walking remains a fair metaphor for industrial tuning: sensors give local slopes; global optimality is a hope constrained by time and risk.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
@@ -144,6 +152,9 @@ This lesson is the bridge. The training loop is:
 Linear algebra will represent $w$ and data as vectors and maps. Probability will treat loss as expectation. Calculus supplies the sensitivity. The three tracks meet in training.
 
 Everything glamorous about deep learning still sits on this humble geometry: point, measure slope, step carefully.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -240,6 +251,8 @@ Fix a gradient direction and vary $\eta$. Too large: overshoot and diverge. Too 
 ## One more vignette
 
 Foggy hills are more honest than classroom bowls. Real training feels like weather: sudden drops, long flats, mysterious rises when the batch is unlucky. The gradient is still your local instrument. It does not owe you a global tour. Holding both truths - the instrument works, the map is incomplete - is adult calculus for learning systems.
+
+</DeepPath>
 
 ## Carry this forward
 

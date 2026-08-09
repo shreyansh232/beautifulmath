@@ -41,3 +41,10 @@ License note: Algebrica content and SVGs are CC BY-NC 4.0. Prefer linking out. I
 **Never use em dashes (`—`) anywhere in product content:** lessons (MDX), frontmatter strings, checks, UI copy for the course, README course descriptions, diagram captions, or source notes meant for learners. Prefer commas, periods, colons, parentheses, or a spaced hyphen (` - `) when a break is needed.
 
 Date ranges may use a simple hyphen (`1887-1920`), not an em dash.
+
+## Engagement structure (mandatory)
+
+1. **TurningPoint.** Each lesson includes one active prediction/decision beat before or early in first principles (`<TurningPoint>`).
+2. **Two-speed chapters.** Core path stays open; field notes, glossaries, and rereader extras live in `<DeepPath>` (collapsed by default).
+3. **LaterBridge.** AI/ML body sections use `<LaterBridge>` so math keeps its own center; sidebar AI/ML is optional/collapsed.
+4. **Time honesty.** Frontmatter uses `coreMinutes` and `estimatedMinutes` (deep study). Do not invent a single inflated hour for every chapter.

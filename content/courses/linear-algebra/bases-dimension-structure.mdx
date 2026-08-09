@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "What is a basis?"
   - "What does dimension count?"
-estimatedMinutes: 72
+estimatedMinutes: 78
+coreMinutes: 27
 furtherReading:
   - title: "MacTutor - Emmy Noether"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Noether_Emmy/"
@@ -49,7 +50,15 @@ For a modern rereader, this chapter is about structure that survives rewriting -
   "Group Think" is Strogatz on symmetry's algebra. Bases and dimension are a sibling idea: how many independent directions do you need to build every vector in a space? Structure is what remains when coordinates change.
 </StoryNote>
 
+<TurningPoint title="Before you read on">
+  You can describe the same arrow using different coordinate costumes.
+
+How many independent costume pieces do you need before every vector gets a unique name - no extras, no gaps?
+</TurningPoint>
+
 ## First principles
+
+<BasisDiagram />
 
 Vectors $\mathbf{v}_1,\ldots,\mathbf{v}_k$ are **linearly independent** if the only solution to
 
@@ -100,16 +109,20 @@ Change-of-basis thinking is why the same physical arrow can wear different numbe
 </StoryNote>
 
 ## Real world
-
 Choosing axes for a CAD model, or picking independent sensors that do not duplicate information, is choosing a useful basis. Robotics and computer vision change frames constantly: camera, robot, world.
 
 Compression and dimensionality reduction are bets that data approximately live in a lower-dimensional structure inside a larger ambient space.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 PCA and related methods find informative bases for data. Rank of a weight matrix limits how many independent feature directions a layer can produce. Low-rank bottlenecks (intentional or accidental) constrain capacity.
 
 Embeddings live in a chosen dimension: enough axes to separate concepts, not so many that you drown in noise. "The" embedding dimension is a modeling choice about basis size for meaning space.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -214,6 +227,8 @@ If you only remember one habit from this chapter, make it this: name the assumpt
 Write one sentence in your own words before leaving the page. If you cannot, the chapter is not done with you yet - and that is useful information, not failure.
 
 Structure first. Coordinates second. Invariants always.
+
+</DeepPath>
 
 ## Carry this forward
 

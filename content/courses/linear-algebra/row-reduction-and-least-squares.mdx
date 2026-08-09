@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "What does a row operation preserve?"
   - "Why is the least-squares residual orthogonal to the column space?"
-estimatedMinutes: 72
+estimatedMinutes: 73
+coreMinutes: 24
 furtherReading:
   - title: "MacTutor - Carl Friedrich Gauss"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Gauss/"
@@ -57,7 +58,15 @@ For a modern rereader, this chapter has two faces that belong together. **Row re
   Historians of computation (for example Grcar's work on how "ordinary" elimination became "Gaussian") warn against treating the name as literal sole invention. Attribute Gauss's career to MacTutor; keep the naming story honest.
 </StoryNote>
 
+<TurningPoint title="Before you read on">
+  Three measurement lines almost meet, but not quite - noise pushed them apart.
+
+Should you discard a line, average by eye, or find a principled compromise point? Hold your instinct.
+</TurningPoint>
+
 ## First principles
+
+<LeastSquaresDiagram />
 
 A linear system $A\mathbf{x}=\mathbf{b}$ asks whether $\mathbf{b}$ lies in the **column space** of $A$ (the span of $A$'s columns). Row operations (swap rows, scale a row, add a multiple of one row to another) produce an equivalent system: same solution set, cleaner shape. **Gaussian elimination** drives the matrix toward row echelon form; back substitution reads the unknowns. Inconsistent systems reveal a contradictory row such as $0=c$ with $c\neq 0$.
 
@@ -110,16 +119,20 @@ The durable gift is twofold: systematic simplification of linear systems, and a 
 </StoryNote>
 
 ## Real world
-
 Surveyors collect more measurements than strict degrees of freedom; residuals get distributed rather than ignored. Laboratory calibrations fit lines through noisy instrument readings. Spreadsheet "Add trendline" is ordinary least squares wearing a chart menu.
 
 Anytime you accept that equations disagree and still want one parameter vector, you are in this chapter.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Ordinary linear regression is least squares on a design matrix. Regularized cousins (ridge) modify the normal equations to trade residual fit against parameter size. Many "closed form" ML demos are this geometry; large-scale training later replaces the closed form with iterative methods, but the projection idea remains the north star for linear models.
 
 Honest limit: deep nets are not ordinary least squares. They inherit the residual-minimization instinct and replace the linear column space with a nonlinear feature map learned from data.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -210,6 +223,8 @@ In $\mathbb{R}^2$, let columns of $A$ span a line. Pick $\mathbf{b}$ off the lin
 - **Column space:** reachable $A\mathbf{x}$ vectors.
 - **Least squares:** closest reachable point to $\mathbf{b}$.
 - **Normal equations:** algebra of the orthogonality condition.
+
+</DeepPath>
 
 ## Carry this forward
 

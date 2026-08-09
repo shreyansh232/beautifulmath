@@ -13,7 +13,8 @@ prerequisites: []
 curiositySeeds:
   - "What is an instantaneous rate?"
   - "How is slope a rate?"
-estimatedMinutes: 65
+estimatedMinutes: 45
+coreMinutes: 16
 furtherReading:
   - title: "MacTutor - Isaac Newton"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Newton/"
@@ -45,6 +46,12 @@ This chapter rebuilds that itch for a modern rereader from average rates you alr
 <StoryNote title="From The Joy of X">
   Strogatz reaches for dunks and motion so vertical velocity stops feeling like a classroom abstraction. Attribute the pedagogy to <em>The Joy of X</em>, not as a substitute for Newton's primary papers.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -122,12 +129,13 @@ The geometric ancestors are older than Newton. Thinking about tangents and chang
 </StoryNote>
 
 ## Real world
-
 Speed is rate of change of position. Marginal cost is rate of change of cost with output. Infection "rates" in public dashboards are rates of change of case counts (with all the caveats of noisy data). Economics, epidemiology, and engineering keep rediscovering the same pattern: policy and design care about how fast a quantity is moving, not only its level.
 
 If you have a speedometer, you are already living with a machine that estimates an instantaneous rate from recent motion. Calculus later names what the dial was approximating. Climate time series, battery discharge curves, and population models are the same pattern in different clothes: read the slope, not only the height.
 
 When someone says "the trend is accelerating," they are claiming a rate of a rate. Nested rates are not academic jewelry; they are ordinary speech waiting for precise language.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
@@ -136,6 +144,9 @@ A learning curve plots loss versus training step. The slope of that curve tells 
 Optimizers themselves follow (approximate) slopes of the loss surface in parameter space: steep regions mean a small parameter nudge changes loss a lot. You do not need the full multivariable gradient yet. You only need the seed: learning algorithms are rate-chasers.
 
 Nonsmooth losses (hinge, ReLU networks) remind you that instantaneous rates can fail to exist at corners. Practitioners still "descend" using subgradients or smoothed surrogates. The classical smooth story remains the teacher of what those methods approximate.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -237,6 +248,8 @@ This section is for future-you skimming at speed.
 - **Corner failure:** left and right limits of rates disagree.
 - **Nested rate:** rate of a rate (velocity, acceleration).
 - **Learning-curve slope:** training progress as a rate.
+
+</DeepPath>
 
 ## Carry this forward
 

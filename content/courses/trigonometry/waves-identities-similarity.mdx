@@ -15,6 +15,7 @@ curiositySeeds:
   - "What do amplitude, frequency, and phase each control?"
   - "How is wave cosine related to (but not the same as) cosine similarity?"
 estimatedMinutes: 78
+coreMinutes: 28
 furtherReading:
   - title: "MacTutor - Joseph Fourier"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/"
@@ -50,6 +51,12 @@ This chapter is the wave-and-identity core of the trigonometry track. Inverse tr
 <StoryNote title="From The Joy of X">
   Fourier's dream - building complicated periodic behavior from sines and cosines - is the grown-up sequel to "Sine Qua Non." Strogatz makes the waves feel inevitable. Identities are compressed geometry you can reuse instead of re-deriving every time.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -179,7 +186,6 @@ Audio synthesizers and signal processing are living descendants of the decomposi
 
 
 ## Real world
-
 - Sound and musical synthesis (amplitude, pitch/frequency, phase onset)
 - Tides and other approximately periodic natural signals
 - AC power and phase relationships
@@ -194,12 +200,16 @@ Even when a signal is not perfectly periodic, sinusoidal building blocks remain 
 **EEG brain waves** are labeled alpha, beta, delta by frequency bands. Clinicians read spectra; the underlying language is oscillation.
 
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 Periodic features and Fourier-style bases appear in signal models and some positional encodings. That is the honest near-term bridge from this chapter.
 
 **Cosine similarity (later):** once linear algebra gives you vectors and dot products, embedding retrieval often ranks neighbors by $\cos\phi$. Until then, keep unit-circle cosine primary. Do not wait on embeddings to finish waves and identities.
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -221,6 +231,7 @@ The period of sine is $360^\circ$ or $2\pi$ radians. Same cycle, different unit 
 
 **Practice:** For $y = 3\sin(2t)$, state amplitude, period, and angular frequency. Then sketch one full cycle.
 
+</DeepPath>
 
 ## Carry this forward
 

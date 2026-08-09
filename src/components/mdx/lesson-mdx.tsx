@@ -6,25 +6,34 @@ import {
   AngleDiagram,
   AreaUnderCurveDiagram,
   BalanceDiagram,
+  BasisDiagram,
   BayesUpdateDiagram,
+  CalibrationDiagram,
   CircleDiagram,
+  ContinuityLimitDiagram,
   CoordinatePlaneDiagram,
   DistributionDiagram,
+  EigenDiagram,
+  EntropyBarsDiagram,
   FractionPieDiagram,
   FunctionMachineDiagram,
   GradientDescentDiagram,
   InverseOpsDiagram,
+  LeastSquaresDiagram,
   LimitZoomDiagram,
   LineGraphDiagram,
   MatrixMapDiagram,
   NumberHierarchyDiagram,
   NumberLineDiagram,
   ParallelLinesDiagram,
+  ParabolaDiagram,
+  PcaEllipseDiagram,
   PlaceValueDiagram,
   ProbabilityDiagram,
   ProjectionDiagram,
   PythagorasDiagram,
   RatioDiagram,
+  ResidualFitDiagram,
   RightTriangleTrigDiagram,
   ScalingDiagram,
   SimilarTrianglesDiagram,
@@ -32,10 +41,14 @@ import {
   SlopeDiagram,
   SystemLinesDiagram,
   TriangleDiagram,
+  TriangleLawsDiagram,
   UnitCircleDiagram,
   VectorDiagram,
 } from "@/components/mdx/diagrams";
 import { StoryNote } from "@/components/mdx/story-note";
+import { TurningPoint } from "@/components/mdx/turning-point";
+import { DeepPath } from "@/components/mdx/deep-path";
+import { LaterBridge } from "@/components/mdx/later-bridge";
 
 const components = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -116,6 +129,19 @@ const components = {
   UnitCircleDiagram,
   SineWaveDiagram,
   StoryNote,
+  TurningPoint,
+  DeepPath,
+  LaterBridge,
+  ParabolaDiagram,
+  ResidualFitDiagram,
+  TriangleLawsDiagram,
+  ContinuityLimitDiagram,
+  BasisDiagram,
+  EigenDiagram,
+  LeastSquaresDiagram,
+  PcaEllipseDiagram,
+  CalibrationDiagram,
+  EntropyBarsDiagram,
 };
 
 export async function renderLessonMdx(source: string): Promise<ReactNode> {

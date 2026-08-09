@@ -13,7 +13,8 @@ prerequisites: []
 curiositySeeds:
   - "What is an equation really claiming?"
   - "Why do we do the same thing to both sides?"
-estimatedMinutes: 68
+estimatedMinutes: 78
+coreMinutes: 28
 furtherReading:
   - title: "MacTutor - Francois Viete"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Viete/"
@@ -48,6 +49,12 @@ For a modern rereader, an equation is a **relationship claim**, not a puzzle wit
 <StoryNote title="From The Joy of X">
   "My Tub Runneth Over" is Strogatz's pep talk for word problems: translate the story into relationships first, then compute. The peril is skipping the translation step.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -193,7 +200,6 @@ Viète's notation bet paid off because it let you **see** structure. When you wr
 
 
 ## Real world
-
 Anywhere two descriptions must match, you have an equation:
 
 - **Budgets:** money allocated equals money spent plus remaining. If you earn \$2,000 and spend \$1,350 plus savings $s$, then $2000 = 1350 + s$.
@@ -207,6 +213,8 @@ The story changes. The structure does not. That is why learning $ax + b = c$ is 
 **Curiosity question:** Pick any receipt in your life. Can you write an equation that says "subtotal + tax = total"? What is the unknown?
 
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 A simple model $\hat{y} = w x + b$ is an equation with parameters $w$ and $b$. Fitting data chooses those parameters so predictions sit close to targets. Exact equality becomes "as equal as possible" under a loss function.
@@ -214,7 +222,9 @@ A simple model $\hat{y} = w x + b$ is an equation with parameters $w$ and $b$. F
 Training is often the soft cousin of solving: you cannot make every residual zero, so you minimize total disagreement. The emotional core is still an equality instinct. Make the two sides agree as well as the world allows.
 
 For each data point $(x_i, y_i)$, a linear model wants $\hat{y}_i = w x_i + b$ to match $y_i$. With noise, exact match is impossible. Least squares (preview from the systems chapter) picks $w$ and $b$ so the sum of squared errors is as small as possible. You are still asking: when does my equation claim match reality?
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -232,6 +242,7 @@ Every time you write $3x + 4 = 40$, you also wrote a template for infinitely man
 
 **Second pass question:** Why is "do the same thing to both sides" not just a classroom rule, but the definition of preserving a truth claim?
 
+</DeepPath>
 
 ## Carry this forward
 

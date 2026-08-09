@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "What does Ax = λx mean geometrically?"
   - "Why might a rotation have no real eigenvectors?"
-estimatedMinutes: 72
+estimatedMinutes: 34
+coreMinutes: 14
 furtherReading:
   - title: "MacTutor - David Hilbert"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Hilbert/"
@@ -54,7 +55,15 @@ For a modern rereader, $A\mathbf{v}=\lambda\mathbf{v}$ is the sentence. Geometry
   Attribute Hilbert via MacTutor and Cauchy's symmetric-matrix spectral work via the MacTutor matrices topic. Eigenvalue problems also appear earlier in differential-equation contexts (D'Alembert and others). Prefer a layered history over a lone inventor plaque.
 </StoryNote>
 
+<TurningPoint title="Before you read on">
+  A linear map stretches the plane. Most arrows change direction when mapped.
+
+Are there any arrows that only get longer or shorter, keeping their line? Those special directions are the chapter's prize.
+</TurningPoint>
+
 ## First principles
+
+<EigenDiagram />
 
 A nonzero vector $\mathbf{v}$ is an **eigenvector** of square $A$ with **eigenvalue** $\lambda$ when
 
@@ -109,16 +118,20 @@ Steal the shared instinct: complicated linear action becomes intelligible once i
 </StoryNote>
 
 ## Real world
-
 A vibrating string or bridge has modal shapes; frequencies relate to eigenvalues of an operator or matrix model. Principal stress axes align with eigenvectors of a stress tensor. Population models $\mathbf{n}_{t+1}=A\mathbf{n}_t$ grow like the dominant eigenvalue when that mode is excited.
 
 Anytime you ask "what does this linear rule do if I wait a long time?", eigenvalues answer.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 PCA diagonalizes (a version of) the covariance matrix: leading eigenvectors are principal directions of variance. PageRank-style updates and Markov chains track stationary structure tied to eigenvalue $1$ for stochastic matrices (under hypotheses). Some optimization analyses linearize updates and read stability from spectral radius.
 
 Honest scope: deep learning training dynamics are nonlinear. Eigen-stories appear in local linearizations, Hessian spectra, and classical linear models - not as a full account of SGD on a deep net.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -199,6 +212,8 @@ Iterate $\mathbf{x}\leftarrow A\mathbf{x}$ for a diagonal $A$ with entries $1.1$
 - **Characteristic equation:** $\det(A-\lambda I)=0$.
 - **Diagonalizable:** owns a full eigenbasis.
 - **Spectral radius:** largest $|\lambda|$.
+
+</DeepPath>
 
 ## Carry this forward
 

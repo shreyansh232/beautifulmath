@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "What does conditioned on mean?"
   - "Why do false positives matter?"
-estimatedMinutes: 70
+estimatedMinutes: 72
+coreMinutes: 24
 furtherReading:
   - title: "MacTutor - Thomas Bayes"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Bayes/"
@@ -48,6 +49,12 @@ This chapter is the mathematics of updating for a modern rereader: restrict atte
 <StoryNote title="Curiosity from history">
   Bayes's essay was quiet and posthumous; Laplace broadened inverse probability into a working program. Attribute careers to MacTutor / standard histories. Do not invent a dramatic "Bayes solved medical testing overnight" anecdote.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -106,16 +113,20 @@ The modern slogan is Bayesian updating; the human habit is older than the formul
 </StoryNote>
 
 ## Real world
-
 Medical tests, spam filters, and diagnostics all need $P(\text{hypothesis}\mid\text{evidence})$, not only $P(\text{evidence}\mid\text{hypothesis})$. Legal rhetoric that cites test accuracy without base rates is a conditional-probability failure mode with human costs.
 
 Weather forecasts and sensor fusion systems update continuously: yesterday's posterior becomes today's prior.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Naive Bayes classifiers, Bayesian optimization, and many uncertainty estimates rest on conditional probability. Posterior $\propto$ likelihood $\times$ prior is the heartbeat.
 
 Training data estimates likelihood-like terms. Regularization and explicit priors encode beliefs before seeing the batch. Calibration compares predicted probabilities to empirical frequencies - a frequentist audit of probabilistic honesty.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -214,6 +225,8 @@ The clinic table with one hundred thousand stick figures should stay taped insid
 ## Why reread this chapter at all
 
 A personal knowledge base earns its keep on the second and third visit. The first visit teaches vocabulary. Later visits catch workplace failures, connect neighboring courses, and sharpen taste. If a section felt long, that is intentional: lasting chapters are denser than skim cards. Skim the field notes when time is short; return to worked examples when a bug in your thinking appears.
+
+</DeepPath>
 
 ## Carry this forward
 

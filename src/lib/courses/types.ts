@@ -22,6 +22,8 @@ export type LessonFrontmatter = {
   prerequisites: string[];
   curiositySeeds: string[];
   estimatedMinutes: number;
+  /** Focused core-path read time in minutes */
+  coreMinutes?: number;
   furtherReading?: FurtherReadingItem[];
 };
 

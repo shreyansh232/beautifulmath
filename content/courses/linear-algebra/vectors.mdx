@@ -13,7 +13,8 @@ prerequisites: []
 curiositySeeds:
   - "What is a vector?"
   - "How do you add vectors?"
-estimatedMinutes: 65
+estimatedMinutes: 32
+coreMinutes: 14
 furtherReading:
   - title: "MacTutor - Josiah Willard Gibbs"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Gibbs/"
@@ -46,6 +47,12 @@ This chapter is the foundation for a modern rereader before matrices as maps, al
 <StoryNote title="Curiosity from history">
   Gibbs and Heaviside helped push vector language into a form physicists could compute with, amid competing formalisms. The ethic: pick a representation that makes the next calculation inevitable.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -97,16 +104,20 @@ The ethic is representation discipline: when several notations compete, prefer t
 </StoryNote>
 
 ## Real world
-
 Wind has speed and direction. A force pushes a certain amount along a heading. Displacements add as vectors: walk east then north; net displacement is the diagonal. Robotics, navigation, and animation stacks live on these additions all day.
 
 A data record with age, income, and score is a vector in feature space. Once axes are fixed, "nearby" becomes a geometric question.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Every embedding, weight row, and activation is a vector. Similarity search is often nearest neighbors in vector space. Word embeddings place tokens in high-dimensional space so "direction" can encode relations. The famous king - man + woman ≈ queen analogy is vector arithmetic on meaning (imperfect, but the geometry is the point).
 
 You will soon multiply vectors by matrices and score alignment with dot products. Those operations only make sense because vectors are first-class objects with addition and scaling laws.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -211,6 +222,8 @@ A personal knowledge base earns its keep on the second and third visit. The firs
 If you only remember one habit from this chapter, make it this: name the assumption you are silently using. Windows for rates, axes for vectors, priors for updates, losses for averages - unspoken assumptions are where knowledge bases go soft.
 
 Write one sentence in your own words before leaving the page. If you cannot, the chapter is not done with you yet - and that is useful information, not failure.
+
+</DeepPath>
 
 ## Carry this forward
 

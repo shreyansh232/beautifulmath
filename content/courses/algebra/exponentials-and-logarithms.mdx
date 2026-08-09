@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "Why is log the inverse of an exponential?"
   - "What did Napier actually invent versus modern log_b?"
-estimatedMinutes: 72
+estimatedMinutes: 41
+coreMinutes: 15
 furtherReading:
   - title: "MacTutor - John Napier"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Napier/"
@@ -49,6 +50,12 @@ For a modern rereader, $a^x$ (with $a > 0$, $a \neq 1$) is the growth machine, a
 <StoryNote title="Curiosity from history">
   Napier eased calculation; he did not hand us the exact textbook definition in one stroke. Briggs's tables and later natural logs (base $e$) are part of the same labor-saving story told carefully.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -115,19 +122,22 @@ The constant $e$ and natural logarithms grow from later calculus and series; do 
 
 
 ## Real world
-
 - **Finance:** compound interest and continuous compounding limits.
 - **Science:** radioactive decay, cooling models, Richter and pH (log scales).
 - **Computing:** bit depth and information as $\log_2$.
 - **Sound:** decibels as logarithmic ratios of intensity.
 
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 Likelihoods multiply independent events; **log-likelihoods add**, which is stabler numerically and friendlier to gradients. Cross-entropy is an average of log probabilities. Softmax is normalized exponentials.
 
 Exponential moving averages and learning-rate decay schedules are exponential functions of step. The algebra is the same growth/decay language.
+</LaterBridge>
 
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -137,6 +147,7 @@ When calculus differentiates $e^x$ and $\ln x$, return here: the inverse relatio
 
 **Curiosity:** Why do earthquake magnitudes use logs? Because energies span many orders of magnitude; a log compresses a multiplicative universe into an additive dial.
 
+</DeepPath>
 
 ## Carry this forward
 

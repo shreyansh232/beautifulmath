@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "When does a limit exist but a derivative fail?"
   - "Why can a linear approximation lie even when the derivative exists?"
-estimatedMinutes: 70
+estimatedMinutes: 78
+coreMinutes: 27
 furtherReading:
   - title: "MacTutor - Karl Weierstrass"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Weierstrass/"
@@ -54,7 +55,15 @@ For a modern rereader, this chapter sits between one-variable derivatives and ma
   Weierstrass's epsilontic style is often reconstructed from lecture notes (for example Schwarz's 1861 notes), not a single polished textbook announcement. Attribute the career to MacTutor; treat "who invented epsilon-delta" as a shared nineteenth-century story, not a tavern myth.
 </StoryNote>
 
+<TurningPoint title="Before you read on">
+  A function is undefined at one point but nearby values settle near 2.
+
+Do you care more about the missing point, or about what the values approach? That choice is the limit instinct.
+</TurningPoint>
+
 ## First principles
+
+<ContinuityLimitDiagram />
 
 Informally, $\lim_{x \to a} f(x) = L$ means: values of $f$ get arbitrarily close to $L$ whenever $x$ gets sufficiently close to $a$ (possibly excluding $a$ itself). The function may have a hole at $a$; the limit still cares about the approach.
 
@@ -119,10 +128,11 @@ The practical payoff arrived wherever engineers and scientists needed to know wh
 </StoryNote>
 
 ## Real world
-
 A temperature sensor that chatters: average in a shrinking window and ask whether the reading settles. A stock chart with a trading halt: continuity failed in the recorded series even if the underlying price "should" have moved smoothly. A bike route elevation profile: critical points mark local climbs and descents; endpoints are the start and finish.
 
 Anytime you trust a straight-line forecast for a curved relationship, you are betting that the remainder $R(x)$ is small enough for your decision.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
@@ -131,6 +141,9 @@ Gradient steps assume that near the current parameters, loss looks roughly linea
 Exploding updates often mean your step left the trustworthy linear neighborhood. Learning-rate schedules are partly remainder control in disguise. When people say a landscape is "ill-conditioned," they are complaining that linear steps fight curvature.
 
 This bridge is honest: deep learning rarely enjoys global smoothness theorems for free. It still lives or dies by local continuity and local linear sense.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -216,6 +229,8 @@ Finite differences $\frac{f(a+h)-f(a)}{h}$ approximate $f'(a)$ with their own tr
 - **Critical point:** flat or nondifferentiable candidate for extrema.
 - **Linear approximation:** tangent stand-in.
 - **Remainder:** truth minus linear forecast.
+
+</DeepPath>
 
 ## Carry this forward
 

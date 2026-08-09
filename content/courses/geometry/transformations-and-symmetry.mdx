@@ -16,6 +16,7 @@ curiositySeeds:
   - "What stays the same when a shape moves?"
   - "Is symmetry a property of the object or of the allowed moves?"
 estimatedMinutes: 70
+coreMinutes: 24
 furtherReading:
   - title: "MacTutor - Felix Klein"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Klein/"
@@ -54,6 +55,12 @@ Caveat worth flying as a flag: classroom "transformation geometry" is a pedagogi
 <StoryNote title="Curiosity from history">
   Klein prepared the Erlangen program as an inaugural publication in 1872; it was not delivered as a ceremonial speech in the Hollywood sense. MacTutor and the English translation on arXiv are the safe doors. Treat school rigid motions as Erlangen spirit, flagged as simplified.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -117,12 +124,16 @@ A planar arm that only translates and rotates a rigid part keeps distances on th
 </StoryNote>
 
 ## Real world
-
 Tilings, textile patterns, architectural ornaments, and molecular models (later chemistry) all catalog symmetries. CNC toolpaths and robot motion planners preserve part geometry when they stick to rigid motions. Cartographers distinguish distance-preserving local moves from projections that must distort something.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Data augmentation for images routinely applies translations, rotations, and reflections so classifiers become less brittle to pose. That works when labels *should* survive those isometries (a cat rotated is still a cat). It fails when orientation is itself the signal (digits $6$ and $9$ under careless $180^\circ$ turns). The bridge is honest: augmentation is applied isometries, not a metaphor glued on.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -181,6 +192,8 @@ Similarity allows scaling plus rigid motion. Linear algebra represents transform
 2. Can a translation equal a rotation about some point? When?
 3. Why might a classifier trained with random $180^\circ$ flips struggle on digit recognition?
 4. Explain congruence of two segments using a rigid motion.
+
+</DeepPath>
 
 ## Carry this forward
 

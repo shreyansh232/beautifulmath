@@ -14,7 +14,8 @@ prerequisites:
 curiositySeeds:
   - "What does matrix-vector multiplication do?"
   - "What is linearity?"
-estimatedMinutes: 68
+estimatedMinutes: 78
+coreMinutes: 28
 furtherReading:
   - title: "MacTutor - Arthur Cayley"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/"
@@ -48,6 +49,12 @@ For a modern rereader, this chapter rebuilds the machine view so later lessons o
 <StoryNote title="From The Joy of X">
   "Untangling the Web" makes matrices stop being spreadsheets and start being machines. Attribute the chapter as popular exposition of a known algorithm, not as a primary source for Google's history.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -102,16 +109,20 @@ A modern campfire story sits in Strogatz: PageRank. A page's importance depends 
 </StoryNote>
 
 ## Real world
-
 Image transforms, robot joint kinematics (linearized near an operating point), and spreadsheet "multiply this grid by that grid" workflows are matrix moves. Computer graphics pipelines are long compositions of linear and affine maps.
 
 Whenever a system mixes inputs into outputs with constant coefficients, a matrix is waiting to be named.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 A dense neural layer is literally $\mathbf{x} \mapsto W\mathbf{x} + \mathbf{b}$. Almost every classical ML model has a matrix at its core: linear regression, PCA loadings, Markov transition matrices, attention's query-key-value projections.
 
 Attention and convolutions are structured linear maps with weight sharing. The structure is engineering; the linearity is the mathematical spine.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -214,6 +225,8 @@ PageRank's campfire version is enough for this chapter: importance flows through
 A personal knowledge base earns its keep on the second and third visit. The first visit teaches vocabulary. Later visits catch workplace failures, connect neighboring courses, and sharpen taste. If a section felt long, that is intentional: lasting chapters are denser than skim cards. Skim the field notes when time is short; return to worked examples when a bug in your thinking appears.
 
 If you only remember one habit from this chapter, make it this: name the assumption you are silently using. Windows for rates, axes for vectors, priors for updates, losses for averages - unspoken assumptions are where knowledge bases go soft.
+
+</DeepPath>
 
 ## Carry this forward
 

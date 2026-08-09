@@ -15,7 +15,8 @@ prerequisites:
 curiositySeeds:
   - "What is expected value?"
   - "What is a loss function?"
-estimatedMinutes: 68
+estimatedMinutes: 78
+coreMinutes: 26
 furtherReading:
   - title: "MacTutor - Andrey Kolmogorov"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Kolmogorov/"
@@ -47,6 +48,12 @@ For a modern rereader, remember that expectation is a summary, not a destiny, an
 <StoryNote title="From The Joy of X">
   "All About e" includes the dating / secretary problem as popular pedagogy connecting expectation to optimal stopping. Attribute it that way, not as a substitute for the research literature on the secretary problem.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -103,16 +110,20 @@ You can compute discrete expectations without measure theory. You cannot appreci
 </StoryNote>
 
 ## Real world
-
 Insurance premiums, expected wait times, and average damage under risk scenarios are expectations. Project planning that quotes only means without spreads is incomplete communication.
 
 A fair game has expected net gain near zero. Real casinos and real markets rarely offer you that courtesy.
+
+<LaterBridge title="Later bridge: AI / ML">
 
 ## AI / ML bridge
 
 Training minimizes empirical risk: average loss on data, a stand-in for expected loss under the true distribution. Optimization (calculus) + linear maps (linear algebra) + expectation (this lesson) meet in training.
 
 Stochastic gradient descent estimates $\nabla$ of an expectation with mini-batch averages: chance and calculus shaking hands every step.
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -213,6 +224,8 @@ A personal knowledge base earns its keep on the second and third visit. The firs
 If you only remember one habit from this chapter, make it this: name the assumption you are silently using. Windows for rates, axes for vectors, priors for updates, losses for averages - unspoken assumptions are where knowledge bases go soft.
 
 Write one sentence in your own words before leaving the page. If you cannot, the chapter is not done with you yet - and that is useful information, not failure.
+
+</DeepPath>
 
 ## Carry this forward
 

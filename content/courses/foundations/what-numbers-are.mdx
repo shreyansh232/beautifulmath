@@ -13,7 +13,8 @@ prerequisites: []
 curiositySeeds:
   - "Why does position matter?"
   - "Who made zero a number?"
-estimatedMinutes: 68
+estimatedMinutes: 78
+coreMinutes: 28
 furtherReading:
   - title: "MacTutor - Brahmagupta"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Brahmagupta/"
@@ -52,6 +53,12 @@ For a modern rereader, this chapter is still about that human itch. Numbers begi
 <StoryNote title="From The Joy of X">
   Strogatz opens with counting you can touch: the word <em>calculate</em> comes from Latin <em>calculus</em>, a pebble. Looking at numbers as groups of rocks is not childish. It is as old as math itself.
 </StoryNote>
+
+<TurningPoint title="Before you read on">
+  Pause after the opening story.
+
+In one sentence, what human need forced this idea into existence? Keep that sentence in mind as the symbols arrive.
+</TurningPoint>
 
 ## First principles
 
@@ -151,18 +158,22 @@ As strings they look related. As place-value magnitudes, leading zeros do not cr
 Ask yourself what "five" is when nothing is being counted. The philosopher's itch and the child's pebble game are the same itch: numbers begin as verbs of matching, then harden into nouns we can write.
 
 ## Real world
-
 A price tag, a bank balance, a sensor reading - all lean on positional notation. Change the place of a digit by accident and you change the world the numeral describes: $90$ mg of a medicine is not $9.0$ mg.
 
 Digital storage is the same idea wearing silicon: bits in positions encode magnitudes and addresses. Spreadsheets, barcodes, and timestamps all assume that *where* a digit sits is part of what it means.
 
 Commerce scales because place value compresses. Taxes, inventories, and interest calculations become feasible for non-specialists once position carries magnitude.
 
+<LaterBridge title="Later bridge: AI / ML">
+
 ## AI / ML bridge
 
 When a language model sees the characters `2`, `0`, `3`, nothing forces it to treat them as $2\times100 + 3$. Digit order and place significance are structural facts about numbers. That is why researchers study numerical feature embeddings and positional schemes (including "abacus-style" encodings of digit significance) that help transformers do arithmetic more reliably.
 
 You do not need those papers yet. You only need the seed: **representation of number is a problem for minds and for machines.**
+</LaterBridge>
+
+<DeepPath title="Deep path (return visit)">
 
 ## For the rereader
 
@@ -224,6 +235,8 @@ Operations will treat these numbers as inputs to transformations. Fractions will
 2. Explain why $203$ and $023$ are not the same magnitude story as strings of place value.
 3. Give three real interpretations of a negative quantity that are not "negative sheep."
 4. What breaks if you pretend there is a last natural number?
+
+</DeepPath>
 
 ## Carry this forward
 
