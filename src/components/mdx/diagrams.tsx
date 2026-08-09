@@ -850,3 +850,221 @@ export function SineWaveDiagram() {
     </Diagram>
   );
 }
+
+/** Nested number systems sketch */
+export function NumberHierarchyDiagram() {
+  return (
+    <Diagram caption="Number systems nest: naturals inside integers inside rationals inside reals (sketch, not a literal set diagram).">
+      <svg
+        viewBox="0 0 340 200"
+        className="mx-auto h-auto w-full max-w-sm text-foreground"
+        role="img"
+        aria-label="Nested boxes for N Z Q R"
+      >
+        <rect x="20" y="20" width="300" height="160" fill="none" stroke="currentColor" strokeWidth="1.25" />
+        <text x="36" y="40" className="fill-current" fontSize="12" opacity="0.75">reals ℝ</text>
+        <rect x="40" y="50" width="260" height="110" fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.85" />
+        <text x="56" y="70" className="fill-current" fontSize="12" opacity="0.75">rationals ℚ</text>
+        <rect x="60" y="80" width="220" height="65" fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.85" />
+        <text x="76" y="100" className="fill-current" fontSize="12" opacity="0.75">integers ℤ</text>
+        <rect x="90" y="110" width="140" height="25" fill="currentColor" fillOpacity="0.08" stroke="currentColor" strokeWidth="1.25" />
+        <text x="160" y="127" textAnchor="middle" className="fill-current" fontSize="12">naturals ℕ</text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Similar triangles with shared angles */
+export function SimilarTrianglesDiagram() {
+  return (
+    <Diagram caption="Same angles, different size: corresponding sides stay in constant ratio.">
+      <svg
+        viewBox="0 0 360 180"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Two similar triangles"
+      >
+        <polygon points="40,140 140,140 40,60" fill="currentColor" fillOpacity="0.08" stroke="currentColor" strokeWidth="1.5" />
+        <polygon points="180,150 320,150 180,40" fill="currentColor" fillOpacity="0.08" stroke="currentColor" strokeWidth="1.5" />
+        <text x="70" y="170" textAnchor="middle" className="fill-current" fontSize="11" opacity="0.75">small</text>
+        <text x="250" y="170" textAnchor="middle" className="fill-current" fontSize="11" opacity="0.75">scaled copy</text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Coordinate plane with a point */
+export function CoordinatePlaneDiagram() {
+  return (
+    <Diagram caption="Coordinates turn geometry into numbers: every point is an ordered pair (x, y).">
+      <svg
+        viewBox="0 0 280 280"
+        className="mx-auto h-auto w-full max-w-xs text-foreground"
+        role="img"
+        aria-label="Coordinate plane with point"
+      >
+        <line x1="20" y1="140" x2="260" y2="140" stroke="currentColor" strokeWidth="1" opacity="0.45" />
+        <line x1="140" y1="20" x2="140" y2="260" stroke="currentColor" strokeWidth="1" opacity="0.45" />
+        <polygon points="260,140 250,135 250,145" className="fill-current" opacity="0.45" />
+        <polygon points="140,20 135,30 145,30" className="fill-current" opacity="0.45" />
+        <text x="250" y="158" className="fill-current" fontSize="12" opacity="0.7">x</text>
+        <text x="150" y="32" className="fill-current" fontSize="12" opacity="0.7">y</text>
+        <circle cx="200" cy="80" r="4" className="fill-current" />
+        <line x1="200" y1="80" x2="200" y2="140" stroke="currentColor" strokeDasharray="3 3" opacity="0.5" />
+        <line x1="140" y1="80" x2="200" y2="80" stroke="currentColor" strokeDasharray="3 3" opacity="0.5" />
+        <text x="208" y="76" className="fill-current" fontSize="12">(3, 4)</text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Two lines intersecting as a system */
+export function SystemLinesDiagram() {
+  return (
+    <Diagram caption="A linear system is often two lines. Their intersection is the shared solution.">
+      <svg
+        viewBox="0 0 300 200"
+        className="mx-auto h-auto w-full max-w-sm text-foreground"
+        role="img"
+        aria-label="Two intersecting lines"
+      >
+        <line x1="20" y1="160" x2="280" y2="40" stroke="currentColor" strokeWidth="1.5" />
+        <line x1="30" y1="40" x2="270" y2="170" stroke="currentColor" strokeWidth="1.5" opacity="0.7" />
+        <circle cx="150" cy="100" r="4" className="fill-current" />
+        <text x="160" y="95" className="fill-current" fontSize="12">solution</text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Zooming toward a tangent / limit */
+export function LimitZoomDiagram() {
+  return (
+    <Diagram caption="Zoom in on a smooth curve: the wiggle looks straighter. That local slope is the derivative idea.">
+      <svg
+        viewBox="0 0 340 160"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Curve with zoom box and tangent"
+      >
+        <path d="M 20 120 C 80 20, 140 140, 200 60 S 300 40, 320 90" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <rect x="150" y="40" width="70" height="50" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="4 3" opacity="0.7" />
+        <line x1="240" y1="30" x2="320" y2="70" stroke="currentColor" strokeWidth="1.25" opacity="0.8" />
+        <text x="250" y="120" className="fill-current" fontSize="11" opacity="0.75">zoom → tangent</text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Projection of one vector onto another */
+export function ProjectionDiagram() {
+  return (
+    <Diagram caption="Projection asks: how much of this arrow lies along that direction?">
+      <svg
+        viewBox="0 0 320 180"
+        className="mx-auto h-auto w-full max-w-sm text-foreground"
+        role="img"
+        aria-label="Vector projected onto another"
+      >
+        <line x1="40" y1="140" x2="280" y2="140" stroke="currentColor" strokeWidth="1.5" />
+        <text x="250" y="158" className="fill-current" fontSize="12" opacity="0.75">b</text>
+        <line x1="40" y1="140" x2="180" y2="50" stroke="currentColor" strokeWidth="1.5" />
+        <text x="160" y="70" className="fill-current" fontSize="12" opacity="0.75">a</text>
+        <line x1="40" y1="140" x2="160" y2="140" stroke="currentColor" strokeWidth="2" />
+        <line x1="180" y1="50" x2="160" y2="140" stroke="currentColor" strokeDasharray="4 3" opacity="0.6" />
+        <text x="90" y="132" className="fill-current" fontSize="11" opacity="0.8">proj</text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Prior to posterior Bayes sketch */
+export function BayesUpdateDiagram() {
+  return (
+    <Diagram caption="Bayes updates belief: start with a prior, multiply by how well the data fit, then renormalize.">
+      <svg
+        viewBox="0 0 340 120"
+        className="mx-auto h-auto w-full max-w-md text-foreground"
+        role="img"
+        aria-label="Prior times likelihood to posterior"
+      >
+        <rect x="20" y="35" width="70" height="50" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="1.25" />
+        <text x="55" y="65" textAnchor="middle" className="fill-current" fontSize="12">prior</text>
+        <text x="110" y="65" textAnchor="middle" className="fill-current" fontSize="18">×</text>
+        <rect x="130" y="35" width="90" height="50" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="1.25" />
+        <text x="175" y="65" textAnchor="middle" className="fill-current" fontSize="11">likelihood</text>
+        <text x="240" y="65" textAnchor="middle" className="fill-current" fontSize="18">→</text>
+        <rect x="260" y="35" width="60" height="50" fill="currentColor" fillOpacity="0.18" stroke="currentColor" strokeWidth="1.25" />
+        <text x="290" y="65" textAnchor="middle" className="fill-current" fontSize="11">posterior</text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Gradient descent steps on a curve */
+export function GradientDescentDiagram() {
+  return (
+    <Diagram caption="Gradient descent: follow the downhill direction in small steps to seek a lower loss.">
+      <svg
+        viewBox="0 0 320 160"
+        className="mx-auto h-auto w-full max-w-sm text-foreground"
+        role="img"
+        aria-label="Bowl curve with descending steps"
+      >
+        <path d="M 30 40 Q 160 200 290 40" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        {[
+          { x: 70, y: 70 },
+          { x: 100, y: 95 },
+          { x: 130, y: 110 },
+          { x: 160, y: 118 },
+        ].map((p, i) => (
+          <circle key={i} cx={p.x} cy={p.y} r="4" className="fill-current" />
+        ))}
+        <text x="50" y="55" className="fill-current" fontSize="11" opacity="0.75">start</text>
+        <text x="170" y="140" className="fill-current" fontSize="11" opacity="0.75">lower loss</text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Parallel lines cut by a transversal */
+export function ParallelLinesDiagram() {
+  return (
+    <Diagram caption="A transversal across parallel lines makes matching angle patterns - Euclid's parallel world.">
+      <svg
+        viewBox="0 0 300 180"
+        className="mx-auto h-auto w-full max-w-sm text-foreground"
+        role="img"
+        aria-label="Two parallel lines cut by a transversal"
+      >
+        <line x1="30" y1="50" x2="270" y2="50" stroke="currentColor" strokeWidth="1.5" />
+        <line x1="30" y1="130" x2="270" y2="130" stroke="currentColor" strokeWidth="1.5" />
+        <line x1="80" y1="20" x2="220" y2="160" stroke="currentColor" strokeWidth="1.5" opacity="0.75" />
+        <text x="40" y="42" className="fill-current" fontSize="11" opacity="0.7">∥</text>
+        <text x="40" y="122" className="fill-current" fontSize="11" opacity="0.7">∥</text>
+      </svg>
+    </Diagram>
+  );
+}
+
+/** Fraction as part of a whole pie */
+export function FractionPieDiagram() {
+  return (
+    <Diagram caption="A fraction names a part of a whole. Three fourths means three equal slices out of four.">
+      <svg
+        viewBox="0 0 220 200"
+        className="mx-auto h-auto w-full max-w-[12rem] text-foreground"
+        role="img"
+        aria-label="Circle divided into four with three shaded"
+      >
+        <circle cx="110" cy="100" r="70" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M 110 100 L 110 30 A 70 70 0 0 1 180 100 Z" fill="currentColor" fillOpacity="0.2" />
+        <path d="M 110 100 L 180 100 A 70 70 0 0 1 110 170 Z" fill="currentColor" fillOpacity="0.2" />
+        <path d="M 110 100 L 110 170 A 70 70 0 0 1 40 100 Z" fill="currentColor" fillOpacity="0.2" />
+        <line x1="110" y1="30" x2="110" y2="170" stroke="currentColor" strokeWidth="1" />
+        <line x1="40" y1="100" x2="180" y2="100" stroke="currentColor" strokeWidth="1" />
+        <text x="110" y="195" textAnchor="middle" className="fill-current" fontSize="12">3/4</text>
+      </svg>
+    </Diagram>
+  );
+}

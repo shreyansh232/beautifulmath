@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What does f'(x) mean?"
   - "Why does notation matter?"
-estimatedMinutes: 22
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Gottfried Leibniz"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Leibniz/"
@@ -29,6 +29,11 @@ furtherReading:
     url: "https://algebrica.org/derivatives/"
     kind: article
     note: "Derivative definitions and pictures of tangent slope."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Differential calculus as a language of change."
+
 ---
 
 ## First principles
@@ -42,6 +47,11 @@ $$
 is the slope at $x = a$. The function $f'$ sends each $a$ to that slope.
 
 Leibniz wrote $\frac{dy}{dx}$ to suggest a ratio of infinitesimal changes. Modern rigor uses limits; the intuition remains: tiny rise over tiny run.
+
+
+## Slow down: a machine for slopes
+
+The derivative $f'$ is itself a function: feed it a location, get the slope there. That shift - from one slope number to a slope machine - is what makes calculus compositional and what makes gradient learning possible later.
 
 ## Rules worth knowing early
 
@@ -69,6 +79,29 @@ If profit $P(q)$ depends on quantity $q$, $P'(q)$ is marginal profit at that sca
 ## AI / ML bridge
 
 Gradient descent steps opposite the gradient of loss. Each partial derivative asks: if I nudge this weight, how does loss respond?
+
+<LimitZoomDiagram />
+
+<StoryNote title="From The Joy of X">
+  <p>
+    Strogatz's calculus chapters insist the derivative is a story about change, not a memorized symbol. Leibniz's notation $\frac{dy}{dx}$ even looks like a ratio of tiny changes - a mnemonic with a deep idea inside.
+  </p>
+</StoryNote>
+
+<StoryNote title="Curiosity from history">
+  <p>
+    Newton and Leibniz developed calculus in different notations and communities; priority fights followed. What matters for learning is the shared core: limits of difference quotients unlocking geometry and motion.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica's derivatives page lists rules after the definition. Learn the definition's picture first; rules are speed, not meaning.
+
+## Curiosity seeds
+
+- What does $f'(a)=0$ suggest on a smooth graph?
+- Why might two different-looking formulas share a derivative?
 
 ## Carry this forward
 

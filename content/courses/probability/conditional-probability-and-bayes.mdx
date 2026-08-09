@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What does conditioned on mean?"
   - "Why do false positives matter?"
-estimatedMinutes: 22
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Thomas Bayes"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Bayes/"
@@ -29,6 +29,11 @@ furtherReading:
     url: "https://algebrica.org/bayes-theorem/"
     kind: article
     note: "Conditional probability and Bayes with worked structure."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Conditioning as the plot twist of probability."
+
 ---
 
 ## First principles
@@ -40,6 +45,11 @@ P(A \mid B) = \frac{P(A \cap B)}{P(B)}
 $$
 
 Restrict attention to the world where $B$ happened, then weigh $A$ inside that world.
+
+
+## Slow down: the words "given that"
+
+$P(\text{disease}|\text{positive test})$ is not $P(\text{positive test}|\text{disease})$. Clinics, spam filters, and courtroom rhetoric all trip on that swap. Bayes is the disciplined repair kit: start with base rates, update with evidence strength, renormalize.
 
 ## Bayes' rule
 
@@ -60,6 +70,29 @@ Email: $P(\text{spam} \mid \text{words})$. Medicine: $P(\text{condition} \mid \t
 ## AI / ML bridge
 
 Training data estimates likelihood-like terms. Regularization and priors encode beliefs before seeing the batch. Calibration compares predicted probabilities to empirical frequencies.
+
+<BayesUpdateDiagram />
+
+<StoryNote title="Curiosity from history">
+  <p>
+    Thomas Bayes and later Laplace helped turn "update your beliefs with evidence" into mathematics. The modern slogan is Bayesian updating; the human habit is older than the formula: revise when the world talks back.
+  </p>
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  <p>
+    Probability chapters in Strogatz keep showing that intuition without conditioning lies to you. "Given that" is not a footnote. It is often the whole plot.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica's Bayes theorem page is the structured companion. Draw the prior → likelihood → posterior cartoon until it feels inevitable.
+
+## Curiosity seeds
+
+- Why can $P(A|B)$ differ wildly from $P(B|A)$?
+- Where do you already update beliefs informally each day?
 
 ## Carry this forward
 

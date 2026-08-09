@@ -15,7 +15,7 @@ prerequisites:
 curiositySeeds:
   - "What is a bit of information?"
   - "Why does cross-entropy work as a loss?"
-estimatedMinutes: 22
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Claude Shannon"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Shannon/"
@@ -32,6 +32,11 @@ furtherReading:
     url: "https://algebrica.org/discrete-random-variables/"
     kind: article
     note: "Distribution language that entropy builds on; Algebrica diagrams help."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Information as measurable surprise."
+
 ---
 
 ## First principles
@@ -51,6 +56,11 @@ H(p) = -\sum_i p_i \log_2 p_i
 $$
 
 A sure outcome has entropy 0. A fair coin has entropy 1 bit.
+
+
+## Slow down: surprise has weight
+
+If a fair coin flip landing heads barely surprises you, a fair die landing on a predicted face surprises you more. Shannon turned that graded surprise into bits. Entropy averages it. Cross-entropy asks how surprised a model should be by the truth.
 
 ## Cross-entropy
 
@@ -73,6 +83,27 @@ English text has lower entropy than random letters: compression exploits that st
 ## AI / ML bridge
 
 Training a classifier with cross-entropy pushes $q$ toward $p$. Generative models and language models are probability machines scored by information-theoretic losses.
+
+<StoryNote title="Curiosity from history">
+  <p>
+    Claude Shannon's 1948 paper forged information into a measurable quantity. Surprise became mathematics: rarer events carry more information when they occur. Entropy measures average surprise for a source.
+  </p>
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  <p>
+    Strogatz's data chapters sit next door: once chance has a language, information can score how uncertain a distribution still is. Cross-entropy in ML is that scoring instinct aimed at a model's predicted probabilities.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica may not center Shannon entropy on one page, but its discrete random variables treatment is the right substrate. Shannon's paper (in further reading) is worth skimming for definitions alone.
+
+## Curiosity seeds
+
+- Why is the entropy of a sure thing zero?
+- How does cross-entropy punish confident wrong answers?
 
 ## Carry this forward
 

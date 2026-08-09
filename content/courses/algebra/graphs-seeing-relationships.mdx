@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What is a graph of a function?"
   - "What does slope mean on a line?"
-estimatedMinutes: 20
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Rene Descartes"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Descartes/"
@@ -29,6 +29,11 @@ furtherReading:
     url: "https://algebrica.org/analyzing-the-graphs-of-functions/"
     kind: article
     note: "Reading graphs: intercepts, shape, and behavior."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "The Conic Conspiracy: graphs as family resemblance."
+
 ---
 
 ## First principles
@@ -38,6 +43,11 @@ If $y = f(x)$, the **graph** is the set of points $(x, f(x))$ in the plane.
 <LineGraphDiagram />
 
 Coordinates let algebra speak geometrically: the unknown becomes a location.
+
+
+## Slow down: a graph is a relationship made visible
+
+Every point on a graph is an answer to "when the input is this, the output is that." Clusters, slopes, intercepts, and curves are pattern language. Before you differentiate, you can already see where a graph rises quickly or flattens - calculus will later name those visual hunches.
 
 ## Lines
 
@@ -60,6 +70,25 @@ A speedometer over time is a graph. Area under a speed curve foreshadows distanc
 ## AI / ML bridge
 
 Plotting training loss versus step is reading a function $L(t)$. Sudden spikes, plateaus, and smooth descent are geometric language for optimization behavior.
+
+<CoordinatePlaneDiagram />
+
+<StoryNote title="From The Joy of X">
+  <p>
+    "The Conic Conspiracy" delights in how parabolas, ellipses, and hyperbolas hide family resemblance - slices of a cone, shared algebraic DNA. Graphs are not only straight lines. They are a museum of shapes with shared ancestry.
+  </p>
+</StoryNote>
+
+<StoryNote title="Curiosity from history">
+  <p>
+    Descartes and Fermat helped glue algebra to geometry with coordinates. Suddenly a curve could be an equation, and an equation could be a picture. That glue is why your graphing calculator (and every ML loss plot) exists.
+  </p>
+</StoryNote>
+
+## Curiosity seeds
+
+- What information does a graph throw away when axes lack scales?
+- How is slope already a rate (preview of calculus)?
 
 ## Carry this forward
 

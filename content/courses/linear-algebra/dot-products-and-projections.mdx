@@ -15,7 +15,7 @@ prerequisites:
 curiositySeeds:
   - "What does a large dot product mean?"
   - "What is a projection?"
-estimatedMinutes: 20
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Hermann Grassmann"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Grassmann/"
@@ -30,6 +30,11 @@ furtherReading:
     url: "https://algebrica.org/inner-product-spaces/"
     kind: article
     note: "Dot-product geometry generalized carefully."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Angle, alignment, and projection."
+
 ---
 
 ## First principles
@@ -41,6 +46,11 @@ $$
 $$
 
 when the geometric interpretation applies. Large positive: aligned. Near zero: orthogonal. Negative: opposing.
+
+
+## Slow down: multiply matching parts
+
+Dot product adds the products of corresponding components. Geometrically it secretly contains $\cos\phi$. Projection uses that number to drop a perpendicular shadow of one vector onto another - the core of least squares later.
 
 ## Projection
 
@@ -63,6 +73,23 @@ If you push a crate at an angle, only the component along the motion does work. 
 ## AI / ML bridge
 
 Cosine similarity is the dot product of normalized vectors. Attention logits are often scaled dot products between queries and keys.
+
+<ProjectionDiagram />
+
+<StoryNote title="From The Joy of X">
+  <p>
+    Angle between directions keeps reappearing - in trigonometry as cosine, in data as alignment. The dot product is the algebraic handshake: multiply matching components, sum, and out falls a number that knows about angle and length.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica's inner-product-spaces page and cosine-similarity page are the formal and applied twins of this lesson. Projection is "how much of this lies along that."
+
+## Curiosity seeds
+
+- When is the dot product zero?
+- Why do we divide by lengths to get cosine similarity?
 
 ## Carry this forward
 

@@ -13,7 +13,7 @@ prerequisites: []
 curiositySeeds:
   - "What is a radian?"
   - "Why divide a circle into 360 degrees?"
-estimatedMinutes: 18
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Hipparchus"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Hipparchus/"
@@ -31,6 +31,11 @@ furtherReading:
     url: "https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:trig/x2ec2f6f830c9fb89:radians/v/introduction-to-radians"
     kind: video
     note: "Why radians match arc length so cleanly."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Angles as the doorway to Sine Qua Non."
+
 ---
 
 ## First principles
@@ -50,6 +55,11 @@ Radians make calculus formulas cleaner later because arc length on the unit circ
 
 <AngleDiagram />
 
+
+## Slow down: two rulers for the same turn
+
+Degrees slice a full turn into $360$ comfortable pieces - a historical convenience with Babylonian fingerprints, cemented in Greek astronomy. Radians measure turn by arc length in radius-units, so on the unit circle the arc length equals the angle. Calculus loves that honesty. Navigators often still love degrees. Fluency means translating without panic.
+
 ## Oriented angles
 
 Trigonometry often treats angles as **oriented**: counterclockwise from the positive $x$-axis is positive in the standard plane convention. That lets sine and cosine become functions of any real input, not only acute triangle corners.
@@ -61,6 +71,27 @@ Pilots and sailors speak in degrees. Mathematicians and physicists often prefer 
 ## AI / ML bridge
 
 Predicting an angle of $359^\circ$ vs $1^\circ$ looks far apart as raw numbers but is a tiny turn. Encoding angle as $(\cos\theta, \sin\theta)$ avoids that discontinuity. Geometry saves the model from a bad number line.
+
+<StoryNote title="Curiosity from history">
+  <p>
+    Hipparchus built chord tables that turned geometry into computable astronomy. Historians of trigonometry treat that table-building craft as foundational: not a slogan, but a handbook the sky could be predicted with. Degrees locked in as a practical ruler for turns.
+  </p>
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  <p>
+    Later, when Strogatz reaches waves and circles, the quiet hero is still the measured turn. Radians will make calculus kinder. Degrees remain how humans point at horizons.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica's "Angles and angular measure" is the diagram-rich companion. Practice converting $180^\circ \leftrightarrow \pi$ until it feels like translating units, not memorizing a spell.
+
+## Curiosity seeds
+
+- Why is a full turn $2\pi$ radians rather than $1$?
+- Where do you already hear angles in everyday speech (clocks, compasses, skateboard tricks)?
 
 ## Carry this forward
 

@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "Why radius 1?"
   - "How can sine be negative?"
-estimatedMinutes: 22
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Ptolemy"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Ptolemy/"
@@ -32,6 +32,11 @@ furtherReading:
     url: "https://www.youtube.com/watch?v=r6sGWTCMz2k"
     kind: video
     note: "Optional: rotating vectors as a visual language for waves."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Sine Qua Non: waves from circular motion."
+
 ---
 
 ## First principles
@@ -45,6 +50,11 @@ $$
 <UnitCircleDiagram />
 
 Why radius 1? Because then "adjacent/hypotenuse" collapses to the $x$-coordinate itself, and "opposite/hypotenuse" collapses to $y$. Triangle ratios and circle coordinates become the same objects.
+
+
+## Slow down: coordinates are the ratios
+
+On radius $1$, adjacent/hypotenuse collapses to $x$ and opposite/hypotenuse collapses to $y$. That is why the unit circle is not a new subject. It is right-triangle trig with the hypotenuse normalized away, then extended to every oriented angle.
 
 ## Signs by quadrant
 
@@ -67,6 +77,27 @@ A wheel's position is an angle. The height of a point on the rim as the wheel tu
 ## AI / ML bridge
 
 Rotation by $\theta$ multiplies coordinates by a $2\times 2$ matrix of sines and cosines. Understanding that matrix geometrically makes linear algebra feel less like symbol soup.
+
+<StoryNote title="From The Joy of X">
+  <p>
+    "Sine Qua Non" is Strogatz on sine waves everywhere - Ferris wheels to zebra-stripe models. The unit circle is the engine room: $x=\cos\theta$, $y=\sin\theta$, and suddenly oscillation is just circular motion read sideways.
+  </p>
+</StoryNote>
+
+<StoryNote title="Curiosity from history">
+  <p>
+    Ptolemy's <em>Almagest</em> carried chord methods that made spherical astronomy computable for centuries. Different notation than modern sine, same ambition: turn angles into lengths you can tabulate.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica's unit circle and Pythagorean identity pages show why $\sin^2\theta+\cos^2\theta=1$ is Pythagoras wearing trig clothes.
+
+## Curiosity seeds
+
+- In which quadrant is cosine negative and sine positive?
+- How is a 2D rotation matrix secretly a unit-circle fact?
 
 ## Carry this forward
 

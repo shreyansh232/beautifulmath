@@ -15,7 +15,7 @@ prerequisites:
 curiositySeeds:
   - "What is a basis?"
   - "What does dimension count?"
-estimatedMinutes: 22
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Emmy Noether"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Noether_Emmy/"
@@ -30,6 +30,11 @@ furtherReading:
     url: "https://algebrica.org/vector-spaces/"
     kind: article
     note: "Bases, dimension, and structure with clean exposition."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Group Think / structure and independent directions."
+
 ---
 
 ## First principles
@@ -46,6 +51,13 @@ A **basis** of a space is an independent spanning set: every vector has unique c
 
 **Dimension** is the number of vectors in any basis (a theorem says they all agree).
 
+
+## Slow down: coordinates are costumes
+
+The same arrow can wear the costume $(1,0)$ in one basis and a different pair in another. Dimension counts how many independent costume pieces you need. A plane is two-dimensional because two independent directions span it - not because someone drew an $x$ and $y$ axis in a textbook.
+
+This is why change of basis matters in graphics, PCA, and physics: choose axes that make the phenomenon simple.
+
 ## Why this matters
 
 Coordinates are not the object. The space is. Change basis and coordinates change, but geometric relationships (when properly expressed) persist. Noether's broader algebraic spirit is exactly this: track the structure that survives rewriting.
@@ -61,6 +73,27 @@ Three mutually perpendicular unit axes basis ordinary space. Four legs of a tabl
 ## AI / ML bridge
 
 If a layer's weight matrix has low rank, it bottlenecks information. Embeddings live in a chosen dimension: enough axes to separate concepts, not so many that you drown in noise.
+
+<StoryNote title="From The Joy of X">
+  <p>
+    "Group Think" is Strogatz on symmetry's algebra. Bases and dimension are a sibling idea: how many independent directions do you need to build every vector in a space? Structure is what remains when coordinates change.
+  </p>
+</StoryNote>
+
+<StoryNote title="Curiosity from history">
+  <p>
+    Change-of-basis thinking is why the same physical arrow can wear different number costumes in different frames. Einstein-era geometry made that flexibility physical. Linear algebra makes it computational.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica's vector spaces and change-of-basis pages reward patience. Dimension is not "number of coordinates on the page." It is the size of a basis.
+
+## Curiosity seeds
+
+- Can two different bases span the same plane?
+- What does dimension $0$ look like?
 
 ## Carry this forward
 

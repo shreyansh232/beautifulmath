@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What is an operation?"
   - "Why can some steps be undone?"
-estimatedMinutes: 20
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Srinivasa Ramanujan"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Ramanujan/"
@@ -55,6 +55,11 @@ $$
 Addition by $5$ sends every number $x$ to $x + 5$. Multiplication by $3$ sends $x$ to $3x$. These are **transformations** of quantity.
 
 School often teaches operations as procedures on worksheets. The first-principles view is simpler: **operations are structured ways the world (or a model) can change a quantity.**
+
+
+## Slow down: undo as superpower
+
+Solving equations is mostly invertibility with manners: do the same to both sides, using operations that can be undone. Addition undoes by subtraction. Multiplication undoes by division when the factor is nonzero. Keep asking "can I reverse this step?"
 
 ## Addition: combining
 
@@ -111,6 +116,27 @@ Double a recipe: multiply by $2$. Halve it: multiply by $\tfrac{1}{2}$. Convert 
 ## AI / ML bridge
 
 At the smallest scale, a neuron computes a weighted sum - multiplications and additions - then applies a nonlinearity. Training traces those multiplications backward. For now: **learning systems are webs of numerical transformations**, some invertible, some not.
+
+<StoryNote title="From The Joy of X">
+  <p>
+    "Commuting" asks a cash-register question: discount then tax, or tax then discount? Sometimes order changes the bill. Commutativity is not a vibe. It is a claim about order.
+  </p>
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  <p>
+    "Division and Its Discontents" shows how units and decimal points betray us (including a famous phone-bill decimal disaster). Operations are precise only when quantities and units are honest.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+The distributive law $a(b+c)=ab+ac$ is a rectangle split in two. Algebrica's "Properties of real numbers" pairs cleanly with that picture. When you meet matrices later, multiplication will stop commuting in general - a reminder that "operation" is a bigger word than school arithmetic.
+
+## Curiosity seeds
+
+- Name three real-life processes where order matters.
+- Why can we not invert multiplication by zero?
 
 ## Carry this forward
 

@@ -13,7 +13,7 @@ prerequisites: []
 curiositySeeds:
   - "What is a vector?"
   - "How do you add vectors?"
-estimatedMinutes: 20
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Josiah Willard Gibbs"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Gibbs/"
@@ -28,6 +28,11 @@ furtherReading:
     url: "https://algebrica.org/vectors/"
     kind: article
     note: "Vector geometry and operations with editable-style diagrams."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Step Into the Light: vectors as choreography."
+
 ---
 
 ## First principles
@@ -40,6 +45,13 @@ A **vector** can be:
 <VectorDiagram />
 
 Addition tip-to-tail matches componentwise sums. Scaling $c\mathbf{v}$ stretches (or flips if $c < 0$).
+
+
+## Slow down: arrows that add
+
+Tip-to-tail addition is a physical story: walk one displacement, then another. The shortcut home is the sum. Componentwise addition is the same story told in coordinates. When data scientists say "vector," they often mean the coordinate list - but the arrow intuition still teaches what scaling and adding do.
+
+If $\mathbf{u}$ points east and $\mathbf{v}$ points north, $\mathbf{u}+\mathbf{v}$ points northeast with a length the Pythagorean theorem can compute. Geometry lesson, still paying rent.
 
 ## Why lists matter for data
 
@@ -56,6 +68,29 @@ Displacements add as vectors: walk east then north. Net displacement is the diag
 ## AI / ML bridge
 
 Word embeddings place tokens in high-dimensional space so "direction" can encode relations. The famous king - man + woman ≈ queen analogy is vector arithmetic on meaning (imperfect, but the geometry is the point).
+
+<CoordinatePlaneDiagram />
+
+<StoryNote title="From The Joy of X">
+  <p>
+    "Step Into the Light" is Strogatz on vector calculus as choreography for fields. Even before the full dance, a vector is already an arrow that knows how to add. Geometry and lists become one object.
+  </p>
+</StoryNote>
+
+<StoryNote title="Curiosity from history">
+  <p>
+    Gibbs and Heaviside helped push vector language into a form physicists could compute with, amid competing formalisms (including quaternion traditions). The ethic: pick a representation that makes the next calculation inevitable.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica's vectors page develops magnitude, direction, and the dual arrow/list view with careful diagrams. Read it when you want more than the cartoon arrow.
+
+## Curiosity seeds
+
+- How is a spreadsheet row already a vector?
+- What does multiplying a vector by $-1$ do geometrically?
 
 ## Carry this forward
 

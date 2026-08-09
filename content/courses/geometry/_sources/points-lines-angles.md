@@ -14,3 +14,8 @@
 
 ## Honesty notes
 - Do not claim Euclid invented every theorem in the Elements; credit organization and axiomatic presentation.
+
+## Enrichment notes
+- Additional StoryNote hooks from Steven Strogatz, The Joy of X (2012), mapped to chapter themes without inventing quotations.
+- Diagram ideas cross-checked against Algebrica topic pages (CC BY-NC 4.0: link and inspire; do not paste their SVGs).
+- Historical vignettes cross-checked against MacTutor where named.

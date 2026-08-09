@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What makes something a function?"
   - "What is composition?"
-estimatedMinutes: 20
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Leonhard Euler"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Euler/"
@@ -42,6 +42,11 @@ A **function** $f$ from a set of inputs to outputs assigns **exactly one** outpu
 <FunctionMachineDiagram />
 
 If one input could yield two different outputs, it is not a function. Vertical-line tests on graphs encode the same idea.
+
+
+## Slow down: one input, one output
+
+The vertical-line test is a cartoon of the definition: if a single $x$ tried to claim two $y$ values, the machine would be indecisive. Functions are decisive maps. That decisiveness is what lets you compose $f\circ g$ without ambiguity - feed forward, as neural nets do layer after layer.
 
 ## Examples
 
@@ -72,6 +77,21 @@ Unit conversion $C = \frac{5}{9}(F - 32)$ is a function from Fahrenheit to Celsi
 ## AI / ML bridge
 
 Layers compose: $f_3(f_2(f_1(x)))$. Backpropagation is the chain rule on that composition. You will meet that formally in calculus intuition.
+
+<StoryNote title="Curiosity from history">
+  <p>
+    Euler's $f(x)$ notation looks small. It is a cultural invention: name the machine, reuse it, compose it. Once functions are objects, calculus and ML can move them around like parts.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica's "Functions" and "Composite functions" entries reward a slow read. Composition is the secret grammar of neural nets.
+
+## Curiosity seeds
+
+- Is a vertical line a function of $x$? Why does the vertical-line test care?
+- Where do you already use composition (unit conversions chained together)?
 
 ## Carry this forward
 

@@ -15,7 +15,7 @@ prerequisites:
 curiositySeeds:
   - "What is a partial derivative?"
   - "Why descend the gradient?"
-estimatedMinutes: 22
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Joseph-Louis Lagrange"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Lagrange/"
@@ -35,6 +35,11 @@ furtherReading:
     url: "https://algebrica.org/backpropagation/"
     kind: article
     note: "Chain rule in networks; diagrams that connect gradients to learning."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Many-variable change and downhill learning."
+
 ---
 
 ## First principles
@@ -46,6 +51,11 @@ $$
 $$
 
 points to the direction of steepest ascent (when it exists and is nonzero). Steepest descent is $-\nabla f$.
+
+
+## Slow down: many knobs, one downhill
+
+Each partial derivative asks how loss changes if you tweak one knob. Bundle them into a gradient vector and you get a single arrow in parameter space. Learning algorithms walk against that arrow in small steps.
 
 ## Why a vector?
 
@@ -72,6 +82,23 @@ Hill walking in fog with only a local slope measurement is gradient descent as m
 ## AI / ML bridge
 
 This lesson is the bridge. Linear algebra will represent $w$ and data as vectors. Probability will treat loss as expectation. Calculus supplies the sensitivity.
+
+<GradientDescentDiagram />
+
+<StoryNote title="From The Joy of X">
+  <p>
+    Once rates live in many directions, you need a vector of slopes - the gradient. Strogatz's change chapters prepare the intuition; modern learning algorithms turn that vector into a step downhill on a loss surface.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica's partial derivatives and backpropagation pages connect multivariable slopes to the chain rule in networks. The diagram above is the cartoon; those pages are the schematics.
+
+## Curiosity seeds
+
+- Why step opposite the gradient to reduce loss?
+- What goes wrong if the step size (learning rate) is enormous?
 
 ## Carry this forward
 

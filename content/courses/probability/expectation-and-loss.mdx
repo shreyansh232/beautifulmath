@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "What is expected value?"
   - "What is a loss function?"
-estimatedMinutes: 20
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Andrey Kolmogorov"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Kolmogorov/"
@@ -55,6 +55,11 @@ Linearity: $\mathbb{E}[aX + bY] = a\mathbb{E}[X] + b\mathbb{E}[Y]$ always (no in
   </p>
 </StoryNote>
 
+
+## Slow down: average is a weighted center
+
+Expectation is a center of mass. A lottery with tiny chance of a huge prize can have a shiny expected value and still be a bad personal plan - variance and ruin matter too. In ML, choosing a loss is choosing which mistakes hurt in the average that training will minimize.
+
 ## Variance (brief)
 
 $\mathrm{Var}(X) = \mathbb{E}[(X - \mathbb{E}X)^2]$ measures spread.
@@ -70,6 +75,21 @@ A fair game has expected net gain near zero. Casinos set rules so their expectat
 ## AI / ML bridge
 
 MSE, cross-entropy, hinge loss: different geometries of error. Optimization (calculus) + linear maps (linear algebra) + expectation (this lesson) meet in training.
+
+<StoryNote title="From The Joy of X">
+  <p>
+    "All About e" includes the dating / secretary problem: interview, calibrate on the first roughly $1/e$, then take the next candidate who beats them. Expectation is not only average payoff. It can tell you when to stop searching.
+  </p>
+</StoryNote>
+
+## Dig deeper
+
+Algebrica's mean-or-expected-value page develops discrete and continuous cases. Loss functions in ML are how prediction mistakes become numbers you can average.
+
+## Curiosity seeds
+
+- Why is expectation not always a value the random variable can actually take?
+- How is empirical risk an average standing in for an expectation?
 
 ## Carry this forward
 

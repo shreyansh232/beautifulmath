@@ -14,7 +14,7 @@ prerequisites:
 curiositySeeds:
   - "When does a system have one solution?"
   - "What does inconsistent mean?"
-estimatedMinutes: 22
+estimatedMinutes: 34
 furtherReading:
   - title: "MacTutor - Carl Friedrich Gauss"
     url: "https://mathshistory.st-andrews.ac.uk/Biographies/Gauss/"
@@ -30,6 +30,11 @@ furtherReading:
     url: "https://algebrica.org/systems-of-linear-equations/"
     kind: article
     note: "Systems overview with geometric and algebraic views."
+  - title: "Steven Strogatz - The Joy of X"
+    url: "https://www.stevenstrogatz.com/books/the-joy-of-x"
+    kind: book
+    note: "Systems as the seed of later network algebra."
+
 ---
 
 ## First principles
@@ -48,6 +53,11 @@ $$
 Add them: $3x = 12$, so $x = 4$, then $y = 6$.
 
 You eliminated a variable by combining truth claims. That is the heart of elimination methods associated with Gauss's style of systematic reduction.
+
+
+## Slow down: constraints as lines
+
+Each linear equation is a constraint. Two constraints in two unknowns often meet at a point - the solution. Parallel constraints never meet. Stacked identical constraints meet everywhere on a line. Pictures prevent algebraic superstition.
 
 ## Geometric picture
 
@@ -68,6 +78,25 @@ Two price constraints fix two item prices. One constraint leaves a free family o
 ## AI / ML bridge
 
 With many data points you get many approximate equations for few weights. Ordinary least squares finds the compromise that minimizes squared residuals. Later linear algebra will say this with matrices in one line: $Xw \approx y$.
+
+<SystemLinesDiagram />
+
+<StoryNote title="Curiosity from history">
+  <p>
+    Chinese <em>Nine Chapters</em> traditions and later Gaussian elimination stories show the same human need: several constraints, several unknowns, one coherent answer (or a clear reason none exists). Linear algebra will rename this as matrices. Here, see two lines first.
+  </p>
+</StoryNote>
+
+<StoryNote title="From The Joy of X">
+  <p>
+    When Strogatz later untangles the Web with linear algebra, the seedling is already here: many unknowns linked by linear relationships. A search ranking is a gigantic system in spirit.
+  </p>
+</StoryNote>
+
+## Curiosity seeds
+
+- What does a parallel pair of distinct lines say about solutions?
+- What does the same line twice say?
 
 ## Carry this forward
 
