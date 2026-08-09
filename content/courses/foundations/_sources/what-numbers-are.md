@@ -22,3 +22,12 @@
 ## Honesty notes
 - Do **not** claim Brahmagupta “invented zero” in isolation; Maya and earlier Indian placeholder uses exist. Credit him for arithmetic rules treating zero as a number.
 - Do **not** present Brahmagupta’s division by zero as correct modern math.
+
+## Story notes (The Joy of X)
+- Steven Strogatz, *The Joy of X* (2012); companion site https://www.stevenstrogatz.com/books/the-joy-of-x
+- Used: Latin *calculus*/pebbles and tactile counting opener (Numbers chapters).
+- Attribute as popular exposition / pedagogy, not primary historical scholarship.
+
+## Algebrica
+- Algebrica (Antonio Lupetti), open math knowledge base with SVG diagrams: https://algebrica.org/types-of-numbers/
+- License: CC BY-NC 4.0. Prefer linking in furtherReading; attribute clearly if adapting diagrams.

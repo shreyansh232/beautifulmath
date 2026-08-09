@@ -6,3 +6,7 @@
 
 ## AI-ML
 - Gradient descent update rule; Distill momentum article as optional further reading.
+
+## Algebrica
+- Algebrica (Antonio Lupetti), open math knowledge base with SVG diagrams: https://algebrica.org/partial-derivatives/ and https://algebrica.org/backpropagation/
+- License: CC BY-NC 4.0. Prefer linking in furtherReading; attribute clearly if adapting diagrams.

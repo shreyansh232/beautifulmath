@@ -6,3 +6,7 @@
 
 ## AI-ML
 - Cross-entropy classification loss; KL divergence preview.
+
+## Algebrica
+- Algebrica (Antonio Lupetti), open math knowledge base with SVG diagrams: https://algebrica.org/discrete-random-variables/ (distribution language; no dedicated entropy page used)
+- License: CC BY-NC 4.0. Prefer linking in furtherReading; attribute clearly if adapting diagrams.

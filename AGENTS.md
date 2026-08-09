@@ -20,6 +20,12 @@ Before adding or changing any lesson, vignette, diagram caption, check, AI/ML br
 4. **Honest AI/ML bridges.** Only include an AI/ML link when it is genuine. If forced, omit it.
 5. **Inspiring mathematicians.** Vignettes should convey work ethic and passion, not a Wikipedia-style bio dump.
 
+### Preferred technical / diagram reference
+
+**[Algebrica](https://algebrica.org/)** (Antonio Lupetti) is a strong open knowledge base for definitions, worked structure, and editable SVG diagrams. Prefer linking specific Algebrica entries in `furtherReading` when a lesson topic has a matching page. Use it to cross-check formal statements and to inspire diagram clarity.
+
+License note: Algebrica content and SVGs are CC BY-NC 4.0. Prefer linking out. If you adapt an Algebrica diagram into this repo, keep attribution clear and do not treat the copy as unrestricted commercial reuse.
+
 ## Typography (mandatory)
 
 **Never use em dashes (`—`) anywhere in product content:** lessons (MDX), frontmatter strings, checks, UI copy for the course, README course descriptions, diagram captions, or source notes meant for learners. Prefer commas, periods, colons, parentheses, or a spaced hyphen (` - `) when a break is needed.

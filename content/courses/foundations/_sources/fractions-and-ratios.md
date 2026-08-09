@@ -17,3 +17,12 @@
 ## Honesty notes
 - Attribution of Book V solely to Eudoxus is traditional (Archimedes attributes an axiom to him); some historians urge caution - lesson attributes the *theory as preserved in Euclid*, associated with Eudoxus.
 - Fraction arithmetic (a/b) is the school gateway; ratio theory is deeper and older in the Euclidean sense.
+
+## Story notes (The Joy of X)
+- Steven Strogatz, *The Joy of X* (2012); companion site https://www.stevenstrogatz.com/books/the-joy-of-x
+- Used: Hilbert Hotel parable and countable vs uncountable infinity; also NYT column https://opinionator.blogs.nytimes.com/2010/05/09/the-hilbert-hotel/
+- Attribute as popular exposition / pedagogy, not primary historical scholarship.
+
+## Algebrica
+- Algebrica (Antonio Lupetti), open math knowledge base with SVG diagrams: https://algebrica.org/rational-numbers/
+- License: CC BY-NC 4.0. Prefer linking in furtherReading; attribute clearly if adapting diagrams.

@@ -18,6 +18,7 @@ import {
   SlopeDiagram,
   VectorDiagram,
 } from "@/components/mdx/diagrams";
+import { StoryNote } from "@/components/mdx/story-note";
 
 const components = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -77,6 +78,7 @@ const components = {
   MatrixMapDiagram,
   ProbabilityDiagram,
   DistributionDiagram,
+  StoryNote,
 };
 
 export async function renderLessonMdx(source: string): Promise<ReactNode> {

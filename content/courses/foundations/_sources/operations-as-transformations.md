@@ -18,3 +18,12 @@
 ## Honesty notes
 - Ramanujan is used for work ethic / passion for structure of numbers and operations, not as the inventor of arithmetic.
 - Keep ML bridge at “operations are the verbs models apply,” not claiming he anticipated neural nets.
+
+## Story notes (The Joy of X)
+- Steven Strogatz, *The Joy of X* (2012); companion site https://www.stevenstrogatz.com/books/the-joy-of-x
+- Used: rock-pile / rearrange intuition for commutative arithmetic.
+- Attribute as popular exposition / pedagogy, not primary historical scholarship.
+
+## Algebrica
+- Algebrica (Antonio Lupetti), open math knowledge base with SVG diagrams: https://algebrica.org/properties-of-real-numbers/
+- License: CC BY-NC 4.0. Prefer linking in furtherReading; attribute clearly if adapting diagrams.

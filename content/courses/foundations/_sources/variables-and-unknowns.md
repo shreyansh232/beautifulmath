@@ -16,3 +16,7 @@
 ## Honesty notes
 - Do not mythologize al-Khwārizmī as inventing “the letter x”; symbolic letter algebra evolved later in Europe. Credit the **method of treating unknowns systematically**.
 - Diophantus and Indian algebraic traditions also matter historically; this lesson centers al-Khwārizmī because of al-jabr’s conceptual clarity for beginners.
+
+## Algebrica
+- Algebrica (Antonio Lupetti), open math knowledge base with SVG diagrams: https://algebrica.org/equations/
+- License: CC BY-NC 4.0. Prefer linking in furtherReading; attribute clearly if adapting diagrams.

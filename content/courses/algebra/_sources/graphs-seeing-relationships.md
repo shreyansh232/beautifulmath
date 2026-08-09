@@ -6,3 +6,7 @@
 
 ## AI-ML
 - Loss curves and diagnostic plots as graphs of functions of training step / threshold.
+
+## Algebrica
+- Algebrica (Antonio Lupetti), open math knowledge base with SVG diagrams: https://algebrica.org/analyzing-the-graphs-of-functions/
+- License: CC BY-NC 4.0. Prefer linking in furtherReading; attribute clearly if adapting diagrams.

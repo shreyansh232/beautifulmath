@@ -6,3 +6,7 @@
 
 ## AI-ML
 - PCA as change to informative basis; rank as capacity bottleneck.
+
+## Algebrica
+- Algebrica (Antonio Lupetti), open math knowledge base with SVG diagrams: https://algebrica.org/vector-spaces/
+- License: CC BY-NC 4.0. Prefer linking in furtherReading; attribute clearly if adapting diagrams.

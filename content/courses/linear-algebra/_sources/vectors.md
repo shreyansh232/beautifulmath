@@ -6,3 +6,7 @@
 
 ## AI-ML
 - Embeddings as vectors; similarity search.
+
+## Algebrica
+- Algebrica (Antonio Lupetti), open math knowledge base with SVG diagrams: https://algebrica.org/vectors/
+- License: CC BY-NC 4.0. Prefer linking in furtherReading; attribute clearly if adapting diagrams.
