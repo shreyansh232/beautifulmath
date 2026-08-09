@@ -1,0 +1,100 @@
+---
+title: "Variables and unknowns"
+slug: "variables-and-unknowns"
+order: 4
+summary: "A variable is a name for a quantity that is not fixed yet. Naming the unknown is how relationships become thinkable — in equations, in science, and in machine learning features and parameters."
+mathematician:
+  name: "Muḥammad ibn Mūsā al-Khwārizmī"
+  years: "c. 780–850"
+  vignette: "In Baghdad’s House of Wisdom, al-Khwārizmī wrote Kitāb al-jabr wa-l-muqābala — the book whose al-jabr gave us the word algebra. He taught restoration and balancing: systematic ways to rearrange problems until the unknown is isolated. The Latinized form of his name also gave us “algorithm.” The passion on display is procedural clarity — make the method teachable."
+  image: "/mathematicians/al-khwarizmi.jpg"
+  imageCredit: "Statue in Urgench (modern commemorative). Wikimedia Commons."
+realWorld: "Before you measure the missing length of a beam, you can still write “let L be that length” and relate it to known spans. The name lets you reason ahead of the tape measure."
+aiMlHook: "In ML, x often names an input feature, y a target, and w a parameter. Training is the search for values of those named quantities that make predictions match reality across many examples — the unknown becomes many unknowns, updated repeatedly."
+prerequisites:
+  - "what-numbers-are"
+  - "operations-as-transformations"
+  - "fractions-and-ratios"
+curiositySeeds:
+  - "What is a variable?"
+  - "How do you isolate an unknown?"
+estimatedMinutes: 20
+---
+
+## First principles: name before you know
+
+Sometimes you know the relationship before you know the number.
+
+You know the room’s perimeter is $2(L + W)$ before you know $L$. You know a fair split of a bill before you know each person’s share. A **variable** is a **name** for a quantity that can take different values — or whose value is not yet determined in the problem.
+
+That sounds almost too simple. It is the entire gateway to algebra.
+
+Without names, every problem is a pile of specific arithmetic. With names, you can write a **pattern** once and reuse it:
+
+$$
+A = \pi r^2
+$$
+
+Here $r$ varies; the relationship does not.
+
+## Unknowns versus placeholders
+
+Two closely related uses:
+
+1. **Unknown:** find the number $x$ such that $2x + 3 = 11$.
+2. **General quantity:** for every real $x$, $x + 0 = x$.
+
+Same letters, different jobs. Beginners get hurt when teachers switch jobs silently. Ask which job a letter is doing.
+
+## Equations as truth conditions
+
+An equation is a claim that two expressions name the same amount. Solving means finding values that make the claim true.
+
+Example:
+
+$$
+2x + 3 = 11
+$$
+
+Undo transformations from the outside in — the invertibility lesson from operations:
+
+1. Subtract $3$ from both sides: $2x = 8$.
+2. Divide by $2$: $x = 4$.
+
+You preserved truth at each step because you applied the **same** invertible operation to both sides.
+
+> Why does this work? An equation asserts equality. If two amounts are equal, transforming both by the same invertible map keeps them equal. That is balancing.
+
+## al-Khwārizmī: restoration and balancing
+
+Al-Khwārizmī’s algebra text teaches methods later summarized as:
+
+- **al-jabr (restoration):** repairing an equation by moving terms — historically associated with eliminating subtraction by “restoring” amounts.
+- **al-muqābala (balancing):** simplifying by canceling like terms on opposite sides.
+
+He reduced problems to canonical forms and explained solutions with arithmetic and geometric reasoning. Historians debate how directly he used Euclid; what matters for learning is the ethic: **make a repeatable method for isolating the unknown.**
+
+Note what he did *not* yet have in modern form: the fully symbolic letter-algebra of later European mathematics. The conceptual leap — treat the unknown systematically — is already there.
+
+## Real world
+
+Engineers write $F = ma$ before a particular force is measured. Pharmacists write dose $= c \cdot w$ with body weight $w$ variable across patients. Programmers write `total = price * quantity` with different carts. Naming is leverage.
+
+## AI / ML bridge: features and parameters
+
+A supervised learning problem is full of named quantities:
+
+- $x^{(i)}$ — the features of example $i$
+- $y^{(i)}$ — the target
+- $w$ — parameters (weights) the algorithm will adjust
+
+A linear model predicts $\hat{y} = w_1 x_1 + w_2 x_2 + b$. Training searches for $w$ and $b$ that make $\hat{y}$ close to $y$ on average. The childhood move “let $x$ be the unknown” becomes “let $w$ be what we learn.”
+
+Same naming power. Larger stage.
+
+## Carry this forward
+
+- Variables name quantities that vary or are unknown.
+- Equations assert equality; solving undoes operations symmetrically.
+- Algebra begins as method, not as alphabet soup.
+- Foundations checkpoint: numbers, operations, ratios, names. Ahead: equations in depth, functions, graphs — then the road toward linear algebra and probability for AI/ML.

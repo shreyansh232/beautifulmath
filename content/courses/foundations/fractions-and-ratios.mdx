@@ -1,0 +1,95 @@
+---
+title: "Fractions and ratios"
+slug: "fractions-and-ratios"
+order: 3
+summary: "A fraction is a number; a ratio is a comparison. Both speak the language of relative size — the same language probability and many ML metrics will speak later."
+mathematician:
+  name: "Eudoxus of Cnidus"
+  years: "c. 408–355 BCE"
+  vignette: "Greek mathematics hit a wall when lengths like the diagonal of a unit square refused to be a ratio of whole numbers. The theory of proportion preserved in Euclid’s Elements Book V — traditionally associated with Eudoxus — compares magnitudes through equimultiples, so ratios remain meaningful even when they are irrational. It is patience made into method: do not abandon comparison because the simple whole-number story failed."
+  image: "/mathematicians/eudoxus.png"
+  imageCredit: "Schematic of Eudoxus’s homocentric spheres (no contemporary portrait survives). Wikimedia Commons."
+realWorld: "A map marked 1:50,000, a medicine dose of 5 mg per kg, and a 12% interest rate are all ratio statements: one quantity spoken relative to another of the same kind of measurement."
+aiMlHook: "Probabilities, precision, recall, and class frequencies are ratios of counts or masses. Softmax turns raw scores into a set of positive weights that sum to 1 — a normalized family of relative sizes."
+prerequisites:
+  - "what-numbers-are"
+  - "operations-as-transformations"
+curiositySeeds:
+  - "What is a ratio really?"
+  - "Why do probabilities look like fractions?"
+estimatedMinutes: 22
+---
+
+## Two ideas people blur
+
+People say “fraction” and “ratio” as if they were twins. They are relatives, not clones.
+
+- A **fraction** $\frac{a}{b}$ (with $b \neq 0$) is a **number** — a point on the number line — built as $a$ multiplied by the multiplicative inverse of $b$.
+- A **ratio** $a : b$ is a **comparison** of two magnitudes of the same kind: how $a$ stands relative to $b$.
+
+You can often encode a ratio as a fraction $\frac{a}{b}$, but the Euclidean tradition is careful: Book V talks about when two comparisons are the same, without first requiring “ratio” to be a completed number object.
+
+> How does this work? Start with same-kind quantities — length with length, mass with mass, count with count. Mixing kinds (“3 meters to 2 kilograms”) is not a ratio in this sense; it is a different animal (a rate with units).
+
+## First principles: parts of a whole
+
+The school fraction $\frac{3}{4}$ says: partition a whole into $4$ equal parts and take $3$ of them. That is the **part–whole** model.
+
+Equivalently, $\frac{3}{4}$ is the number $x$ such that $4x = 3$. That is the **equation** model — and it scales cleanly when you meet algebra.
+
+Equivalent fractions are the same number wearing different clothes:
+
+$$
+\frac{3}{4} = \frac{6}{8}
+$$
+
+because both satisfy the same relationship to $1$, or because cross-multiplying shows $3 \times 8 = 4 \times 6$.
+
+## Ratios: sameness of comparison
+
+Euclid’s *Elements* Book V, Definition 5 (Heath’s tradition; see Joyce’s online Elements) says — in modern paraphrase — that
+
+$$
+a : b = c : d
+$$
+
+when for every pair of whole numbers $m, n$, the comparison of $ma$ with $nb$ matches the comparison of $mc$ with $nd$ (greater, equal, or less together).
+
+That sounds heavy. The spirit is light: **two ratios are the same when no whole-number test can tell them apart.**
+
+This mattered historically because some lengths are incommensurable — not a ratio of whole numbers — yet still comparable. The diagonal of a unit square and the side are not in a whole-number ratio, but they still have a ratio in Eudoxus’s sense.
+
+## Why “relative size” is a superpower
+
+Absolute size says “$40$.” Relative size says “$40$ out of $200$” — $\frac{1}{5}$. Context changes meaning. A $40$ point exam score is poor or excellent depending on the total. Ratios carry context inside the comparison.
+
+Percentages are ratios with denominator $100$ by convention. Rates like km/h mix kinds and need units — still “relative,” but not a pure Euclidean ratio of like magnitudes.
+
+## Real world
+
+- **Cooking:** dilute $1$ part concentrate with $3$ parts water — ratio $1:3$.
+- **Maps:** $1:50{,}000$ means one unit on the map corresponds to $50{,}000$ of the same unit in the world.
+- **Medicine:** mg per kg body mass — a designed proportion so dose scales with the patient.
+
+## Mathematician: Eudoxus and the refusal to give up
+
+When Pythagorean hopes that all is whole-number ratio cracked against irrationals, Greek mathematics could have shrunk. Instead, the proportion theory in Book V — linked to Eudoxus — rebuilt comparison on equimultiples. Dedekind, centuries later, would explicitly cite Eudoxus-like ideas while constructing the real numbers.
+
+The ethic: **when a naive story breaks, rebuild the comparison carefully rather than pretending the crack is not there.**
+
+## AI / ML bridge: probability is ratio language
+
+If a dataset has $90$ cats and $10$ dogs, the class fractions are $0.9$ and $0.1$. A classifier’s precision is (true positives) / (predicted positives) — a ratio of counts. Softmax takes scores $z_i$ and produces
+
+$$
+p_i = \frac{e^{z_i}}{\sum_j e^{z_j}}
+$$
+
+Each $p_i$ is a relative weight in a whole that sums to $1$. You are not learning “AI magic.” You are watching ratio thinking get normalized.
+
+## Carry this forward
+
+- Fractions are numbers; ratios are comparisons; they meet constantly.
+- Equivalence means the same relative relationship.
+- Probability and many metrics are this language in a suit.
+- Next: variables — naming what we do not yet know.

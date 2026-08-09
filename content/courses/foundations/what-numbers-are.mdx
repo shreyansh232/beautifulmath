@@ -1,0 +1,83 @@
+---
+title: "What numbers are"
+slug: "what-numbers-are"
+order: 1
+summary: "Numbers begin as a way to remember how much. Place value and zero turn that memory into a language compact enough to build everything else."
+mathematician:
+  name: "Brahmagupta"
+  years: "c. 598–668"
+  vignette: "Working from Bhillamala and later Ujjain — then a major center of mathematical astronomy — Brahmagupta wrote the Brāhmasphuṭasiddhānta in 628. He treated zero and signed quantities as things you could compute with, stating arithmetic rules for them. Not every rule matches modern mathematics (division by zero still fails), but the courage to treat “nothing” as a number changed what calculation could mean."
+  image: "/mathematicians/brahmagupta.jpg"
+  imageCredit: "Modern bas-relief portrait. Wikimedia Commons."
+realWorld: "Money, measurement, and digital storage all rely on place value: the same digit means different magnitudes depending on where it sits — that is how a few symbols can name vast amounts."
+aiMlHook: "Models that handle numbers as sequences of digits must somehow respect place: the leftmost digits usually matter more to magnitude. Research on numerical embeddings and “abacus-style” position encodings exists precisely because raw tokens do not automatically understand 203 ≠ 023."
+prerequisites: []
+curiositySeeds:
+  - "Why does position matter?"
+  - "Who made zero a number?"
+estimatedMinutes: 18
+---
+
+## Why this lesson exists
+
+If numbers ever felt like a pile of symbols to memorize, that was a teaching failure — not a failure of your mind. At bottom, a number is an answer to a human question: **how much?** Everything else — place value, zero, negatives — is machinery for asking that question with more power and less friction.
+
+## First principles: counting before symbols
+
+Start with the oldest move. You have a flock, a pile of stones, a debt. You need a **memory device** that survives when the flock is out of sight. Early cultures used tallies — notches on bone, pebbles in a bag. The Lebombo and Ishango bones are famous archaeological examples of tally-like marks tens of thousands of years old. The idea is not the bone; the idea is **one-to-one correspondence**: each mark stands for one thing.
+
+That correspondence is the first principle of natural numbers:
+
+- Two collections have the **same count** when you can pair their members with nothing left over.
+- You can always add one more: there is a next count after every count.
+
+You do not need the symbols $1, 2, 3$ yet. You need the structure: a sequence of sizes that can grow without end.
+
+## The problem tallies cannot solve cleanly
+
+Tallies are honest but bulky. To name “two hundred three,” you do not want two hundred three scratches. Civilizations invented **grouping** — bundles of ten, sixty, twenty — and eventually **place value**: the same digit means different things in different positions.
+
+In base ten, the numeral $203$ means:
+
+$$
+2 \times 10^2 + 0 \times 10^1 + 3 \times 10^0
+$$
+
+The zero is not decoration. It is a **placeholder** that keeps the $2$ in the hundreds place. Without it, $23$ and $203$ collapse into confusion.
+
+Place value is compression. A short string encodes a large magnitude because **position carries information**.
+
+> How does this work? Each place is a power of the base. Digits are coefficients. The numeral is a compact polynomial in that base — even if nobody said “polynomial” when they invented it.
+
+## Zero: placeholder, then number
+
+Several cultures developed placeholder ideas. On the Indian subcontinent, a decimal place-value system including zero is attested in sources from around the mid-first millennium CE (for example, the Jain cosmological text *Lokavibhāga* is often cited near 458 CE in secondary literature). Independently, the Maya used zero in a base-twenty system.
+
+**Being a placeholder is not the same as being a number you calculate with.**
+
+Brahmagupta’s *Brāhmasphuṭasiddhānta* (628) is celebrated because it gives explicit rules for arithmetic with zero and with positive and negative quantities (which he described in the language of fortunes and debts). He understood, for example, that the product of two negatives is positive, and that multiplying by zero yields zero. He also attempted rules for division involving zero that **do not** match modern mathematics — a useful reminder that pioneers can be wrong at the edge while still transforming the center.
+
+> Who thought of this? Many minds across centuries. Brahmagupta matters here because he insisted zero participate in calculation, not merely sit in a column.
+
+## Integers: directed amount
+
+Once you can subtract a larger quantity from a smaller one in accounting or astronomy, you need **direction**: above zero and below zero. Negatives are not “fake numbers.” They are amounts with orientation — debt versus credit, left versus right, below sea level versus above.
+
+The integers $\mathbb{Z}$ extend the counting numbers so that every addition has an inverse: for every $n$ there is $-n$ with $n + (-n) = 0$.
+
+## Real world: why place value rules commerce and machines
+
+A price tag, a bank balance, a sensor reading — all lean on positional notation. Computers ultimately store bits, but humans and many algorithms still *think* in decimal or binary place systems. Change the place of a digit by accident and you change the world the numeral describes: $90$ mg of a medicine is not $9.0$ mg.
+
+## AI / ML bridge: models must learn magnitude
+
+When a language model sees the characters `2`, `0`, `3`, nothing forces it to treat them as $2\times100 + 3$. Digit order and place significance are structural facts about numbers. That is why researchers study numerical feature embeddings, digit aggregations that weight place, and positional schemes (such as abacus-style embeddings) that help transformers do arithmetic more reliably.
+
+You do not need those papers yet. You only need the seed: **representation of number is a problem for minds and for machines.**
+
+## Carry this forward
+
+- A number answers “how much?”
+- Place value encodes magnitude by position.
+- Zero keeps places honest — and, with Brahmagupta, becomes something you compute with.
+- Next we ask what we *do* with numbers: operations as transformations.

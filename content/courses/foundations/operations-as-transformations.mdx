@@ -1,0 +1,105 @@
+---
+title: "Operations as transformations"
+slug: "operations-as-transformations"
+order: 2
+summary: "Addition, subtraction, multiplication, and division are not rituals. They are transformations — ways of changing a quantity — and some of them can be undone."
+mathematician:
+  name: "Srinivasa Ramanujan"
+  years: "1887–1920"
+  vignette: "Ramanujan filled notebooks with thousands of results — often without written proofs — driven by an almost physical intimacy with numerical structure. Carr’s Synopsis, a book of theorem statements with little proof, shaped how he recorded discoveries. The ethic is not “skip understanding.” It is relentless curiosity: treat numbers as a landscape you can walk until patterns stop feeling like accidents."
+  image: "/mathematicians/ramanujan.jpg"
+  imageCredit: "Photograph, Oberwolfach Photo Collection. Wikimedia Commons."
+realWorld: "Scaling a recipe, converting currency, or resizing an image are multiplications: one quantity transforms another by a factor. Undoing the scale is division — when the factor is not zero."
+aiMlHook: "A neural network’s most basic verb is multiply-and-add: weights scale inputs and combine them. Training later asks how to reverse the effect of those operations on a loss — the same invertibility instinct, raised to many layers."
+prerequisites:
+  - "what-numbers-are"
+curiositySeeds:
+  - "What is an operation?"
+  - "Why can some steps be undone?"
+estimatedMinutes: 20
+---
+
+## First principles: an operation is a verb
+
+A number sits still. An **operation** does something to it.
+
+Think of a machine with an input and an output:
+
+$$
+\text{input} \xrightarrow{\text{operation}} \text{output}
+$$
+
+Addition by $5$ sends every number $x$ to $x + 5$. Multiplication by $3$ sends $x$ to $3x$. These are **transformations** of the number line (or of a collection’s size).
+
+School often teaches operations as procedures to execute on worksheets. The first-principles view is simpler and deeper: **operations are structured ways the world (or a model) can change a quantity.**
+
+## Addition: combining
+
+If you have a pile of $a$ and a pile of $b$ of the same kind, their combine-count is $a + b$. Addition is the transformation that merges same-kind amounts.
+
+Properties that fall out of the idea (for ordinary numbers):
+
+- **Commutative:** $a + b = b + a$ — order of merging does not matter.
+- **Associative:** $(a + b) + c = a + (b + c)$ — grouping does not matter.
+- **Identity:** $a + 0 = a$ — merging with nothing changes nothing.
+
+Subtraction is not a new alien species. It is asking for the **undo** of an addition: $x + 5 = 12$ means $x = 12 - 5$. On the integers, every addition by $k$ has an inverse addition by $-k$.
+
+> Why does this work? Because addition by $k$ is a shift, and shifts can be shifted back.
+
+## Multiplication: scaling (and more)
+
+For whole numbers, $3 \times 4$ can be read as three copies of four:
+
+$$
+4 + 4 + 4 = 12
+$$
+
+That is a valid model — and incomplete as a final story. Multiplication is better seen as **scaling** or **combining factors**:
+
+- Stretch a length by $3$.
+- Form an area: width times height.
+- Convert units: $2$ hours $\times$ $60$ minutes/hour.
+
+Arrays show why $3 \times 4 = 4 \times 3$: rearrange the grid and the count is unchanged. That is commutativity with a picture.
+
+Division asks: **what input, after scaling by $k$, produces this output?** If $k \neq 0$, multiplication by $k$ is invertible, and division is that inverse.
+
+$$
+\text{If } y = kx \text{ and } k \neq 0, \text{ then } x = \frac{y}{k}.
+$$
+
+Division by zero has no inverse story: multiplication by $0$ crushes every input to $0$, so you cannot recover which input you started from.
+
+## Structure over memorization
+
+Times tables are useful muscle memory. They are not the concept. The concept is:
+
+1. What transformation am I applying?
+2. Does it have an inverse?
+3. What stays invariant? (Commutativity, associativity, identities.)
+
+When algebra arrives, you will move symbols using these same laws. When calculus arrives, derivatives will describe rates of transformations. When linear algebra arrives, matrices will package many multiply-and-add transformations at once.
+
+## Real world: recipes, maps, and money
+
+Double a recipe: multiply every ingredient by $2$. Halve it: multiply by $\tfrac{1}{2}$ (or divide by $2$). Convert $\$50$ at $83$ rupees per dollar: multiply. Each is the same verb — scale — wearing different clothes.
+
+If you scale and want the original, you apply the inverse scale. That is not a trick; it is the definition of undoing.
+
+## Mathematician: passion for numerical structure
+
+Ramanujan’s notebooks (compiled largely before he left for Cambridge) hold on the order of three thousand results. He often recorded statements without proofs — influenced in style by G. S. Carr’s *Synopsis*, which listed theorem after theorem. Friends and later mathematicians spent decades proving and clarifying what he saw.
+
+The usable ethic for a learner rebuilding foundations is not mysticism. It is this: **treat operations and patterns as worthy of obsession.** Ask what remains true when you rearrange, invert, or specialize. Curiosity is a work habit.
+
+## AI / ML bridge: multiply, add, reverse
+
+At the smallest scale, a neuron computes a weighted sum — multiplications and additions — then applies a nonlinearity. Training asks how a tiny change in a weight would change the loss, which means tracing those multiplications backward. You will meet this formally as the chain rule. For now, keep the intuition: **learning systems are huge webs of invertible and non-invertible numerical transformations.**
+
+## Carry this forward
+
+- Operations transform quantities.
+- Subtraction and division (nonzero) are undoing stories.
+- Multiplication is scaling and structure, not merely “repeated addition forever.”
+- Next: fractions and ratios — the language of relative size.
